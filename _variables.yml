@@ -1,0 +1,37 @@
+author: Judith Canner
+
+instructor:
+  name: Dr. Judith Canner
+  name_no_title: Judith Canner
+  email: jcanner@csumb.edu
+  url: "https://jcanner.github.io/"
+  github: jcanner
+  office: "Chapman Science Center, inside S216"
+  officehrs: "TBD"
+
+la: 
+  name: "Noah Kan"
+
+ta: 
+  name: "NA"
+
+course:
+  title: "Statistical Computing with R"
+  subtitle: "In this course, we will learn the foundational skills for programming in R and a variety of skills for working with data."
+  number: "STAT 210"
+  semester: "Spring 2026"
+  time: "Tuesday 2:00pm - 3:50pm"
+  location: "Chapman Science Center (53) S222"
+  github: "https://github.com/statistical-computing-r/spring-2026"
+  url: "https://statistical-computing-r.github.io/spring-2026/"
+  copyright_year: "2026"
+  text: | 
+    The main text book is: [R for Data Science](https://r4ds.hadley.nz/) by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!
+
+university:
+  name: Cal State, Monterey Bay
+  url: "https://www.csumb.edu"
+
+school:
+  name: Department of Mathematics and Statistics
+  url: "https://csumb.edu/mathstat"

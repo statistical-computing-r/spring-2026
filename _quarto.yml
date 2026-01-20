@@ -1,0 +1,119 @@
+project:
+  type: website
+  output-dir: docs
+  render: 
+    - "*.qmd"
+    - "!/labs/student/"
+    - "!/videos/"
+    - "!/labs/"
+    - "!/group-activities"
+    - "!/code-review/"
+    - "!/notes/"
+    - "!/portfolio/"
+    - "!/slides/"
+    - "!/videos/"
+    - "!/weeks/"
+    
+website:
+  page-navigation: true
+  title: "Statistical Computing with R"
+  description: "Homepage for STAT 210 at CSUMB"
+  site-url: ""
+  repo-url: https://github.com/statistical-computing-r/spring-2026
+  repo-actions: [issue]
+
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2026, Allison Theobold & Judith Canner"
+    background: "#D9E3E4"
+
+  sidebar:
+    background: "#5D737E"
+    logo: "images/r-flowers.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/
+        text: "GitHub organization"
+      - icon: person-fill
+        href: https://csumb.instructure.com/courses/31973
+        text: "Course Canvas Site"
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Course information"
+        contents:
+          - href: index.qmd
+            text: "Weekly Schedule"
+          - href: course-materials/course_resources.qmd
+            text: "R Resources"
+          - href: group-activities/pair-programming-norms.qmd
+            text: "Pair Programming Norms"
+      - section: "Weekly materials"
+        contents:
+          # - href: weeks/week-1-r-rstudio.qmd
+          #   text: "Week 1 - R & RStudio"
+          # - href: weeks/week-2-quarto.qmd
+          #   text: "Week 2 - Quarto"
+          # - href: weeks/week-3-version-control.qmd
+          #   text: "Week 3 - Version Control"
+          # - href: weeks/week-4-ggplot.qmd
+          #   text: "Week 4 - Data Visualization"
+          # - href: weeks/week-5-projects-data-import.qmd
+          #   text: "Week 5 - Importing Data"
+          # - href: weeks/week-6-7-dplyr.qmd
+          #   text: "Week 6-7 - Transforming Data"
+          # - href: weeks/week-8-9-reshaping-joining.qmd
+          #   text: "Week 8-9 - Pivoting and Joining Data"
+          # - href: weeks/week-10-factors.qmd
+          #   text: "Week 10 - Factors"
+          # - href: weeks/week-11-strings-dates.qmd
+          #   text: "Week 11 - Strings, Dates, and Times" 
+          # - href: weeks/week-12-functions.qmd
+          #   text: "Week 12 - Functions"
+          # - href: weeks/week-13-iteration.qmd
+          #   text: "Week 13 - Iteration"           
+            
+          
+      - section: "Labs" 
+        contents:
+          # - href: labs/instructions/lab-1-instructions.qmd
+          #   text: "Lab 1 & Challenge 1 Instructions"
+          # - href: labs/instructions/lab-2-instructions.qmd
+          #   text: "Lab 2 Instructions"
+          # - href: labs/instructions/lab-3-instructions.qmd
+          #   text: "Lab 3 and Challenge 3 Instructions"
+          # - href: labs/instructions/lab-4-instructions.qmd
+          #   text: "Lab 4 Instructions"
+          # - href: labs/instructions/lab-5-instructions.qmd
+          #   text: "Lab 5 Instructions"   
+          # - href: labs/instructions/lab-6-instructions.qmd
+          #   text: "Lab 6 Instructions" 
+          # - href: labs/instructions/lab-7-instructions.qmd
+          #   text: "Lab 7 Instructions" 
+          # - href: labs/instructions/lab-8-instructions.qmd
+          #   text: "Lab 8 Instructions" 
+      - section: "Portfolio" 
+        contents:
+          # - href: portfolio/portfolio-overview.qmd
+          #   text: "Portfolio Part 1"
+          # - href: portfolio/portfolio-part-2.qmd
+          #   text: "Portfolio Part 2"
+
+
+format:
+  html:
+    theme:
+      light: [cosmo, style/stat331.scss]
+      dark: [cosmo, style/stat331.scss, style/dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    linkcolor: "#5D737E"
+#    highlight-style: a11y-dark
+
+editor: visual

@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
+$font-family: "Atkinson Hyperlegible", sans-serif;
+$my-font-size: 10px;
+
+/*-- scss:rules --*/
+
+.sidebar-navigation .quarto-navigation-tool {
+  color: #FFFFFF;
+}
+
+.icon h1 {
+  text-align: center;
+  color: #c896ff;
+}
+
+.center h5 {
+  text-align: center;
+}

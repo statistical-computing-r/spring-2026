@@ -1,0 +1,118 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
+    "section": "",
+    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work? \n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: TBD\n Classroom Learning Assistant: Noah Kan\n Teaching Assistant: NA\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
+    "crumbs": [
+      "Course information",
+      "Weekly Schedule"
+    ]
+  },
+  {
+    "objectID": "course-materials/course-resources.html",
+    "href": "course-materials/course-resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudio IDE\nQuarto\n\nWeek 2\n\nData Visualization with ggplot2\nData Import with readr\n\nWeek 3\n\nData Wrangling with dplyr\n\nWeek 4\n\nData Tidying with tidyr\nFactors with forcats\n\nWeek 5\n\nDates with lubridate\nStrings with stringr\nRegular Expressions\n\nWeek 6\n\nGit & GitHub\n\nWeek 7\n\nBase R\nTidy Evaluation\n\nWeek 8\n\nIteration with purrr\nGreat Tables with gt"
+  },
+  {
+    "objectID": "course-materials/calendar.html",
+    "href": "course-materials/calendar.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\nweek\n\n\ndate\n\n\ntopic\n\n\nprepare\n\n\nslides\n\n\nnotes\n\n\nactivity\n\n\nlab\n\n\nchallenge\n\n\nportfolio\n\n\n\n\n\n\n0\n\n\n16 September\n\n\nCourse Set-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to R & RStudio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to Quarto & R Projects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n22 September\n\n\nLab 1 & Challenge 1 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n23 September\n\n\nData Visualization with ggplot2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n25 September\n\n\nData Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n29 September\n\n\nLab 2 & Challenge 2 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n30 September\n\n\nData Wrangling with dplyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n2 October\n\n\nExtending Data Wrangling Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n6 October\n\n\nLab 3 & Challenge 3 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n7 October\n\n\nData Joins & Transformations with tidyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n9 October\n\n\nWorking with Categorical Variables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n13 October\n\n\nLab 4 & Challenge 4 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n14 October\n\n\nWorking with Strings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n16 October\n\n\nWorking with Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n20 October\n\n\nLab 5 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n21 October\n\n\nVersion Control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n23 October\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n27 October\n\n\nMidterm Portfolio Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n28 October\n\n\nBase R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n30 October\n\n\nVector Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 November\n\n\nLab 7 & Challenge 7 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n4 November\n\n\nData Frame Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n6 November\n\n\nPlotting Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n10 November\n\n\nLab 8 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n13 November\n\n\nIntroduction to Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n17 November\n\n\nLab 9 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n18 November\n\n\nSimulating Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n20 November\n\n\nSimulations & Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n24 November\n\n\nLab 10 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n2 December\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n5 December\n\n\nFinal Portfolio Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n6 December\n\n\nFinal Portfolio Conferences\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n8 December\n\n\nFinal Portfolio Conferences"
+  },
+  {
+    "objectID": "course-materials/syllabus.html",
+    "href": "course-materials/syllabus.html",
+    "title": "STAT 331, Fall 2025",
+    "section": "",
+    "text": "Statistical Computing with R1\n\n\nSection 70: TR 9:10am - 11:00am\nSection 71: TR 12:10pm - 2:00pm\n\nDr. Allison Theobold (they / them)\nAssistant Professor of Statistics\nEmail: atheobol@calpoly.edu\nStudent Hours: Are held in my office in Building 25, Office 105 during the following times:"
+  },
+  {
+    "objectID": "course-materials/syllabus.html#revisions",
+    "href": "course-materials/syllabus.html#revisions",
+    "title": "STAT 331, Fall 2025",
+    "section": "3.1 Revisions",
+    "text": "3.1 Revisions\nThe grading system for this class encourages you to submit revisions on Lab and Challenge problems you were not initially successful with. When I grade your Lab and Challenge assignments, I will mark each problem with an S, a G, or an N. You will have the option to retry any Learning Targets for which you scored a G or an N on. When you complete revisions, you will submit a new HTML containing your revisions, alongside written reflections of how your understanding changed from when you first attempted the problem. These reflections are expected to be written immediately below the problem which you revised.\nIt’s not enough to say “[x] was wrong, so I fixed it”—I need you to talk about why you got [x] wrong in the first place and what you learned that changed your mind. What do you know now that you didn’t know before? Who or what helped you learn?\n\nIf your revision does not include reflections, I’ll ask you to add them.\nIf your revisions do not include reflections by the deadline, your revisions are not eligible to be regraded.\nSee some examples of really good reflections here – they’re (mostly) from my STAT 313 course, but I think you’ll get the idea.\nSubmit your revision to the same assignment box on Canvas as your original. This helps me keep track of any outstanding revisions each person has.\n\nIt is my goal to have your lab and challenge assignments (which are due on Monday at 5pm) back to you no later than Thursday, so we can spend time talking about the revisions during class. You will then have until the following Friday to complete your revisions on the problems you received a G or an N on.\n\n\n\nNote that I have chosen this deadline because I’m juggling two competing desires, (1) to step away from my email on the weekend, and (2) to make sure people’s questions get answered before the assignment is due.↩︎"
+  },
+  {
+    "objectID": "course-materials/syllabus.html#accomplishment-of-learning-targets",
+    "href": "course-materials/syllabus.html#accomplishment-of-learning-targets",
+    "title": "STAT 331, Fall 2025",
+    "section": "4.1 Accomplishment of Learning Targets",
+    "text": "4.1 Accomplishment of Learning Targets\nEach week, a set of learning targets will be outlined. These learning targets will not exist solely within a given week. You will find that the skills you learn early in the course will be used throughout the course. Whereas, some skills, learned later in the course, will not be used as often. You can demonstrate proficiency with these skills through three main avenues: Group-based Practice Activities Lab Assignments Challenge Assignments\nHowever, evidence of continued learning can only be demonstrated within individual lab assignments. You can keep track of your progress yourself using this Interactive Checklist."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#evidence-of-continued-learning",
+    "href": "course-materials/syllabus.html#evidence-of-continued-learning",
+    "title": "STAT 331, Fall 2025",
+    "section": "4.2 Evidence of Continued Learning",
+    "text": "4.2 Evidence of Continued Learning\nEach week, you will be required to complete a Lab and Challenge assignment where you demonstrate your understanding of that week’s learning targets in the context of a new dataset. These assignments provide two different perspectives of your continued learning.\n\nThey demonstrate your ability to extend your thinking beyond what you’ve learned in class.\nThey demonstrate your ability to revise your thinking.\n\n\nExtend Your Thinking\nEach Lab Assignment will have a Challenge Problem which asks you to extend the skills you’ve learned in class in a new way. You will often have the choice of what direction you would like to expand your knowledge. There are no specific requirements for how you extend your skills, only that you extend your thinking in some (measurable) way.\n\n\nRevise Your Thinking\nFor the problems in each Lab Assignment, I will give copious written feedback, but I’ll also summarize my feedback with a letter on the SGN scale (as discussed previously). To demonstrate your ability to revise your thinking, I encourage you to revise and resubmit any problems marked G or N."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#growth-as-a-team-member",
+    "href": "course-materials/syllabus.html#growth-as-a-team-member",
+    "title": "STAT 331, Fall 2025",
+    "section": "4.3 Growth as a Team Member",
+    "text": "4.3 Growth as a Team Member\nThere are two ways you will evaluate your growth as a team member. The first is through your collaboration with your team members. The second is through the code reviews you provide your peers.\n\nCollaborative Group Work\nThis course uses collaborative learning to provide a supportive community when initially exploring the concepts associated with each week. On Tuesdays, you will collaborate in assigned teams to complete a Practice Activity. Collaborating on the Practice Activity is more than independently coding each task and asking someone a question when you get stuck. Collaborating is working together with your team to accomplish each question.\nMany people are uncomfortable working in a team for a variety of reasons, such as fearing looking dumb, being rejected, or being disrespected. It is my hope that our weekly collaborations will offer opportunities for you to grow as a group member, by becoming more aware of how you interact with others.\nDuring the first week of class, each of you will be placed in a group with one other student. During Weeks 2-5, you will work with this person on the Practice Activities we complete during class on Tuesdays. To make group collaborations more equitable, I expect for you and your partner to alternative between two “roles”—Developer and Coder. We will discuss these roles in class, but you can find descriptions of the scope of each role on the Pair Programming Roles document.\n\n\nPeer Code Review\nOne of my favorite sayings is “Programs must be written for people to read, and only incidentally for machines to execute.” Code review has two major benefits, (1) you get feedback on the readability, tidiness, and efficiency of your code, and (2) by reviewing someone else’s code you learn more about your own code!\nHere are some guidelines and examples of what you should be looking for and how to phrase your peer code reviews.\nYou hopefully noticed that writing “tidy” and “efficient” code are two of the Learning Targets for this course. To demonstrate proficiency in these targets, you will earn badges from your peers. For each lab assignment, everyone in the class will provide an anonymous review of someone’s code. The reviewer will provide feedback on the tidiness and efficiency of the code they are reviewing. I will provide some examples of helpful and unhelpful feedback, to guide your feedback. It’s easy to be a jerk when making comments; don’t. Think about the comments you would like to receive that would help you improve your code! Be good to each other."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#what-if-i-need-to-miss-class",
+    "href": "course-materials/syllabus.html#what-if-i-need-to-miss-class",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.1 What if I need to miss class?",
+    "text": "9.1 What if I need to miss class?\nI encourage you to attend every class session, but policies are for narcs. I put a great deal of time into making each class session engaging and worth your time. Attendance in this course is not explicitly required, but it may be incredibly difficult to articulate how you’ve grown as a team member and leader and / or contributed to creating a respectful classroom learning community if you regularly do not attend class. \nHere’s what you should do if you do miss a class:\n\nTalk to a classmate to figure out what information you missed\nCheck Canvas for any necessary handouts or changes to assignments\nPost on Discord with any questions you have after reviewing notes and handouts\n\n\nIf you miss a bunch of classes, please come talk to me. I’m working from the assumption that you care and are trying, but something is getting in your way (health issues? depression / anxiety? college stress?); let’s figure out what that is and how I can help."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#what-if-i-need-help",
+    "href": "course-materials/syllabus.html#what-if-i-need-help",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.2 What if I need help?",
+    "text": "9.2 What if I need help?\nThis quarter, I am instating a policy that I do not respond to emails with questions of general interest, such as deadline clarifications or conceptual questions. If you have one of these questions, please ask your question on our course Discord server.\nWe will use Discord to manage questions and responses regarding course content. There are channels for the different components of each week (e.g., Week 1 Lab Assignment). Please do not send an email about homework questions or questions about the course material. It is incredibly helpful for others in the course to see the questions you have and the responses to those questions. I will try to answer any questions posted to Discord within 3-4 hours (unless it is posted at midnight). If you think you can answer another student’s question, please respond!"
+  },
+  {
+    "objectID": "course-materials/syllabus.html#what-if-i-need-to-turn-something-in-late",
+    "href": "course-materials/syllabus.html#what-if-i-need-to-turn-something-in-late",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.3 What if I need to turn something in late?",
+    "text": "9.3 What if I need to turn something in late?\nYou’ll start the semester with three (3) virtual “Tokens” that you can use for extra flexibility. One token can purchase a 24-hour extension for a Lab or Challenge Assignment (not a Preview Activity or Practice Activity). If you want to use a token for a deadline extension, you are required to complete the Deadline Extension Form. Akin to how the “real world” works, deadline extensions are requested to be done before the deadline. If you thought you were going to get an assignment in but you just missed the deadline for an assignment, please go complete a deadline extension request ASAP. I will not provide feedback on assignments which missed the deadline and no extension request was completed.\nTokens cannot be “stacked”; you cannot use multiple tokens to purchase a 6-day extension. You can keep track of how many Tokens you have on Canvas.\nYou’ll also have opportunities to earn more tokens during the quarter! You can earn one (1) token by:\n\nAnswering a content or coding question posed on Discord\nCompleting an exemplary Challenge Assignment – applauded by Dr. Theobold for going above and beyond\nAttending every class session (including portfolio parties)"
+  },
+  {
+    "objectID": "course-materials/syllabus.html#what-if-i-have-accommodations-or-feel-that-accommodations-would-be-beneficial-to-my-learning",
+    "href": "course-materials/syllabus.html#what-if-i-have-accommodations-or-feel-that-accommodations-would-be-beneficial-to-my-learning",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.4 What if I have accommodations or feel that accommodations would be beneficial to my learning?",
+    "text": "9.4 What if I have accommodations or feel that accommodations would be beneficial to my learning?\nI enthusiastically support the mission of Disability Resource Center to make education accessible to all. I design all my courses with accessibility at the forefront of my thinking, but if you have any suggestions for ways I can make things more accessible, please let me know. Come talk to me if you need accommodation for your disabilities. I honor self-diagnosis: lets talk to each other about how we can make the course as accessible as possible. See also the standard syllabus statements, which include more information about formal processes."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#how-can-i-expect-to-be-treated-in-this-course",
+    "href": "course-materials/syllabus.html#how-can-i-expect-to-be-treated-in-this-course",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.5 How can I expect to be treated in this course?",
+    "text": "9.5 How can I expect to be treated in this course?\nFollowing Ihab Hassan, I strive to teach statistics so that people will stop killing each other. In my classroom, diversity and individual differences are respected, appreciated, and recognized as a source of strength. Students in this class are encouraged and expected to speak up and participate during class meetings, and to carefully and respectfully listen to each other. During the first few weeks of class, we’ll work together to create a set of norms that will govern our interactions with each other, to ensure that we’re always respectful of everyone.\nSo that everyone feels comfortable participating, every member of this class must show respect for every other member of this class. Any attitude or belief that espouses the superiority of one group of people over another is not welcome in my classroom. Such beliefs are directly destructive to the sense of community that we strive to create, and will sabotage our ability to learn from each other (and thus sabotage the entire structure of the course).\nIn summary: Be good to each other."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#im-having-difficulty-paying-for-food-and-rent-what-can-i-do",
+    "href": "course-materials/syllabus.html#im-having-difficulty-paying-for-food-and-rent-what-can-i-do",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.6 I’m having difficulty paying for food and rent, what can I do?",
+    "text": "9.6 I’m having difficulty paying for food and rent, what can I do?\nIf you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in the course, I urge you to contact the Dean of Students for support. Furthermore, please notify me if you are comfortable in doing so. This will enable me to advocate for you and to connect you with other campus resources."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#my-mental-health-is-impairing-my-ability-to-engage-in-my-classes-what-should-i-do",
+    "href": "course-materials/syllabus.html#my-mental-health-is-impairing-my-ability-to-engage-in-my-classes-what-should-i-do",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.7 My mental health is impairing my ability to engage in my classes, what should I do?",
+    "text": "9.7 My mental health is impairing my ability to engage in my classes, what should I do?\nNational surveys of college students have consistently found that stress, sleep problems, anxiety, depression, interpersonal concerns, death of a significant other and alcohol use are among the top ten health impediments to academic performance. If you are experiencing any mental health issues, I and Cal Poly are here to help you. Cal Poly’s Counseling Services (805-756-2511) is a free and confidential resource for assistance, support and advocacy."
+  },
+  {
+    "objectID": "course-materials/syllabus.html#someone-is-threatening-me-what-can-i-do",
+    "href": "course-materials/syllabus.html#someone-is-threatening-me-what-can-i-do",
+    "title": "STAT 331, Fall 2025",
+    "section": "9.8 Someone is threatening me, what can I do?",
+    "text": "9.8 Someone is threatening me, what can I do?\nI will listen and believe you if someone is threatening you. I will help you get the help you need. I commit to changing campus culture that responds poorly to dating violence and stalking."
+  }
+]

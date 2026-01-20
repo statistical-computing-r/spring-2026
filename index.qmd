@@ -1,0 +1,63 @@
+---
+title: "{{< var course.title >}}"
+subtitle: "{{< var course.subtitle >}}"
+title-block-banner: "images/hex-universe-small.png"
+toc: false
+sidebar: false
+---
+
+Have you ever wondered...
+
+-   ...how are the visualizations you see in the media made?
+
+-   ...how do people cut down large datasets to address a specific question?
+
+-   ...how the applet simulations in your statistics classes work?
+
+We’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language [developed by Statisticians](https://en.wikipedia.org/wiki/R_(programming_language)), and is one of the main “languages” you will find people use when doing statistics in the wild.
+
+In this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.
+
+### Teaching Team and Office Hours
+
+Instructor: [{{< var instructor.name >}}]({{< var instructor.url >}})
+
+{{< fa envelope >}} Email: {{< var instructor.email >}}
+
+{{< fa building >}} Office: {{< var instructor.office >}}
+
+{{< fa clock >}} Office Hours: {{< var instructor.officehrs >}}
+
+{{< fa comments >}} Classroom Learning Assistant: {{< var la.name >}}
+
+<!-- {{< fa pencil >}} Teaching Assistant: {{< var ta.name >}} -->
+
+### Course Information
+
+::::: grid
+::: {.g-col-12 .g-col-sm-6 .g-col-md-6}
+<br>
+
+# {{< fa university >}} {.icon}
+
+##### {{< var course.location >}} {.center}
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-6}
+<br>
+
+# {{< fa calendar >}} {.icon}
+
+##### {{< var course.time >}} {.center}
+:::
+:::::
+
+### Texts
+
+{{< var course.text >}}
+
+### Materials
+
+This class is very hands on; be sure to bring a fully charged laptop to every class.
+
+![Artwork by [\@allison_horst](https://allisonhorst.com/allison-horst).](/images/r-sad-happy.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now it’s like…'"}
