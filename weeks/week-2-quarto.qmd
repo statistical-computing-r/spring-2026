@@ -1,9 +1,16 @@
 ---
-title: "Week2: Reproducible Analyses with Quarto"
+title: "Week 2: Reproducible Analyses with Quarto"
 number-sections: true
 number-depth: 2
 editor: source
 ---
+
+```{r}
+#| label: setup-questions
+#| include: false
+library(checkdown)
+```
+
 
 The theme of this lesson is good management of your files and data. In part two
 of this week's coursework you will learn how to identify **folders** and 
@@ -11,12 +18,11 @@ of this week's coursework you will learn how to identify **folders** and
 
 #### 📖 Readings: 45 minutes
 
-#### 📽 Watch Videos: 30 min
+#### 📽 Watch Videos: 15 min
 
 #### 💻 Activities: 5-10 min
 
-#### ✅ Check-ins: 2
-
+#### ✅ Check-ins: 1
 <!-- # Directories, Paths, and Projects  -->
 
 <!-- Last week, we learned how to organize our personal files and locate them using -->
@@ -136,10 +142,10 @@ helpful to understand the basics of what is meant by a computer **file system**
 0's and 1's, it's important to have some way to figure out what type of data is
 stored in a specific location, and how to interpret it.
 
-<!-- ::: column-margin -->
-<!-- {{< video https://www.youtube.com/embed/BV0-EPUYuQc >}} -->
-<!-- Stop watching at 4:16. -->
-<!-- ::: -->
+::: column-margin
+{{< video https://www.youtube.com/embed/BV0-EPUYuQc >}}
+Stop watching at 4:16.
+:::
 
 ### File Paths 
 
@@ -217,8 +223,7 @@ knitr::include_graphics("images/week-1/create-new-rproj-step1.png")
 knitr::include_graphics("images/week-1/create-new-rproj-step2.png")
 ```
 
-Give your folder a name (it doesn't have to be my-stat331). However, it is good
-practice for this file folder name to not contain spaces.
+Give your folder a name (it shouldn't be my-stat331 but something that reflects STAT 210, e.g. stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.
 
 Then, browse on your computer for a location to save this folder to. For
 example, mine is saved in my Documents. Make sure you know how to find this; it
@@ -231,8 +236,8 @@ should NOT be saved in your Downloads!
 knitr::include_graphics("images/week-1/create-new-rproj-step3.png")
 ```
 
-This new folder, `my-stat331` should now live in your Documents folder (or
-wherever you save it to) and contain a `my-stat331.Rproj` file. This is your new
+This new folder should now live in your Documents folder (or
+wherever you save it to) and contain a `stat-210-sp26.Rproj` file or whatever you named it. This is your new
 "home" base for this class - whenever you refer to a file with a relative path
 it will begin to look for it here.
 
@@ -259,27 +264,20 @@ R Project to. For example, mine is saved in my Documents and called `my-stat331`
 knitr::include_graphics("images/week-1/create-existing-rproj-step2.png")
 ```
 
-Your existing folder, `my-stat331` should now contain a `my-stat331.Rproj` file.
+Your existing folder should now contain a `my-stat331.Rproj` file.
 This is your new "home" base for this class - whenever you refer to a file with
 a relative path it will begin to look for it here.
 
 :::
 
 ::: {.callout-caution}
-# Your folder cannot synch with anything online!
+# Your folder cannot sync with anything online!
 
-Your STAT 331 folder **cannot** be in a folder stored on OneDrive or iCloud!
+Your STAT 210 folder **cannot** be in a folder stored on OneDrive or iCloud!
 Storing your folder in this location will cause your code to periodically not
 run and I cannot help you fix it.
 :::
 
-## ✅ Check-in 1.3: Stat 331 Folder & R Project
-
-Take a screenshot of your class directory, showing:
-
-1.  the location of your Stat 331 folder
-2.  an R Project included in your Stat 331 folder 
-2.  a Week 1 sub-folder
 
 # Reproducible Documents
 
@@ -331,44 +329,437 @@ recommend checking out:
 
 -   [the list of all HTML formatting options for Quarto documents](https://quarto.org/docs/reference/formats/html.html)
 
-## ✅ Check-in: 1.4 Quarto Documents
+
+The biggest thing to realize is that a Quarto document contains three types of content: 
+
+1.  A **YAML header** surrounded by `---`s at the top.
+2.  **Chunks** of R code surrounded by ```` ```{r} ```` and ```` ``` ````.
+3.  Text mixed with simple text formatting like `# heading` and `_italics_`.
+
+For our class (STAT 250), you will generally only be editing the **Chunks** and the Text.
+
+
+### Basic Markdown
+
+Markdown can format a document just like you format your Word documents in other classes, but we'll just cover some of the basics here. You've already learned *italics*, **bold** and `code` displays. Markdown can make lists as well, using a variety of encoding (see the online tutorial). You've probably also noticed that when you format your text, its color display changes, to help you see the formatting easier. 
+
+::: {.grid}
+::: {.g-col-6}
+**Unrendered**
+:::
+::: {.g-col-6}
+**Rendered**
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+*italics*  or _italics_
+````
+:::
+::: {.g-col-6}
+*italics*  or _italics_
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+**bold**
+````
+:::
+::: {.g-col-6}
+**bold**
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+`code`  
+````
+:::
+::: {.g-col-6}
+`code`  
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+subscript~2~    
+````
+:::
+::: {.g-col-6}
+subscript~2~    
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+superscript^2^  
+````
+:::
+::: {.g-col-6}
+superscript^2^   
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+> Text block for answers
+
+````
+:::
+::: {.g-col-6}
+> Text block for answers  
+
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+
+# Header Size 1
+````
+:::
+::: {.g-col-6}
+# Header Size 1 {.unnumbered .unlisted}
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+## Header Size 2
+````
+:::
+::: {.g-col-6}
+## Header Size 2 {.unnumbered .unlisted}
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+
+### Header Size 3
+````
+:::
+::: {.g-col-6}
+### Header Size 3 {.unnumbered .unlisted}
+:::
+:::
+::: {.grid}
+::: {.g-col-6}
+````markdown
+Markdown Comments Will Not Render: <!--- this comment won't show up rendered --->
+````
+:::
+::: {.g-col-6}
+Markdown Comments Will Not Render: <!--- this comment won't show up rendered --->
+:::
+:::
+
+
+One last thing of note - markdown works best with "space to breathe." If you find that something isn't rendering correctly, making sure there is a blank line between the text you are trying to format and the next helps. 
+
+::: {.grid}
+
+::: {.g-col-6}
+
+````markdown
+For example:
+> Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?
+You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a ">" before each line answer. 
+
+````
+:::
+
+::: {.g-col-6}
+For example:
+> Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?
+You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a ">" before each line answer.  
+
+:::
+:::
+
+Notice what happens when we add spacing:
+
+
+::: {.grid}
+
+::: {.g-col-6}
+
+````markdown
+For example:
+
+> Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?
+You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a ">" before each line answer. 
+
+````
+:::
+
+::: {.g-col-6}
+For example:  
+
+> Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?
+You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a ">" before each line answer. 
+
+:::
+:::
+
+
+
+
+
+### Mathematics
+
+We often want to write small mathematics equations or write mathematical symbols. This is actually much easier in .qmd than in Word. 
+
+We surround an equation with `$` signs: ````$e=mc^2$```` which will appear as $e=mc^2$ in the rendered document.
+
+Here are some examples of the type of mathematics you will use within your Quarto documents.
+
+#### Greek Letters
+
+We often want to use statistical symbols within markdown to denote parameters with Greek letters. They are called by using a backslash (`\`) and then the full name of the Greek letter, such as `\alpha`, and surrounded by `$` to be called within the equation-mode: 
+
+::: {.grid}
+::: {.g-col-6}
+````markdown
+$\sigma$
+$\alpha$
+$\mu$
+$\beta$
+````
+:::
+::: {.g-col-6}
+$\sigma$  
+$\alpha$  
+$\mu$  
+$\beta$  
+:::
+:::
+
+#### Superscripts and Subscripts
+We can include sub- and superscripts to make our parameters and statistics specific. Note: once the equation is surrounded by `$`'s we don't need the markdown edit for superscript like above. In math mode, you might see:  
+
+::: {.grid}
+::: {.g-col-6}
+````markdown
+$x^2$  
+$H_0$  
+$\mu_1$  
+````
+:::
+::: {.g-col-6}
+$x^2$  
+$H_0$  
+$\mu_1$   
+:::
+:::
+
+We might want to make our subscript a longer phrase in statistics, to help denote our population of interest when we have more than one. We surround whatever we want to stay in a subscript with `{}`, such as: 
+
+::: {.grid}
+::: {.g-col-6}
+````markdown
+$\mu_{female}$  
+$\mu_{male}$ 
+````
+:::
+::: {.g-col-6}
+$\mu_{female}$  
+$\mu_{male}$ 
+:::
+:::
+
+
+#### Symbols over Letters
+
+We can call our special statistical symbols in a similar way, such as `\bar{x}`. In this case, the `bar` symbol will be applied over the `x`, to make our statistical symbol for sample mean: $\bar{x}$. 
+
+::: {.grid}
+::: {.g-col-6}
+````markdown
+$\bar{x}$  
+$\hat{p}$  
+$\hat{\beta}_1$  
+````
+:::
+::: {.g-col-6}
+$\bar{x}$  
+$\hat{p}$  
+$\hat{\beta}_1$  
+:::
+:::
+
+
+
+#### Equations
+
+Finally, we can write little equations for our outputs:, like $\bar{x} = 3.54$.
+
+::: {.grid}
+::: {.g-col-6}
+````markdown
+$\bar{x} = 3.54$  
+$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x$  
+````
+:::
+::: {.g-col-6}
+$\bar{x} = 3.54$  
+$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x$  
+:::
+:::
+ 
+
+### Code Chunks
+
+You've learned how to insert code chunks using the shortcuts Ctrl-Alt-I (or Cmd-Alt-I), by clicking the green Insert +C button above, but you can also just type the two sets of code that surround code chunks, ` ```{r} ` and the ending ` ``` ` . *Note, those are back-ticks, found above the tab key, not single quotation marks.* 
+
+We can add labels `#| label:` to support easy navigation as well, but be careful, **DO NOT REPEAT LABELS** or this will cause an error when you render the .qmd file. 
+
+```{r}
+#| echo: fenced
+#| label: simple-addition
+1 + 1
+```
+
+At the beginning of each Quarto document there should be a special code chunk called the **setup** chunk. This is where we read the packages used in the rest of the document. We often use `#| include: false` to as an option in the **setup** code chunk to hide the output in the rendered document.  
+
+```{r}
+#| echo: fenced
+#| label: setup
+#| include: false
+library(tidyverse)
+```
+
+
+You can also comment your code, which is a way of annotating it without affecting the code, using a `#` followed by text.  
+
+```{r}
+#| echo: fenced
+#| label: print-answer
+42*42  #the Answer to the Ultimate Question of Life, the Universe, and Everything, Squared
+```
+
+
+
+### Checking code & Rendering your Document
+
+You can run specific code chunks to check their output by pressing the green play button to run the specific code chunk, or the icon next to it to run all code chunks prior to that code chunk. 
+
+#### Viewing Your Rendered Document
+
+If you want to check your Markdown editing, you can render the document and view it in the 'Viewer' Pane by pressing the 'Render' button at the top of the Quarto document pane. Make sure the setting (gear icon above) is set to 'Preview in Viewer pane'. 
+
+
+#### Changing the Document Type
+
+You can change the document type you knit to automatically by changing the output type in the YAML header from `format: html` to `format: docx` and press the 'Render' button. Your word document will be created in the project folder! (In this class, we will always use html documents; please don't edit the YAML header of your labs; we showed you this simply for future information.)
+
+``` yaml
+---
+title: "My report"
+format: html
+execute:
+  echo: true
+  error: false
+---  
+```
+
+
+#### Errors in your Code
+
+If there is an error in your file, it will not render. When .qmd files render, they run on a completely clean environment. So if you somehow loaded data or something else not with code in your .qmd file, the rendering process will create an error.  
+
+If you cannot figure out the error, you can generally still get your document to render by changing `error: false` to `error: true` in the YAML code at the top.
+
+``` yaml
+---
+title: "My report"
+format: html
+execute:
+  echo: true
+  error: true
+---  
+```
+
+This will print out any errors in your code chunks, but still render the document.
+
+#### Errors in your Markdown  
+
+The most common errors in your markdown that can cause issues are deleting back ticks (`) around your code chunks or dashes (-) from around the YAML code, so always check that first.
+
+
+
+## ✅ Check-in: Quarto Documents
 
 **Question 1**: What are the options at the top of a Quarto document (between
 the `---` and `---` symbols) called?
+```{r}
+#| label: question-1
+#| echo: false
+check_question(answer = "YAML",
+               options = c("XML",
+                           "YAML",
+                           "REML",
+                           "TOML"),
+               type = "radio")
+```
+<br>
 
-a)  XML
-b)  YAML
-c)  REML
-d)  TOML
 
-**Question 2**: What symbols create an R code chunk?
+**Question 2**: What symbols begin an R code chunk?  
 
-a)  ```` ``` ````
-b)  `{r}`
-c)  ```` ```{r} ````
-d)  `` `{r}` ``
+a) ```` ``` ````  
+b) ```` ```{r} ````  
+c) ```` {r} ````  
+d) ```` `{r}` ````  
+
+```{r}
+#| label: question-2
+#| echo: false
+check_question(answer = "b",
+               options = c("a","b","c","d"),
+               type = "radio")
+```
+<br>
+
 
 **Question 3**: What symbol defines a heading?
+```{r}
+#| label: question-3
+#| echo: false
+check_question(answer = "#",
+               options = c("$",
+                           "_",
+                           "*",
+                           "#"),
+               type = "radio")
+```
+<br>
 
-a)  `$`
 
-b)  `_`
-
-c)  `*`
-
-d)  `#`
-
-**Question 4**: When working in a Quarto document, the \[visual / source\] 
-editor will display the raw Quarto document, whereas the \[visual / source\] 
+**Question 4**: When working in a Quarto document, the 
+```{r} 
+#| echo: false
+check_question("source", options = c("visual", "source"), type = "select")
+```
+editor will display the raw Quarto document, whereas the 
+```{r} 
+#| echo: false
+check_question("visual", options = c("visual", "source"), type = "select")
+``` 
 will display the document as it will appear when it is rendered.
 
 **Question 5**: To produce an HTML report from your Quarto document, you need to
 click the \_\_\_\_ button.
-
-a)  Visual
-
-b)  Render
-
-c)  Render on Save
-
-d)  Save
+```{r}
+#| label: question-5
+#| echo: false
+check_question(answer = "Render",
+               options = c("Visual",
+                           "Render",
+                           "Render on Save",
+                           "Save"),
+               type = "radio")
+```
+<br>

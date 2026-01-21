@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 1, Part 2: Reproducible Analyses with Quarto – Statistical Computing with R</title>
+<title>Week 2: Reproducible Analyses with Quarto – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-1-r-rstudio.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -107,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -281,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 1, Part 2: Reproducible Analyses with Quarto</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-2-quarto.html">Week 2 - Quarto</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,17 +373,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 2 - Quarto</span></a>
   </div>
 </li>
       </ul>
@@ -388,7 +424,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#working-directories-in-r" id="toc-working-directories-in-r" class="nav-link" data-scroll-target="#working-directories-in-r">Working Directories in <code>R</code></a></li>
   <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects">R Projects</a></li>
   </ul></li>
-  <li><a href="#check-in-1.3-stat-331-folder-r-project" id="toc-check-in-1.3-stat-331-folder-r-project" class="nav-link" data-scroll-target="#check-in-1.3-stat-331-folder-r-project"><span class="header-section-number">1.3</span> ✅ Check-in 1.3: Stat 331 Folder &amp; R Project</a></li>
   </ul></li>
   <li><a href="#reproducible-documents" id="toc-reproducible-documents" class="nav-link" data-scroll-target="#reproducible-documents"><span class="header-section-number">2</span> Reproducible Documents</a>
   <ul class="collapse">
@@ -397,8 +432,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#required-reading-intro-to-quarto" id="toc-required-reading-intro-to-quarto" class="nav-link" data-scroll-target="#required-reading-intro-to-quarto">📖 Required Reading: Intro to Quarto</a></li>
   <li><a href="#html-documents" id="toc-html-documents" class="nav-link" data-scroll-target="#html-documents">HTML Documents</a></li>
+  <li><a href="#basic-markdown" id="toc-basic-markdown" class="nav-link" data-scroll-target="#basic-markdown">Basic Markdown</a></li>
+  <li><a href="#mathematics" id="toc-mathematics" class="nav-link" data-scroll-target="#mathematics">Mathematics</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code Chunks</a></li>
+  <li><a href="#checking-code-rendering-your-document" id="toc-checking-code-rendering-your-document" class="nav-link" data-scroll-target="#checking-code-rendering-your-document">Checking code &amp; Rendering your Document</a></li>
   </ul></li>
-  <li><a href="#check-in-1.4-quarto-documents" id="toc-check-in-1.4-quarto-documents" class="nav-link" data-scroll-target="#check-in-1.4-quarto-documents"><span class="header-section-number">2.3</span> ✅ Check-in: 1.4 Quarto Documents</a></li>
+  <li><a href="#check-in-quarto-documents" id="toc-check-in-quarto-documents" class="nav-link" data-scroll-target="#check-in-quarto-documents"><span class="header-section-number">2.3</span> ✅ Check-in: Quarto Documents</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -407,9 +446,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-2-quarto.html">Week 2 - Quarto</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Week 1, Part 2: Reproducible Analyses with Quarto</h1>
+<h1 class="title">Week 2: Reproducible Analyses with Quarto</h1>
 </div>
 
 
@@ -430,14 +469,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="readings-45-minutes" class="level4">
 <h4 class="anchored" data-anchor-id="readings-45-minutes">📖 Readings: 45 minutes</h4>
 </section>
-<section id="watch-videos-30-min" class="level4">
-<h4 class="anchored" data-anchor-id="watch-videos-30-min">📽 Watch Videos: 30 min</h4>
+<section id="watch-videos-15-min" class="level4">
+<h4 class="anchored" data-anchor-id="watch-videos-15-min">📽 Watch Videos: 15 min</h4>
 </section>
 <section id="activities-5-10-min" class="level4">
 <h4 class="anchored" data-anchor-id="activities-5-10-min">💻 Activities: 5-10 min</h4>
 </section>
-<section id="check-ins-2" class="level4">
-<h4 class="anchored" data-anchor-id="check-ins-2">✅ Check-ins: 2</h4>
+<section id="check-ins-1" class="level4">
+<h4 class="anchored" data-anchor-id="check-ins-1">✅ Check-ins: 1</h4>
 <!-- # Directories, Paths, and Projects  -->
 <!-- Last week, we learned how to organize our personal files and locate them using -->
 <!-- absolute and relative file paths. The idea of a "base folder" or starting place -->
@@ -504,10 +543,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="principles-of-reproducibility" class="level1 page-columns page-full" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Principles of Reproducibility</h1>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/86Bz3lE4HGs?si=2Q20CRw9-W4lFJoG" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div></div><section id="file-management" class="level2 page-columns page-full" data-number="1.1">
+<!-- ::: column-margin -->
+<!--  -->
+<!-- ::: -->
+<section id="file-management" class="level2 page-columns page-full" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="file-management"><span class="header-section-number">1.1</span> File Management</h2>
 <p>As boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.</p>
 <p>Evidently, there has been a bit of generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore. <a href="https://futurism.com/the-byte/gen-z-kids-file-systems">This article</a> is an interesting discussion of the problem: it makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet.</p>
@@ -584,7 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Give your folder a name (it doesn’t have to be my-stat331). However, it is good practice for this file folder name to not contain spaces.</p>
+<p>Give your folder a name (it shouldn’t be my-stat331 but something that reflects STAT 210, e.g.&nbsp;stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.</p>
 <p>Then, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -595,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This new folder, <code>my-stat331</code> should now live in your Documents folder (or wherever you save it to) and contain a <code>my-stat331.Rproj</code> file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.</p>
+<p>This new folder should now live in your Documents folder (or wherever you save it to) and contain a <code>stat-210-sp26.Rproj</code> file or whatever you named it. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>To add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click <code>File &gt; New Project</code>, then:</p>
@@ -618,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Your existing folder, <code>my-stat331</code> should now contain a <code>my-stat331.Rproj</code> file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.</p>
+<p>Your existing folder should now contain a <code>my-stat331.Rproj</code> file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.</p>
 </div>
 </div>
 </div>
@@ -628,24 +667,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Your folder cannot synch with anything online!
+<span class="screen-reader-only">Caution</span>Your folder cannot sync with anything online!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Your STAT 331 folder <strong>cannot</strong> be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.</p>
+<p>Your STAT 210 folder <strong>cannot</strong> be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.</p>
 </div>
 </div>
 </section>
 </section>
-</section>
-<section id="check-in-1.3-stat-331-folder-r-project" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="check-in-1.3-stat-331-folder-r-project"><span class="header-section-number">1.3</span> ✅ Check-in 1.3: Stat 331 Folder &amp; R Project</h2>
-<p>Take a screenshot of your class directory, showing:</p>
-<ol type="1">
-<li>the location of your Stat 331 folder</li>
-<li>an R Project included in your Stat 331 folder</li>
-<li>a Week 1 sub-folder</li>
-</ol>
 </section>
 </section>
 <section id="reproducible-documents" class="level1" data-number="2">
@@ -679,39 +709,467 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="https://quarto.org/docs/output-formats/html-basics.html">a discussion of the basics of formatting HTML documents in Quarto</a></p></li>
 <li><p><a href="https://quarto.org/docs/reference/formats/html.html">the list of all HTML formatting options for Quarto documents</a></p></li>
 </ul>
-</section>
-</section>
-<section id="check-in-1.4-quarto-documents" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="check-in-1.4-quarto-documents"><span class="header-section-number">2.3</span> ✅ Check-in: 1.4 Quarto Documents</h2>
-<p><strong>Question 1</strong>: What are the options at the top of a Quarto document (between the <code>---</code> and <code>---</code> symbols) called?</p>
-<ol type="a">
-<li>XML</li>
-<li>YAML</li>
-<li>REML</li>
-<li>TOML</li>
+<p>The biggest thing to realize is that a Quarto document contains three types of content:</p>
+<ol type="1">
+<li>A <strong>YAML header</strong> surrounded by <code>---</code>s at the top.</li>
+<li><strong>Chunks</strong> of R code surrounded by <code>```{r}</code> and <code>```</code>.</li>
+<li>Text mixed with simple text formatting like <code># heading</code> and <code>_italics_</code>.</li>
 </ol>
-<p><strong>Question 2</strong>: What symbols create an R code chunk?</p>
+<p>For our class (STAT 250), you will generally only be editing the <strong>Chunks</strong> and the Text.</p>
+</section>
+<section id="basic-markdown" class="level3">
+<h3 class="anchored">Basic Markdown</h3>
+<p>Markdown can format a document just like you format your Word documents in other classes, but we’ll just cover some of the basics here. You’ve already learned <em>italics</em>, <strong>bold</strong> and <code>code</code> displays. Markdown can make lists as well, using a variety of encoding (see the online tutorial). You’ve probably also noticed that when you format your text, its color display changes, to help you see the formatting easier.</p>
+<div class="grid">
+<div class="g-col-6">
+<p><strong>Unrendered</strong></p>
+</div>
+<div class="g-col-6">
+<p><strong>Rendered</strong></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>*italics*  or _italics_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><em>italics</em> or <em>italics</em></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>**bold**</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><strong>bold</strong></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">`code`</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><code>code</code></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>subscript~2~    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p>subscript<sub>2</sub></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>superscript^2^  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p>superscript<sup>2</sup></p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Text block for answers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<blockquote class="blockquote">
+<p>Text block for answers</p>
+</blockquote>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># Header Size 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="header-size-1" class="level1 unnumbered unlisted g-col-6">
+<h1 class="unnumbered unlisted">Header Size 1</h1>
+</section>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Header Size 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="header-size-2" class="level2 unnumbered unlisted g-col-6">
+<h2 class="unnumbered unlisted anchored" data-anchor-id="header-size-2">Header Size 2</h2>
+</section>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">### Header Size 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="header-size-3" class="level3 unnumbered unlisted g-col-6">
+<h3 class="unnumbered unlisted anchored" data-anchor-id="header-size-3">Header Size 3</h3>
+</section>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="an">Markdown Comments Will Not Render:</span><span class="co"> &lt;!--- this comment won't show up rendered ---&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p>Markdown Comments Will Not Render: <!--- this comment won't show up rendered ---></p>
+</div>
+</div>
+<p>One last thing of note - markdown works best with “space to breathe.” If you find that something isn’t rendering correctly, making sure there is a blank line between the text you are trying to format and the next helps.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="an">For example:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a "&gt;" before each line answer. </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p>For example: &gt; Although this is green unrendered, it doesn’t appear with the formatting we want. Try adding an “enter” between the “For example:” and the start of this line and render again. Did it fix it? You’ll also notice that if there are no line breaks, this formatting doesn’t end, so you don’t need to put a “&gt;” before each line answer.</p>
+</div>
+</div>
+<p>Notice what happens when we add spacing:</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="an">For example:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Although this is green unrendered, it doesn't appear with the formatting we want. Try adding an "enter" between the "For example:" and the start of this line and render again. Did it fix it?</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">You'll also notice that if there are no line breaks, this formatting doesn't end, so you don't need to put a "&gt;" before each line answer. </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p>For example:</p>
+<blockquote class="blockquote">
+<p>Although this is green unrendered, it doesn’t appear with the formatting we want. Try adding an “enter” between the “For example:” and the start of this line and render again. Did it fix it? You’ll also notice that if there are no line breaks, this formatting doesn’t end, so you don’t need to put a “&gt;” before each line answer.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="mathematics" class="level3">
+<h3 class="anchored" data-anchor-id="mathematics">Mathematics</h3>
+<p>We often want to write small mathematics equations or write mathematical symbols. This is actually much easier in .qmd than in Word.</p>
+<p>We surround an equation with <code>$</code> signs: <code>$e=mc^2$</code> which will appear as <span class="math inline">\(e=mc^2\)</span> in the rendered document.</p>
+<p>Here are some examples of the type of mathematics you will use within your Quarto documents.</p>
+<section id="greek-letters" class="level4">
+<h4 class="anchored" data-anchor-id="greek-letters">Greek Letters</h4>
+<p>We often want to use statistical symbols within markdown to denote parameters with Greek letters. They are called by using a backslash (<code>\</code>) and then the full name of the Greek letter, such as <code>\alpha</code>, and surrounded by <code>$</code> to be called within the equation-mode:</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>$\sigma$</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>$\alpha$</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>$\mu$</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>$\beta$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><span class="math inline">\(\sigma\)</span><br>
+<span class="math inline">\(\alpha\)</span><br>
+<span class="math inline">\(\mu\)</span><br>
+<span class="math inline">\(\beta\)</span></p>
+</div>
+</div>
+</section>
+<section id="superscripts-and-subscripts" class="level4">
+<h4 class="anchored" data-anchor-id="superscripts-and-subscripts">Superscripts and Subscripts</h4>
+<p>We can include sub- and superscripts to make our parameters and statistics specific. Note: once the equation is surrounded by <code>$</code>’s we don’t need the markdown edit for superscript like above. In math mode, you might see:</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>$x^2$  </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>$H_0$  </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>$\mu_1$  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><span class="math inline">\(x^2\)</span><br>
+<span class="math inline">\(H_0\)</span><br>
+<span class="math inline">\(\mu_1\)</span></p>
+</div>
+</div>
+<p>We might want to make our subscript a longer phrase in statistics, to help denote our population of interest when we have more than one. We surround whatever we want to stay in a subscript with <code>{}</code>, such as:</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>$\mu_{female}$  </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>$\mu_{male}$ </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><span class="math inline">\(\mu_{female}\)</span><br>
+<span class="math inline">\(\mu_{male}\)</span></p>
+</div>
+</div>
+</section>
+<section id="symbols-over-letters" class="level4">
+<h4 class="anchored" data-anchor-id="symbols-over-letters">Symbols over Letters</h4>
+<p>We can call our special statistical symbols in a similar way, such as <code>\bar{x}</code>. In this case, the <code>bar</code> symbol will be applied over the <code>x</code>, to make our statistical symbol for sample mean: <span class="math inline">\(\bar{x}\)</span>.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>$\bar{x}$  </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>$\hat{p}$  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>$\hat{\beta}_1$  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><span class="math inline">\(\bar{x}\)</span><br>
+<span class="math inline">\(\hat{p}\)</span><br>
+<span class="math inline">\(\hat{\beta}_1\)</span></p>
+</div>
+</div>
+</section>
+<section id="equations" class="level4">
+<h4 class="anchored" data-anchor-id="equations">Equations</h4>
+<p>Finally, we can write little equations for our outputs:, like <span class="math inline">\(\bar{x} = 3.54\)</span>.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>$\bar{x} = 3.54$  </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x$  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="g-col-6">
+<p><span class="math inline">\(\bar{x} = 3.54\)</span><br>
+<span class="math inline">\(\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\)</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunks">Code Chunks</h3>
+<p>You’ve learned how to insert code chunks using the shortcuts Ctrl-Alt-I (or Cmd-Alt-I), by clicking the green Insert +C button above, but you can also just type the two sets of code that surround code chunks, <code>```{r}</code> and the ending <code>```</code> . <em>Note, those are back-ticks, found above the tab key, not single quotation marks.</em></p>
+<p>We can add labels <code>#| label:</code> to support easy navigation as well, but be careful, <strong>DO NOT REPEAT LABELS</strong> or this will cause an error when you render the .qmd file.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: simple-addition</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>At the beginning of each Quarto document there should be a special code chunk called the <strong>setup</strong> chunk. This is where we read the packages used in the rest of the document. We often use <code>#| include: false</code> to as an option in the <strong>setup</strong> code chunk to hide the output in the rendered document.</p>
+<p>You can also comment your code, which is a way of annotating it without affecting the code, using a <code>#</code> followed by text.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: print-answer</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span><span class="sc">*</span><span class="dv">42</span>  <span class="co">#the Answer to the Ultimate Question of Life, the Universe, and Everything, Squared</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1764</code></pre>
+</div>
+</div>
+</section>
+<section id="checking-code-rendering-your-document" class="level3">
+<h3 class="anchored" data-anchor-id="checking-code-rendering-your-document">Checking code &amp; Rendering your Document</h3>
+<p>You can run specific code chunks to check their output by pressing the green play button to run the specific code chunk, or the icon next to it to run all code chunks prior to that code chunk.</p>
+<section id="viewing-your-rendered-document" class="level4">
+<h4 class="anchored" data-anchor-id="viewing-your-rendered-document">Viewing Your Rendered Document</h4>
+<p>If you want to check your Markdown editing, you can render the document and view it in the ‘Viewer’ Pane by pressing the ‘Render’ button at the top of the Quarto document pane. Make sure the setting (gear icon above) is set to ‘Preview in Viewer pane’.</p>
+</section>
+<section id="changing-the-document-type" class="level4">
+<h4 class="anchored" data-anchor-id="changing-the-document-type">Changing the Document Type</h4>
+<p>You can change the document type you knit to automatically by changing the output type in the YAML header from <code>format: html</code> to <code>format: docx</code> and press the ‘Render’ button. Your word document will be created in the project folder! (In this class, we will always use html documents; please don’t edit the YAML header of your labs; we showed you this simply for future information.)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My report"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="errors-in-your-code" class="level4">
+<h4 class="anchored" data-anchor-id="errors-in-your-code">Errors in your Code</h4>
+<p>If there is an error in your file, it will not render. When .qmd files render, they run on a completely clean environment. So if you somehow loaded data or something else not with code in your .qmd file, the rendering process will create an error.</p>
+<p>If you cannot figure out the error, you can generally still get your document to render by changing <code>error: false</code> to <code>error: true</code> in the YAML code at the top.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My report"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will print out any errors in your code chunks, but still render the document.</p>
+</section>
+<section id="errors-in-your-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="errors-in-your-markdown">Errors in your Markdown</h4>
+<p>The most common errors in your markdown that can cause issues are deleting back ticks (`) around your code chunks or dashes (-) from around the YAML code, so always check that first.</p>
+</section>
+</section>
+</section>
+<section id="check-in-quarto-documents" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="check-in-quarto-documents"><span class="header-section-number">2.3</span> ✅ Check-in: Quarto Documents</h2>
+<p><strong>Question 1</strong>: What are the options at the top of a Quarto document (between the <code>---</code> and <code>---</code> symbols) called?</p>
+<div class="cell">
+<div class="cell-output-display">
+<form name="form_76312" onsubmit="return validate_form_76312()" method="post">
+<label>
+<input type="radio" name="answer_76312" id="answer_76312_1" value="XML">
+XML
+</label>
+<br>
+<label>
+<input type="radio" name="answer_76312" id="answer_76312_2" value="YAML">
+YAML
+</label>
+<br>
+<label>
+<input type="radio" name="answer_76312" id="answer_76312_3" value="REML">
+REML
+</label>
+<br>
+<label>
+<input type="radio" name="answer_76312" id="answer_76312_4" value="TOML">
+TOML
+</label>
+<br>
+<input type="submit" value="check">
+<div id="result_76312"></div>
+</form>
+<script>function validate_form_76312() {var x, text; var x = document.forms['form_76312']['answer_76312'].value;if (x == 'YAML'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_76312').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_76312').innerText == 'Correct';text = res1;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p><br></p>
+<p><strong>Question 2</strong>: What symbols begin an R code chunk?</p>
 <ol type="a">
-<li><code>```</code></li>
-<li><code>{r}</code></li>
-<li><code>```{r}</code></li>
+<li><code>```</code><br>
+</li>
+<li><code>```{r}</code><br>
+</li>
+<li><code>{r}</code><br>
+</li>
 <li><code>`{r}`</code></li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<form name="form_81122" onsubmit="return validate_form_81122()" method="post">
+<label>
+<input type="radio" name="answer_81122" id="answer_81122_1" value="a">
+a
+</label>
+<br>
+<label>
+<input type="radio" name="answer_81122" id="answer_81122_2" value="b">
+b
+</label>
+<br>
+<label>
+<input type="radio" name="answer_81122" id="answer_81122_3" value="c">
+c
+</label>
+<br>
+<label>
+<input type="radio" name="answer_81122" id="answer_81122_4" value="d">
+d
+</label>
+<br>
+<input type="submit" value="check">
+<div id="result_81122"></div>
+</form>
+<script>function validate_form_81122() {var x, text; var x = document.forms['form_81122']['answer_81122'].value;if (x == 'b'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_81122').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p><br></p>
 <p><strong>Question 3</strong>: What symbol defines a heading?</p>
-<ol type="a">
-<li><p><code>$</code></p></li>
-<li><p><code>_</code></p></li>
-<li><p><code>*</code></p></li>
-<li><p><code>#</code></p></li>
-</ol>
-<p><strong>Question 4</strong>: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.</p>
+<div class="cell">
+<div class="cell-output-display">
+<form name="form_40022" onsubmit="return validate_form_40022()" method="post">
+<label>
+<input type="radio" name="answer_40022" id="answer_40022_1" value="$">
+$
+</label>
+<br>
+<label>
+<input type="radio" name="answer_40022" id="answer_40022_2" value="_">
+_
+</label>
+<br>
+<label>
+<input type="radio" name="answer_40022" id="answer_40022_3" value="*">
+*
+</label>
+<br>
+<label>
+<input type="radio" name="answer_40022" id="answer_40022_4" value="#">
+#
+</label>
+<br>
+<input type="submit" value="check">
+<div id="result_40022"></div>
+</form>
+<script>function validate_form_40022() {var x, text; var x = document.forms['form_40022']['answer_40022'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_40022').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p><br></p>
+<p><strong>Question 4</strong>: When working in a Quarto document, the</p>
+<div class="cell">
+<div class="cell-output-display no-overflow-x">
+<form name="form_88027" onsubmit="return validate_form_88027()" method="post">
+<select name="answer_88027">
+<option>visual</option>
+<option>source</option>
+</select>
+<input type="submit" value="check">
+<div id="result_88027"></div>
+</form>
+<script>function validate_form_88027() {var x, text; var x = document.forms['form_88027']['answer_88027'].value;if (x == 'source'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_88027').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p>editor will display the raw Quarto document, whereas the</p>
+<div class="cell">
+<div class="cell-output-display no-overflow-x">
+<form name="form_89299" onsubmit="return validate_form_89299()" method="post">
+<select name="answer_89299">
+<option>visual</option>
+<option>source</option>
+</select>
+<input type="submit" value="check">
+<div id="result_89299"></div>
+</form>
+<script>function validate_form_89299() {var x, text; var x = document.forms['form_89299']['answer_89299'].value;if (x == 'visual'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_89299').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct'; res5 = document.getElementById('result_89299').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p>will display the document as it will appear when it is rendered.</p>
 <p><strong>Question 5</strong>: To produce an HTML report from your Quarto document, you need to click the ____ button.</p>
-<ol type="a">
-<li><p>Visual</p></li>
-<li><p>Render</p></li>
-<li><p>Render on Save</p></li>
-<li><p>Save</p></li>
-</ol>
+<div class="cell">
+<div class="cell-output-display">
+<form name="form_56535" onsubmit="return validate_form_56535()" method="post">
+<label>
+<input type="radio" name="answer_56535" id="answer_56535_1" value="Visual">
+Visual
+</label>
+<br>
+<label>
+<input type="radio" name="answer_56535" id="answer_56535_2" value="Render">
+Render
+</label>
+<br>
+<label>
+<input type="radio" name="answer_56535" id="answer_56535_3" value="Render on Save">
+Render on Save
+</label>
+<br>
+<label>
+<input type="radio" name="answer_56535" id="answer_56535_4" value="Save">
+Save
+</label>
+<br>
+<input type="submit" value="check">
+<div id="result_56535"></div>
+</form>
+<script>function validate_form_56535() {var x, text; var x = document.forms['form_56535']['answer_56535'].value;if (x == 'Render'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_56535').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+         element = document.getElementById('checkdown_final_score');
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct'; res5 = document.getElementById('result_89299').innerText == 'Correct'; res6 = document.getElementById('result_56535').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
+         return false;
+         }}</script>
+</div>
+</div>
+<p><br></p>
 
 
 </section>
@@ -1131,6 +1589,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-1-r-rstudio.html" class="pagination-link" aria-label="Week 1 - R &amp; RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 1 - R &amp; RStudio</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -56,8 +56,8 @@ website:
         contents:
           - href: weeks/week-1-r-rstudio.qmd
             text: "Week 1 - R & RStudio"
-          # - href: weeks/week-2-quarto.qmd
-          #   text: "Week 2 - Quarto"
+          - href: weeks/week-2-quarto.qmd
+            text: "Week 2 - Quarto"
           # - href: weeks/week-3-version-control.qmd
           #   text: "Week 3 - Version Control"
           # - href: weeks/week-4-ggplot.qmd

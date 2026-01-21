@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-r-rstudio.html</loc>
-    <lastmod>2026-01-21T01:07:18.110Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-2-quarto.html</loc>
+    <lastmod>2026-01-21T02:24:24.487Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/index.html</loc>
@@ -21,7 +21,7 @@
     <lastmod>2026-01-20T18:16:27.779Z</lastmod>
   </url>
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-quarto.html</loc>
-    <lastmod>2026-01-20T18:16:55.678Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-r-rstudio.html</loc>
+    <lastmod>2026-01-21T01:39:14.949Z</lastmod>
   </url>
 </urlset>

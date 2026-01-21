@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-2-quarto.html" rel="next">
 <link href="../group-activities/pair-programming-norms.qmd" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -355,6 +356,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Quarto</span></a>
   </div>
 </li>
       </ul>
@@ -718,33 +725,33 @@ Type the following into your console:</p>
 <p><strong>Question 1:</strong> What does it mean for R to be <strong>“open-source”</strong>?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_20401" onsubmit="return validate_form_20401()" method="post">
+<form name="form_5547" onsubmit="return validate_form_5547()" method="post">
 <label>
-<input type="radio" name="answer_20401" id="answer_20401_1" value="Users are required to share all the code they write.">
+<input type="radio" name="answer_5547" id="answer_5547_1" value="Users are required to share all the code they write.">
 Users are required to share all the code they write.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_20401" id="answer_20401_2" value="Private companies must pay the *R Core Group* to use R.">
+<input type="radio" name="answer_5547" id="answer_5547_2" value="Private companies must pay the *R Core Group* to use R.">
 Private companies must pay the *R Core Group* to use R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_20401" id="answer_20401_3" value="Developers cannot charge for the use of their R software">
+<input type="radio" name="answer_5547" id="answer_5547_3" value="Developers cannot charge for the use of their R software">
 Developers cannot charge for the use of their R software
 </label>
 <br>
 <label>
-<input type="radio" name="answer_20401" id="answer_20401_4" value="Anyone can change the base functionality of R.">
+<input type="radio" name="answer_5547" id="answer_5547_4" value="Anyone can change the base functionality of R.">
 Anyone can change the base functionality of R.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_20401"></div>
+<div id="result_5547"></div>
 </form>
-<script>function validate_form_20401() {var x, text; var x = document.forms['form_20401']['answer_20401'].value;if (x == 'Developers cannot charge for the use of their R software'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_20401').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_5547() {var x, text; var x = document.forms['form_5547']['answer_5547'].value;if (x == 'Developers cannot charge for the use of their R software'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_5547').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_20401').innerText == 'Correct';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_5547').innerText == 'Correct';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -753,33 +760,33 @@ Anyone can change the base functionality of R.
 <p><strong>Question 2:</strong> How often do you need to install a package on your computer?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_82566" onsubmit="return validate_form_82566()" method="post">
+<form name="form_22368" onsubmit="return validate_form_22368()" method="post">
 <label>
-<input type="radio" name="answer_82566" id="answer_82566_1" value="Every time you restart R.">
+<input type="radio" name="answer_22368" id="answer_22368_1" value="Every time you restart R.">
 Every time you restart R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_82566" id="answer_82566_2" value="Never, as long as you are connected to the internet.">
+<input type="radio" name="answer_22368" id="answer_22368_2" value="Never, as long as you are connected to the internet.">
 Never, as long as you are connected to the internet.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_82566" id="answer_82566_3" value="Only once. Afterwards, R can find the package on your hard drive when it needs to.">
+<input type="radio" name="answer_22368" id="answer_22368_3" value="Only once. Afterwards, R can find the package on your hard drive when it needs to.">
 Only once. Afterwards, R can find the package on your hard drive when it needs to.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_82566" id="answer_82566_4" value="Every time you restart your computer.">
+<input type="radio" name="answer_22368" id="answer_22368_4" value="Every time you restart your computer.">
 Every time you restart your computer.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_82566"></div>
+<div id="result_22368"></div>
 </form>
-<script>function validate_form_82566() {var x, text; var x = document.forms['form_82566']['answer_82566'].value;if (x == 'Only once. Afterwards, R can find the package on your hard drive when it needs to.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_82566').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_22368() {var x, text; var x = document.forms['form_22368']['answer_22368'].value;if (x == 'Only once. Afterwards, R can find the package on your hard drive when it needs to.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_22368').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_20401').innerText == 'Correct'; res2 = document.getElementById('result_82566').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_5547').innerText == 'Correct'; res2 = document.getElementById('result_22368').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -788,33 +795,33 @@ Every time you restart your computer.
 <p><strong>Question 3:</strong> What is the tidyverse?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_819" onsubmit="return validate_form_819()" method="post">
+<form name="form_71610" onsubmit="return validate_form_71610()" method="post">
 <label>
-<input type="radio" name="answer_819" id="answer_819_1" value="A word processing program for R.">
+<input type="radio" name="answer_71610" id="answer_71610_1" value="A word processing program for R.">
 A word processing program for R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_819" id="answer_819_2" value="An alternate universe where everyone is an R programmer.">
+<input type="radio" name="answer_71610" id="answer_71610_2" value="An alternate universe where everyone is an R programmer.">
 An alternate universe where everyone is an R programmer.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_819" id="answer_819_3" value="A collection of packages that work well together and provide tools for common data science tasks.">
+<input type="radio" name="answer_71610" id="answer_71610_3" value="A collection of packages that work well together and provide tools for common data science tasks.">
 A collection of packages that work well together and provide tools for common data science tasks.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_819" id="answer_819_4" value="A code style that reads like poetry.">
+<input type="radio" name="answer_71610" id="answer_71610_4" value="A code style that reads like poetry.">
 A code style that reads like poetry.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_819"></div>
+<div id="result_71610"></div>
 </form>
-<script>function validate_form_819() {var x, text; var x = document.forms['form_819']['answer_819'].value;if (x == 'A collection of packages that work well together and provide tools for common data science tasks.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_819').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_71610() {var x, text; var x = document.forms['form_71610']['answer_71610'].value;if (x == 'A collection of packages that work well together and provide tools for common data science tasks.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_71610').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_20401').innerText == 'Correct'; res2 = document.getElementById('result_82566').innerText == 'Correct'; res3 = document.getElementById('result_819').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_5547').innerText == 'Correct'; res2 = document.getElementById('result_22368').innerText == 'Correct'; res3 = document.getElementById('result_71610').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -823,33 +830,33 @@ A code style that reads like poetry.
 <p><strong>Question 4</strong>: New objects in R are created using which symbol(s)?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_25025" onsubmit="return validate_form_25025()" method="post">
+<form name="form_93688" onsubmit="return validate_form_93688()" method="post">
 <label>
-<input type="radio" name="answer_25025" id="answer_25025_1" value="==">
+<input type="radio" name="answer_93688" id="answer_93688_1" value="==">
 ==
 </label>
 <br>
 <label>
-<input type="radio" name="answer_25025" id="answer_25025_2" value="<-">
+<input type="radio" name="answer_93688" id="answer_93688_2" value="<-">
 &lt;-
 </label>
 <br>
 <label>
-<input type="radio" name="answer_25025" id="answer_25025_3" value="->">
+<input type="radio" name="answer_93688" id="answer_93688_3" value="->">
 -&gt;
 </label>
 <br>
 <label>
-<input type="radio" name="answer_25025" id="answer_25025_4" value="=">
+<input type="radio" name="answer_93688" id="answer_93688_4" value="=">
 =
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_25025"></div>
+<div id="result_93688"></div>
 </form>
-<script>function validate_form_25025() {var x, text; var x = document.forms['form_25025']['answer_25025'].value;if (x == '<-'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_25025').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_93688() {var x, text; var x = document.forms['form_93688']['answer_93688'].value;if (x == '<-'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_93688').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_20401').innerText == 'Correct'; res2 = document.getElementById('result_82566').innerText == 'Correct'; res3 = document.getElementById('result_819').innerText == 'Correct'; res4 = document.getElementById('result_25025').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_5547').innerText == 'Correct'; res2 = document.getElementById('result_22368').innerText == 'Correct'; res3 = document.getElementById('result_71610').innerText == 'Correct'; res4 = document.getElementById('result_93688').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -858,33 +865,33 @@ A code style that reads like poetry.
 <p><strong>Question 5</strong>: A code comment in R is declared using what symbol?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_81711" onsubmit="return validate_form_81711()" method="post">
+<form name="form_35242" onsubmit="return validate_form_35242()" method="post">
 <label>
-<input type="radio" name="answer_81711" id="answer_81711_1" value="#">
+<input type="radio" name="answer_35242" id="answer_35242_1" value="#">
 #
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81711" id="answer_81711_2" value="|">
+<input type="radio" name="answer_35242" id="answer_35242_2" value="|">
 |
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81711" id="answer_81711_3" value="&amp;">
+<input type="radio" name="answer_35242" id="answer_35242_3" value="&amp;">
 &amp;
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81711" id="answer_81711_4" value="!">
+<input type="radio" name="answer_35242" id="answer_35242_4" value="!">
 !
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_81711"></div>
+<div id="result_35242"></div>
 </form>
-<script>function validate_form_81711() {var x, text; var x = document.forms['form_81711']['answer_81711'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_81711').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_35242() {var x, text; var x = document.forms['form_35242']['answer_35242'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_35242').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_20401').innerText == 'Correct'; res2 = document.getElementById('result_82566').innerText == 'Correct'; res3 = document.getElementById('result_819').innerText == 'Correct'; res4 = document.getElementById('result_25025').innerText == 'Correct'; res5 = document.getElementById('result_81711').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_5547').innerText == 'Correct'; res2 = document.getElementById('result_22368').innerText == 'Correct'; res3 = document.getElementById('result_71610').innerText == 'Correct'; res4 = document.getElementById('result_93688').innerText == 'Correct'; res5 = document.getElementById('result_35242').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -893,33 +900,33 @@ A code style that reads like poetry.
 <p><strong>Question 6</strong>: Which of the following object names is an example of “snake case”?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_61084" onsubmit="return validate_form_61084()" method="post">
+<form name="form_86134" onsubmit="return validate_form_86134()" method="post">
 <label>
-<input type="radio" name="answer_61084" id="answer_61084_1" value="data.only.february">
+<input type="radio" name="answer_86134" id="answer_86134_1" value="data.only.february">
 data.only.february
 </label>
 <br>
 <label>
-<input type="radio" name="answer_61084" id="answer_61084_2" value="dataOnlyFebruary">
+<input type="radio" name="answer_86134" id="answer_86134_2" value="dataOnlyFebruary">
 dataOnlyFebruary
 </label>
 <br>
 <label>
-<input type="radio" name="answer_61084" id="answer_61084_3" value="data_only_february">
+<input type="radio" name="answer_86134" id="answer_86134_3" value="data_only_february">
 data_only_february
 </label>
 <br>
 <label>
-<input type="radio" name="answer_61084" id="answer_61084_4" value="Data_only.FEBRUARY">
+<input type="radio" name="answer_86134" id="answer_86134_4" value="Data_only.FEBRUARY">
 Data_only.FEBRUARY
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_61084"></div>
+<div id="result_86134"></div>
 </form>
-<script>function validate_form_61084() {var x, text; var x = document.forms['form_61084']['answer_61084'].value;if (x == 'data_only_february'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_61084').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_86134() {var x, text; var x = document.forms['form_86134']['answer_86134'].value;if (x == 'data_only_february'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_86134').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_20401').innerText == 'Correct'; res2 = document.getElementById('result_82566').innerText == 'Correct'; res3 = document.getElementById('result_819').innerText == 'Correct'; res4 = document.getElementById('result_25025').innerText == 'Correct'; res5 = document.getElementById('result_81711').innerText == 'Correct'; res6 = document.getElementById('result_61084').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_5547').innerText == 'Correct'; res2 = document.getElementById('result_22368').innerText == 'Correct'; res3 = document.getElementById('result_71610').innerText == 'Correct'; res4 = document.getElementById('result_93688').innerText == 'Correct'; res5 = document.getElementById('result_35242').innerText == 'Correct'; res6 = document.getElementById('result_86134').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1350,6 +1357,9 @@ Data_only.FEBRUARY
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../weeks/week-2-quarto.html" class="pagination-link" aria-label="Week 2 - Quarto">
+        <span class="nav-page-text">Week 2 - Quarto</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
