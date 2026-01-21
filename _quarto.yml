@@ -12,13 +12,13 @@ project:
     - "!/portfolio/"
     - "!/slides/"
     - "!/videos/"
-    - "!/weeks/"
+    - "!/weeks/not-updated/"
     
 website:
   page-navigation: true
   title: "Statistical Computing with R"
   description: "Homepage for STAT 210 at CSUMB"
-  site-url: ""
+  site-url: "https://statistical-computing-r.github.io/spring-2026/"
   repo-url: https://github.com/statistical-computing-r/spring-2026
   repo-actions: [issue]
 
@@ -54,8 +54,8 @@ website:
             text: "Pair Programming Norms"
       - section: "Weekly materials"
         contents:
-          # - href: weeks/week-1-r-rstudio.qmd
-          #   text: "Week 1 - R & RStudio"
+          - href: weeks/week-1-r-rstudio.qmd
+            text: "Week 1 - R & RStudio"
           # - href: weeks/week-2-quarto.qmd
           #   text: "Week 2 - Quarto"
           # - href: weeks/week-3-version-control.qmd

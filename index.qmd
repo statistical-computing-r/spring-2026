@@ -1,9 +1,8 @@
 ---
 title: "{{< var course.title >}}"
 subtitle: "{{< var course.subtitle >}}"
-title-block-banner: "images/hex-universe-small.png"
-toc: false
-sidebar: false
+toc: true
+sidebar: true
 ---
 
 Have you ever wondered...

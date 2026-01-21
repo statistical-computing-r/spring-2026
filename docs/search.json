@@ -1,10 +1,76 @@
 [
   {
+    "objectID": "weeks/week-1-r-rstudio.html",
+    "href": "weeks/week-1-r-rstudio.html",
+    "title": "Week 1: R & RStudio",
+    "section": "",
+    "text": "For the first portion of this week’s preparation work, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "title": "Week 1: R & RStudio",
+    "section": "1.1 Updating Your Version of R",
+    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n\nR version 4.5.2 (2025-10-31 ucrt) -- \"[Not] Part in a Rumble\"  \nCopyright (C) 2025 The R Foundation for Statistical Computing  \nPlatform: x86_64-w64-mingw32/x64`  \n\n\n\n\nIf the version is not 4.5.2, you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
+    "href": "weeks/week-1-r-rstudio.html#installing-r",
+    "title": "Week 1: R & RStudio",
+    "section": "1.2 Installing R",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nWarningMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of July 1, 2024 was R-4.4.1 (Race for Your Life).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTipTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "title": "Week 1: R & RStudio",
+    "section": "2.1 Updating Your Version of RStudio",
+    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "title": "Week 1: R & RStudio",
+    "section": "2.2 Installing RStudio",
+    "text": "2.2 Installing RStudio\n\n\n\n\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#debugging-r-code",
+    "href": "weeks/week-1-r-rstudio.html#debugging-r-code",
+    "title": "Week 1: R & RStudio",
+    "section": "4.1 Debugging R Code",
+    "text": "4.1 Debugging R Code\n\n📽️ Required Video: Debugging R Code",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Statistical Computing with R",
     "section": "",
-    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work? \n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: TBD\n Classroom Learning Assistant: Noah Kan\n Teaching Assistant: NA\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
+    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work?\n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: TBD\n Classroom Learning Assistant: Noah Kan\n\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
     "crumbs": [
       "Course information",
       "Weekly Schedule"
@@ -114,5 +180,54 @@
     "title": "STAT 331, Fall 2025",
     "section": "9.8 Someone is threatening me, what can I do?",
     "text": "9.8 Someone is threatening me, what can I do?\nI will listen and believe you if someone is threatening you. I will help you get the help you need. I commit to changing campus culture that responds poorly to dating violence and stalking."
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html",
+    "href": "weeks/week-1-quarto.html",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "",
+    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents."
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#file-management",
+    "href": "weeks/week-1-quarto.html#file-management",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "1.1 File Management",
+    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nEvidently, there has been a bit of generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore. This article is an interesting discussion of the problem: it makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet.\n\nFile Systems\nRegardless of how you tend to organize your personal files, it is probably helpful to understand the basics of what is meant by a computer file system – a way to organize data stored on a hard drive. Since data is always stored as 0’s and 1’s, it’s important to have some way to figure out what type of data is stored in a specific location, and how to interpret it.\n\n\n Stop watching at 4:16.\n\n\nFile Paths\nThat’s not enough, though - we also need to know how computers remember the location of what is stored where. Specifically, we need to understand file paths.\nWhen you write a program, you may have to reference external files - data stored in a .csv file, for instance, or a picture. Best practice is to create a file structure that contains everything you need to run your entire project in a single file folder (you can, and sometimes should, have sub-folders).\n\n\n\nFor now, it is enough to know how to find files using file paths, and how to refer to a file using a relative file path from your base folder. In this situation, your “base folder” is known as your working directory - the place your program thinks of as home."
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#directories-and-projects",
+    "href": "weeks/week-1-quarto.html#directories-and-projects",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "1.2 Directories, Paths, and Projects",
+    "text": "1.2 Directories, Paths, and Projects\nIn R, there are two ways to set up your file path and file system organization:\n\nSet your working directory in R (do not recommend)\nUse RProjects (preferred!)\n\n\nWorking Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\n\n\n\n\n\n\n\n\n\ngetwd()\n\n[1] \"C:/Users/cann4817/Desktop/spring-2026/weeks\"\n\n\nAlthough it is not recommended, you can set your working directory in R with setwd().\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\nR Projects\n\n📖 Required Reading: Workflow and Projects\nSince there are often many files necessary for a project (e.g. data sources, images, etc.), R has a nice built in system for setting up your project organization with R Projects. You can either create a new folder on your computer containing an R Project (e.g., you have not yet created a folder for this class) or you can add an R Project to an existing folder on your computer (e.g., you have already created a folder for this class).\n\nCreate with a new folderAdd to an existing folder\n\n\nTo create a R Project, first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGive your folder a name (it doesn’t have to be my-stat331). However, it is good practice for this file folder name to not contain spaces.\nThen, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!\n\n\n\n\n\n\n\n\n\nThis new folder, my-stat331 should now live in your Documents folder (or wherever you save it to) and contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\nThen, browse on your computer to select the existing folder you wish to add your R Project to. For example, mine is saved in my Documents and called my-stat331.\n\n\n\n\n\n\n\n\n\nYour existing folder, my-stat331 should now contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\n\n\n\n\n\n\n\nCautionYour folder cannot synch with anything online!\n\n\n\nYour STAT 331 folder cannot be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it."
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#check-in-1.3-stat-331-folder-r-project",
+    "href": "weeks/week-1-quarto.html#check-in-1.3-stat-331-folder-r-project",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "1.3 ✅ Check-in 1.3: Stat 331 Folder & R Project",
+    "text": "1.3 ✅ Check-in 1.3: Stat 331 Folder & R Project\nTake a screenshot of your class directory, showing:\n\nthe location of your Stat 331 folder\nan R Project included in your Stat 331 folder\na Week 1 sub-folder"
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#downloading-quarto",
+    "href": "weeks/week-1-quarto.html#downloading-quarto",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "2.1 Downloading Quarto",
+    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/"
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#introduction-to-quarto",
+    "href": "weeks/week-1-quarto.html#introduction-to-quarto",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "2.2 Introduction to Quarto",
+    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML formatting options for Quarto documents"
+  },
+  {
+    "objectID": "weeks/week-1-quarto.html#check-in-1.4-quarto-documents",
+    "href": "weeks/week-1-quarto.html#check-in-1.4-quarto-documents",
+    "title": "Week 1, Part 2: Reproducible Analyses with Quarto",
+    "section": "2.3 ✅ Check-in: 1.4 Quarto Documents",
+    "text": "2.3 ✅ Check-in: 1.4 Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave"
   }
 ]

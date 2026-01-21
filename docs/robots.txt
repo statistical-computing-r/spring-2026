@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://statistical-computing-r.github.io/spring-2026/sitemap.xml

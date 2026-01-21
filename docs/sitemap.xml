@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/index.html</loc>
-    <lastmod>2026-01-20T20:54:27.235Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-r-rstudio.html</loc>
+    <lastmod>2026-01-21T01:07:18.110Z</lastmod>
   </url>
   <url>
-    <loc>/course-materials/course-resources.html</loc>
+    <loc>https://statistical-computing-r.github.io/spring-2026/index.html</loc>
+    <lastmod>2026-01-21T01:07:29.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/course-materials/course-resources.html</loc>
     <lastmod>2026-01-20T18:16:27.747Z</lastmod>
   </url>
   <url>
-    <loc>/course-materials/calendar.html</loc>
+    <loc>https://statistical-computing-r.github.io/spring-2026/course-materials/calendar.html</loc>
     <lastmod>2026-01-20T18:16:27.733Z</lastmod>
   </url>
   <url>
-    <loc>/course-materials/syllabus.html</loc>
+    <loc>https://statistical-computing-r.github.io/spring-2026/course-materials/syllabus.html</loc>
     <lastmod>2026-01-20T18:16:27.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-quarto.html</loc>
+    <lastmod>2026-01-20T18:16:55.678Z</lastmod>
   </url>
 </urlset>
