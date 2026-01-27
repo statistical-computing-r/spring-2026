@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-3-version-control.html" rel="next">
 <link href="../weeks/week-1-r-rstudio.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -354,7 +355,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weekly Schedule</span></a>
+ <span class="menu-text">Home</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,7 +366,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../group-activities/pair-programming-norms.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pair Programming Norms</span></a>
   </div>
 </li>
@@ -390,6 +391,29 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 2 - Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Version Control</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Pair Programming Activities</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../group-activities/week-2/pa-1-base-r-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 1: Break the Code</span></a>
   </div>
 </li>
       </ul>
@@ -849,10 +873,10 @@ window.Quarto = {
 <p>We often want to use statistical symbols within markdown to denote parameters with Greek letters. They are called by using a backslash (<code>\</code>) and then the full name of the Greek letter, such as <code>\alpha</code>, and surrounded by <code>$</code> to be called within the equation-mode:</p>
 <div class="grid">
 <div class="g-col-6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>$\sigma$</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>$\alpha$</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>$\mu$</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>$\beta$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>$\sigma$  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>$\alpha$  </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>$\mu$  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>$\beta$  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="g-col-6">
 <p><span class="math inline">\(\sigma\)</span><br>
@@ -881,7 +905,7 @@ window.Quarto = {
 <div class="grid">
 <div class="g-col-6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>$\mu_{female}$  </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>$\mu_{male}$ </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>$\mu_{male}$  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="g-col-6">
 <p><span class="math inline">\(\mu_{female}\)</span><br>
@@ -987,33 +1011,33 @@ window.Quarto = {
 <p><strong>Question 1</strong>: What are the options at the top of a Quarto document (between the <code>---</code> and <code>---</code> symbols) called?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_76312" onsubmit="return validate_form_76312()" method="post">
+<form name="form_39226" onsubmit="return validate_form_39226()" method="post">
 <label>
-<input type="radio" name="answer_76312" id="answer_76312_1" value="XML">
+<input type="radio" name="answer_39226" id="answer_39226_1" value="XML">
 XML
 </label>
 <br>
 <label>
-<input type="radio" name="answer_76312" id="answer_76312_2" value="YAML">
+<input type="radio" name="answer_39226" id="answer_39226_2" value="YAML">
 YAML
 </label>
 <br>
 <label>
-<input type="radio" name="answer_76312" id="answer_76312_3" value="REML">
+<input type="radio" name="answer_39226" id="answer_39226_3" value="REML">
 REML
 </label>
 <br>
 <label>
-<input type="radio" name="answer_76312" id="answer_76312_4" value="TOML">
+<input type="radio" name="answer_39226" id="answer_39226_4" value="TOML">
 TOML
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_76312"></div>
+<div id="result_39226"></div>
 </form>
-<script>function validate_form_76312() {var x, text; var x = document.forms['form_76312']['answer_76312'].value;if (x == 'YAML'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_76312').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_39226() {var x, text; var x = document.forms['form_39226']['answer_39226'].value;if (x == 'YAML'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_39226').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_76312').innerText == 'Correct';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_39226').innerText == 'Correct';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1031,33 +1055,33 @@ TOML
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_81122" onsubmit="return validate_form_81122()" method="post">
+<form name="form_26994" onsubmit="return validate_form_26994()" method="post">
 <label>
-<input type="radio" name="answer_81122" id="answer_81122_1" value="a">
+<input type="radio" name="answer_26994" id="answer_26994_1" value="a">
 a
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81122" id="answer_81122_2" value="b">
+<input type="radio" name="answer_26994" id="answer_26994_2" value="b">
 b
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81122" id="answer_81122_3" value="c">
+<input type="radio" name="answer_26994" id="answer_26994_3" value="c">
 c
 </label>
 <br>
 <label>
-<input type="radio" name="answer_81122" id="answer_81122_4" value="d">
+<input type="radio" name="answer_26994" id="answer_26994_4" value="d">
 d
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_81122"></div>
+<div id="result_26994"></div>
 </form>
-<script>function validate_form_81122() {var x, text; var x = document.forms['form_81122']['answer_81122'].value;if (x == 'b'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_81122').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_26994() {var x, text; var x = document.forms['form_26994']['answer_26994'].value;if (x == 'b'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_26994').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_39226').innerText == 'Correct'; res2 = document.getElementById('result_26994').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1066,33 +1090,33 @@ d
 <p><strong>Question 3</strong>: What symbol defines a heading?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_40022" onsubmit="return validate_form_40022()" method="post">
+<form name="form_95290" onsubmit="return validate_form_95290()" method="post">
 <label>
-<input type="radio" name="answer_40022" id="answer_40022_1" value="$">
+<input type="radio" name="answer_95290" id="answer_95290_1" value="$">
 $
 </label>
 <br>
 <label>
-<input type="radio" name="answer_40022" id="answer_40022_2" value="_">
+<input type="radio" name="answer_95290" id="answer_95290_2" value="_">
 _
 </label>
 <br>
 <label>
-<input type="radio" name="answer_40022" id="answer_40022_3" value="*">
+<input type="radio" name="answer_95290" id="answer_95290_3" value="*">
 *
 </label>
 <br>
 <label>
-<input type="radio" name="answer_40022" id="answer_40022_4" value="#">
+<input type="radio" name="answer_95290" id="answer_95290_4" value="#">
 #
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_40022"></div>
+<div id="result_95290"></div>
 </form>
-<script>function validate_form_40022() {var x, text; var x = document.forms['form_40022']['answer_40022'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_40022').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_95290() {var x, text; var x = document.forms['form_95290']['answer_95290'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_95290').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_39226').innerText == 'Correct'; res2 = document.getElementById('result_26994').innerText == 'Correct'; res3 = document.getElementById('result_95290').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1101,17 +1125,17 @@ _
 <p><strong>Question 4</strong>: When working in a Quarto document, the</p>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
-<form name="form_88027" onsubmit="return validate_form_88027()" method="post">
-<select name="answer_88027">
+<form name="form_29034" onsubmit="return validate_form_29034()" method="post">
+<select name="answer_29034">
 <option>visual</option>
 <option>source</option>
 </select>
 <input type="submit" value="check">
-<div id="result_88027"></div>
+<div id="result_29034"></div>
 </form>
-<script>function validate_form_88027() {var x, text; var x = document.forms['form_88027']['answer_88027'].value;if (x == 'source'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_88027').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_29034() {var x, text; var x = document.forms['form_29034']['answer_29034'].value;if (x == 'source'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_29034').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_39226').innerText == 'Correct'; res2 = document.getElementById('result_26994').innerText == 'Correct'; res3 = document.getElementById('result_95290').innerText == 'Correct'; res4 = document.getElementById('result_29034').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1119,17 +1143,17 @@ _
 <p>editor will display the raw Quarto document, whereas the</p>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
-<form name="form_89299" onsubmit="return validate_form_89299()" method="post">
-<select name="answer_89299">
+<form name="form_84638" onsubmit="return validate_form_84638()" method="post">
+<select name="answer_84638">
 <option>visual</option>
 <option>source</option>
 </select>
 <input type="submit" value="check">
-<div id="result_89299"></div>
+<div id="result_84638"></div>
 </form>
-<script>function validate_form_89299() {var x, text; var x = document.forms['form_89299']['answer_89299'].value;if (x == 'visual'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_89299').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_84638() {var x, text; var x = document.forms['form_84638']['answer_84638'].value;if (x == 'visual'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_84638').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct'; res5 = document.getElementById('result_89299').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_39226').innerText == 'Correct'; res2 = document.getElementById('result_26994').innerText == 'Correct'; res3 = document.getElementById('result_95290').innerText == 'Correct'; res4 = document.getElementById('result_29034').innerText == 'Correct'; res5 = document.getElementById('result_84638').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1138,33 +1162,33 @@ _
 <p><strong>Question 5</strong>: To produce an HTML report from your Quarto document, you need to click the ____ button.</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_56535" onsubmit="return validate_form_56535()" method="post">
+<form name="form_64814" onsubmit="return validate_form_64814()" method="post">
 <label>
-<input type="radio" name="answer_56535" id="answer_56535_1" value="Visual">
+<input type="radio" name="answer_64814" id="answer_64814_1" value="Visual">
 Visual
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56535" id="answer_56535_2" value="Render">
+<input type="radio" name="answer_64814" id="answer_64814_2" value="Render">
 Render
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56535" id="answer_56535_3" value="Render on Save">
+<input type="radio" name="answer_64814" id="answer_64814_3" value="Render on Save">
 Render on Save
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56535" id="answer_56535_4" value="Save">
+<input type="radio" name="answer_64814" id="answer_64814_4" value="Save">
 Save
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_56535"></div>
+<div id="result_64814"></div>
 </form>
-<script>function validate_form_56535() {var x, text; var x = document.forms['form_56535']['answer_56535'].value;if (x == 'Render'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_56535').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_64814() {var x, text; var x = document.forms['form_64814']['answer_64814'].value;if (x == 'Render'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_64814').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_76312').innerText == 'Correct'; res2 = document.getElementById('result_81122').innerText == 'Correct'; res3 = document.getElementById('result_40022').innerText == 'Correct'; res4 = document.getElementById('result_88027').innerText == 'Correct'; res5 = document.getElementById('result_89299').innerText == 'Correct'; res6 = document.getElementById('result_56535').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_39226').innerText == 'Correct'; res2 = document.getElementById('result_26994').innerText == 'Correct'; res3 = document.getElementById('result_95290').innerText == 'Correct'; res4 = document.getElementById('result_29034').innerText == 'Correct'; res5 = document.getElementById('result_84638').innerText == 'Correct'; res6 = document.getElementById('result_64814').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1596,6 +1620,9 @@ Save
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../weeks/week-3-version-control.html" class="pagination-link" aria-label="Week 3 - Version Control">
+        <span class="nav-page-text">Week 3 - Version Control</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

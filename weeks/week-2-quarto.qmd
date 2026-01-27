@@ -518,15 +518,15 @@ Here are some examples of the type of mathematics you will use within your Quart
 
 #### Greek Letters
 
-We often want to use statistical symbols within markdown to denote parameters with Greek letters. They are called by using a backslash (`\`) and then the full name of the Greek letter, such as `\alpha`, and surrounded by `$` to be called within the equation-mode: 
+We often want to use statistical symbols within markdown to denote parameters with Greek letters. They are called by using a backslash (`\`) and then the full name of the Greek letter, such as `\alpha`, and surrounded by `$` to be called within the equation-mode:  
 
 ::: {.grid}
 ::: {.g-col-6}
 ````markdown
-$\sigma$
-$\alpha$
-$\mu$
-$\beta$
+$\sigma$  
+$\alpha$  
+$\mu$  
+$\beta$  
 ````
 :::
 ::: {.g-col-6}
@@ -555,25 +555,25 @@ $\mu_1$
 :::
 :::
 
-We might want to make our subscript a longer phrase in statistics, to help denote our population of interest when we have more than one. We surround whatever we want to stay in a subscript with `{}`, such as: 
+We might want to make our subscript a longer phrase in statistics, to help denote our population of interest when we have more than one. We surround whatever we want to stay in a subscript with `{}`, such as:  
 
 ::: {.grid}
 ::: {.g-col-6}
 ````markdown
 $\mu_{female}$  
-$\mu_{male}$ 
+$\mu_{male}$  
 ````
 :::
 ::: {.g-col-6}
 $\mu_{female}$  
-$\mu_{male}$ 
+$\mu_{male}$  
 :::
 :::
 
 
 #### Symbols over Letters
 
-We can call our special statistical symbols in a similar way, such as `\bar{x}`. In this case, the `bar` symbol will be applied over the `x`, to make our statistical symbol for sample mean: $\bar{x}$. 
+We can call our special statistical symbols in a similar way, such as `\bar{x}`. In this case, the `bar` symbol will be applied over the `x`, to make our statistical symbol for sample mean: $\bar{x}$.  
 
 ::: {.grid}
 ::: {.g-col-6}
@@ -582,6 +582,7 @@ $\bar{x}$
 $\hat{p}$  
 $\hat{\beta}_1$  
 ````
+
 :::
 ::: {.g-col-6}
 $\bar{x}$  
@@ -594,7 +595,7 @@ $\hat{\beta}_1$
 
 #### Equations
 
-Finally, we can write little equations for our outputs:, like $\bar{x} = 3.54$.
+Finally, we can write little equations for our outputs:, like $\bar{x} = 3.54$.  
 
 ::: {.grid}
 ::: {.g-col-6}

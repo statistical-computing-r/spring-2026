@@ -6,13 +6,14 @@ project:
     - "!/labs/student/"
     - "!/videos/"
     - "!/labs/"
-    - "!/group-activities"
+    - "!*activity.qmd"  
     - "!/code-review/"
     - "!/notes/"
     - "!/portfolio/"
     - "!/slides/"
     - "!/videos/"
     - "!/weeks/not-updated/"
+    - "!/group-actvitites/not-updated"
     
 website:
   page-navigation: true
@@ -47,7 +48,7 @@ website:
       - section: "Course information"
         contents:
           - href: index.qmd
-            text: "Weekly Schedule"
+            text: "Home"
           - href: course-materials/course_resources.qmd
             text: "R Resources"
           - href: group-activities/pair-programming-norms.qmd
@@ -58,8 +59,8 @@ website:
             text: "Week 1 - R & RStudio"
           - href: weeks/week-2-quarto.qmd
             text: "Week 2 - Quarto"
-          # - href: weeks/week-3-version-control.qmd
-          #   text: "Week 3 - Version Control"
+          - href: weeks/week-3-version-control.qmd
+            text: "Week 3 - Version Control"
           # - href: weeks/week-4-ggplot.qmd
           #   text: "Week 4 - Data Visualization"
           # - href: weeks/week-5-projects-data-import.qmd
@@ -76,7 +77,25 @@ website:
           #   text: "Week 12 - Functions"
           # - href: weeks/week-13-iteration.qmd
           #   text: "Week 13 - Iteration"           
-            
+
+      - section: "Pair Programming Activities" 
+        contents:
+          - href: group-activities/week-2/pa-1-base-r-instructions.qmd
+            text: "Pair Activity 1: Break the Code"
+          # - href: labs/instructions/lab-2-instructions.qmd
+          #   text: "Lab 2 Instructions"
+          # - href: labs/instructions/lab-3-instructions.qmd
+          #   text: "Lab 3 and Challenge 3 Instructions"
+          # - href: labs/instructions/lab-4-instructions.qmd
+          #   text: "Lab 4 Instructions"
+          # - href: labs/instructions/lab-5-instructions.qmd
+          #   text: "Lab 5 Instructions"   
+          # - href: labs/instructions/lab-6-instructions.qmd
+          #   text: "Lab 6 Instructions" 
+          # - href: labs/instructions/lab-7-instructions.qmd
+          #   text: "Lab 7 Instructions" 
+          # - href: labs/instructions/lab-8-instructions.qmd
+          #   text: "Lab 8 Instructions"             
           
       - section: "Labs" 
         contents:
@@ -116,4 +135,4 @@ format:
     linkcolor: "#5D737E"
 #    highlight-style: a11y-dark
 
-editor: visual
+editor: source

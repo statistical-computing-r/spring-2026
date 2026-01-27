@@ -274,7 +274,7 @@ programming language, including:
 
 Includes the text editor. This is where you'll do most of your work.
 
-![](images/week-1/Rstudio-editor-pane-buttons.png)
+![](images/week-1/Rstudio-editor-pane-buttons.png){fig-alt="The logo on the script file indicates the file type. When an R file is open, there are Run and Source buttons on the top which allow you to run selected lines of code (Run) or source (run) the entire file. Code line numbers are provided on the left (this is a handy way to see where in the code the errors occur), and you can see line:character numbers at the bottom left. At the bottom right, there is another indicator of what type of file Rstudio thinks this is."}
 
 The logo on the script file indicates the file type. When an R file is open, there are Run and Source buttons on the top which allow you to run selected lines of code (Run) or source (run) the entire file. Code line numbers are provided on the left (this is a handy way to see where in the code the errors occur), and you can see line:character numbers at the bottom left. At the bottom right, there is another indicator of what type of file Rstudio thinks this is.
 
@@ -286,7 +286,7 @@ In the top right, you'll find the environment, history, and connections tabs. Th
 
 On the bottom left is the console. There are also other tabs to give you a terminal (command line) prompt, and a jobs tab to monitor progress of long-running jobs. In this class we'll primarily use the console tab.
 
-![](images/week-1/Rstudio-terminal-R.png)
+![](images/week-1/Rstudio-terminal-R.png){fig-alt="On the bottom left is the console. There are also other tabs to give you a terminal (command line) prompt, and a jobs tab to monitor progress of long-running jobs. In this class we'll primarily use the console tab."}
 
 ## Bottom-right
 
@@ -294,17 +294,17 @@ On the bottom right, there are a set of tabs:
 
 -   **files** (to give you an idea of where you are working, and what files are present),
 
-![](images/week-1/Rstudio-file-tab.png)
+![](images/week-1/Rstudio-file-tab.png){fig-alt="On the bottom right, there are a set of tabs - **files** (to give you an idea of where you are working, and what files are present)"}
 
 -   **plots** (which will be self-explanatory),
 
 -   **packages** (which extensions to R are installed and loaded),
 
-![](images/week-1/Rstudio-packages-tab.png)
+![](images/week-1/Rstudio-packages-tab.png){fig-alt="A tab for **packages** (which extensions to R are installed and loaded)"}
 
 -   the **help** tab (where documentation will show up), and
 
-![](images/week-1/Rstudio-help-tab.png)
+![](images/week-1/Rstudio-help-tab.png){fig-alt="A tab for the **help** tab (where documentation will show up)"}
 
 -   the **viewer** window, which is used for interactive graphics or previewing HTML documents.
 :::
@@ -400,6 +400,7 @@ check_question(answer = "<-",
 ```{r}
 #| label: question-5
 #| echo: false
+#| 
 check_question(answer = "#",
                options = c("#",
                            "|",
