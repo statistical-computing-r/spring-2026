@@ -49,6 +49,45 @@ You can download it here: [Lab 1](../student/lab-1-student.qmd)
 
 The file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab! 
 
+
+### Optional Alternative Setup for Lab 1
+
+In order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the [Week 3 Activities](../weeks/week-3-version-control.qmd))
+
+#### Step 1: Access GitHub Classroom Assignment  
+
+Click on the following link to create your repository for [Lab 1: Introduction to Quarto](https://classroom.github.com/a/xzjmK1pj).  
+
+You will need to accept the assignment and then go to the link provided for the repository.  
+
+#### Step 2: Copy the HTTPS Link to the Repository
+
+Find the **<> Code** button and select **Local** and then **HTTPS**. Copy the URL for the Repository provided
+
+![](images/selecting-https-github.png){fig-alt="screenshot of GitHub Repository HTTPS link found under CODE in a repository on GitHub"}
+
+
+#### Step 3: Make a New Project in RStudio
+Either under File, or in the top right corner where the current project name is, select
+
+![](images/create-new-project.png){fig-alt="Screenshot of new project option in RStudio under the project name in RStudio"}  
+
+
+#### Step 4: Choose New Project
+For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.  
+
+![](images/choose-new-project.png){fig-alt="Image of New Project Wizard in RStudio where students should select New Project"}
+
+
+#### Step 5: Choose a Version Control
+Choose **Version Control** and the **Git**. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.  
+
+![](images/paste-git-https-r.png){fig-alt="Clone Git Repository Screen in RStudio where you paste the link under Repository URL."}
+
+Now you should be set up and ready to go!
+
+
+
 # Part Two: Exploring Quarto Documents
 
 ## Specifying Global Execute Options

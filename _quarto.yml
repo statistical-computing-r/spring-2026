@@ -4,6 +4,7 @@ project:
   render: 
     - "*.qmd"
     - "!/labs/student/"
+    - "!labs/instructions/not-updated"
     - "!/videos/"
     - "!*activity.qmd"  
     - "!/code-review/"
@@ -12,7 +13,7 @@ project:
     - "!/slides/not-updated/"
     - "!/videos/"
     - "!/weeks/not-updated/"
-    - "!/group-actvitites/not-updated"
+    - "!/group-activities/not-updated"
     
 website:
   page-navigation: true
@@ -48,7 +49,7 @@ website:
         contents:
           - href: index.qmd
             text: "Home"
-          - href: course-materials/course_resources.qmd
+          - href: course-materials/course-resources.qmd
             text: "R Resources"
           - href: group-activities/pair-programming-norms.qmd
             text: "Pair Programming Norms"

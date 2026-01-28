@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../course-materials/course_resources.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../course-materials/course-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
   </div>
 </li>
@@ -390,8 +390,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Labs</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 &amp; Challenge 1 Instructions</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -748,33 +761,33 @@ Type the following into your console:</p>
 <p><strong>Question 1:</strong> What does it mean for R to be <strong>“open-source”</strong>?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_72948" onsubmit="return validate_form_72948()" method="post">
+<form name="form_90252" onsubmit="return validate_form_90252()" method="post">
 <label>
-<input type="radio" name="answer_72948" id="answer_72948_1" value="Users are required to share all the code they write.">
+<input type="radio" name="answer_90252" id="answer_90252_1" value="Users are required to share all the code they write.">
 Users are required to share all the code they write.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72948" id="answer_72948_2" value="Private companies must pay the *R Core Group* to use R.">
+<input type="radio" name="answer_90252" id="answer_90252_2" value="Private companies must pay the *R Core Group* to use R.">
 Private companies must pay the *R Core Group* to use R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72948" id="answer_72948_3" value="Developers cannot charge for the use of their R software">
+<input type="radio" name="answer_90252" id="answer_90252_3" value="Developers cannot charge for the use of their R software">
 Developers cannot charge for the use of their R software
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72948" id="answer_72948_4" value="Anyone can change the base functionality of R.">
+<input type="radio" name="answer_90252" id="answer_90252_4" value="Anyone can change the base functionality of R.">
 Anyone can change the base functionality of R.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_72948"></div>
+<div id="result_90252"></div>
 </form>
-<script>function validate_form_72948() {var x, text; var x = document.forms['form_72948']['answer_72948'].value;if (x == 'Developers cannot charge for the use of their R software'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_72948').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_90252() {var x, text; var x = document.forms['form_90252']['answer_90252'].value;if (x == 'Developers cannot charge for the use of their R software'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_90252').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_72948').innerText == 'Correct';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_90252').innerText == 'Correct';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -783,33 +796,33 @@ Anyone can change the base functionality of R.
 <p><strong>Question 2:</strong> How often do you need to install a package on your computer?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_56118" onsubmit="return validate_form_56118()" method="post">
+<form name="form_99553" onsubmit="return validate_form_99553()" method="post">
 <label>
-<input type="radio" name="answer_56118" id="answer_56118_1" value="Every time you restart R.">
+<input type="radio" name="answer_99553" id="answer_99553_1" value="Every time you restart R.">
 Every time you restart R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56118" id="answer_56118_2" value="Never, as long as you are connected to the internet.">
+<input type="radio" name="answer_99553" id="answer_99553_2" value="Never, as long as you are connected to the internet.">
 Never, as long as you are connected to the internet.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56118" id="answer_56118_3" value="Only once. Afterwards, R can find the package on your hard drive when it needs to.">
+<input type="radio" name="answer_99553" id="answer_99553_3" value="Only once. Afterwards, R can find the package on your hard drive when it needs to.">
 Only once. Afterwards, R can find the package on your hard drive when it needs to.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_56118" id="answer_56118_4" value="Every time you restart your computer.">
+<input type="radio" name="answer_99553" id="answer_99553_4" value="Every time you restart your computer.">
 Every time you restart your computer.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_56118"></div>
+<div id="result_99553"></div>
 </form>
-<script>function validate_form_56118() {var x, text; var x = document.forms['form_56118']['answer_56118'].value;if (x == 'Only once. Afterwards, R can find the package on your hard drive when it needs to.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_56118').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_99553() {var x, text; var x = document.forms['form_99553']['answer_99553'].value;if (x == 'Only once. Afterwards, R can find the package on your hard drive when it needs to.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_99553').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_72948').innerText == 'Correct'; res2 = document.getElementById('result_56118').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_90252').innerText == 'Correct'; res2 = document.getElementById('result_99553').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -818,33 +831,33 @@ Every time you restart your computer.
 <p><strong>Question 3:</strong> What is the tidyverse?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_65934" onsubmit="return validate_form_65934()" method="post">
+<form name="form_24611" onsubmit="return validate_form_24611()" method="post">
 <label>
-<input type="radio" name="answer_65934" id="answer_65934_1" value="A word processing program for R.">
+<input type="radio" name="answer_24611" id="answer_24611_1" value="A word processing program for R.">
 A word processing program for R.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_65934" id="answer_65934_2" value="An alternate universe where everyone is an R programmer.">
+<input type="radio" name="answer_24611" id="answer_24611_2" value="An alternate universe where everyone is an R programmer.">
 An alternate universe where everyone is an R programmer.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_65934" id="answer_65934_3" value="A collection of packages that work well together and provide tools for common data science tasks.">
+<input type="radio" name="answer_24611" id="answer_24611_3" value="A collection of packages that work well together and provide tools for common data science tasks.">
 A collection of packages that work well together and provide tools for common data science tasks.
 </label>
 <br>
 <label>
-<input type="radio" name="answer_65934" id="answer_65934_4" value="A code style that reads like poetry.">
+<input type="radio" name="answer_24611" id="answer_24611_4" value="A code style that reads like poetry.">
 A code style that reads like poetry.
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_65934"></div>
+<div id="result_24611"></div>
 </form>
-<script>function validate_form_65934() {var x, text; var x = document.forms['form_65934']['answer_65934'].value;if (x == 'A collection of packages that work well together and provide tools for common data science tasks.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_65934').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_24611() {var x, text; var x = document.forms['form_24611']['answer_24611'].value;if (x == 'A collection of packages that work well together and provide tools for common data science tasks.'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_24611').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_72948').innerText == 'Correct'; res2 = document.getElementById('result_56118').innerText == 'Correct'; res3 = document.getElementById('result_65934').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_90252').innerText == 'Correct'; res2 = document.getElementById('result_99553').innerText == 'Correct'; res3 = document.getElementById('result_24611').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -853,33 +866,33 @@ A code style that reads like poetry.
 <p><strong>Question 4</strong>: New objects in R are created using which symbol(s)?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_72777" onsubmit="return validate_form_72777()" method="post">
+<form name="form_75393" onsubmit="return validate_form_75393()" method="post">
 <label>
-<input type="radio" name="answer_72777" id="answer_72777_1" value="==">
+<input type="radio" name="answer_75393" id="answer_75393_1" value="==">
 ==
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72777" id="answer_72777_2" value="<-">
+<input type="radio" name="answer_75393" id="answer_75393_2" value="<-">
 &lt;-
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72777" id="answer_72777_3" value="->">
+<input type="radio" name="answer_75393" id="answer_75393_3" value="->">
 -&gt;
 </label>
 <br>
 <label>
-<input type="radio" name="answer_72777" id="answer_72777_4" value="=">
+<input type="radio" name="answer_75393" id="answer_75393_4" value="=">
 =
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_72777"></div>
+<div id="result_75393"></div>
 </form>
-<script>function validate_form_72777() {var x, text; var x = document.forms['form_72777']['answer_72777'].value;if (x == '<-'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_72777').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_75393() {var x, text; var x = document.forms['form_75393']['answer_75393'].value;if (x == '<-'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_75393').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_72948').innerText == 'Correct'; res2 = document.getElementById('result_56118').innerText == 'Correct'; res3 = document.getElementById('result_65934').innerText == 'Correct'; res4 = document.getElementById('result_72777').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_90252').innerText == 'Correct'; res2 = document.getElementById('result_99553').innerText == 'Correct'; res3 = document.getElementById('result_24611').innerText == 'Correct'; res4 = document.getElementById('result_75393').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -888,33 +901,33 @@ A code style that reads like poetry.
 <p><strong>Question 5</strong>: A code comment in R is declared using what symbol?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_41712" onsubmit="return validate_form_41712()" method="post">
+<form name="form_90614" onsubmit="return validate_form_90614()" method="post">
 <label>
-<input type="radio" name="answer_41712" id="answer_41712_1" value="#">
+<input type="radio" name="answer_90614" id="answer_90614_1" value="#">
 #
 </label>
 <br>
 <label>
-<input type="radio" name="answer_41712" id="answer_41712_2" value="|">
+<input type="radio" name="answer_90614" id="answer_90614_2" value="|">
 |
 </label>
 <br>
 <label>
-<input type="radio" name="answer_41712" id="answer_41712_3" value="&amp;">
+<input type="radio" name="answer_90614" id="answer_90614_3" value="&amp;">
 &amp;
 </label>
 <br>
 <label>
-<input type="radio" name="answer_41712" id="answer_41712_4" value="!">
+<input type="radio" name="answer_90614" id="answer_90614_4" value="!">
 !
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_41712"></div>
+<div id="result_90614"></div>
 </form>
-<script>function validate_form_41712() {var x, text; var x = document.forms['form_41712']['answer_41712'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_41712').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_90614() {var x, text; var x = document.forms['form_90614']['answer_90614'].value;if (x == '#'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_90614').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_72948').innerText == 'Correct'; res2 = document.getElementById('result_56118').innerText == 'Correct'; res3 = document.getElementById('result_65934').innerText == 'Correct'; res4 = document.getElementById('result_72777').innerText == 'Correct'; res5 = document.getElementById('result_41712').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_90252').innerText == 'Correct'; res2 = document.getElementById('result_99553').innerText == 'Correct'; res3 = document.getElementById('result_24611').innerText == 'Correct'; res4 = document.getElementById('result_75393').innerText == 'Correct'; res5 = document.getElementById('result_90614').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -923,33 +936,33 @@ A code style that reads like poetry.
 <p><strong>Question 6</strong>: Which of the following object names is an example of “snake case”?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_327" onsubmit="return validate_form_327()" method="post">
+<form name="form_20447" onsubmit="return validate_form_20447()" method="post">
 <label>
-<input type="radio" name="answer_327" id="answer_327_1" value="data.only.february">
+<input type="radio" name="answer_20447" id="answer_20447_1" value="data.only.february">
 data.only.february
 </label>
 <br>
 <label>
-<input type="radio" name="answer_327" id="answer_327_2" value="dataOnlyFebruary">
+<input type="radio" name="answer_20447" id="answer_20447_2" value="dataOnlyFebruary">
 dataOnlyFebruary
 </label>
 <br>
 <label>
-<input type="radio" name="answer_327" id="answer_327_3" value="data_only_february">
+<input type="radio" name="answer_20447" id="answer_20447_3" value="data_only_february">
 data_only_february
 </label>
 <br>
 <label>
-<input type="radio" name="answer_327" id="answer_327_4" value="Data_only.FEBRUARY">
+<input type="radio" name="answer_20447" id="answer_20447_4" value="Data_only.FEBRUARY">
 Data_only.FEBRUARY
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_327"></div>
+<div id="result_20447"></div>
 </form>
-<script>function validate_form_327() {var x, text; var x = document.forms['form_327']['answer_327'].value;if (x == 'data_only_february'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_327').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_20447() {var x, text; var x = document.forms['form_20447']['answer_20447'].value;if (x == 'data_only_february'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_20447').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_72948').innerText == 'Correct'; res2 = document.getElementById('result_56118').innerText == 'Correct'; res3 = document.getElementById('result_65934').innerText == 'Correct'; res4 = document.getElementById('result_72777').innerText == 'Correct'; res5 = document.getElementById('result_41712').innerText == 'Correct'; res6 = document.getElementById('result_327').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_90252').innerText == 'Correct'; res2 = document.getElementById('result_99553').innerText == 'Correct'; res3 = document.getElementById('result_24611').innerText == 'Correct'; res4 = document.getElementById('result_75393').innerText == 'Correct'; res5 = document.getElementById('result_90614').innerText == 'Correct'; res6 = document.getElementById('result_20447').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
          return false;
          }}</script>
 </div>
