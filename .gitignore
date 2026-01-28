@@ -7,14 +7,14 @@
 
 **/*.quarto_ipynb
 
-labs/student/
+
+
+labs/student/not-updated/
+labs/instructor/not-updated
+slides/not-updated/
+weeks/not-updated/
+group-actvitites/not-updated/
 videos/
-labs/note-updated/
 code-review/
 notes/
 portfolio/
-slides/not-updated/
-videos/
-weeks/not-updated/
-group-actvitites/not-updated/
-
