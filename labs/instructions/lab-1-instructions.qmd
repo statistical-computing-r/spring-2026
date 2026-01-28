@@ -198,7 +198,7 @@ than making a bunch of big changes and then realizing something is wrong.
 ## Turn it in!
 
 Open the .html file on your computer to make sure it looks as you expected. Then
-upload the rendered (.html extension) document to Canvas!
+upload the rendered (.html extension) document to Canvas along with the !
 
 > You'll be doing this same process for all your future Lab Assignments. Each of
 > these will involve a Quarto file. Some weeks, I may have a template for you to
