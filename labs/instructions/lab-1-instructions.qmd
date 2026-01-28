@@ -13,20 +13,48 @@ execute:
   echo: false
 ---
 
-# Accessing the Lab
 
-Download the template Lab 1 Quarto file here: <a href="../student/lab-1-student.qmd" download>`lab-1-student.qmd`</a> 
+# Part One: Workflow for Lab Setup
+
+## Step 1: Make a New Project in RStudio
+Either under File, or in the top right corner where the current project name is, select
+
+![](images/create-new-project.png){fig-alt="Screenshot of new project option in RStudio under the project name in RStudio"}  
 
 
-::: {.callout-important}
-Be sure to save the file in the Lab 1 folder, inside your Week 1 folder, inside your STAT 210 folder! 
-:::
+## Step 2: Choose New Project
+For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.  
 
-# Lab 1: Exploring Quarto Documents
+![](images/choose-new-project.png){fig-alt="Image of New Project Wizard in RStudio where students should select New Project"}
+
+
+## Step 3: Choose a New Directory
+For this week, you will create a **New Directory**. Once we start using GitHub and Git, we may choose Version Control as our option.
+
+
+![](images/choose-new-directory.png){fig-alt="Image of New Project Wizard with options for New Directory, Existing Director, and Version Control"}
+
+## Step 4: Choose the File Name and Location 
+Now set up your file name (for the folder and `.Rproj` file) and the best subdirectory for your Lab 1. This should be a nested folder within your "STAT 210" Folder on your hard drive (Documents), with the "lab" sub-folder, and "week-2" sub-sub-folder. 
+
+Use the file format `your-name-lab-1`
+
+![](images/set-directory-name-location.png){fig-alt="Create New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location"}
+
+## Step 6: Download the `lab-1-student.qmd`
+
+Now download the lab file into your new project folder on your computer. Rename the file so that it reads `lab-1-your-name.qmd` with your first and last name.  
+
+You can download it here: [Lab 1](../student/lab-1-student.qmd)
+
+The file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab! 
+
+# Part Two: Exploring Quarto Documents
 
 ## Specifying Global Execute Options
 
-Execution options specify how the R code in your Quarto document should be displayed. This [guide](https://quarto.org/docs/computations/execution-options.html)
+Execution options specify how the R code in your Quarto document should be
+displayed. This [guide](https://quarto.org/docs/computations/execution-options.html)
 provides descriptions on the options you can specify in a document's execution.
 
 To start, your YAML should look something like this:
@@ -44,16 +72,23 @@ editor: source
 
 **Question 1** -- Add your name and the date to the YAML.
 
-**Question 2** -- Add an `execute` line to your YAML that includes the following options, (1) your source code is always output on the page, and (2) your document will render even if there are errors. Be careful about spacing with each option in the `execute` line.
-
+**Question 2** -- Add an `execute` line to your YAML that includes the following
+options, (1) your source code is always output on the page, and (2) your
+document will render even if there are errors.
 
 ## Running the Provided Code
 
-Next, click on the "Play" button on the right of the first auto-populated code chunk. Alternatively, you can highlight (or simply put your cursor on the line of) the code you want to run and hit <kbd>ctrl</kbd> + <kbd>Enter</kbd> (for PCs) or <kbd>⌘</kbd> + <kbd>Enter</kbd> (for Macs).
+Next, click on the "Play" button on the right of the first auto-populated code
+chunk. Alternatively, you can highlight (or simply put your cursor on the line
+of) the code you want to run and hit <kbd>ctrl</kbd> + <kbd>Enter</kbd> (for
+PCs) or <kbd>⌘</kbd> + <kbd>Enter</kbd> (for Macs).
 
-You should see the code appear in the console, as well as the result of the code (`2`). Keep in mind the `[1]` before the `2` is vector notation. This means the result is a *vector* of length 1, whose first element is `2`.
+You should see the code appear in the console, as well as the result of the code
+(`2`). Keep in mind the `[1]` before the `2` is vector notation. This means the
+result is a *vector* of length 1, whose first element is `2`.
 
-**Question 3** -- Let's spice this code up a bit. Delete `1 + 1` from the code chunk and paste in the following code:
+**Question 3** -- Let's spice this code up a bit. Delete `1 + 1` from the code
+chunk and paste in the following code:
 
 ```{r}
 #| eval: false
@@ -67,25 +102,37 @@ data(ToothGrowth)
 summary(ToothGrowth)
 ```
 
-Now run this code. You should see a six-number summary of the variables `len` and `dose` included in the `ToothGrowth` dataset, as well as the frequency of the levels contained in the `supp` variable. Further, if you inspect the Environment tab, the `ToothGrowth` dataset should appear. You can click on the dataset name (not the blue play button!) to look at the data.
+Now run this code. You should see a six-number summary of the variables `len`
+and `dose` included in the `ToothGrowth` dataset, as well as the frequency of
+the levels contained in the `supp` variable. Further, if you inspect the
+Environment tab, the `ToothGrowth` dataset should appear. You can click on the
+dataset name (not the blue play button!) to look at the data.
 
-## Check the Data Documentation
+### Check the Data Documentation
 
-**Question 4** -- In your **console** (*not* in the Quarto document), type `?ToothGrowth` (or alternatively `help(ToothGrowth)`). Use the information that pops up in the *Help* pane in RStudio to fill in the blanks below.
+**Question 4** -- In your **console** (*not* in the Quarto document), type
+`?ToothGrowth` (or alternatively `help(ToothGrowth)`). Use the information that
+pops up in the *Help* pane in RStudio to fill in the blanks below.
 
-*This dataset investigates the effect of ____________ on tooth growth in ______________.*
+*This dataset investigates the effect of \_\_\_\_\_\_\_\_\_\_ on tooth growth 
+in \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.*
 
-*The two supplement delivery methods include OJ (________________) and VC (__________).*
+*The two supplement delivery methods include OJ (\_\_\_\_\_\_\_\_\_\_\_\_\_\_)
+and VC (\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_).*
 
-*`ToothGrowth` is a data frame with ________ observations and __________ variables.*
+*`ToothGrowth` is a data frame with \_\_\_\_ observations and \_\_\_\_ 
+variables.*
 
-**Question 5** -- *Before* the code chunk, change the "Running the Provided Code" section header to a header that better describes the contents of this section (e.g., Tooth Growth Dataset).
+**Question 5** -- *Before* the code chunk, change the "Running the Provided
+Code" section header to a header that better describes the contents of this
+section (e.g., Tooth Growth Dataset).
 
 ## Creating a Plot
 
 Your second code chunk is just as boring as your first, so let's spice it up!
 
-**Question 6** -- Replace the `plot(pressure)` code with the following (we will talk about graphics next week!):
+**Question 6** -- Replace the `plot(pressure)` code with the following (we will
+talk about graphics next week!):
 
 ```{r}
 #| echo: true
@@ -109,26 +156,26 @@ ToothGrowth %>%
 
 ```
 
-Now, run this code chunk! You should see two side-by-side boxplots, one plot comparing tooth length between the two supplement delivery methods and one plot comparing tooth length between the three different dosages uses.
+Now, run this code chunk! You should see two side-by-side boxplots, one plot
+comparing tooth length between the two supplement delivery methods and one plot
+comparing tooth length between the three different dosages uses.
 
-**Question 7** -- Read over the [Quarto documentation on figure options](https://quarto.org/docs/authoring/figures.html#computations) and add an option (`#|`) to the above code chunk to make the figures print side-by-side (i.e., in one row) in the rendered HTML file.
+**Question 7** -- Read over the [Quarto documentation on figure options](https://quarto.org/docs/authoring/figures.html#computations) and add an
+option (`#|`) to the above code chunk to make the figures print side-by-side
+(i.e., in one row) in the rendered HTML file.
 
-**Question 8** -- Specify in the code chunk options that these boxplots should be **center aligned** (also found in the Quarto documentation).
+**Question 8** -- Specify in the code chunk options that these boxplots should
+be **center aligned**.  
 
-**Question 9** -- Specify a **figure caption** for the boxplots (using a code-chunk option).
+**Question 9** -- Specify a **figure caption** for the boxplots (using a
+code-chunk option).  
 
-**Question 10** -- Digital accessibility is important. Specify **figure alternative text** for the boxplots (using a code-chunk option). The alt text should describe both figures.  
-
-::: {.callout-tip}
-# Look at the Quarto documentation! 
-
-This is a bit tricky! There are two plots, so you will need
-to figure out how to specify a different caption for each plot.
-:::
+**Question 10** -- Digital accessibility is important. Specify **figure alternative text** for the boxplots (using a code-chunk option). The alt text should describe both figures. 
 
 ## Inserting a New Code Chunk
 
-Navigate to the last sentence of your the Quarto document. We're now going to insert a new `R` code chunk at the bottom of the document.
+Navigate to the top of your document, just below the YAML code.  We're now going to
+insert a new `R` code chunk at the top of the document.
 
 There are four different ways to do this:
 
@@ -146,8 +193,46 @@ select "Code Chunk", and finally select "R".
 your code chunk with ```` ``` ````.
 
 
+**Question 11** -- Label the new code chunk as `setup` and add the specification `include: false` as well.  Then move the code `library(tidyverse)` from the code chunk modified in **Question 6** to the `setup` code chunk.  This is best practice for organizing Quarto documents.  
 
 
+
+## Creating a More Complex Plot
+
+In this section, we are to create a new plot that you will place in the created code chunk.  
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| eval: false
+#| label: new-plot-tooth-growth-data
+  
+ToothGrowth %>% 
+  mutate(dose = as.factor(dose)) %>% 
+  ggplot(mapping = aes(x = dose, y = len, fill = supp)) +
+  geom_boxplot() +
+  labs(x = "Dose of Supplement (mg/day)", 
+       y = "Length of Teeth (mm)",
+       fill = "Supplement Type")
+
+```
+
+Carry out the following steps:
+
+**Question 12** -- Navigate to the last sentence of your the Quarto document. Insert a new code chunk.  
+
+**Question 11** -- In the new code chunk, add the code for the graph. Be sure to include a code chunk label and alt text.  
+
+**Question 12** -- Run your code chunk to obtain the output for your new graph.  
+
+**Question 13** -- Create a numbered list containing:
+
+-   Your conclusions (in the context of these data) based on the graph.  
+-   A recommendation for how I should get my guinea pig's teeth (odontoblasts) to grow more.  
+
+**Question 13** -- Create another section header, describing the contents of
+this section before the graph and list.  
 
 ## Render Your Document
 
@@ -168,6 +253,7 @@ double checking your work!
 
 You will notice that there is auto-generated text that is unrelated to the work
 that you completed. It is always a good idea to delete this extra text!
+
 
 # Challenge 1: Styling your Quarto Document
 
@@ -198,9 +284,7 @@ than making a bunch of big changes and then realizing something is wrong.
 ## Turn it in!
 
 Open the .html file on your computer to make sure it looks as you expected. Then
-upload the rendered (.html extension) document to Canvas along with the !
+upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!
 
-> You'll be doing this same process for all your future Lab Assignments. Each of
-> these will involve a Quarto file. Some weeks, I may have a template for you to
-> copy like you had here, while other weeks you will generate your own Quarto
-> file from scratch.
+> You'll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.
+
