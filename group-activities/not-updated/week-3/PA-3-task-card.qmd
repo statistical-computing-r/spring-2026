@@ -1,0 +1,73 @@
+---
+title: "PA 3 Task Card -- Finding Ephelia's College"
+editor: source
+format: docx
+---
+
+Today you will use the `dplyr` package to clean some data. We will then use that
+cleaned data to figure out what college Ephelia has been accepted to.
+
+***This task is complex. It requires many different types of abilities. Everyone
+will be good at some of these abilities but nobody will be good at all of them.
+In order to solve this puzzle, you will need to use the skills of each member of
+your group.***
+
+## Group Roles
+
+When you are the **Developer**, you will type into the Quarto document in
+RStudio. However, you **do not** type your own ideas. Instead, you type what 
+the Coder tells you to type. You are permitted to ask the Coder clarifying
+questions, and, if both of you have a question, you are permitted to ask the
+professor. You are expected to run the code provided by the Coder and, if 
+necessary, to work with the Coder to debug the code. Once the code runs, you
+are expected to collaborate with the Coder to write code comments that describe
+the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the 
+instructions / prompts and directing the Developer what to type in the Quarto
+document. You are responsible for managing the resources your group has
+available to you (e.g., cheatsheet, textbook). If necessary, you should work
+with the Developer to debug the code you specified. Once the code runs, you
+are expected to collaborate with the Developer to write code comments that
+describe the actions taken by your code.
+
+## Group Norms
+
+Remember, your group is expected to adhere to the following norms:
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  Be open minded. 
+4.  No cross-talk with other groups.
+5.  Communicate with each other! 
+
+{{< pagebreak >}}
+
+## Piping
+
+You can choose whether to: 
+
+declare your data as the first argument of the function 
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+#| label: not-piped-data
+
+filter(.data = colleges, REGION == 5) |>
+  mutate(TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN)
+```
+
+***or***
+
+pipe your data into the first argument of the function
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+#| label: pipe-data
+
+colleges |>
+  filter(REGION == 5) |>
+  mutate(TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN)
+```

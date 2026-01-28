@@ -1,0 +1,301 @@
+---
+title: "Lab 8: Data Frame Functions"
+author: "Instructions"
+format: 
+  html:
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  eval: false
+  message: false
+  warning: false
+resources: 
+  - ../student/lab-8-student.qmd
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(palmerpenguins)
+library(RColorBrewer)
+```
+
+## Accessing the Lab
+
+Download the template Lab 8 Quarto file here: <a href="../student/lab-8-student.qmd" download>`lab-8-student.qmd`</a> 
+
+::: {.callout-important}
+Be sure to save this in the Lab 8 folder, inside your Week 8 folder, 
+inside your STAT 331 folder! 
+:::
+
+## Function to Standardize Variables in a Data Frame
+
+Last week, you wrote a `rescale_01()` function which would rescale the values of
+a numeric variable to be between 0 and 1. This function worked on vectors, so 
+to use it we needed to pair the function with `mutate()` if we wanted to make
+changes to the data. This week, we are going to use this function as a helper
+function for a larger `rescale_column()` function that will rescale variables in
+a given data frame. 
+
+**Question 1: Create a `rescale_column()` function that accepts two arguments:**
+
+- **a data frame**
+- **one or more variable names to rescale**
+
+
+**The body of the function should call the original `rescale_01()` function you wrote previously and return the original data frame with those columns replaced by their rescaled versions.**
+
+::: callout-important
+Your function call must look like one of these two options:
+
+```{r}
+# Tidy (unquoted) variable names
+rescale_column(df, c(height, weight))
+
+# Quoted variable names
+rescale_column(df, c("height", "weight"))
+```
+
+To achieve this, you function must use one of the `rlang` (tidy evaluation) options from class.
+:::
+
+```{r}
+#| label: df-rescale-function
+#| echo: false
+
+rescale_column <- function(data, cols){
+  data |> 
+    mutate(
+      across(.cols = {{ cols }}, 
+             .fns = ~ scale(.x, center = TRUE, scale = TRUE)
+             )
+      )
+}
+
+```
+
+**Test Your Function:** Use your `rescale_column()` function to rescale the 
+`bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g` 
+columns of the `penguins` dataset. *Note:* You may need to change the function
+inputs if you chose to use a character vector.
+
+```{r}
+#| label: rescale-column-test
+
+rescale_column(penguins, 
+               cols = c(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g)
+               )
+
+
+```
+
+## Function to Create a Table
+
+We've started to get more sophisticated with making tables, so let's see if 
+we can take these skills and create a function that outputs a pivoted table of 
+counts. 
+
+**Question 2: Write a `pivot_table()` function which takes in two categorical variables, 
+counts the number of observations in each group, and outputs a table of counts
+that has been pivoted wider.** 
+
+**Your function should accept three arguments:**
+
+- **a data frame**
+- **a row variable (categorical variable to appear in the rows)**
+- **a column variable (categorical variable to appear in the columns)**
+
+**Your function should:**
+
+- **count the number of observations for each combination of the two variables**
+- **pivot the results wider so that the row variable forms rows and the column variable forms columns**
+- **replace any missing counts (`NA`) with 0**
+- **add row and column totals using `janitor::adorn_totals()`**
+
+::: callout-important
+Your function call must look like one of these two options:
+
+```{r}
+# Tidy (unquoted) variable names
+pivot_table(df, species, island)
+
+# Quoted variable names
+pivot_table(df, "species", "island")
+```
+
+To achieve this, you function must use one of the `rlang` (tidy evaluation) options from class.
+:::
+
+```{r}
+#| label: pivot-table-function
+
+
+```
+
+```{r}
+#| echo: false
+#| label: my-pivot
+
+pivot_table <- function(data, rows, cols) {
+  data |>
+    count(pick(c({{ rows }}, {{ cols }}))) |>
+    pivot_wider(
+      names_from = {{ cols }},
+      values_from = n,
+      names_sort = TRUE,
+      values_fill = 0
+    ) |> 
+    janitor::adorn_totals(where = "both")
+}
+
+```
+
+### Test Your Function
+
+Use your `pivot_table()` function to display a table of counts for the `species`
+and `sex` of the penguins from the `penguins` dataset. *Note:* You may need to
+modify the names of the arguments! 
+
+```{r}
+#| label: pivot-table-test
+
+pivot_table(penguins, row = sex, col = species)
+```
+
+
+## Function to Create a Plot
+
+In the chapter you saw a few different types of plotting functions---creating 
+histograms with a specified `binwidth`, checking the linearity of a scatterplot,
+using hexagons to avoid over plotting in a scatterplot, and sorting bars from 
+least to greatest in a barplot. 
+
+For this section, you are going to use these functions as inspiration to write 
+your own plotting function. 
+
+**Question 3: Your plotting function must meet the following criteria:**
+
+- **a data frame must be the first argument**
+- **two additional arguments for variables (can be numeric or categorical)**
+- **the plot must map one of the variables to color (or fill)**
+- **axis labels and the plot title should be descriptive (e.g., use `labs()` to replace raw variable names with human-readable labels)**
+- **return a ggplot object**
+
+You may choose the plot type (e.g., scatterplot, barplot, boxplot), as long as
+it meets the criteria above. You can also choose whether your function accepts
+quoted or unquoted variable names, but you must use one of the 
+`rlang` (tidy evaluation) options from class.
+
+```{r}
+#| label: plot-function
+
+
+```
+
+### Test Your Function
+
+Test your function using variables from the `penguins` dataset. 
+
+```{r}
+#| label: plot-function-test
+
+
+```
+
+## Function to Style a Plot
+
+For this final section, I want you to write a wrapper function that can 
+style any `ggplot` object you create. 
+
+**Question 4: Write a `style_plot()` function which accepts four arguments:**
+
+- **a ggplot object**
+- **a theme function (e.g., `theme_bw()`)**
+    + **the function should set a default theme (e.g., `theme_minimal()`)**
+- **a vector of colors (e.g., `RColorBrewer::brewer.pal(8, "Accent")`)**
+    + **the function should set a default color palette**
+- **a string indicating which aesthetic the colors should be applied to ("fill" or "color")**
+- **a logical value indicating whether the legend should be included**
+
+**Your function should:**
+
+- **Apply the given (or default) theme to the plot**
+- **Apply the colors to the specified aesthetic (fill or color)**
+- **Remove the legend (if requested to be removed)**
+- **Return the styled plot**
+
+```{r}
+#| echo: false
+#| eval: false
+#| label: style-plot-from-chat
+
+style_plot <- function(plot, 
+                       theme_fn = theme_bw, 
+                       palette = brewer.pal(3, "Paired"), 
+                       aesthetic = "fill", 
+                       legend = TRUE) {
+  # Apply the theme
+  styled_plot <- plot + theme_fn()
+  
+  # Apply color palette if provided
+  if (aesthetic == "fill") {
+    styled_plot <- styled_plot + scale_fill_manual(values = palette)
+  } else if (aesthetic == "color") {
+    styled_plot <- styled_plot + scale_color_manual(values = palette)
+  } else {
+    warning("Aesthetic must be either 'fill' or 'color'")
+  }
+  
+  if(legend == FALSE){
+    styled_plot <- theme(legend.position = "none")
+  }
+  
+  styled_plot
+}
+```
+
+### Test Your Function
+
+Carry out the two tests below for your `style_plot()` function. *Note:* You may
+need to modify the names of the arguments!
+
+**Test 1:** My plot
+
+I've created a barplot that is stored as `my_plot`. Test your function using
+this plot. 
+
+```{r}
+#| label: style-plot-test-1
+
+my_plot <- ggplot(penguins, mapping = aes(x = species, fill = sex)) + 
+  geom_bar()
+
+## This will use your default theme and colors
+style_plot(my_plot, 
+           aesthetic = "fill")
+
+## This will use my favorite theme and colors
+style_plot(my_plot, 
+           theme_fn = theme_bw,
+           palette = brewer.pal(3, "Paired"),
+           aesthetic = "fill")
+```
+
+**Test 2:** Your plot
+
+Copy the code from your test of your plotting function (@plot-function-test) 
+and use your `style_plot()` function to style the plot! You are expected to 
+pipe your plot into the `style_plot()` function. **Do not** use nested 
+functions or save any objects!
+
+```{r}
+#| label: style-plot-test-2
+
+```
+
+<!-- The will learn that the base R pipe (|>) has higher precedence than + -->
+<!-- a + b |> f() is not f(a+ b) it is a + f(b) -->

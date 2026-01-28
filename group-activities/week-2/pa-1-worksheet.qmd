@@ -1,0 +1,23 @@
+---
+title: "Error Log Worksheet"
+format: docx
+---
+
+
+## Part 1: Error Message Investigation Log
+
+Run R code that produces errors or warnings. For each one, record what you observe and what you think it means.
+
+| # | R Code You Ran | Exact Error / Warning Message | Type (Error / Warning / Message) | What Do You Think It Means? | Likely Cause | How Would You Fix It? |
+|---|---------------|------------------------------|----------------------------------|-----------------------------|--------------|----------------------|
+| 1 |               |                              |                                  |                             |              |                      |
+| 2 |               |                              |                                  |                             |              |                      |
+| 3 |               |                              |                                  |                             |              |                      |
+| 4 |               |                              |                                  |                             |              |                      |
+| 5 |               |                              |                                  |                             |              |                      |
+| 6 |               |                              |                                  |                             |              |                      |
+| 7 |               |                              |                                  |                             |              |                      |
+| 8 |               |                              |                                  |                             |              |                      |
+| 9 |               |                              |                                  |                             |              |                      |
+| 10 |               |                              |                                  |                             |              |                      |
+
