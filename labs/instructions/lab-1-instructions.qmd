@@ -52,7 +52,7 @@ The file should appear in your project folder under your Files tab in the lower 
 
 ### Optional Alternative Setup for Lab 1
 
-In order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the [Week 3 Activities](../weeks/week-3-version-control.qmd))
+In order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the [Week 3 Activities](../../weeks/week-3-version-control.qmd))
 
 #### Step 1: Access GitHub Classroom Assignment  
 
