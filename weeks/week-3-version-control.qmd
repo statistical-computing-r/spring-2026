@@ -198,7 +198,7 @@ from another backup. You don't want to take chances.]
 Follow the instructions in [Registering a GitHub Account](https://happygitwithr.com/github-acct.html) to create a **free**
 GitHub account.
 
-**Copy and paste the link to your GitHub profile into the Canvas quiz.**
+**Copy and paste the link to your GitHub profile into the Canvas Tutorial.**
 
 + Your GitHub profile link should look like -- https://github.com/USERNAME
 + Here is mine! [https://github.com/jcanner](https://github.com/jcanner)
@@ -252,8 +252,8 @@ use_git_config(user.name = "Jane Doe",
 ### ✅ Check-in 3: Introduce Yourself to git
 
 Follow the instructions for introducing yourself to git by running the code 
-in your console. Once you've run the code, take a screenshot of the output in 
-your console. 
+in your console. 
+
 
 # Connecting Git, GitHub, and RStudio
 
