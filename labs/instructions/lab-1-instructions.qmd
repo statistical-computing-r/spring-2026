@@ -80,7 +80,7 @@ For now, we are simply creating a New R Project. This will generate a .Rproj fil
 
 
 #### Step 5: Choose a Version Control
-Choose **Version Control** and the **Git**. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.  
+Choose **Version Control** and then **Git**. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.  
 
 ![](images/paste-git-https-r.png){fig-alt="Clone Git Repository Screen in RStudio where you paste the link under Repository URL."}
 
