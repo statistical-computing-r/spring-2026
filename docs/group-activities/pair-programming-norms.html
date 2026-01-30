@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pair-programming-norms – Statistical Computing with R</title>
+<title>Pair Programming Roles – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -380,42 +380,235 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#team-norms" id="toc-team-norms" class="nav-link active" data-scroll-target="#team-norms">Team Norms</a></li>
+  <li><a href="#completing-the-task" id="toc-completing-the-task" class="nav-link" data-scroll-target="#completing-the-task">Completing the Task</a></li>
+  <li><a href="#once-youre-finished" id="toc-once-youre-finished" class="nav-link" data-scroll-target="#once-youre-finished">Once You’re Finished</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Course information</a></li><li class="breadcrumb-item"><a href="../group-activities/pair-programming-norms.html">Pair Programming Norms</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Course information</a></li><li class="breadcrumb-item"><a href="../group-activities/pair-programming-norms.html">Pair Programming Norms</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Pair Programming Roles</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:</p>
+<ul>
+<li>Coder – Proposes solution strategies</li>
+<li>Computer – Processes solution strategy</li>
+</ul>
+<p>The strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="collab-process.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A cycle of two individuals, the first shows the coder vocalize their goals, the second shows the coder explain their goals, then the computer implements the coder's instructions, then they debug"></p>
+</figure>
+</div>
+<p>Here are more details for how each role should engage with the task and each other through each step of the process:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">Computer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Coder</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 16%">
+<col style="width: 32%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Col1</th>
-<th>Col2</th>
-<th>Col3</th>
-<th>Col4</th>
+<th>Vocalize</th>
+<th>Explain</th>
+<th>Implement</th>
+<th>Debug</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><ul>
+<li><p>Be curious, but don’t correct.</p></li>
+<li><p>Listen to the Coder read the prompt and ensure that everyone understands.</p></li>
+<li><p>Listens carefully, asks the Coder to repeat statements if needed, or to slow down.</p></li>
+<li><p><strong>Do not</strong> give hints to the Coder for how to solve the problem.</p></li>
+<li><p><strong>Do not</strong> solve the problem yourself.</p></li>
+</ul></td>
+<td><ul>
+<li><p>Encourages the Coder to vocalize their thinking.</p></li>
+<li><p>Asks the Coder clarifying questions, but does not offer their own view.</p></li>
+<li><p>Ask the Coder about what comments to make in the notebook to help the team understand the code later.</p></li>
+</ul></td>
+<td><ul>
+<li><p>Types the code specified by the Coder into the notebook.</p></li>
+<li><p>Runs the code provided by the Coder.</p></li>
+</ul></td>
+<td><ul>
+<li><p>If code does not run or has errors, asks the Coder questions about how to debug the proposed solution strategy.</p></li>
+<li><p>Once code runs, ask the Coder to evaluate the output relative to the prompt to ensure the output addresses the question.</p></li>
+<li><p><strong>Do not</strong> tell the Coder how to correct an error.</p></li>
+</ul></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p><strong>Questions</strong></p>
+<ul>
+<li><p>What are you focusing on?</p></li>
+<li><p>What are you thinking now?</p></li>
+<li><p>Do you understand what we need to do?</p></li>
+<li><p>What other sources of information do we need?</p></li>
+<li><p>Which functions should we look up?</p></li>
+</ul></td>
+<td><p><strong>Questions</strong></p>
+<ul>
+<li><p>Why do you think that?</p></li>
+<li><p>Could you tell me more?</p></li>
+<li><p>Run that by me again.</p></li>
+<li><p>Could you elaborate?</p></li>
+<li><p>Can we pause, because I’m confused.</p></li>
+</ul></td>
+<td><p><strong>Questions</strong></p>
+<ul>
+<li><p>Is this the correct syntax?</p></li>
+<li><p>What are the arguments?</p></li>
+<li><p>Which package is that from?</p></li>
+<li><p>Am I missing anything?</p></li>
+</ul></td>
+<td><p><strong>Questions</strong></p>
+<ul>
+<li><p>Why do you think the code didn’t /did work?</p></li>
+<li><p>What do you think the error message indicates?</p></li>
+<li><p>What’s the question we have for the instructor? Can we answer the question ourselves?</p></li>
+<li><p>What else do we need to complete this problem?</p></li>
+</ul></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vocalize</th>
+<th>Explain</th>
+<th>Implement</th>
+<th>Debug</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p>Reads out loud instructions or prompts.</p></li>
+<li><p>Share with the Computer about ideas related to ways they could solve the problem.</p></li>
+<li><p>If needed, remind the Computer that they are the one to vocalize now.</p></li>
+<li><p>Manages resources (e.g., cheatsheets, textbook) for aiding in solution strategy.</p></li>
+<li><p><strong>Do not</strong> ask the Computer how they would solve the problem.</p></li>
+<li><p><strong>Do no</strong>t ask the Computer what functions / tools they should use.</p></li>
+</ul></td>
+<td><ul>
+<li><p>If needed, remind the Computer that they are the one to vocalize now.</p></li>
+<li><p>Share with the Computer their thought process.</p></li>
+<li><p>Talks with Computer about what comments to make in the notebook to help the group understand the code later.</p></li>
+</ul></td>
+<td><ul>
+<li><p>Directs the Computer what to type in the notebook.</p></li>
+<li><p>Check that the Computer is interpreting the code correctly and provide correction as needed.</p></li>
+</ul></td>
+<td><ul>
+<li><p>Revises solution strategy based on evaluation / debugging conversations with the Computer.</p></li>
+<li><p>Tells the Computer about what comments to update in the notebook to help the group understand the code later.</p></li>
+<li><p><strong>Do not</strong> ask the Computer to debug the code.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><strong>Statements</strong></p>
+<ul>
+<li><p>Read the prompt…</p></li>
+<li><p>It seems like the goal is to…</p></li>
+<li><p>I am confused by…</p></li>
+<li><p>This reminds me of…</p></li>
+<li><p>I am thinking about…</p></li>
+<li><p>I notice that…</p></li>
+<li><p>We could try…</p></li>
+<li><p>I am looking for a function/package that…</p></li>
+</ul></td>
+<td><p><strong>Statements</strong></p>
+<ul>
+<li><p>I think this will work because…</p></li>
+<li><p>I chose this approach because…</p></li>
+<li><p>I wonder what happens if we…</p></li>
+<li><p>If we run this, I expect it to…</p></li>
+<li><p>The comments we should include are…</p></li>
+</ul></td>
+<td><p><strong>Statements</strong></p>
+<ul>
+<li><p>Start with…</p></li>
+<li><p>The arguments to the function should be…</p></li>
+<li><p>I think the correct syntax is…</p></li>
+<li><p>I think the correct variable name is…</p></li>
+</ul></td>
+<td><p><strong>Statements</strong></p>
+<ul>
+<li><p>I think the bug might be coming from…</p></li>
+<li><p>What if we try…</p></li>
+<li><p>I am thinking about…</p></li>
+<li><p>Let’s look at the resources for…</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>In addition to the above protocol, remember the following:</p>
+<section id="team-norms" class="level2">
+<h2 class="anchored" data-anchor-id="team-norms">Team Norms</h2>
+<ol type="1">
+<li>Be curious. Don’t correct.</li>
+<li>Be open minded.</li>
+<li>Ask questions rather than contribute.</li>
+<li>Respect each other.</li>
+<li>Allow each teammate to contribute to the activity through their role.</li>
+<li>Do not divide the work.</li>
+<li>No cross talk with other groups.</li>
+<li>Communicate with each other!</li>
+</ol>
+</section>
+<section id="completing-the-task" class="level2">
+<h2 class="anchored" data-anchor-id="completing-the-task">Completing the Task</h2>
+<p>Working with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.</p>
+</section>
+<section id="once-youre-finished" class="level2">
+<h2 class="anchored" data-anchor-id="once-youre-finished">Once You’re Finished</h2>
+<p>At the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -851,7 +1044,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

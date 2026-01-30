@@ -342,9 +342,42 @@
   {
     "objectID": "group-activities/pair-programming-norms.html",
     "href": "group-activities/pair-programming-norms.html",
-    "title": "Statistical Computing with R",
+    "title": "Pair Programming Roles",
     "section": "",
-    "text": "Col1\nCol2\nCol3\nCol4",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#team-norms",
+    "href": "group-activities/pair-programming-norms.html#team-norms",
+    "title": "Pair Programming Roles",
+    "section": "Team Norms",
+    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
     "crumbs": [
       "Course information",
       "Pair Programming Norms"
