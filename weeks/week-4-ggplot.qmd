@@ -32,12 +32,11 @@ library(tidyverse)
 #### 📖 Readings: 45 minutes
 
 
-#### 💻 Activities: 45-60 minutes
+#### 💻 Tutorials: 45-60 minutes
 
 -   You'll be working through a series of tutorials helping you practice making plots with ggplot.
 
-#### ✅  Check-ins: 1 (8 questions broken out by sections)
-
+#### ✅  Check-ins: 1 
 
 
 # Loading in the **ggplot2** Package
@@ -98,7 +97,71 @@ This has a few advantages:
 -   [Scatterplots](https://r-primers.andrewheiss.com/visualize-data/05-scatterplots/)
 
 
-### ✅  Check-in 2.1
+
+## Aesthetics
+
+
+
+
+## geoms
+
+
+
+### What type of chart to use?
+
+It can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:
+
+-   What type of variable is `x`? Categorical? Continuous? Discrete?
+
+-   What type of variable is `y`?
+
+-   How many observations do I have for each `x` / `y` variable?
+
+-   Are there any important moderating variables?
+
+-   Do I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?
+
+Once you've thought through this, take a look through catalogs like the [R Graph Gallery](https://r-graph-gallery.com/) to see what visualizations match your data and use-case.
+
+
+
+## Getting a Bit Fancier
+
+In this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.
+
+### Global vs. local aesthetics
+
+
+
+
+
+
+## Facets
+
+
+
+
+## Changing the positions of bars
+
+
+
+
+
+
+## Plot Customizations
+
+📖 [Optional Reading: Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
+
+📖 [Optional Reading: Communication](https://r4ds.hadley.nz/communication.html)
+
+<!-- 📽 [Required Video: Axis labels, color themes, and legends, oh my! (7 minutes)](http://somup.com/crffFDbHiU) -->
+
+
+
+
+
+
+### ✅  Check-in 
 
 **Question 1** -- What specifically does the code `ggplot(data = mpg)` do?
 
@@ -106,11 +169,7 @@ This has a few advantages:
 -   Makes a scatterplot of the first two variables in the `mpg` dataset
 -   Creates a ggplot with the `mpg` dataset
 
-## Aesthetics
 
-
-
-### ✅  Check-in 2.1
 
 ```{r}
 ggplot(data = mpg) +
@@ -157,25 +216,7 @@ geom_point(
   )
 ```
 
-## geoms
 
-
-
-### What type of chart to use?
-
-It can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:
-
--   What type of variable is `x`? Categorical? Continuous? Discrete?
-
--   What type of variable is `y`?
-
--   How many observations do I have for each `x` / `y` variable?
-
--   Are there any important moderating variables?
-
--   Do I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?
-
-Once you've thought through this, take a look through catalogs like the [R Graph Gallery](https://r-graph-gallery.com/) to see what visualizations match your data and use-case.
 
 ### ✅  Check-in 2.1
 
@@ -202,15 +243,7 @@ Once you've thought through this, take a look through catalogs like the [R Graph
 :::
 :::
 
-## Getting a Bit Fancier
 
-In this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.
-
-### Global vs. local aesthetics
-
-
-
-### ✅  Check-in 2.1
 
 **Question 5:** Match the code to the type of aesthetics that are being used:
 
@@ -247,16 +280,6 @@ ggplot(data = mpg) +
 :::
 :::
 
-## Facets
-
-
-
-
-## Changing the positions of bars
-
-
-
-### ✅  Check-in 2.1
 
 **Question 6:** What arguments for `geom_jitter()` control the amount of jittering?
 
@@ -271,15 +294,6 @@ ggplot(data = mpg) +
 
 </br>
 
-## Plot Customizations
-
-📖 [Optional Reading: Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
-
-📖 [Optional Reading: Communication](https://r4ds.hadley.nz/communication.html)
-
-<!-- 📽 [Required Video: Axis labels, color themes, and legends, oh my! (7 minutes)](http://somup.com/crffFDbHiU) -->
-
-### ✅  Check-in 2.1
 
 **Question 7:** What can the `labs()` function do? Select all that apply.
 

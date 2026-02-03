@@ -47,7 +47,7 @@ Remember, your group is expected to adhere to the following norms:
 7. No cross talk with other groups. 
 8. Communicate with each other!
 
-## Part Zero: Accessing the Practice Activity
+## Part 0: Accessing the Practice Activity
 
 <!-- This is a Quarto Comment - if you highlight any markdown text and press CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
 
@@ -57,7 +57,7 @@ To access the activity and get it ready to share:
 2. To the description add "Peer Activity 2 with NAME1 and NAME 2" and check to add a README file and Create the Repository.  
 3. Under Settings, go to Collaborators, the Add people and search for your partner by username or email.  
 4. The partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.  
-5. The Computer should then create a Version Control R Project on their computer and then download the [`pa-2-vc-intro-tidy-activity.qmd](pa-2-vc-intro-tidy-activity.qmd) file into the folder on your computer.
+5. The Computer should then create a Version Control R Project on their computer and then download the [`pa-2-vc-intro-tidy-activity.qmd`](pa-2-vc-intro-tidy-activity.qmd) file into the folder on your computer.
 6. Test your connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.  
 
 Now you are ready to start! You will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.  
@@ -68,7 +68,7 @@ Now you are ready to start! You will switch roles here and the new Computer will
 
 **For each code chunk, add a `#| label:` and a `#comment` describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!**
 
-## Part One: Setup
+## Part 1: Setup
 
 In your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.  
 
@@ -124,7 +124,7 @@ my_symbols <- tibble(symbols = c(lower_case,
 <!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
 <!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes  -->
 
-# Part Two: Decoding the secret message.
+# Part 2: Decoding the secret message.
 
 This chunk will load up the encoded secret message as a vector:
 

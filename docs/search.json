@@ -397,94 +397,74 @@
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\n# add comment here\ncode_vector_update |&gt; \n  left_join(my_symbols, by = c(\"code\" = \"num\")) |&gt; \n  pull(symbols) |&gt; \n  stringr::str_c(collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/week-1/broken-circles.html",
-    "href": "group-activities/week-1/broken-circles.html",
-    "title": "Broken Circles",
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html",
+    "title": "Practice Activity 1: Break the Code",
     "section": "",
-    "text": "This activity is designed to explore how working in groups can be more or less successful."
+    "text": "NAMES: Write your group member names here.\nToday you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
   },
   {
-    "objectID": "group-activities/week-1/broken-circles.html#instructions",
-    "href": "group-activities/week-1/broken-circles.html#instructions",
-    "title": "Broken Circles",
-    "section": "Instructions",
-    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!\n\n\n\n\n\n\nInstructions\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code is on the PA1 Activity on the webpage, please copy the correct code into each code chunk.\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well, verifying the style guide is followed throughout the document.\n\n\nFollow the Steps\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nError in parse(text = input): &lt;text&gt;:5:56: unexpected string constant\n4: \n5: upper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\"\n                                                          ^\n\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected ','\n1: my_symbols &lt;- (lower_case,\n                             ^\n\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\nError in `dataframe()`:\n! could not find function \"dataframe\"\n\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\nError:\n! object 'my_Symbols' not found\n\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len\n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: my_symbols%Num &lt;- 1:len\n              ^"
   },
   {
-    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
-    "href": "group-activities/week-1/broken-circles.html#getting-started",
-    "title": "Broken Circles",
-    "section": "Getting Started",
-    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nRows: 955 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (1): X1\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\nError in parse(text = input): &lt;text&gt;:2:19: unexpected input\n1: \n2: ts6 &lt;- top_secret _\n                     ^\n\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\nError:\n! object 'ts6___________' not found\n\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts8 &lt;- __\n            ^\n\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts9 &lt;- \n   ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^\n\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_mat &lt;- __\n               ^\n\n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\nError in parse(text = input): &lt;text&gt;:1:22: unexpected input\n1: evens &lt;- seq(from = __\n                         ^\n\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected input\n1: ts_mat[, 1] &lt;- ts_mat[, __\n                             ^\n\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\nError in parse(text = input): &lt;text&gt;:1:29: unexpected input\n1: ts_mat[18:24, 3] &lt;- ts_mat[__\n                                ^\n\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: ts_mat[, __\n              ^\n\n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_vec &lt;- __\n               ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\nError in parse(text = input): &lt;text&gt;:2:2: unexpected input\n1: # Write code to verify that indices 500 and beyond have values **below** 100\n2: __\n    ^\n\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts_vec[__\n            ^\n\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts_vec &lt;- \n   ^\n\n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:19: unexpected input\n1: ts_vec[ts_vec == __\n                      ^\n\n\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^"
   },
   {
-    "objectID": "group-activities/week-1/broken-circles.html#discussion",
-    "href": "group-activities/week-1/broken-circles.html#discussion",
-    "title": "Broken Circles",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nError:\n! object 'my_symbols' not found\n\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/pair-programming-norms.html",
-    "href": "group-activities/pair-programming-norms.html",
-    "title": "Pair Programming Roles",
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Part 4: Wrap up",
+    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once rendered to HTML, submit your ZIPPED project with your “quiz” for the week."
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html",
+    "href": "group-activities/week-1/base-r.html",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "",
-    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
   },
   {
-    "objectID": "group-activities/pair-programming-norms.html#team-norms",
-    "href": "group-activities/pair-programming-norms.html#team-norms",
-    "title": "Pair Programming Roles",
-    "section": "Team Norms",
-    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
+    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity"
   },
   {
-    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
-    "href": "group-activities/pair-programming-norms.html#completing-the-task",
-    "title": "Pair Programming Roles",
-    "section": "Completing the Task",
-    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
+    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
+    "href": "group-activities/week-1/base-r.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
   },
   {
-    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "title": "Pair Programming Roles",
-    "section": "Once You’re Finished",
-    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
+    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
   },
   {
-    "objectID": "course-materials/course-resources.html",
-    "href": "course-materials/course-resources.html",
-    "title": "R Resources",
-    "section": "",
-    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
-    "crumbs": [
-      "Course information",
-      "R Resources"
-    ]
-  },
-  {
-    "objectID": "course-materials/calendar.html",
-    "href": "course-materials/calendar.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\nweek\n\n\ndate\n\n\ntopic\n\n\nprepare\n\n\nslides\n\n\nnotes\n\n\nactivity\n\n\nlab\n\n\nchallenge\n\n\nportfolio\n\n\n\n\n\n\n0\n\n\n16 September\n\n\nCourse Set-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to R & RStudio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to Quarto & R Projects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n22 September\n\n\nLab 1 & Challenge 1 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n23 September\n\n\nData Visualization with ggplot2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n25 September\n\n\nData Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n29 September\n\n\nLab 2 & Challenge 2 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n30 September\n\n\nData Wrangling with dplyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n2 October\n\n\nExtending Data Wrangling Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n6 October\n\n\nLab 3 & Challenge 3 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n7 October\n\n\nData Joins & Transformations with tidyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n9 October\n\n\nWorking with Categorical Variables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n13 October\n\n\nLab 4 & Challenge 4 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n14 October\n\n\nWorking with Strings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n16 October\n\n\nWorking with Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n20 October\n\n\nLab 5 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n21 October\n\n\nVersion Control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n23 October\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n27 October\n\n\nMidterm Portfolio Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n28 October\n\n\nBase R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n30 October\n\n\nVector Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 November\n\n\nLab 7 & Challenge 7 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n4 November\n\n\nData Frame Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n6 November\n\n\nPlotting Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n10 November\n\n\nLab 8 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n13 November\n\n\nIntroduction to Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n17 November\n\n\nLab 9 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n18 November\n\n\nSimulating Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n20 November\n\n\nSimulations & Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n24 November\n\n\nLab 10 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n2 December\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n5 December\n\n\nFinal Portfolio Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n6 December\n\n\nFinal Portfolio Conferences\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n8 December\n\n\nFinal Portfolio Conferences"
+    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
     "objectID": "course-materials/syllabus.html",
@@ -578,39 +558,94 @@
     "text": "9.8 Someone is threatening me, what can I do?\nI will listen and believe you if someone is threatening you. I will help you get the help you need. I commit to changing campus culture that responds poorly to dating violence and stalking."
   },
   {
-    "objectID": "group-activities/week-1/base-r.html",
-    "href": "group-activities/week-1/base-r.html",
-    "title": "Practice Activity 1: Find the Mistakes",
+    "objectID": "course-materials/calendar.html",
+    "href": "course-materials/calendar.html",
+    "title": " Schedule",
     "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\nweek\n\n\ndate\n\n\ntopic\n\n\nprepare\n\n\nslides\n\n\nnotes\n\n\nactivity\n\n\nlab\n\n\nchallenge\n\n\nportfolio\n\n\n\n\n\n\n0\n\n\n16 September\n\n\nCourse Set-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to R & RStudio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to Quarto & R Projects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n22 September\n\n\nLab 1 & Challenge 1 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n23 September\n\n\nData Visualization with ggplot2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n25 September\n\n\nData Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n29 September\n\n\nLab 2 & Challenge 2 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n30 September\n\n\nData Wrangling with dplyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n2 October\n\n\nExtending Data Wrangling Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n6 October\n\n\nLab 3 & Challenge 3 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n7 October\n\n\nData Joins & Transformations with tidyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n9 October\n\n\nWorking with Categorical Variables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n13 October\n\n\nLab 4 & Challenge 4 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n14 October\n\n\nWorking with Strings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n16 October\n\n\nWorking with Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n20 October\n\n\nLab 5 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n21 October\n\n\nVersion Control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n23 October\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n27 October\n\n\nMidterm Portfolio Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n28 October\n\n\nBase R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n30 October\n\n\nVector Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 November\n\n\nLab 7 & Challenge 7 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n4 November\n\n\nData Frame Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n6 November\n\n\nPlotting Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n10 November\n\n\nLab 8 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n13 November\n\n\nIntroduction to Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n17 November\n\n\nLab 9 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n18 November\n\n\nSimulating Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n20 November\n\n\nSimulations & Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n24 November\n\n\nLab 10 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n2 December\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n5 December\n\n\nFinal Portfolio Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n6 December\n\n\nFinal Portfolio Conferences\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n8 December\n\n\nFinal Portfolio Conferences"
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity"
+    "objectID": "course-materials/course-resources.html",
+    "href": "course-materials/course-resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
+    "crumbs": [
+      "Course information",
+      "R Resources"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
-    "href": "group-activities/week-1/base-r.html#part-one-setup",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+    "objectID": "group-activities/pair-programming-norms.html",
+    "href": "group-activities/pair-programming-norms.html",
+    "title": "Pair Programming Roles",
+    "section": "",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
+    "objectID": "group-activities/pair-programming-norms.html#team-norms",
+    "href": "group-activities/pair-programming-norms.html#team-norms",
+    "title": "Pair Programming Roles",
+    "section": "Team Norms",
+    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html",
+    "href": "group-activities/week-1/broken-circles.html",
+    "title": "Broken Circles",
+    "section": "",
+    "text": "This activity is designed to explore how working in groups can be more or less successful."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#instructions",
+    "href": "group-activities/week-1/broken-circles.html#instructions",
+    "title": "Broken Circles",
+    "section": "Instructions",
+    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
+    "href": "group-activities/week-1/broken-circles.html#getting-started",
+    "title": "Broken Circles",
+    "section": "Getting Started",
+    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#discussion",
+    "href": "group-activities/week-1/broken-circles.html#discussion",
+    "title": "Broken Circles",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   },
   {
     "objectID": "group-activities/week-2/pa-1-base-r-instructions.html",
@@ -712,22 +747,22 @@
     ]
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-zero-accessing-the-practice-activity",
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
     "title": "Practice Activity 2: Version Control",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nThe Computer (partner with next upcoming birthday) should create a GitHub repo called “pa-2-code-breaking”.\n\nTo the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.\n\nUnder Settings, go to Collaborators, the Add people and search for your partner by username or email.\n\nThe partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.\n\nThe Computer should then create a Version Control R Project on their computer and then download the `pa-2-vc-intro-tidy-activity.qmd file into the folder on your computer.\nTest your connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.\n\nNow you are ready to start! You will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!",
+    "section": "Part 0: Accessing the Practice Activity",
+    "text": "Part 0: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nThe Computer (partner with next upcoming birthday) should create a GitHub repo called “pa-2-code-breaking”.\n\nTo the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.\n\nUnder Settings, go to Collaborators, the Add people and search for your partner by username or email.\n\nThe partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.\n\nThe Computer should then create a Version Control R Project on their computer and then download the pa-2-vc-intro-tidy-activity.qmd file into the folder on your computer.\nTest your connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.\n\nNow you are ready to start! You will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!",
     "crumbs": [
       "Pair Programming Activities",
       "Pair Activity 2: Version Control"
     ]
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-one-setup",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-one-setup",
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
     "title": "Practice Activity 2: Version Control",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nIn your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.\n\nAdd a setup code chunk to your activity that loads the tidyverse package and hides the code output.\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your data frame that assigns a number to each symbol.\n\nIf you want to look at my_symbols click on it under the Environment Tab in the top right panel.\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())",
+    "section": "Part 1: Setup",
+    "text": "Part 1: Setup\nIn your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.\n\nAdd a setup code chunk to your activity that loads the tidyverse package and hides the code output.\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your data frame that assigns a number to each symbol.\n\nIf you want to look at my_symbols click on it under the Environment Tab in the top right panel.\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())",
     "crumbs": [
       "Pair Programming Activities",
       "Pair Activity 2: Version Control"
