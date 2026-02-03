@@ -1,16 +1,21 @@
 ---
-title: "Practice Activity 2: Modernizing the Process"
+title: "Practice Activity 2: Version Control"
 format: html
 editor: source
+embed-resources: true
 execute: 
   echo: true
-  eval: false
+  eval: true
 ---
 
+
+**NAMES:** Add names here  
+
+
 ```{r}
-#| label: load-packages
-#| include: false
-library(tidyverse)
+#| label: add-label-0
+
+
 ```
 
 Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the `tidyverse`. First thing is to include the package in a setup chunk above!  
@@ -20,40 +25,43 @@ Today you will be creating and manipulating vectors, lists, and data frames to u
 
 ## Groupwork Protocols
 
-During the Practice Activity, you and your partner will alternate between two roles---Developer and Coder.
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
 
-When you are the **Developer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
 
-When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
 
 ### Group Norms
 
-Remember, your group is expected to adhere to the following norms:
+Remember, your group is expected to adhere to the following norms:  
 
-1.  Think and work together. Do not divide the work.
-2.  You are smarter together.
-3.  No cross-talk with other groups.
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
 
 ## Part Zero: Accessing the Practice Activity
 
 <!-- This is a Quarto Comment - if you highlight any markdown text and press CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
 
-To access the activity and get it ready to share:
+The first Computer (partner with next upcoming birthday) should create a GitHub repo following the online instructions. Then you will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.  
 
-1.  Log into your [CSUMB R Server Account](https://rstudio.otterstat.org/).\
-2.  Choose one partner (with the closest upcoming birthday) to create an R Project called "pa-1-intro-quarto".\
-3.  Upload the `pa1-base-r.qmd` into the project folder.\
-4.  Share the project with the other partner, go to File \> Share Project \> Type partner's username \> Click Add
-
-<!-- Partner with the closest upcoming birthday starts as the... -->
-
-<!-- Developer (typing and listening to instructions from the Coder!) -->
+<!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes on their computer -->
+<!--The new Computer will now need create a local repository on their own computer and pull down the changes-->
 
 **For each code chunk, add a `#| label:` and a `#comment` describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!**
 
 ## Part One: Setup
 
-Each of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.
+In your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.  
+
+0. Add a `setup` code chunk to your activity that loads the `tidyverse` package and hides the code output.  
+
 
 1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.
 
@@ -70,6 +78,7 @@ punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 
 ```
 
+
 Using the above, we can complete the following 5 steps within a few lines of code using the `tidyverse`.
 
 2.  Make **one** long **vector** containing all the symbols.
@@ -77,34 +86,31 @@ Using the above, we can complete the following 5 steps within a few lines of cod
 4.  Find the total number of symbols we have in our data frame.
 5.  Create a new variable in your data frame that assigns a number to each symbol.
 
+If you want to look at `my_symbols` click on it under the Environment Tab in the top right panel.  
 
 ```{r}
 #| label: add-label-1
 # add comment here
 
-my_symbols <- tibble(symbols = c(lower_case, 
-                                 upper_case, 
-                                 punctuation)) |> 
-              mutate(num = row_number()) 
+
 ```
 
 
 
 
 
-<!-- Developer Stage your Changes, Commit, and Push to the Git Repository-->
-<!-- Now change roles (Developer becomes Coder) and the new Developer should PULL down the repository to make changes  -->
+<!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes  -->
 
-## Part Two: Decoding the secret message.
+# Part Two: Decoding the secret message.
 
 This chunk will load up the encoded secret message as a vector:
 
 ```{r}
 #| label: read-in-top-secret
 #extracts the code from a dropbox file and pulls out generic first vector X1
-library(readr)
 top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
-                       col_names = FALSE)$X1
+                       col_names = FALSE, show_col_types = FALSE)$X1
 
 ```
 
@@ -120,14 +126,7 @@ By altering this top secret set of numbers, you will be able to create a message
 #add comment here
 #there are several ways to do this, the way below doesn't overwrite any column so you "don't lose work"
 
-code_break <- top_secret |> 
-  as_tibble() |> 
-  mutate(step6 = top_secret + 14,
-         step7 = step6*18 - 257,
-         step8 = exp(step7),
-         step9 = step8^2)
 
-head(code_break) #see the first few lines here
 
 ```
 
@@ -139,13 +138,12 @@ head(code_break) #see the first few lines here
 #| label: add-label-3
 #add comment here
 
-code_break |> 
-  summarize(total = sum(step9 < 17))
+
 
 ```
 
-<!-- Developer Stage your Changes, Commit, and Push to the Git Repository-->
-<!-- Now change roles (Developer becomes Coder) and the new Developer should PULL down the repository to make changes on their computer -->
+<!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes on their computer -->
 
 Next, carry out the following steps:
 
@@ -154,11 +152,7 @@ Next, carry out the following steps:
 ```{r}
 #| label: add-label-4
 #add comment here
-code_matrix <- code_break |> 
-  pull(step9) |> 
-  matrix(ncol = 5) |> 
-  as_tibble(column_name = TRUE) |> 
-  mutate(id = row_number())
+
   
 ```
 
@@ -178,15 +172,7 @@ evens <- seq(from = 2, to = 382, by = 2)
 ```{r}
 #| label: add-label-6
 #add comment here
-code_vector <- code_matrix |> 
-  mutate(V1 = V1 - evens) |> 
-  mutate(V3 = if_else(id %in% 18:24, V3 - 100, V3)) |> 
-  mutate(V4 = V4*2, 
-         V5 = V5*2) |> 
-  select(-id) |> 
-  pivot_longer(V1:V5, names_to = "column", values_to = "code") |> 
-  arrange(column) |> 
-  mutate(id = row_number())
+
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your `top_secret` object!
@@ -196,11 +182,11 @@ code_vector <- code_matrix |>
 ```{r}
 #| label: add-label-7
 #code to verify that indices 500 and beyond have values **below** 100
-code_vector |> 
-  summarize(beyond = sum(if_else(id %in% 500:max(id) >= 100, TRUE, FALSE))) 
+
 ```
 
-<!-- Change roles (Developer becomes Coder)! -->
+<!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes on their computer -->
 
 16. Take the square root of all numbers in indices 38 to 465.
 17. Use the `round()` function to round all numbers to the nearest whole number.
@@ -209,10 +195,7 @@ code_vector |>
 ```{r}
 #| label: add-label-8
 #add comment here
-code_vector_update <- code_vector |> 
-  mutate(code = if_else(id %in% 38:465, sqrt(code), code)) |> 
-  mutate(code = round(code, digits = 0)) |> 
-  mutate(code = if_else(code == 39, 20, code))
+
 ```
 
 
@@ -225,25 +208,28 @@ code_vector_update <- code_vector |>
 #| label: add-label-9
 # Code to verify how many even numbers are in your top_secret vector
 
-code_vector_update |> 
-  summarize(even = sum(code %% 2 == 0))
 
 ```
 
-<!-- Change roles (Developer becomes Coder)! -->
+<!-- Computer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Computer becomes Coder) and the new Computer should PULL down the repository to make changes on their computer -->
 
-## Part 3: The secret message!
+# Part 3: The secret message!
 
 Use your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:
 
 ```{r}
 #| label: add-label-10
 # add comment here
-code_vector_update |> 
-  left_join(my_symbols, by = c("code" = "num")) |> 
-  pull(symbols) |> 
-  stringr::str_c(collapse = "")
+
 ```
 
 Google the first line of this message, if you do not recognize it, to see what poem it is.
+
+
+## Part 4: Wrap up
+
+The last step is to make each code chunk hidden, but allow it to still run, by modifying the YAML. Once rendered, Export the project and submit with your "quiz" for the week. Note that each person should be submit a copy.
+
+<!-- Computer - Stage, Commit, and Push the final changes to the shared repository -->
 
