@@ -70,7 +70,7 @@
     "href": "weeks/week-4-ggplot.html#geoms",
     "title": "Introduction to ggplot2",
     "section": "1.4 geoms",
-    "text": "1.4 geoms\n📽 Required Video: What is a geometric object?\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n\n\n✅ Check-in 2.1\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
+    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n\n\n✅ Check-in 2.1\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -81,7 +81,7 @@
     "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
     "title": "Introduction to ggplot2",
     "section": "1.5 Getting a Bit Fancier",
-    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\n📽 Required Video: Global vs. local aesthetics (4 minutes)\n\n\n✅ Check-in 2.1\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
+    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\n\n\n✅ Check-in 2.1\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -92,18 +92,7 @@
     "href": "weeks/week-4-ggplot.html#facets",
     "title": "Introduction to ggplot2",
     "section": "1.6 Facets",
-    "text": "1.6 Facets\n📽 Required Video: Adding a third variable with facets",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#data-transformations",
-    "href": "weeks/week-4-ggplot.html#data-transformations",
-    "title": "Introduction to ggplot2",
-    "section": "1.7 Data transformations",
-    "text": "1.7 Data transformations\n📽 Required Video: What is being plotted? (6 minutes)",
+    "text": "1.6 Facets",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -113,8 +102,8 @@
     "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
     "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
     "title": "Introduction to ggplot2",
-    "section": "1.8 Changing the positions of bars",
-    "text": "1.8 Changing the positions of bars\n📽 Required Video: How do I change positions?\n\n✅ Check-in 2.1\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
+    "section": "1.7 Changing the positions of bars",
+    "text": "1.7 Changing the positions of bars\n\n✅ Check-in 2.1\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -124,8 +113,8 @@
     "objectID": "weeks/week-4-ggplot.html#plot-customizations",
     "href": "weeks/week-4-ggplot.html#plot-customizations",
     "title": "Introduction to ggplot2",
-    "section": "1.9 Plot Customizations",
-    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in 2.1\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
+    "section": "1.8 Plot Customizations",
+    "text": "1.8 Plot Customizations\n📖 Optional Reading: Exploratory Data Analysis\n📖 Optional Reading: Communication\n\n\n✅ Check-in 2.1\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"

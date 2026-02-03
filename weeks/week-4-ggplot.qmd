@@ -63,7 +63,7 @@ library("tidyverse") # (my preference!)
 
 # Data Visualization with **ggplot2**
 
-To get an overview of how visualization works qith `ggplot2`, read through Chapter One in *R for Data Science *.  
+To get an overview of how visualization works with `ggplot2`, read through Chapter One in *R for Data Science *.  
 
 📖 [Required Reading: Data visualization](https://r4ds.hadley.nz/data-visualize.html).
 
@@ -157,7 +157,7 @@ geom_point(
 
 ## geoms
 
-📽 [Required Video: What is a geometric object?](https://www.youtube.com/watch?v=pMC2l2YhjMI)
+
 
 ### What type of chart to use?
 
@@ -206,7 +206,7 @@ In this section we dig a bit deeper into how we can make our code more efficient
 
 ### Global vs. local aesthetics
 
-📽 [Required Video: Global vs. local aesthetics (4 minutes)](http://youtu.be/y3BWlYa7q-Q?hd=1)
+
 
 ### ✅  Check-in 2.1
 
@@ -247,15 +247,12 @@ ggplot(data = mpg) +
 
 ## Facets
 
-📽 [Required Video: Adding a third variable with facets](http://somup.com/crffbHbH1h)
 
-## Data transformations
 
-📽 [Required Video: What is being plotted? (6 minutes)](http://somup.com/crffb8bH1x)
 
 ## Changing the positions of bars
 
-📽 [Required Video: How do I change positions?](http://somup.com/crffFibH1R)
+
 
 ### ✅  Check-in 2.1
 
@@ -274,7 +271,9 @@ ggplot(data = mpg) +
 
 ## Plot Customizations
 
-📖 [Required Reading: Communication](https://r4ds.hadley.nz/communication#annotations)
+📖 [Optional Reading: Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
+
+📖 [Optional Reading: Communication](https://r4ds.hadley.nz/communication.html)
 
 <!-- 📽 [Required Video: Axis labels, color themes, and legends, oh my! (7 minutes)](http://somup.com/crffFDbHiU) -->
 
