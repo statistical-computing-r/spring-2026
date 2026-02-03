@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-3-version-control.html</loc>
-    <lastmod>2026-02-02T17:33:11.446Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-4-ggplot.html</loc>
+    <lastmod>2026-02-03T03:45:11.565Z</lastmod>
   </url>
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-r-rstudio.html</loc>
-    <lastmod>2026-01-27T06:11:26.479Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-2-quarto.html</loc>
+    <lastmod>2026-02-03T03:44:54.721Z</lastmod>
   </url>
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/slides/week-2/week-2-intro-R-quarto.html</loc>
-    <lastmod>2026-01-27T21:50:32.721Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/slides/week-3/week-3-intro-version-control.html</loc>
+    <lastmod>2025-02-01T02:40:02.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/labs/instructions/lab-2-instructions.html</loc>
+    <lastmod>2026-02-03T03:45:58.551Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/labs/instructions/annotations.html</loc>
@@ -22,7 +26,7 @@
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/group-activities/pair-programming-norms.html</loc>
-    <lastmod>2026-02-02T17:33:25.385Z</lastmod>
+    <lastmod>2026-02-03T01:09:27.249Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/course-materials/course-resources.html</loc>
@@ -46,18 +50,22 @@
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/index.html</loc>
-    <lastmod>2026-01-21T01:07:29.288Z</lastmod>
+    <lastmod>2026-02-03T01:12:08.773Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/labs/instructions/lab-1-instructions.html</loc>
-    <lastmod>2026-01-28T22:05:41.870Z</lastmod>
+    <lastmod>2026-02-03T03:45:48.789Z</lastmod>
   </url>
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/slides/week-3/week-3-intro-version-control.html</loc>
-    <lastmod>2025-02-01T02:40:02.780Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/slides/week-2/week-2-intro-R-quarto.html</loc>
+    <lastmod>2026-01-27T21:50:32.721Z</lastmod>
   </url>
   <url>
-    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-2-quarto.html</loc>
-    <lastmod>2026-01-27T05:35:28.955Z</lastmod>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-1-r-rstudio.html</loc>
+    <lastmod>2026-02-03T03:44:42.989Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-3-version-control.html</loc>
+    <lastmod>2026-02-03T03:45:02.669Z</lastmod>
   </url>
 </urlset>
