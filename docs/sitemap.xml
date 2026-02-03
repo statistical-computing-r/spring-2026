@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-4-ggplot.html</loc>
-    <lastmod>2026-02-03T06:02:44.642Z</lastmod>
+    <lastmod>2026-02-03T17:40:02.062Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/weeks/week-2-quarto.html</loc>
@@ -19,6 +19,10 @@
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/labs/instructions/annotations.html</loc>
     <lastmod>2026-01-20T18:16:43.091Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/group-activities/week-3/pa2-vc-instructions.html</loc>
+    <lastmod>2026-02-03T17:39:40.717Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/group-activities/week-1/broken-circles.html</loc>
@@ -46,7 +50,11 @@
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/group-activities/week-2/pa-1-base-r-instructions.html</loc>
-    <lastmod>2026-01-27T18:56:44.952Z</lastmod>
+    <lastmod>2026-02-03T17:06:41.528Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statistical-computing-r.github.io/spring-2026/group-activities/week-3/pa-2-vc-intro-tidy-instructions.html</loc>
+    <lastmod>2026-02-03T17:36:51.694Z</lastmod>
   </url>
   <url>
     <loc>https://statistical-computing-r.github.io/spring-2026/index.html</loc>
