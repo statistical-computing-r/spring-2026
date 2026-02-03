@@ -81,7 +81,7 @@ website:
         contents:
           - href: group-activities/week-2/pa-1-base-r-instructions.qmd
             text: "Pair Activity 1: Break the Code"
-          - href:
+          - href: group-activities/week-3/pa-2-vc-instructions.qmd
             text: "Pair Activity 2: Version Control"
            
           

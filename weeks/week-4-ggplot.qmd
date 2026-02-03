@@ -5,7 +5,6 @@ number-sections: true
 number-depth: 2
 bibliography: references.bib
 editor: source
-embed-resources: true
 execute: 
   echo: true
   eval: false
@@ -18,9 +17,16 @@ execute:
 library(tidyverse)
 ```
 
+# Learning Objectives
+
+-   Describe charts using the grammar of graphics
+-   Create layered graphics that highlight multiple aspects of the data
+-   Evaluate existing charts and develop new versions that improve accessibility and readability
+
+
 > The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. ("Why, that scatter diagram has a hole in the middle!") -- John Tukey, [Data Based Graphics: Visual Display in the Decades to Come](https://projecteuclid.org/euclid.ss/1177012101)
 
-#### 📽 Watch Videos: See Canvas
+#### 📽 Watch Videos: See Canvas 
 
 
 #### 📖 Readings: 45 minutes
@@ -32,13 +38,9 @@ library(tidyverse)
 
 #### ✅  Check-ins: 1 (8 questions broken out by sections)
 
-## Learning Objectives
 
--   Describe charts using the grammar of graphics
--   Create layered graphics that highlight multiple aspects of the data
--   Evaluate existing charts and develop new versions that improve accessibility and readability
 
-## Loading in the **ggplot2** Package
+# Loading in the **ggplot2** Package
 
 In this class, we're going to use the `ggplot2` package to create graphics in R. This package is already installed as part of the `tidyverse`, but can be installed:
 
@@ -106,7 +108,7 @@ This has a few advantages:
 
 ## Aesthetics
 
-📽 [Required Video: What is an aesthetic? (7 minutes)](https://www.youtube.com/watch?v=oYVuzW_t93w)
+
 
 ### ✅  Check-in 2.1
 
