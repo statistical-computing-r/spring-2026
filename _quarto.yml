@@ -60,8 +60,8 @@ website:
             text: "Week 2 - Quarto"
           - href: weeks/week-3-version-control.qmd
             text: "Week 3 - Version Control"
-          # - href: weeks/week-4-ggplot.qmd
-          #   text: "Week 4 - Data Visualization"
+          - href: weeks/week-4-ggplot.qmd
+            text: "Week 4 - Data Visualization"
           # - href: weeks/week-5-projects-data-import.qmd
           #   text: "Week 5 - Importing Data"
           # - href: weeks/week-6-7-dplyr.qmd
@@ -81,27 +81,16 @@ website:
         contents:
           - href: group-activities/week-2/pa-1-base-r-instructions.qmd
             text: "Pair Activity 1: Break the Code"
-          # - href: labs/instructions/lab-2-instructions.qmd
-          #   text: "Lab 2 Instructions"
-          # - href: labs/instructions/lab-3-instructions.qmd
-          #   text: "Lab 3 and Challenge 3 Instructions"
-          # - href: labs/instructions/lab-4-instructions.qmd
-          #   text: "Lab 4 Instructions"
-          # - href: labs/instructions/lab-5-instructions.qmd
-          #   text: "Lab 5 Instructions"   
-          # - href: labs/instructions/lab-6-instructions.qmd
-          #   text: "Lab 6 Instructions" 
-          # - href: labs/instructions/lab-7-instructions.qmd
-          #   text: "Lab 7 Instructions" 
-          # - href: labs/instructions/lab-8-instructions.qmd
-          #   text: "Lab 8 Instructions"             
+          - href:
+            text: "Pair Activity 2: Version Control"
+           
           
       - section: "Labs" 
         contents:
           - href: labs/instructions/lab-1-instructions.qmd
             text: "Lab 1 & Challenge 1 Instructions"
-          # - href: labs/instructions/lab-2-instructions.qmd
-          #   text: "Lab 2 Instructions"
+          - href: labs/instructions/lab-2-instructions.qmd
+            text: "Lab 2 Instructions"
           # - href: labs/instructions/lab-3-instructions.qmd
           #   text: "Lab 3 and Challenge 3 Instructions"
           # - href: labs/instructions/lab-4-instructions.qmd

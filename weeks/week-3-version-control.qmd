@@ -6,6 +6,7 @@ execute:
 bibliography: references.bib
 number-sections: true
 number-depth: 2
+embed-resources: true
 editor: source
 ---
 
