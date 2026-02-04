@@ -75,8 +75,7 @@ In your activity, each of the following R chunks will cause an error and / or do
 
 0. Add a `setup` code chunk to your activity that loads the `tidyverse` package and hides the code output.  
 
-```{r}
-#| echo: fenced
+```r
 #| label: setup
 #| include: false
 library(tidyverse)

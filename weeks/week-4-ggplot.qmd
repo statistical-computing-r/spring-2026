@@ -58,6 +58,11 @@ library("ggplot2")
 library("tidyverse") # (my preference!)
 ```
 
+
+Remember - packages
+
+
+
 ::: column-margin
 ![Building a masterpiece, by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png){fig-alt="Cartoon of small monsters painting graphics and data visualizations."}
 :::
