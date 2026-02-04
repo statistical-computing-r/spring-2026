@@ -1,5 +1,9 @@
 ---
 title: "Week 3: Version Control with Git and GitHub"
+format: 
+  html:
+    link:
+      target: "_blank"
 execute:
   warning: false
   message: false

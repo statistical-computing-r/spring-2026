@@ -1,5 +1,9 @@
 ---
 title: "Week 2: Reproducible Analyses with Quarto"
+format: 
+  html:
+    link:
+      target: "_blank"
 number-sections: true
 number-depth: 2
 embed-resources: true

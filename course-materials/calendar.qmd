@@ -1,5 +1,6 @@
 ---
 title: "{{< fa calendar >}} Schedule"
+draft: true
 ---
 
 This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.

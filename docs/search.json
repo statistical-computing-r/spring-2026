@@ -15,7 +15,7 @@
     "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
     "title": "Introduction to ggplot2",
     "section": "3.1 The Grammar of Graphics",
-    "text": "3.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
+    "text": "3.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)\n\n\nIn general, you will fill in the template below to build your graph:\nggplot(data = &lt;Data&gt;) +\n  &lt;Geom_Function&gt;(mapping = aes(&lt;Mappings&gt;),\n                  position = &lt;Position&gt;) +\n  &lt;Facet_Function&gt; +\n  &lt;Scale_Function&gt; +\n  &lt;Theme_Function&gt;",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -37,7 +37,7 @@
     "href": "weeks/week-4-ggplot.html#aesthetics",
     "title": "Introduction to ggplot2",
     "section": "3.3 Aesthetics",
-    "text": "3.3 Aesthetics",
+    "text": "3.3 Aesthetics\nThe aesthetics are what you map a variable to and can include, most commonly:\n\n\n\nAesthetic\nVariable Type(s)\nArgument Code\n\n\n\n\nx-axis\nnumeric, discrete, factor\nx =\n\n\ny-axis\nnumeric, discrete, factor\ny =\n\n\ncolor for points/lines\ndiscrete, factor\ncolor =\n\n\ncolor for boxes/bars\ndiscrete, factor\nfill =\n\n\nshape (points)\ndiscrete, factor\nshape =\n\n\nalpha (transparency)\nnumeric, discrete, factor\nalpha =\n\n\nline type (e.g. dashed)\ndiscrete, factor\nlinetype =\n\n\nline width\ndiscrete, factor\nlinewidth =\n\n\n\nA variable can be mapped to more than one aesthetic (e.g. color and shape), but an aesthetic should only correspond to one variable.",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -48,7 +48,7 @@
     "href": "weeks/week-4-ggplot.html#geoms",
     "title": "Introduction to ggplot2",
     "section": "3.4 geoms",
-    "text": "3.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.",
+    "text": "3.4 geoms\nThe geometry is the “shape” your graph will have, e.g., points, boxes, bars, densities, etc. Here are some of the most common:\n\n\n\nGeometry\nVariable Type(s)\nR code\n\n\n\n\nScatterplot\nNumeric (x, y)\ngeom_point()\n\n\nHistogram\nNumeric (x)\ngeom_histogram()\n\n\nBar Plot\nFactor (counted)\ngeom_bar(), geom_col()\n\n\nLine Plot\nNumeric (x, y)\ngeom_line()\n\n\nBox Plot\nNumeric (x or y) and Factor (y or x)\ngeom_boxplot()\n\n\nModel Line\nNumeric (x, y)\ngeom_smooth()\n\n\n\nThe aesthetics available will vary depending on the geometry chosen. More than one geometry can be used (e.g. geom_point() and geom_smooth().\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -59,40 +59,18 @@
     "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
     "title": "Introduction to ggplot2",
     "section": "3.5 Getting a Bit Fancier",
-    "text": "3.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics",
+    "text": "3.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nSometimes we want to set aesthetics that apply to all graphs (e.g. x-axis and y-axis variables) - we call these global aesthetics and put them in the ggplot() function. For aesthetics that should only apply to a specific geometry, or local aesthetics, we put them in the the geom_xxx() function.\nggplot(data = &lt;Data&gt;,\n       mapping = aes(&lt;Mappings&gt;)) +  #global aesthetics\n  &lt;Geom_Function&gt;(mapping = aes(&lt;Mappings&gt;),  #local aesthetics\n                  position = &lt;Position&gt;) +\n  &lt;Facet_Function&gt; +\n  &lt;Scale_Function&gt; +\n  &lt;Theme_Function&gt;",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-4-ggplot.html#facets",
-    "href": "weeks/week-4-ggplot.html#facets",
+    "objectID": "weeks/week-4-ggplot.html#plot-customization",
+    "href": "weeks/week-4-ggplot.html#plot-customization",
     "title": "Introduction to ggplot2",
-    "section": "3.6 Facets",
-    "text": "3.6 Facets",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "title": "Introduction to ggplot2",
-    "section": "3.7 Changing the positions of bars",
-    "text": "3.7 Changing the positions of bars",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
-    "href": "weeks/week-4-ggplot.html#plot-customizations",
-    "title": "Introduction to ggplot2",
-    "section": "3.8 Plot Customizations",
-    "text": "3.8 Plot Customizations\n📖 Optional Reading: Exploratory Data Analysis\n📖 Optional Reading: Communication\n\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset\n\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )\n\n\n\n✅ Check-in 2.1\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()\n\n\n\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))\n\n\n\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping\n\n\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
+    "section": "3.6 Plot Customization",
+    "text": "3.6 Plot Customization\n📖 Optional Reading: Exploratory Data Analysis\n📖 Optional Reading: Communication\nHere are a couple of more overviews of additional functions that can be helpful for customizing your plots.\n\nFacets\n\nThemes\n\nLabels and Legends\n\nPositions\n\n\n✅ Check-in\nSome of the following can be answered just from the overview provided. Others you might need to look up!\nUse the following code for Question 1 and 2:\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, \n                           y = hwy), \n             color = \"blue\")\n\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\n\n\n\n\nCreates a blank plot\n\n\n\n\nMakes a scatterplot of two variables in the `mpg` dataset\n\n\n\n\nCreates a ggplot with the `mpg` dataset\n\n\n\n\n\n\n\n\n\nQuestion 2: What aesthetics does this plot contain?\n\n\n\n\n\nx\n\n\n\n\ny\n\n\n\n\ncolor\n\n\n\n\ndata\n\n\n\n\n\n\n\n\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )\n\n\n\n\n\n\nOption A\n\n\n\n\nOption B\n\n\n\n\nOption C\n\n\n\n\n\n\n\n\n\nQuestion 4: Match each plot with the geom_XXX() function used to create it! Write the correct function for each graph type.\n\n\nLine Chart\n\n\n\n\n\n\n\n\n\n\n\nBoxplot\n\n\n\n\n\n\n\n\n\n\n\nHistogram\n\n\n\n\n\n\n\n\n\n\n\nArea Chart\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()\n\n\n\n Question 5: Match the code to the type of aesthetics that are being used:\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, \n                     y = hwy)\n       ) + \n  geom_point()\n\n\n\n\n\n\nlocal\n\n\n\n\nglobal\n\n\n\n\n\n\n\n\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, \n                           y = hwy))\n\n\n\n\n\n\nlocal\n\n\n\n\nglobal\n\n\n\n\n\n\n\n\n\nQuestion 6: Which arguments for geom_jitter() control the amount of jittering?\n\n\n\n\n\nwidth\n\n\n\n\nheight\n\n\n\n\nstat\n\n\n\n\nposition\n\n\n\n\nna.rm\n\n\n\n\nshow.legend\n\n\n\n\ndata\n\n\n\n\nmapping\n\n\n\n\n\n\n\n\n\nQuestion 7: What can the labs() function do? Select all that apply.\n\n\n\n\n\nCustomize the x-axis label\n\n\n\n\nCustomize the y-axis label\n\n\n\n\nCustomize the legend label\n\n\n\n\nCustomize the plot title\n\n\n\n\nAdd a caption to the plot",
     "crumbs": [
       "Weekly materials",
       "Week 4 - Data Visualization"
@@ -125,7 +103,7 @@
     "href": "weeks/week-2-quarto.html#directories-and-projects",
     "title": "Week 2: Reproducible Analyses with Quarto",
     "section": "1.2 Directories, Paths, and Projects",
-    "text": "1.2 Directories, Paths, and Projects\nIn R, there are two ways to set up your file path and file system organization:\n\nSet your working directory in R (do not recommend)\nUse RProjects (preferred!)\n\n\nWorking Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\n\n\n\n\n\n\n\n\n\ngetwd()\n\n[1] \"C:/Users/cann4817/Desktop/spring-2026/weeks\"\n\n\nAlthough it is not recommended, you can set your working directory in R with setwd().\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\nR Projects\n\n📖 Required Reading: Workflow and Projects\nSince there are often many files necessary for a project (e.g. data sources, images, etc.), R has a nice built in system for setting up your project organization with R Projects. You can either create a new folder on your computer containing an R Project (e.g., you have not yet created a folder for this class) or you can add an R Project to an existing folder on your computer (e.g., you have already created a folder for this class).\n\nCreate with a new folderAdd to an existing folder\n\n\nTo create a R Project, first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGive your folder a name (it shouldn’t be my-stat331 but something that reflects STAT 210, e.g. stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.\nThen, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!\n\n\n\n\n\n\n\n\n\nThis new folder should now live in your Documents folder (or wherever you save it to) and contain a stat-210-sp26.Rproj file or whatever you named it. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\nThen, browse on your computer to select the existing folder you wish to add your R Project to. For example, mine is saved in my Documents and called my-stat331.\n\n\n\n\n\n\n\n\n\nYour existing folder should now contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\n\n\n\n\n\n\n\nCautionYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "text": "1.2 Directories, Paths, and Projects\nIn R, there are two ways to set up your file path and file system organization:\n\nSet your working directory in R (do not recommend)\nUse RProjects (preferred!)\n\n\nWorking Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\n\n\n\n\n\n\n\n\n\ngetwd()\n\n[1] \"C:/Users/jecan/Desktop/stats-250-labs/stats-250-activities/spring-2026/weeks\"\n\n\nAlthough it is not recommended, you can set your working directory in R with setwd().\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\nR Projects\n\n📖 Required Reading: Workflow and Projects\nSince there are often many files necessary for a project (e.g. data sources, images, etc.), R has a nice built in system for setting up your project organization with R Projects. You can either create a new folder on your computer containing an R Project (e.g., you have not yet created a folder for this class) or you can add an R Project to an existing folder on your computer (e.g., you have already created a folder for this class).\n\nCreate with a new folderAdd to an existing folder\n\n\nTo create a R Project, first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGive your folder a name (it shouldn’t be my-stat331 but something that reflects STAT 210, e.g. stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.\nThen, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!\n\n\n\n\n\n\n\n\n\nThis new folder should now live in your Documents folder (or wherever you save it to) and contain a stat-210-sp26.Rproj file or whatever you named it. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\nThen, browse on your computer to select the existing folder you wish to add your R Project to. For example, mine is saved in my Documents and called my-stat331.\n\n\n\n\n\n\n\n\n\nYour existing folder should now contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
     "crumbs": [
       "Weekly materials",
       "Week 2 - Quarto"
@@ -348,66 +326,168 @@
     ]
   },
   {
-    "objectID": "labs/instructions/annotations.html",
-    "href": "labs/instructions/annotations.html",
-    "title": "Annotations",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
     "section": "",
-    "text": "We can add annotation(s) to a ggplot() using the geom_text() function. Like geom_point(), the geom_text() function accepts arguments of variable mappings (i.e., where to put the annotations).\nLooking at the plot above, it seems like the best place to put the island labels would be on the lower end of each boxplot. To do this, I need to create a new data frame that includes the locations of where I want the annotations.\n\npenguins_annotations &lt;- penguins |&gt; \n  group_by(island, species) |&gt; \n  summarize(\n    min_bill = min(bill_length_mm, na.rm = TRUE) - 3, \n    .groups = \"drop\"\n    )\n\n\nggplot(data = penguins, \n       mapping = aes(x = bill_length_mm, y = species, color = island)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = untitled_red) +\n  geom_text(data = penguins_annotations, \n            mapping = aes(x = min_bill, \n                          y = species, \n                          color = island, \n                          label = island), \n            position = position_jitterdodge(), \n            size = 3) + \n  theme(legend.position = \"none\") + \n  labs(x = \"Bill Length (mm)\", \n       y = \"\", \n       title = \"Length of Different Penguin Species' Bills\", \n       subtitle = \"Separated by Palmer Archipeligo Island\") \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nNote that I am not using the annotate() function to add annotations to my plot. The reason for this is the annotate() function requires one line per annotation, so it does not scale efficiently. Rather, this would be a good function to use if you wanted to add a single annotation to your plot."
-  },
-  {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html",
-    "title": "Practice Activity 2: Version Control",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the tidyverse while practicing version control.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:",
+    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work?\n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: Tuesdays, 1:00pm - 1:55pm\n Classroom Learning Assistant: Noah Kan\n\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
     "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Course information",
+      "Home"
     ]
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#groupwork-protocols",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#groupwork-protocols",
-    "title": "Practice Activity 2: Version Control",
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "",
+    "text": "NAMES: Write your group member names here.\nToday you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
+  },
+  {
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
+    "title": "Practice Activity 1: Break the Code",
     "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\nHere are more details of the Pair Programming Protocols\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
-    ]
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!\n\n\n\n\n\n\nInstructions\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code is on the PA1 Activity on the webpage, please copy the correct code into each code chunk.\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well, verifying the style guide is followed throughout the document.\n\n\nFollow the Steps\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nError in parse(text = input): &lt;text&gt;:5:56: unexpected string constant\n4: \n5: upper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\"\n                                                          ^\n\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected ','\n1: my_symbols &lt;- (lower_case,\n                             ^\n\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\nError in `dataframe()`:\n! could not find function \"dataframe\"\n\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\nError:\n! object 'my_Symbols' not found\n\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len\n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: my_symbols%Num &lt;- 1:len\n              ^"
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
-    "title": "Practice Activity 2: Version Control",
-    "section": "Part 0: Accessing the Practice Activity",
-    "text": "Part 0: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nThe Computer (partner with next upcoming birthday) should create a GitHub repo called “pa-2-code-breaking”.\n\nTo the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.\n\nUnder Settings, go to Collaborators, the Add people and search for your partner by username or email.\n\nThe partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.\n\nThe Computer should then create a Version Control R Project on their computer and then download the pa-2-vc-intro-tidy-activity.qmd file into the folder on your computer.\nTest your connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.\n\nNow you are ready to start! You will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
-    ]
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nRows: 955 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (1): X1\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\nError in parse(text = input): &lt;text&gt;:2:19: unexpected input\n1: \n2: ts6 &lt;- top_secret _\n                     ^\n\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\nError:\n! object 'ts6___________' not found\n\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts8 &lt;- __\n            ^\n\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts9 &lt;- \n   ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^\n\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_mat &lt;- __\n               ^\n\n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\nError in parse(text = input): &lt;text&gt;:1:22: unexpected input\n1: evens &lt;- seq(from = __\n                         ^\n\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected input\n1: ts_mat[, 1] &lt;- ts_mat[, __\n                             ^\n\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\nError in parse(text = input): &lt;text&gt;:1:29: unexpected input\n1: ts_mat[18:24, 3] &lt;- ts_mat[__\n                                ^\n\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: ts_mat[, __\n              ^\n\n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_vec &lt;- __\n               ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\nError in parse(text = input): &lt;text&gt;:2:2: unexpected input\n1: # Write code to verify that indices 500 and beyond have values **below** 100\n2: __\n    ^\n\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts_vec[__\n            ^\n\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts_vec &lt;- \n   ^\n\n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:19: unexpected input\n1: ts_vec[ts_vec == __\n                      ^\n\n\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^"
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
-    "title": "Practice Activity 2: Version Control",
-    "section": "Part 1: Setup",
-    "text": "Part 1: Setup\nIn your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.\n\nAdd a setup code chunk to your activity that loads the tidyverse package and hides the code output.\n\n#| label: setup\n#| include: false\nlibrary(tidyverse)\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your data frame that assigns a number to each symbol.\n\nIf you want to look at my_symbols click on it under the Environment Tab in the top right panel.\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
-    ]
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Break the Code",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nError:\n! object 'my_symbols' not found\n\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-4-wrap-up",
-    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-4-wrap-up",
-    "title": "Practice Activity 2: Version Control",
+    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
+    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
+    "title": "Practice Activity 1: Break the Code",
     "section": "Part 4: Wrap up",
-    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy.",
+    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once rendered to HTML, submit your ZIPPED project with your “quiz” for the week."
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html",
+    "href": "group-activities/week-1/base-r.html",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
+    "href": "group-activities/week-1/base-r.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+  },
+  {
+    "objectID": "course-materials/course-resources.html",
+    "href": "course-materials/course-resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
     "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Course information",
+      "R Resources"
     ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html",
+    "href": "group-activities/pair-programming-norms.html",
+    "title": "Pair Programming Roles",
+    "section": "",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#team-norms",
+    "href": "group-activities/pair-programming-norms.html#team-norms",
+    "title": "Pair Programming Roles",
+    "section": "Team Norms",
+    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html",
+    "href": "group-activities/week-1/broken-circles.html",
+    "title": "Broken Circles",
+    "section": "",
+    "text": "This activity is designed to explore how working in groups can be more or less successful."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#instructions",
+    "href": "group-activities/week-1/broken-circles.html#instructions",
+    "title": "Broken Circles",
+    "section": "Instructions",
+    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
+    "href": "group-activities/week-1/broken-circles.html#getting-started",
+    "title": "Broken Circles",
+    "section": "Getting Started",
+    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#discussion",
+    "href": "group-activities/week-1/broken-circles.html#discussion",
+    "title": "Broken Circles",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   },
   {
     "objectID": "group-activities/week-2/pa-1-base-r-instructions.html",
@@ -487,265 +567,58 @@
     ]
   },
   {
-    "objectID": "group-activities/week-1/broken-circles.html",
-    "href": "group-activities/week-1/broken-circles.html",
-    "title": "Broken Circles",
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html",
+    "title": "Practice Activity 2: Version Control",
     "section": "",
-    "text": "This activity is designed to explore how working in groups can be more or less successful."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#instructions",
-    "href": "group-activities/week-1/broken-circles.html#instructions",
-    "title": "Broken Circles",
-    "section": "Instructions",
-    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
-    "href": "group-activities/week-1/broken-circles.html#getting-started",
-    "title": "Broken Circles",
-    "section": "Getting Started",
-    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#discussion",
-    "href": "group-activities/week-1/broken-circles.html#discussion",
-    "title": "Broken Circles",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html",
-    "href": "group-activities/pair-programming-norms.html",
-    "title": "Pair Programming Roles",
-    "section": "",
-    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the tidyverse while practicing version control.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:",
     "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
+      "Pair Programming Activities",
+      "Pair Activity 2: Version Control"
     ]
   },
   {
-    "objectID": "group-activities/pair-programming-norms.html#team-norms",
-    "href": "group-activities/pair-programming-norms.html#team-norms",
-    "title": "Pair Programming Roles",
-    "section": "Team Norms",
-    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
-    "href": "group-activities/pair-programming-norms.html#completing-the-task",
-    "title": "Pair Programming Roles",
-    "section": "Completing the Task",
-    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "title": "Pair Programming Roles",
-    "section": "Once You’re Finished",
-    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "course-materials/course-resources.html",
-    "href": "course-materials/course-resources.html",
-    "title": "R Resources",
-    "section": "",
-    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
-    "crumbs": [
-      "Course information",
-      "R Resources"
-    ]
-  },
-  {
-    "objectID": "course-materials/calendar.html",
-    "href": "course-materials/calendar.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\nweek\n\n\ndate\n\n\ntopic\n\n\nprepare\n\n\nslides\n\n\nnotes\n\n\nactivity\n\n\nlab\n\n\nchallenge\n\n\nportfolio\n\n\n\n\n\n\n0\n\n\n16 September\n\n\nCourse Set-up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to R & RStudio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n18 September\n\n\nIntro to Quarto & R Projects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n22 September\n\n\nLab 1 & Challenge 1 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n23 September\n\n\nData Visualization with ggplot2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n25 September\n\n\nData Import\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n29 September\n\n\nLab 2 & Challenge 2 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n30 September\n\n\nData Wrangling with dplyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n2 October\n\n\nExtending Data Wrangling Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n6 October\n\n\nLab 3 & Challenge 3 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n7 October\n\n\nData Joins & Transformations with tidyr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n9 October\n\n\nWorking with Categorical Variables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n13 October\n\n\nLab 4 & Challenge 4 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n14 October\n\n\nWorking with Strings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n16 October\n\n\nWorking with Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n20 October\n\n\nLab 5 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n21 October\n\n\nVersion Control\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n23 October\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n27 October\n\n\nMidterm Portfolio Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n28 October\n\n\nBase R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n30 October\n\n\nVector Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 November\n\n\nLab 7 & Challenge 7 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n4 November\n\n\nData Frame Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n6 November\n\n\nPlotting Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n10 November\n\n\nLab 8 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n13 November\n\n\nIntroduction to Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n17 November\n\n\nLab 9 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n18 November\n\n\nSimulating Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n20 November\n\n\nSimulations & Iteration\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n24 November\n\n\nLab 10 Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n2 December\n\n\nPortfolio Week\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n5 December\n\n\nFinal Portfolio Due by 5pm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n6 December\n\n\nFinal Portfolio Conferences\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n8 December\n\n\nFinal Portfolio Conferences"
-  },
-  {
-    "objectID": "course-materials/syllabus.html",
-    "href": "course-materials/syllabus.html",
-    "title": "STAT 331, Fall 2025",
-    "section": "",
-    "text": "Statistical Computing with R1\n\n\nSection 70: TR 9:10am - 11:00am\nSection 71: TR 12:10pm - 2:00pm\n\nDr. Allison Theobold (they / them)\nAssistant Professor of Statistics\nEmail: atheobol@calpoly.edu\nStudent Hours: Are held in my office in Building 25, Office 105 during the following times:"
-  },
-  {
-    "objectID": "course-materials/syllabus.html#revisions",
-    "href": "course-materials/syllabus.html#revisions",
-    "title": "STAT 331, Fall 2025",
-    "section": "3.1 Revisions",
-    "text": "3.1 Revisions\nThe grading system for this class encourages you to submit revisions on Lab and Challenge problems you were not initially successful with. When I grade your Lab and Challenge assignments, I will mark each problem with an S, a G, or an N. You will have the option to retry any Learning Targets for which you scored a G or an N on. When you complete revisions, you will submit a new HTML containing your revisions, alongside written reflections of how your understanding changed from when you first attempted the problem. These reflections are expected to be written immediately below the problem which you revised.\nIt’s not enough to say “[x] was wrong, so I fixed it”—I need you to talk about why you got [x] wrong in the first place and what you learned that changed your mind. What do you know now that you didn’t know before? Who or what helped you learn?\n\nIf your revision does not include reflections, I’ll ask you to add them.\nIf your revisions do not include reflections by the deadline, your revisions are not eligible to be regraded.\nSee some examples of really good reflections here – they’re (mostly) from my STAT 313 course, but I think you’ll get the idea.\nSubmit your revision to the same assignment box on Canvas as your original. This helps me keep track of any outstanding revisions each person has.\n\nIt is my goal to have your lab and challenge assignments (which are due on Monday at 5pm) back to you no later than Thursday, so we can spend time talking about the revisions during class. You will then have until the following Friday to complete your revisions on the problems you received a G or an N on.\n\n\n\nNote that I have chosen this deadline because I’m juggling two competing desires, (1) to step away from my email on the weekend, and (2) to make sure people’s questions get answered before the assignment is due.↩︎"
-  },
-  {
-    "objectID": "course-materials/syllabus.html#accomplishment-of-learning-targets",
-    "href": "course-materials/syllabus.html#accomplishment-of-learning-targets",
-    "title": "STAT 331, Fall 2025",
-    "section": "4.1 Accomplishment of Learning Targets",
-    "text": "4.1 Accomplishment of Learning Targets\nEach week, a set of learning targets will be outlined. These learning targets will not exist solely within a given week. You will find that the skills you learn early in the course will be used throughout the course. Whereas, some skills, learned later in the course, will not be used as often. You can demonstrate proficiency with these skills through three main avenues: Group-based Practice Activities Lab Assignments Challenge Assignments\nHowever, evidence of continued learning can only be demonstrated within individual lab assignments. You can keep track of your progress yourself using this Interactive Checklist."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#evidence-of-continued-learning",
-    "href": "course-materials/syllabus.html#evidence-of-continued-learning",
-    "title": "STAT 331, Fall 2025",
-    "section": "4.2 Evidence of Continued Learning",
-    "text": "4.2 Evidence of Continued Learning\nEach week, you will be required to complete a Lab and Challenge assignment where you demonstrate your understanding of that week’s learning targets in the context of a new dataset. These assignments provide two different perspectives of your continued learning.\n\nThey demonstrate your ability to extend your thinking beyond what you’ve learned in class.\nThey demonstrate your ability to revise your thinking.\n\n\nExtend Your Thinking\nEach Lab Assignment will have a Challenge Problem which asks you to extend the skills you’ve learned in class in a new way. You will often have the choice of what direction you would like to expand your knowledge. There are no specific requirements for how you extend your skills, only that you extend your thinking in some (measurable) way.\n\n\nRevise Your Thinking\nFor the problems in each Lab Assignment, I will give copious written feedback, but I’ll also summarize my feedback with a letter on the SGN scale (as discussed previously). To demonstrate your ability to revise your thinking, I encourage you to revise and resubmit any problems marked G or N."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#growth-as-a-team-member",
-    "href": "course-materials/syllabus.html#growth-as-a-team-member",
-    "title": "STAT 331, Fall 2025",
-    "section": "4.3 Growth as a Team Member",
-    "text": "4.3 Growth as a Team Member\nThere are two ways you will evaluate your growth as a team member. The first is through your collaboration with your team members. The second is through the code reviews you provide your peers.\n\nCollaborative Group Work\nThis course uses collaborative learning to provide a supportive community when initially exploring the concepts associated with each week. On Tuesdays, you will collaborate in assigned teams to complete a Practice Activity. Collaborating on the Practice Activity is more than independently coding each task and asking someone a question when you get stuck. Collaborating is working together with your team to accomplish each question.\nMany people are uncomfortable working in a team for a variety of reasons, such as fearing looking dumb, being rejected, or being disrespected. It is my hope that our weekly collaborations will offer opportunities for you to grow as a group member, by becoming more aware of how you interact with others.\nDuring the first week of class, each of you will be placed in a group with one other student. During Weeks 2-5, you will work with this person on the Practice Activities we complete during class on Tuesdays. To make group collaborations more equitable, I expect for you and your partner to alternative between two “roles”—Developer and Coder. We will discuss these roles in class, but you can find descriptions of the scope of each role on the Pair Programming Roles document.\n\n\nPeer Code Review\nOne of my favorite sayings is “Programs must be written for people to read, and only incidentally for machines to execute.” Code review has two major benefits, (1) you get feedback on the readability, tidiness, and efficiency of your code, and (2) by reviewing someone else’s code you learn more about your own code!\nHere are some guidelines and examples of what you should be looking for and how to phrase your peer code reviews.\nYou hopefully noticed that writing “tidy” and “efficient” code are two of the Learning Targets for this course. To demonstrate proficiency in these targets, you will earn badges from your peers. For each lab assignment, everyone in the class will provide an anonymous review of someone’s code. The reviewer will provide feedback on the tidiness and efficiency of the code they are reviewing. I will provide some examples of helpful and unhelpful feedback, to guide your feedback. It’s easy to be a jerk when making comments; don’t. Think about the comments you would like to receive that would help you improve your code! Be good to each other."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#what-if-i-need-to-miss-class",
-    "href": "course-materials/syllabus.html#what-if-i-need-to-miss-class",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.1 What if I need to miss class?",
-    "text": "9.1 What if I need to miss class?\nI encourage you to attend every class session, but policies are for narcs. I put a great deal of time into making each class session engaging and worth your time. Attendance in this course is not explicitly required, but it may be incredibly difficult to articulate how you’ve grown as a team member and leader and / or contributed to creating a respectful classroom learning community if you regularly do not attend class. \nHere’s what you should do if you do miss a class:\n\nTalk to a classmate to figure out what information you missed\nCheck Canvas for any necessary handouts or changes to assignments\nPost on Discord with any questions you have after reviewing notes and handouts\n\n\nIf you miss a bunch of classes, please come talk to me. I’m working from the assumption that you care and are trying, but something is getting in your way (health issues? depression / anxiety? college stress?); let’s figure out what that is and how I can help."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#what-if-i-need-help",
-    "href": "course-materials/syllabus.html#what-if-i-need-help",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.2 What if I need help?",
-    "text": "9.2 What if I need help?\nThis quarter, I am instating a policy that I do not respond to emails with questions of general interest, such as deadline clarifications or conceptual questions. If you have one of these questions, please ask your question on our course Discord server.\nWe will use Discord to manage questions and responses regarding course content. There are channels for the different components of each week (e.g., Week 1 Lab Assignment). Please do not send an email about homework questions or questions about the course material. It is incredibly helpful for others in the course to see the questions you have and the responses to those questions. I will try to answer any questions posted to Discord within 3-4 hours (unless it is posted at midnight). If you think you can answer another student’s question, please respond!"
-  },
-  {
-    "objectID": "course-materials/syllabus.html#what-if-i-need-to-turn-something-in-late",
-    "href": "course-materials/syllabus.html#what-if-i-need-to-turn-something-in-late",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.3 What if I need to turn something in late?",
-    "text": "9.3 What if I need to turn something in late?\nYou’ll start the semester with three (3) virtual “Tokens” that you can use for extra flexibility. One token can purchase a 24-hour extension for a Lab or Challenge Assignment (not a Preview Activity or Practice Activity). If you want to use a token for a deadline extension, you are required to complete the Deadline Extension Form. Akin to how the “real world” works, deadline extensions are requested to be done before the deadline. If you thought you were going to get an assignment in but you just missed the deadline for an assignment, please go complete a deadline extension request ASAP. I will not provide feedback on assignments which missed the deadline and no extension request was completed.\nTokens cannot be “stacked”; you cannot use multiple tokens to purchase a 6-day extension. You can keep track of how many Tokens you have on Canvas.\nYou’ll also have opportunities to earn more tokens during the quarter! You can earn one (1) token by:\n\nAnswering a content or coding question posed on Discord\nCompleting an exemplary Challenge Assignment – applauded by Dr. Theobold for going above and beyond\nAttending every class session (including portfolio parties)"
-  },
-  {
-    "objectID": "course-materials/syllabus.html#what-if-i-have-accommodations-or-feel-that-accommodations-would-be-beneficial-to-my-learning",
-    "href": "course-materials/syllabus.html#what-if-i-have-accommodations-or-feel-that-accommodations-would-be-beneficial-to-my-learning",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.4 What if I have accommodations or feel that accommodations would be beneficial to my learning?",
-    "text": "9.4 What if I have accommodations or feel that accommodations would be beneficial to my learning?\nI enthusiastically support the mission of Disability Resource Center to make education accessible to all. I design all my courses with accessibility at the forefront of my thinking, but if you have any suggestions for ways I can make things more accessible, please let me know. Come talk to me if you need accommodation for your disabilities. I honor self-diagnosis: lets talk to each other about how we can make the course as accessible as possible. See also the standard syllabus statements, which include more information about formal processes."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#how-can-i-expect-to-be-treated-in-this-course",
-    "href": "course-materials/syllabus.html#how-can-i-expect-to-be-treated-in-this-course",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.5 How can I expect to be treated in this course?",
-    "text": "9.5 How can I expect to be treated in this course?\nFollowing Ihab Hassan, I strive to teach statistics so that people will stop killing each other. In my classroom, diversity and individual differences are respected, appreciated, and recognized as a source of strength. Students in this class are encouraged and expected to speak up and participate during class meetings, and to carefully and respectfully listen to each other. During the first few weeks of class, we’ll work together to create a set of norms that will govern our interactions with each other, to ensure that we’re always respectful of everyone.\nSo that everyone feels comfortable participating, every member of this class must show respect for every other member of this class. Any attitude or belief that espouses the superiority of one group of people over another is not welcome in my classroom. Such beliefs are directly destructive to the sense of community that we strive to create, and will sabotage our ability to learn from each other (and thus sabotage the entire structure of the course).\nIn summary: Be good to each other."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#im-having-difficulty-paying-for-food-and-rent-what-can-i-do",
-    "href": "course-materials/syllabus.html#im-having-difficulty-paying-for-food-and-rent-what-can-i-do",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.6 I’m having difficulty paying for food and rent, what can I do?",
-    "text": "9.6 I’m having difficulty paying for food and rent, what can I do?\nIf you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in the course, I urge you to contact the Dean of Students for support. Furthermore, please notify me if you are comfortable in doing so. This will enable me to advocate for you and to connect you with other campus resources."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#my-mental-health-is-impairing-my-ability-to-engage-in-my-classes-what-should-i-do",
-    "href": "course-materials/syllabus.html#my-mental-health-is-impairing-my-ability-to-engage-in-my-classes-what-should-i-do",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.7 My mental health is impairing my ability to engage in my classes, what should I do?",
-    "text": "9.7 My mental health is impairing my ability to engage in my classes, what should I do?\nNational surveys of college students have consistently found that stress, sleep problems, anxiety, depression, interpersonal concerns, death of a significant other and alcohol use are among the top ten health impediments to academic performance. If you are experiencing any mental health issues, I and Cal Poly are here to help you. Cal Poly’s Counseling Services (805-756-2511) is a free and confidential resource for assistance, support and advocacy."
-  },
-  {
-    "objectID": "course-materials/syllabus.html#someone-is-threatening-me-what-can-i-do",
-    "href": "course-materials/syllabus.html#someone-is-threatening-me-what-can-i-do",
-    "title": "STAT 331, Fall 2025",
-    "section": "9.8 Someone is threatening me, what can I do?",
-    "text": "9.8 Someone is threatening me, what can I do?\nI will listen and believe you if someone is threatening you. I will help you get the help you need. I commit to changing campus culture that responds poorly to dating violence and stalking."
-  },
-  {
-    "objectID": "group-activities/week-1/base-r.html",
-    "href": "group-activities/week-1/base-r.html",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
-  },
-  {
-    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity"
-  },
-  {
-    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
-    "href": "group-activities/week-1/base-r.html#part-one-setup",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
-  },
-  {
-    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
-  },
-  {
-    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
-  },
-  {
-    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html",
-    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html",
-    "title": "Practice Activity 1: Break the Code",
-    "section": "",
-    "text": "NAMES: Write your group member names here.\nToday you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
-  },
-  {
-    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
-    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#groupwork-protocols",
-    "title": "Practice Activity 1: Break the Code",
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#groupwork-protocols",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#groupwork-protocols",
+    "title": "Practice Activity 2: Version Control",
     "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!\n\n\n\n\n\n\nInstructions\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code is on the PA1 Activity on the webpage, please copy the correct code into each code chunk.\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well, verifying the style guide is followed throughout the document.\n\n\nFollow the Steps\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nError in parse(text = input): &lt;text&gt;:5:56: unexpected string constant\n4: \n5: upper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\"\n                                                          ^\n\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected ','\n1: my_symbols &lt;- (lower_case,\n                             ^\n\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\nError in `dataframe()`:\n! could not find function \"dataframe\"\n\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\nError:\n! object 'my_Symbols' not found\n\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len\n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: my_symbols%Num &lt;- 1:len\n              ^"
-  },
-  {
-    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Break the Code",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nRows: 955 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (1): X1\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\nError in parse(text = input): &lt;text&gt;:2:19: unexpected input\n1: \n2: ts6 &lt;- top_secret _\n                     ^\n\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\nError:\n! object 'ts6___________' not found\n\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts8 &lt;- __\n            ^\n\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts9 &lt;- \n   ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^\n\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_mat &lt;- __\n               ^\n\n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\nError in parse(text = input): &lt;text&gt;:1:22: unexpected input\n1: evens &lt;- seq(from = __\n                         ^\n\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\nError in parse(text = input): &lt;text&gt;:1:26: unexpected input\n1: ts_mat[, 1] &lt;- ts_mat[, __\n                             ^\n\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\nError in parse(text = input): &lt;text&gt;:1:29: unexpected input\n1: ts_mat[18:24, 3] &lt;- ts_mat[__\n                                ^\n\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:11: unexpected input\n1: ts_mat[, __\n              ^\n\n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nError in parse(text = input): &lt;text&gt;:1:12: unexpected input\n1: ts_vec &lt;- __\n               ^\n\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\nError in parse(text = input): &lt;text&gt;:2:2: unexpected input\n1: # Write code to verify that indices 500 and beyond have values **below** 100\n2: __\n    ^\n\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\nError in parse(text = input): &lt;text&gt;:1:9: unexpected input\n1: ts_vec[__\n            ^\n\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: ts_vec &lt;- \n   ^\n\n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nError in parse(text = input): &lt;text&gt;:1:19: unexpected input\n1: ts_vec[ts_vec == __\n                      ^\n\n\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)\n\nError in parse(text = input): &lt;text&gt;:3:2: unexpected input\n2: \n3: __\n    ^"
-  },
-  {
-    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
-    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Break the Code",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nError:\n! object 'my_symbols' not found\n\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
-  },
-  {
-    "objectID": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
-    "href": "group-activities/week-2/pa-1-base-r-activity-updates.html#part-4-wrap-up",
-    "title": "Practice Activity 1: Break the Code",
-    "section": "Part 4: Wrap up",
-    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once rendered to HTML, submit your ZIPPED project with your “quiz” for the week."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistical Computing with R",
-    "section": "",
-    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work?\n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: Tuesdays, 1:00pm - 1:55pm\n Classroom Learning Assistant: Noah Kan\n\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\nHere are more details of the Pair Programming Protocols\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
     "crumbs": [
-      "Course information",
-      "Home"
+      "Pair Programming Activities",
+      "Pair Activity 2: Version Control"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-0-accessing-the-practice-activity",
+    "title": "Practice Activity 2: Version Control",
+    "section": "Part 0: Accessing the Practice Activity",
+    "text": "Part 0: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nThe Computer (partner with next upcoming birthday) should create a GitHub repo called “pa-2-code-breaking”.\n\nTo the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.\n\nUnder Settings, go to Collaborators, the Add people and search for your partner by username or email.\n\nThe partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.\n\nThe Computer should then create a Version Control R Project on their computer and then download the pa-2-vc-intro-tidy-activity.qmd file into the folder on your computer.\nTest your connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.\n\nNow you are ready to start! You will switch roles here and the new Computer will need to create a local repository on their own computer of the shared repository before starting.\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 2: Version Control"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-1-setup",
+    "title": "Practice Activity 2: Version Control",
+    "section": "Part 1: Setup",
+    "text": "Part 1: Setup\nIn your activity, each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code provided below, please copy the correct code into each code chunk and add a label and comment.\n\nAdd a setup code chunk to your activity that loads the tidyverse package and hides the code output.\n\n#| label: setup\n#| include: false\nlibrary(tidyverse)\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your data frame that assigns a number to each symbol.\n\nIf you want to look at my_symbols click on it under the Environment Tab in the top right panel.\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 2: Version Control"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-3/pa-2-vc-instructions.html#part-4-wrap-up",
+    "href": "group-activities/week-3/pa-2-vc-instructions.html#part-4-wrap-up",
+    "title": "Practice Activity 2: Version Control",
+    "section": "Part 4: Wrap up",
+    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 2: Version Control"
     ]
   },
   {
@@ -1146,7 +1019,7 @@
     "href": "weeks/week-1-r-rstudio.html#installing-r",
     "title": "Week 1: R & RStudio",
     "section": "1.2 Installing R",
-    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nWarningMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of July 1, 2024 was R-4.4.1 (Race for Your Life).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTipTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of July 1, 2024 was R-4.4.1 (Race for Your Life).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
     "crumbs": [
       "Weekly materials",
       "Week 1 - R & RStudio"

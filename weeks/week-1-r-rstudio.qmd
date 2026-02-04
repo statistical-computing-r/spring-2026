@@ -1,5 +1,9 @@
 ---
 title: "Week 1: R & RStudio"
+format: 
+  html:
+    link:
+      target: "_blank"
 number-sections: true
 number-depth: 2
 embed-resources: true
