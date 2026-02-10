@@ -19,11 +19,48 @@ execute:
 
 ## GitHub Workflow
 
-Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the `usethis` package commands we have learned).
+We will use GitHub Classroom to submit Lab 3.
 
-Use appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.  
+### Step 1: Access GitHub Classroom Assignment  
 
-Your project folder should contain the following:  
+Click on the following link to create your repository for [Lab 3: Exploring Rodents with `ggplot2`](https://classroom.github.com/a/PqqT7gXA).  
+
+
+::: {.callout-warning} 
+## Accept Assignment Invitation
+You will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.
+:::
+
+
+### Step 2: Copy the HTTPS Link to the Repository
+
+Find the **<> Code** button and select **Local** and then **HTTPS**. Copy the URL for the Repository provided
+
+![](images/selecting-https-github.png){fig-alt="screenshot of GitHub Repository HTTPS link found under CODE in a repository on GitHub"}  
+
+
+### Step 3: Make a New Project in RStudio
+Either under File, or in the top right corner where the current project name is, select
+
+![](images/create-new-project.png){fig-alt="Screenshot of new project option in RStudio under the project name in RStudio"}  
+
+
+### Step 4: Choose New Project
+For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.  
+
+![](images/choose-new-project.png){fig-alt="Image of New Project Wizard in RStudio where students should select New Project"}
+
+
+### Step 5: Choose a Version Control
+Choose **Version Control** and then **Git**. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.  
+
+![](images/paste-git-https-r.png){fig-alt="Clone Git Repository Screen in RStudio where you paste the link under Repository URL."}
+
+Now you should be set up and ready to go!
+
+
+### Step 6: Add Files to your Project
+Download the lab and data files linked below into your local project folder. Your project folder should contain the following:  
 
 - .Rproj  
 - [lab-3-student.qmd](../student/lab-3-student.qmd) 
@@ -31,7 +68,7 @@ Your project folder should contain the following:
     + [surveys.csv](../student/data/surveys.csv)
 - rendered document
 
-You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.  
+After that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.  
 
 
 ## Seeking Help

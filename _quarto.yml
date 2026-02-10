@@ -83,7 +83,8 @@ website:
             text: "Pair Activity 1: Break the Code"
           - href: group-activities/week-3/pa-2-vc-instructions.qmd
             text: "Pair Activity 2: Version Control"
-           
+          - href: group-activities/week-4/pa-3-ggplot-instructions.qmd
+            text: "Pair Activity 2: Version Control"
           
       - section: "Labs" 
         contents:
@@ -91,8 +92,8 @@ website:
             text: "Lab 1 & Challenge 1 Instructions"
           - href: labs/instructions/lab-2-instructions.qmd
             text: "Lab 2 Instructions"
-          # - href: labs/instructions/lab-3-instructions.qmd
-          #   text: "Lab 3 and Challenge 3 Instructions"
+          - href: labs/instructions/lab-3-instructions.qmd
+            text: "Lab 3 & Challenge 3 Instructions"
           # - href: labs/instructions/lab-4-instructions.qmd
           #   text: "Lab 4 Instructions"
           # - href: labs/instructions/lab-5-instructions.qmd

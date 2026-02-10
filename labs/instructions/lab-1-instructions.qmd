@@ -58,7 +58,7 @@ In order to try out GitHub classroom instead of submitting on Canvas, you can se
 
 Click on the following link to create your repository for [Lab 1: Introduction to Quarto](https://classroom.github.com/a/xzjmK1pj).  
 
-You will need to accept the assignment and then go to the link provided for the repository.  
+**You will need to accept the assignment by clicking the link in your email (account associated with GitHub) and then go to the link provided for the repository.**  
 
 #### Step 2: Copy the HTTPS Link to the Repository
 

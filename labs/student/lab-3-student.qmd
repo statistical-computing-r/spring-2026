@@ -12,9 +12,7 @@ execute:
 
 ## GitHub Workflow
 
-Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the `usethis` package commands we have learned).
-
-Use appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.  
+Set up your GitHub workflow. Use appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.  
 
 Your project folder should contain the following:  
 
@@ -24,7 +22,7 @@ Your project folder should contain the following:
     + `surveys.csv`  
 - rendered document (`.md`)  
 
-You will submit a link to your GitHub repository with all content. 
+You will submit a link to your GitHub repository with all content via GitHub Classroom. 
 
 
 ## Seeking Help
@@ -141,6 +139,10 @@ It takes a larger cognitive load to read text that is rotated. It is common prac
 
 <!-- Continue to modify the plot you originally created for question 3! -->
 
+
+<!-- If you have not committed and pushed your code, do that now! -->
+
+
 ## Boxplots
 
 ```{r}
@@ -162,6 +164,7 @@ Alright, this should look less than optimal. Your points should appear rather st
 **11. Remove the previous layer and include a `geom_jitter()` layer instead.**
 
 <!-- Continue to modify the plot you made for question 9! -->
+<!-- If you have not committed and pushed your code, do that now! -->
 
 That should look a bit better! But its really hard to see the points when everything is black.
 
@@ -192,6 +195,7 @@ Some people (and journals) prefer for boxplots to be stacked with a specific ori
 
 Notice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots (even when the axis labels are rotated). This is good practice!
 
+<!-- If you have not committed and pushed your code, do that now! -->
 
 # Challenges 
 
