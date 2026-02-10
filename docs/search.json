@@ -520,7 +520,7 @@
     "text": "Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:",
     "crumbs": [
       "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Pair Activity 3: Plotting Penguins"
     ]
   },
   {
@@ -531,7 +531,7 @@
     "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\nHere are more details of the Pair Programming Protocols\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
     "crumbs": [
       "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Pair Activity 3: Plotting Penguins"
     ]
   },
   {
@@ -542,7 +542,7 @@
     "text": "Tidy Code\nAs you are writing code for this assignment, make sure your code follows the tidyverse style guide for ggplot code. Specifically, your code should:\n\nuse whitespace liberally\n\nbefore & after every = sign\nafter every ,\nbefore every +\n\nuse new lines liberally\n\nafter every +\nafter , when needed (if code is more than 80 characters in length)",
     "crumbs": [
       "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Pair Activity 3: Plotting Penguins"
     ]
   },
   {
@@ -553,7 +553,7 @@
     "text": "Well Documented Code\nInclude a comment at the beginning of the code chunk that briefly states the purpose of the chunk (comments come after # signs). In addition, if your code involves many steps or steps you needed to look up / get help on, I would encourage you to write a code comment on what is happening in these lines.\n\nggplot(data = penguins, \n       mapping = aes(x = species, \n                     fill = species\n       )) +\n# use fill instead of color to get the bars filled entirely with color (instead of just on the outside)\n  \n  geom_bar() +\n  labs(x = \"\", \n       y = \"\", \n       title = \"Number of Penguins Captured in the Palmer Archipelago\") +\n# remove axis titles and put that information in the title where it is easier to read\n  \n  theme(legend.position = \"none\")\n# to remove the legend position, since the fill information is already included on the x-axis",
     "crumbs": [
       "Pair Programming Activities",
-      "Pair Activity 2: Version Control"
+      "Pair Activity 3: Plotting Penguins"
     ]
   },
   {

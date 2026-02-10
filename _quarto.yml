@@ -84,7 +84,7 @@ website:
           - href: group-activities/week-3/pa-2-vc-instructions.qmd
             text: "Pair Activity 2: Version Control"
           - href: group-activities/week-4/pa-3-ggplot-instructions.qmd
-            text: "Pair Activity 2: Version Control"
+            text: "Pair Activity 3: Plotting Penguins"
           
       - section: "Labs" 
         contents:

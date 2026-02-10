@@ -88,6 +88,12 @@ ggplot(data = penguins,
 ```
 
 
+# Getting Started
 
+The partner whose family name starts first alphabetically starts as the Computer (typing and listening to instructions from the Coder! 
+
+Coder, walk the Computer through the steps of creating a new R project folder called `pa-3-ggplot`, importing the Quarto activity file linked below. Then start on the instructions in the Quarto document to create your graphs.  
+
+- [pa-3-ggplot-activity.qmd](../week-4/pa-3-ggplot-activity.qmd) 
 
 
