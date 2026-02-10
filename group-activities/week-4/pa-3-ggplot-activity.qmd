@@ -36,6 +36,12 @@ In this section you will explore the `penguins` dataset by creating multiple
 types of plots. As you are creating you plots, please don't forget to (1) give
 your plots reader friendly axes labels, and. (2) follow good code formatting!
 
+## Step 0: Setup Chunk
+In the empty code chunk at the top of the document, add the correct packages and label the code chunk as `setup`.  
+
+- `tidyverse` or `ggplot2`  
+- `palmerpenguins` 
+
 ## Step 1: Barchart
 
 Use `ggplot2` to plot the frequency of each penguin `species`. 
@@ -44,6 +50,9 @@ Use `ggplot2` to plot the frequency of each penguin `species`.
 #| label: barchart
 
 ```
+
+
+<!-- Change roles (Computer becomes Coder)! -->
 
 ## Step 2: Histogram or Density Curve
 
@@ -96,17 +105,36 @@ below.
 
 ```
 
+
+<!-- Change roles (Computer becomes Coder)! -->
+
 # Canvas Quiz
 
 Working together as a team, use the plots you both created to address the
-following questions on Canvas:
+following questions below, then submit your answers individually on Canvas:
 
 1.  Which species of penguins is represented the **least** in the `penguins` data set?
 
-2.  What is the most frequent bill length seen in these data? (Approximate to the nearest 5mm)
+>Insert Answer
 
-2.  Which species of penguins are found on Biscoe Island?
+2.  What is the most frequent bill length seen in these data? (Approximate to the nearest 5mm)  
 
-3.  Which species of penguins are found on Dream Island?
+>Insert Answer
 
-4.  Which species of penguins are found on Torgersen Island?
+3.  Which species of penguins are found on Biscoe Island?  
+
+>Insert Answer
+
+4.  Which species of penguins are found on Dream Island?  
+
+>Insert Answer
+
+5.  Which species of penguins are found on Torgersen Island?  
+
+>Insert Answer
+
+
+
+# Submission
+
+Render the Quarto document to HTML. Submit the zipped file and the html separately for the quiz (so you will need to export this twice).  
