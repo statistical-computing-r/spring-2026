@@ -15,7 +15,7 @@
     "href": "weeks/week-5-projects-data-import.html#working-directories-in-r",
     "title": "R Projects & Importing Data",
     "section": "1.1 Working Directories in R",
-    "text": "1.1 Working Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\ngetwd()\n\nAlthough it is not recommended, you can set your working directory in R with setwd():\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\n\n\n\n\n\n\n\nFile Paths in R\n\n\n\nA quick warning on file paths is that Mac / Linux and Windows differ in the direction of their backslash to separate folder locations. Mac/Linux use / (e.g. STAT210/Week1) while Window’s uses \\ (e.g. STAT210\\Week1).",
+    "text": "1.1 Working Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\ngetwd()\n\nAlthough it is not recommended, you can set your working directory in R with setwd():\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\n\n\n\n\n\n\n\nCautionFile Paths in R\n\n\n\nA quick warning on file paths is that Mac / Linux and Windows differ in the direction of their backslash to separate folder locations. Mac/Linux use / (e.g. STAT210/Week1) while Window’s uses \\ (e.g. STAT210\\Week1).",
     "crumbs": [
       "Weekly materials",
       "Week 5 - Importing Data"
@@ -26,7 +26,7 @@
     "href": "weeks/week-5-projects-data-import.html#r-projects",
     "title": "R Projects & Importing Data",
     "section": "1.2 R Projects",
-    "text": "1.2 R Projects\n📖 Review Reading: Workflow (R Projects)\n\n\n\n\n\n\nOnly read Section 6.2!\n\n\n\n\n\n\n\n1.2.1 Create an R Project from an Existing Folder\nSo far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio you wanted to make a new R Project, and (2) in order for RStudio to talk with GitHub you need to use an R Project.\nHowever, if you look in any other folder on your computer, you should not see a blue cube since you never created an R Project in those folders. Suppose we have a project we’ve been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn’t contain an R Project file (.RProj).\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for the project), first open RStudio on your computer and click File &gt; New Project, then select Existing Directory:\n\n\n\nNavigation prompt for creating a new R Project in an existing directory\n\n\nThen, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive). For example, let’s say you had a folder called STAT331 that you wanted to turn into a R Project. Select that folder.\n\n\n\nNavigation prompt for selecting which existing folder in which the R Project should be created.\n\n\nOnce you click “Create Project”, your existing folder, STAT331 should now contain a STAT331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\nIf you would like a list of step-by-step instructions for this process, feel free to look at this file: Creating a Project in an Existing Directory",
+    "text": "1.2 R Projects\n📖 Review Reading: Workflow (R Projects)\n\n\n\n\n\n\nNoteOnly read Section 6.2!\n\n\n\n\n\n\n\n1.2.1 Create an R Project from an Existing Folder\nSo far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio you wanted to make a new R Project, and (2) in order for RStudio to talk with GitHub you need to use an R Project.\nHowever, if you look in any other folder on your computer, you should not see a blue cube since you never created an R Project in those folders. Suppose we have a project we’ve been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn’t contain an R Project file (.RProj).\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for the project), first open RStudio on your computer and click File &gt; New Project, then select Existing Directory:\n\n\n\nNavigation prompt for creating a new R Project in an existing directory\n\n\nThen, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive). For example, let’s say you had a folder called STAT331 that you wanted to turn into a R Project. Select that folder.\n\n\n\nNavigation prompt for selecting which existing folder in which the R Project should be created.\n\n\nOnce you click “Create Project”, your existing folder, STAT331 should now contain a STAT331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\nIf you would like a list of step-by-step instructions for this process, feel free to look at this file: Creating a Project in an Existing Directory",
     "crumbs": [
       "Weekly materials",
       "Week 5 - Importing Data"
@@ -213,7 +213,7 @@
     "href": "weeks/week-1-r-rstudio.html#installing-r",
     "title": "Week 1: R & RStudio",
     "section": "1.2 Installing R",
-    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of July 1, 2024 was R-4.4.1 (Race for Your Life).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nWarningMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of July 1, 2024 was R-4.4.1 (Race for Your Life).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTipTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
     "crumbs": [
       "Weekly materials",
       "Week 1 - R & RStudio"
@@ -470,102 +470,333 @@
     "text": "Rendering your Quarto Document\nWhen you click Render:\n\n\nYour file is saved.\nThe R code written in your .qmd file gets run in order.\n\n\nIt starts from scratch, even if you previously ran some of the code in RStudio.\n\n\nA new file is created.\n\n\nIf your Quarto file is called “Lab1.qmd”, then a file called “Lab1.html” will be created.\nThis will be saved in the same folder as “Lab1.qmd”."
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html",
-    "href": "labs/instructions/lab-2-instructions.html",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "labs/instructions/lab-3-instructions.html",
+    "href": "labs/instructions/lab-3-instructions.html",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor this week, you will create a New Directory.\n\n\n\n\nInstead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!\n\n\n\nIn the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 3: Exploring Rodents with ggplot2.\n\n\n\n\n\n\nWarningAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.\n\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.\n\n\n\nThe questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).\n\n\n\nCreate a setup named code chunk to load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
     "crumbs": [
       "Labs",
-      "Lab 2 Instructions"
+      "Lab 3 & Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "href": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "labs/instructions/lab-3-instructions.html#github-workflow",
+    "href": "labs/instructions/lab-3-instructions.html#github-workflow",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 3: Exploring Rodents with ggplot2.\n\n\n\n\n\n\nWarningAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#seeking-help",
+    "href": "labs/instructions/lab-3-instructions.html#seeking-help",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#lab-instructions",
+    "href": "labs/instructions/lab-3-instructions.html#lab-instructions",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "The questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#setup",
+    "href": "labs/instructions/lab-3-instructions.html#setup",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "Create a setup named code chunk to load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
+    "href": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "2.1 Reading the Data into R",
+    "text": "2.1 Reading the Data into R\nWe are going to use the read_csv() function to load in the surveys.csv dataset (stored in the data folder). For simplicity, name the data surveys. We will learn more about this function next week.\n\nsurveys &lt;- read_csv(\"data/surveys.csv\")\n#glimpse(surveys)\n\n1. What are the dimensions (# of rows and columns) of these data?\n\n2. What are the data types of the variables in this dataset?",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#scatterplot",
+    "href": "labs/instructions/lab-3-instructions.html#scatterplot",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "3.1 Scatterplot",
+    "text": "3.1 Scatterplot\n3. First, let’s create a scatterplot of the relationship between weight (on the \\(x\\)-axis) and hindfoot_length (on the \\(y\\)-axis).\nWe can see there are a lot of points plotted on top of each other. Let’s try and modify this plot to extract more information from it.\n4. Let’s add transparency (alpha) to the points, to make the points more transparent and (possibly) easier to see.\n\nDespite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better.\n6. Facet your scatterplot by species.\n\n7. No plot is complete without axis labels and a title. Include reader friendly labels and a title to your plot.\n\nIt takes a larger cognitive load to read text that is rotated. It is common practice in many journals and media outlets to move the \\(y\\)-axis label to the top of the graph under the title.\n8. Specify your \\(y\\)-axis label to be empty and move the \\(y\\)-axis label into the subtitle.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#boxplots",
+    "href": "labs/instructions/lab-3-instructions.html#boxplots",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "3.2 Boxplots",
+    "text": "3.2 Boxplots\n9. Create side-by-side boxplots to visualize the distribution of weight within each species.\nA fundamental complaint of boxplots is that they do not plot the raw data. However, with ggplot we can add the raw points on top of the boxplots!\n10. Add another layer to your previous plot that plots each observation using geom_point().\n\nAlright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using geom_jitter().\n11. Remove the previous layer and include a geom_jitter() layer instead.\n\nThat should look a bit better! But its really hard to see the points when everything is black.\n12. Set the color aesthetic in geom_jitter() to change the color of the points and add set the alpha aesthetic to add transparency. You are welcome to use whatever color you wish! Some of my favorites are “springgreen4” and “steelblue4”. Check them out on R Charts\n\nGreat! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from geom_boxplot() as outliers and again from geom_jitter()!\n13. Inspect the help file for geom_boxplot() and see how you can remove the outliers from being plotted by geom_boxplot(). Make this change in your code!\n\nSome small changes can make big differences to plots. One of these changes are better labels for a plot’s axes and legend.\n14. Modify the \\(x\\)-axis and \\(y\\)-axis labels to describe what is being plotted. Be sure to include any necessary units! You might also be getting overlap in the species names – use theme(axis.text.x = ____) or theme(axis.text.y = ____) to turn the species axis labels 45 degrees.\n\nSome people (and journals) prefer for boxplots to be stacked with a specific orientation! Let’s practice changing the orientation of our boxplots.\n15. Now copy-paste your boxplot code you’ve been adding to above. Flip the orientation of your boxplots. If you created horizontally stacked boxplots, your boxplots should now be stacked vertically. If you had vertically stacked boxplots, you should now stack your boxplots horizontally!\nNotice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots (even when the axis labels are rotated). This is good practice!",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "href": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.1 🌶 Medium: Ridge Plots",
+    "text": "5.1 🌶 Medium: Ridge Plots\nIn Lab 3, you used side-by-side boxplots to visualize the distribution of weight within each species of rodent. Boxplots have substantial flaws, namely that they disguise distributions with multiple modes.\nA “superior” alternative is the density plot. However, ggplot2 does not allow for side-by-side density plots using geom_density(). Instead, we will need to make use of the ggridges package to create side-by-side density (ridge) plots.\n\nFor this challenge you are to change your boxplots to ridge plots. You will need to install the ggridges package and explore the geom_density_ridges() function.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "href": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.2 🌶 🌶 Spicy: Exploring Color Themes",
+    "text": "5.2 🌶 🌶 Spicy: Exploring Color Themes\nThe built-in ggplot() color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!\nYou can change the colors used by ggplot() in a few different ways.\n\nManual Specification\nAdd the scale_color_manual() or scale_fill_manual() functions to your plot and directly specify the colors you want to use. You can either:\n\ndefine a vector of colors within the scale functions (e.g. values = c(\"blue\", \"black\", \"red\", \"green\")) OR\ncreate a vector of colors using hex numbers and store that vector as a variable. Then, call that vector in the scale_color_manual() function.\n\nHere are some example hex color schemes:\n\n# A vector of a RG color deficient friendly palette with gray:\ncdPalette_grey &lt;- c(\"#999999\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n# A vector of a RG color deficient friendly palette with black:\ncdPalette_blk &lt;- c(\"#000000\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are interested in using specific hex colors, I like the image color picker app to find the colors I want.\n\n\n\n\nPackage Specification\nWhile manual specification may be necessary for some contexts, it can be a real pain to handpick 5+ colors. This is where color scales built-in to R packages come in handy! Popular packages for colors include:\n\nRColorBrewer – change colors by using scale_fill_brewer() or scale_colour_brewer().\nviridis – change colors by using scale_colour_viridis_d() for discrete data, scale_colour_viridis_c() for continuous data.\nggsci – change colors by using scale_color_&lt;PALNAME&gt;() or scale_fill_&lt;PALNAME&gt;(), where you specify the name of the palette you wish to use (e.g. scale_color_aaas()).\n\n\n\n\n\n\n\nNote\n\n\n\nThis website provides an exhaustive list of color themes available through various packages.\n\n\n\nIn this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to change the colors used for genus using either manual color specification or any of the packages listed here (or others!).",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "href": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation",
+    "text": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation\nSome data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use annotation.\nWe can add annotation(s) to a ggplot() using the annotate() function:\n\nggplot(data = surveys, \n       mapping = aes(x = weight, y = species, color = genus)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = cdPalette_grey) + \n  annotate(\"text\", y = 6, x = 200, label = \"Sigmodon\") +\n  annotate(\"text\", y = 4, x = 200, label = \"Perognathus\") +\n  theme(legend.position = \"none\") +\n  labs(x = \"Weight (g)\",\n       y = \"\",\n       subtitle = \"by Species and Genera\",\n       title = \"Rodent Weight\")\n\nNote that I’ve labeled the “Sigmodon” and “Perognathus” genera, so the reader can tell that these boxplots are associated with their respective genus.\n\nIn this challenge you are expected to use this information to modify the boxplots you created in Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the theme() function to remove the color legend from the plot, since it is no longer needed!",
+    "crumbs": [
+      "Labs",
+      "Lab 3 & Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html",
+    "href": "labs/instructions/lab-1-instructions.html",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nFor this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\n\nNow set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\n\nNow download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!\n\n\nIn order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the Week 3 Activities)\n\n\nClick on the following link to create your repository for Lab 1: Introduction to Quarto.\nYou will need to accept the assignment by clicking the link in your email (account associated with GitHub) and then go to the link provided for the repository.\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "href": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "title": "Lab 1: Introduction to Quarto",
     "section": "",
     "text": "Either under File, or in the top right corner where the current project name is, select",
     "crumbs": [
       "Labs",
-      "Lab 2 Instructions"
+      "Lab 1 & Challenge 1 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
-    "href": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "href": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "For this week, you will create a New Directory.",
+    "text": "For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.",
     "crumbs": [
       "Labs",
-      "Lab 2 Instructions"
+      "Lab 1 & Challenge 1 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
-    "href": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
+    "href": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
+    "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "Instead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!",
+    "text": "For this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.",
     "crumbs": [
       "Labs",
-      "Lab 2 Instructions"
+      "Lab 1 & Challenge 1 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
-    "href": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
+    "href": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
+    "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "In the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "text": "Now set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1",
     "crumbs": [
       "Labs",
-      "Lab 2 Instructions"
+      "Lab 1 & Challenge 1 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#about",
-    "href": "labs/instructions/lab-2-instructions.html#about",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.1 About",
-    "text": "3.1 About\nLet’s start easy. Go into your about.qmd and write a short paragraph introducing yourself. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-2-instructions.html#index",
-    "href": "labs/instructions/lab-2-instructions.html#index",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.2 Index",
-    "text": "3.2 Index\nThe index.qmd will serve as your home page for your website, so let’s make it pretty!\n\nUpdate the YAML code with the following and then update title.\n\nMove a nice profile image into your project folder and change the file name after image: to match your images name and type (e.g. .jpg, .png).\n\nUpdate the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).\n\n---\ntitle: \"Judith Canner\"\nabout:\n  template: jolla\n  image: jec-profile.jpg\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/in/judith-canner/\n    - icon: github\n      text: Github\n      href: https://github.com/jcanner\n---\nGo ahead and save and then under Build, Render the website. How does it look?\nWithin the text/markdown area of the .qmd add some of the following information about yourself:\nJudith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at [California State University, Monterey Bay](http://csumb.edu/mathstat).\n\n## Education\n\nShippensburg University | Shippensburg, PA  \nB.S. in Applied Mathematics | 2001 - 2004\n\n## Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\nGo ahead and save and then under Build, Render the website. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.\nFeel free to make other changes, add additional text, links, or images.",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-2-instructions.html#quarto.yml",
-    "href": "labs/instructions/lab-2-instructions.html#quarto.yml",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.3 _quarto.yml",
-    "text": "3.3 _quarto.yml\nOpen up the _quarto.yml. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Name's ePortfolio\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: \"Home\"\n      - href: about.qmd\n        text: \"About Me\"\n\nformat:\n  html:\n    theme: cosmo\n    css: styles.css\n    toc: true\n\neditor: source\nYou can update the theme if you want - Quarto HTML Theming or customize your theme or even create your own css code (if you know how). That is up to you!\nAt minimum, here is the modification you need to make the following modification - add the output-dir: docs at the top under project/type.\nproject:\n  type: website\n  output-dir: docs\nWhat this does is renders the HTML parts of your website directly into a folder called /docs and this locations is what we will use to publish your webpage on GitHub.\nSave your changes. Build your website (notice a docs file is now created. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistical Computing with R",
+    "objectID": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
+    "href": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
+    "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work?\n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: Tuesdays, 1:00pm - 1:55pm\n Classroom Learning Assistant: Noah Kan\n\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
+    "text": "Now download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!\n\n\nIn order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the Week 3 Activities)\n\n\nClick on the following link to create your repository for Lab 1: Introduction to Quarto.\nYou will need to accept the assignment by clicking the link in your email (account associated with GitHub) and then go to the link provided for the repository.\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!",
     "crumbs": [
-      "Course information",
-      "Home"
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
+    "href": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.1 Specifying Global Execute Options",
+    "text": "2.1 Specifying Global Execute Options\nExecution options specify how the R code in your Quarto document should be displayed. This guide provides descriptions on the options you can specify in a document’s execution.\nTo start, your YAML should look something like this:\n---\ntitle: \"Lab 1: Introduction to Quarto\"\nauthor: \"Your name goes here!\"\ndate: \"Insert the date here!\"\nformat: html\nembed-resources: true\neditor: source\n---\nQuestion 1 – Add your name and the date to the YAML.\nQuestion 2 – Add an execute line to your YAML that includes the following options, (1) your source code is always output on the page, and (2) your document will render even if there are errors.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
+    "href": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.2 Running the Provided Code",
+    "text": "2.2 Running the Provided Code\nNext, click on the “Play” button on the right of the first auto-populated code chunk. Alternatively, you can highlight (or simply put your cursor on the line of) the code you want to run and hit ctrl + Enter (for PCs) or ⌘ + Enter (for Macs).\nYou should see the code appear in the console, as well as the result of the code (2). Keep in mind the [1] before the 2 is vector notation. This means the result is a vector of length 1, whose first element is 2.\nQuestion 3 – Let’s spice this code up a bit. Delete 1 + 1 from the code chunk and paste in the following code:\n\n# Load a dataset into the R Environment.\ndata(ToothGrowth)\n\n# Look at the summary of the variables in the dataset.\nsummary(ToothGrowth)\n\nNow run this code. You should see a six-number summary of the variables len and dose included in the ToothGrowth dataset, as well as the frequency of the levels contained in the supp variable. Further, if you inspect the Environment tab, the ToothGrowth dataset should appear. You can click on the dataset name (not the blue play button!) to look at the data.\n\nCheck the Data Documentation\nQuestion 4 – In your console (not in the Quarto document), type ?ToothGrowth (or alternatively help(ToothGrowth)). Use the information that pops up in the Help pane in RStudio to fill in the blanks below.\nThis dataset investigates the effect of __________ on tooth growth in _________________.\nThe two supplement delivery methods include OJ (______________) and VC (_______________).\nToothGrowth is a data frame with ____ observations and ____ variables.\nQuestion 5 – Before the code chunk, change the “Running the Provided Code” section header to a header that better describes the contents of this section (e.g., Tooth Growth Dataset).",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-plot",
+    "href": "labs/instructions/lab-1-instructions.html#creating-a-plot",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.3 Creating a Plot",
+    "text": "2.3 Creating a Plot\nYour second code chunk is just as boring as your first, so let’s spice it up!\nQuestion 6 – Replace the plot(pressure) code with the following (we will talk about graphics next week!):\n\nlibrary(tidyverse)\n\nggplot(data = ToothGrowth, \n       mapping = aes(x = supp, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Supplement\", y = \"Length of Teeth (mm)\")\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", y = \"Length of Teeth (mm)\")\n\nNow, run this code chunk! You should see two side-by-side boxplots, one plot comparing tooth length between the two supplement delivery methods and one plot comparing tooth length between the three different dosages uses.\nQuestion 7 – Read over the Quarto documentation on figure options and add an option (#|) to the above code chunk to make the figures print side-by-side (i.e., in one row) in the rendered HTML file.\nQuestion 8 – Specify in the code chunk options that these boxplots should be center aligned.\nQuestion 9 – Specify a figure caption for the boxplots (using a code-chunk option).\nQuestion 10 – Digital accessibility is important. Specify figure alternative text for the boxplots (using a code-chunk option). The alt text should describe both figures.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
+    "href": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.4 Inserting a New Code Chunk",
+    "text": "2.4 Inserting a New Code Chunk\nNavigate to the top of your document, just below the YAML code. We’re now going to insert a new R code chunk at the top of the document.\nThere are four different ways to do this:\n\nType ctrl + alt + i (on a PC) or ⌘ + ⌥ + i (on a Mac).\nClick on the  symbol. This should automatically default to R code, but if you have a Python compiler on your computer, you might need to select “R” from the options.\nIf you are using the Visual editor, click on the “Insert” button, then select “Code Chunk”, and finally select “R”.\nManually add the code chunk by typing ```{r}. Make sure to close your code chunk with ```.\n\nQuestion 11 – Label the new code chunk as setup and add the specification include: false as well. Then move the code library(tidyverse) from the code chunk modified in Question 6 to the setup code chunk. This is best practice for organizing Quarto documents.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
+    "href": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.5 Creating a More Complex Plot",
+    "text": "2.5 Creating a More Complex Plot\nIn this section, we are to create a new plot that you will place in the created code chunk.\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len, fill = supp)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", \n       y = \"Length of Teeth (mm)\",\n       fill = \"Supplement Type\")\n\nCarry out the following steps:\nQuestion 12 – Navigate to the last sentence of your the Quarto document. Insert a new code chunk.\nQuestion 11 – In the new code chunk, add the code for the graph. Be sure to include a code chunk label and alt text.\nQuestion 12 – Run your code chunk to obtain the output for your new graph.\nQuestion 13 – Create a numbered list containing:\n\nYour conclusions (in the context of these data) based on the graph.\n\nA recommendation for how I should get my guinea pig’s teeth (odontoblasts) to grow more.\n\nQuestion 13 – Create another section header, describing the contents of this section before the graph and list.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#render-your-document",
+    "href": "labs/instructions/lab-1-instructions.html#render-your-document",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.6 Render Your Document",
+    "text": "2.6 Render Your Document\nRender your document as an html file. Use the “Render” button (the blue arrow!) at the top of your screen.\nIf you run into trouble rendering your document, try restarting R and running your code chunks in order, and see if you can find the problem.\nAnother common issue is deleting the tick marks (```) that surround your code chunks. If you notice that the code chunks are not showing a “Play” button (), or that they are not highlighted in gray, double check your tick marks!\nRecall we included error: true in our YAML execution options. This means that your document will still render even if there are errors. Make sure you are double checking your work!\nYou will notice that there is auto-generated text that is unrelated to the work that you completed. It is always a good idea to delete this extra text!",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#render-again",
+    "href": "labs/instructions/lab-1-instructions.html#render-again",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "3.1 Render again!",
+    "text": "3.1 Render again!\nNotice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes—this is called reproducibility!\nYou should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#turn-it-in",
+    "href": "labs/instructions/lab-1-instructions.html#turn-it-in",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "3.2 Turn it in!",
+    "text": "3.2 Turn it in!\nOpen the .html file on your computer to make sure it looks as you expected. Then upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!\n\nYou’ll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data-instructions.html",
+    "href": "group-activities/week-5/pa-4-import-tidy-data-instructions.html",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 4: Importing Youth Risk Behavior Data"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#groupwork-protocols",
+    "href": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#groupwork-protocols",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.\nWhen you are the Computer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.\nHere are more details of the Pair Programming Protocols\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 4: Importing Youth Risk Behavior Data"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#goals-for-the-activity",
+    "href": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#goals-for-the-activity",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nSolve issues in your data as you read it in by parsing out text from numbers, specifying NA values, and cleaning up variable names\n\nTHROUGHOUT the Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto doc\n\nuse proper spacing\n\nname all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 4: Importing Youth Risk Behavior Data"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#youth-risk-behavior-surveillance-systems-yrbss",
+    "href": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#youth-risk-behavior-surveillance-systems-yrbss",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Youth Risk Behavior Surveillance Systems (YRBSS)",
+    "text": "Youth Risk Behavior Surveillance Systems (YRBSS)\nThis data is from a survey given every other year called the Youth Risk Behavior Surveillance System administered by the Center for Disease Control and Prevention. The survey monitors health risks among youth, such as violence, sexually transmitted diseases, tobacco, and alcohol use.\nThe data set contains over 100,000 rows from 2015. A code book is also provided that gives extensive information on the survey. The data can be stored in an Excel or spreadsheet program, but it cannot be manipulated in those programs because of its size - this why we need R.\n\n\n\n\n\n\nNote\n\n\n\nThe partner who most recently watched an Avengers movies is the Computer (typing and listening to instructions from the Coder) and should set up the project on their account.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 4: Importing Youth Risk Behavior Data"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#setting-up-your-project",
+    "href": "group-activities/week-5/pa-4-import-tidy-data-instructions.html#setting-up-your-project",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Setting up your Project",
+    "text": "Setting up your Project\nYour project should have the following components:\n\ndata-clean that will eventually hold your cleaned up data\n\ncompleted pa-4-import-tidy-data-activity.qmd\nrendered file as .html\n\n\nStep 1: Attempt to Read in the Data\nGo ahead and read in the data, a .csv, calling it youth. Note that the original data file is quite large, so we will read it in from GitHub where it is stored. What do you notice?\nDescribe some of the issues you notice in the data.\n\n\nStep 2: Skip the First Row\nUsing either the help options or the readr cheatsheet, add an argument to the code above that will skip the first row of the data file so that the ‘headers’ (column titles) read in correctly.\n\n\nStep 3: Fix the Missing Values\nTake note of how missing values are designated in the data. Add an argument to the code above that identifies and fixes the data so that each missing value type is treated as the same NA.\n\n\n\nStep 4: Clean A few of the Variables\nAdd additional arguments to the code above that does the following:\n\nAgeCat: remove the text “years old” from the numeric values\n\nGrade: remove the text “th grade” from the numeric values\n\nPerception of weight: read as a factor with the following\n\nlevels = c(\"Very underweight\",\"Slightly underweight\", \"About the right weight\", \"Slightly overweight\", \"Very overweight\")\n\nSet the following variables to the right data type:\n\nGender\n\nHeight in meters\n\nWeight in kilograms\n\nBody Mass Index\nBMI percentile\n\nFruit eating\n\nSalad eating\nOther vegetable eating\nSoda drinking\nBreakfast eating\nPhysical activity &gt;= 5 days\nTelevision watching\nSports team participation\n\n\nSkip the rest of the variables (hint set .default = _________)\n\n\n\n\nStep 5: Clean the Variable Names\n\n\n\n\n\n\nWarning\n\n\n\nYou may need to install janitor\n\n\nUse the janitor package to clean the variable names to snake_case. You may need to install it first.\n\n\nStep 6: Write the Clean Data\nWrite the clean data to the data-clean folder.\nNow that the data is clean, you can add eval: false to the prior code chunks.\nWhy do we keep the code for the data cleaning but set the code chunks to eval: false?\n\nInsert Answer Here\n\nRead the clean data back into your environment (Quarto document), calling it youth_clean.\n\n\n\nStep 7: Explore Missingness\n\n\n\n\n\n\nWarning\n\n\n\nYou may need to install naniar\n\n\nLook at the following graphs\n\nyouth_clean |&gt; \n  naniar::gg_miss_var()\n\n\nyouth_clean |&gt; \n    naniar::gg_miss_upset()\n\nWhat do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?\n\nInsert Answer Here\n\nHow does the missingness of the data impact what variables you might choose to analyze? Why?\n\nInsert Answer Here\n\n\n\n\nStep 8: Make a Visualization (If Time)\n\nyouth_clean |&gt;  #instead of data = youth_clean in ggplot we can \"pipe\" our data  \n  drop_na() |&gt;  #drops missing values\n  ggplot()\n\nComplete the following steps in your visualization in the code chunk above:\n\nPlot the height on the x-axis\n\nPlot the weight on the y-axis\n\nColor the points based on student perception of weight\n\nAdd a linear model (use method = \"lm\" and geom_smooth())\nMake the points more transparent\n\nFacet by grade and gender\n\nAdd descriptive titles and labels\n\nExport the graph as the file weight-perception.png\n\n\nChallenge Modifications\n\nMake the points a color-blind friendly color scale\n\nChange the general theme of the graph\n\nMove the legend to the bottom of the graph\n\nAdjust the figure height and width to 10x10",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 4: Importing Youth Risk Behavior Data"
     ]
   },
   {
@@ -898,278 +1129,212 @@
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html",
-    "href": "labs/instructions/lab-1-instructions.html",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nFor this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\n\nNow set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\n\nNow download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!\n\n\nIn order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the Week 3 Activities)\n\n\nClick on the following link to create your repository for Lab 1: Introduction to Quarto.\nYou will need to accept the assignment by clicking the link in your email (account associated with GitHub) and then go to the link provided for the repository.\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!",
+    "text": "Have you ever wondered…\n\n…how are the visualizations you see in the media made?\n…how do people cut down large datasets to address a specific question?\n…how the applet simulations in your statistics classes work?\n\nWe’ll answer these questions and more by studying the principles of “statistical computing” methods in the programming language called R. There is not an expectation that you have seen R before, only that you have some experiences with computing (writing code and executing code). For those who have not seen R before, it is an open-source programming language developed by Statisticians, and is one of the main “languages” you will find people use when doing statistics in the wild.\nIn this course, we will learn the foundational skills for programming in R and a variety of skills for working with data. We will then build on these skills to consider how to write programs which are more efficient.\n\nTeaching Team and Office Hours\nInstructor: Dr. Judith Canner\n Email: jcanner@csumb.edu\n Office: Chapman Science Center, inside S216\n Office Hours: Tuesdays, 1:00pm - 1:55pm\n Classroom Learning Assistant: Noah Kan\n\n\n\nCourse Information\n\n\n\n\n\n\nChapman Science Center (53) S222\n\n\n\n\n\n\n\n\nTuesday 2:00pm - 3:50pm\n\n\n\n\n\n\nTexts\nThe main text book is: R for Data Science by Wickham, Cetinkaya-Rundel, and Grolemund. The book is freely available online, but feel free to purchase a printed copy if you would like one!\n\n\nMaterials\nThis class is very hands on; be sure to bring a fully charged laptop to every class.\n\n\n\nArtwork by @allison_horst.",
     "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Course information",
+      "Home"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "href": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "labs/instructions/lab-2-instructions.html",
+    "href": "labs/instructions/lab-2-instructions.html",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor this week, you will create a New Directory.\n\n\n\n\nInstead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!\n\n\n\nIn the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "href": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
     "text": "Either under File, or in the top right corner where the current project name is, select",
     "crumbs": [
       "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
-    "href": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "href": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.",
+    "text": "For this week, you will create a New Directory.",
     "crumbs": [
       "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
-    "href": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "For this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.",
+    "text": "Instead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!",
     "crumbs": [
       "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
-    "href": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "Now set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1",
+    "text": "In the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
     "crumbs": [
       "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
-    "href": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "labs/instructions/lab-2-instructions.html#about",
+    "href": "labs/instructions/lab-2-instructions.html#about",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.1 About",
+    "text": "3.1 About\nLet’s start easy. Go into your about.qmd and write a short paragraph introducing yourself. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#index",
+    "href": "labs/instructions/lab-2-instructions.html#index",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.2 Index",
+    "text": "3.2 Index\nThe index.qmd will serve as your home page for your website, so let’s make it pretty!\n\nUpdate the YAML code with the following and then update title.\n\nMove a nice profile image into your project folder and change the file name after image: to match your images name and type (e.g. .jpg, .png).\n\nUpdate the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).\n\n---\ntitle: \"Judith Canner\"\nabout:\n  template: jolla\n  image: jec-profile.jpg\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/in/judith-canner/\n    - icon: github\n      text: Github\n      href: https://github.com/jcanner\n---\nGo ahead and save and then under Build, Render the website. How does it look?\nWithin the text/markdown area of the .qmd add some of the following information about yourself:\nJudith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at [California State University, Monterey Bay](http://csumb.edu/mathstat).\n\n## Education\n\nShippensburg University | Shippensburg, PA  \nB.S. in Applied Mathematics | 2001 - 2004\n\n## Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\nGo ahead and save and then under Build, Render the website. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.\nFeel free to make other changes, add additional text, links, or images.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "href": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.3 _quarto.yml",
+    "text": "3.3 _quarto.yml\nOpen up the _quarto.yml. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Name's ePortfolio\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: \"Home\"\n      - href: about.qmd\n        text: \"About Me\"\n\nformat:\n  html:\n    theme: cosmo\n    css: styles.css\n    toc: true\n\neditor: source\nYou can update the theme if you want - Quarto HTML Theming or customize your theme or even create your own css code (if you know how). That is up to you!\nAt minimum, here is the modification you need to make the following modification - add the output-dir: docs at the top under project/type.\nproject:\n  type: website\n  output-dir: docs\nWhat this does is renders the HTML parts of your website directly into a folder called /docs and this locations is what we will use to publish your webpage on GitHub.\nSave your changes. Build your website (notice a docs file is now created. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-4-instructions.html",
+    "href": "labs/instructions/lab-4-instructions.html",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
     "section": "",
-    "text": "Now download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!\n\n\nIn order to try out GitHub classroom instead of submitting on Canvas, you can setup your lab the following way (only after you have completed the Week 3 Activities)\n\n\nClick on the following link to create your repository for Lab 1: Introduction to Quarto.\nYou will need to accept the assignment by clicking the link in your email (account associated with GitHub) and then go to the link provided for the repository.\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!",
+    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 4: Importing NOA Buoy Data.\n\n\n\n\n\n\nWarningAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer. Do Not Change File Name - it should match the repository name.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\nlab-4-student.qmd\n“data-raw” folder containing\n\nbuoy_update.csv (created by you)\n\n“data-clean” folder that will contain only final data set\n\nbuoy_final.csv (created by you)\n\nrendered document at github doc\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.\n\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and including the .txt file containing your entire conversation with ChatGPT in your repository. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.\n\n\n\nThe questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).\n\n\n\nCreate a setup code chunk and load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis. Be sure to add include: false to the code chunk to hide unnecessary output.",
     "crumbs": [
       "Labs",
-      "Lab 1 & Challenge 1 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
-    "href": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.1 Specifying Global Execute Options",
-    "text": "2.1 Specifying Global Execute Options\nExecution options specify how the R code in your Quarto document should be displayed. This guide provides descriptions on the options you can specify in a document’s execution.\nTo start, your YAML should look something like this:\n---\ntitle: \"Lab 1: Introduction to Quarto\"\nauthor: \"Your name goes here!\"\ndate: \"Insert the date here!\"\nformat: html\nembed-resources: true\neditor: source\n---\nQuestion 1 – Add your name and the date to the YAML.\nQuestion 2 – Add an execute line to your YAML that includes the following options, (1) your source code is always output on the page, and (2) your document will render even if there are errors.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
-    "href": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.2 Running the Provided Code",
-    "text": "2.2 Running the Provided Code\nNext, click on the “Play” button on the right of the first auto-populated code chunk. Alternatively, you can highlight (or simply put your cursor on the line of) the code you want to run and hit ctrl + Enter (for PCs) or ⌘ + Enter (for Macs).\nYou should see the code appear in the console, as well as the result of the code (2). Keep in mind the [1] before the 2 is vector notation. This means the result is a vector of length 1, whose first element is 2.\nQuestion 3 – Let’s spice this code up a bit. Delete 1 + 1 from the code chunk and paste in the following code:\n\n# Load a dataset into the R Environment.\ndata(ToothGrowth)\n\n# Look at the summary of the variables in the dataset.\nsummary(ToothGrowth)\n\nNow run this code. You should see a six-number summary of the variables len and dose included in the ToothGrowth dataset, as well as the frequency of the levels contained in the supp variable. Further, if you inspect the Environment tab, the ToothGrowth dataset should appear. You can click on the dataset name (not the blue play button!) to look at the data.\n\nCheck the Data Documentation\nQuestion 4 – In your console (not in the Quarto document), type ?ToothGrowth (or alternatively help(ToothGrowth)). Use the information that pops up in the Help pane in RStudio to fill in the blanks below.\nThis dataset investigates the effect of __________ on tooth growth in _________________.\nThe two supplement delivery methods include OJ (______________) and VC (_______________).\nToothGrowth is a data frame with ____ observations and ____ variables.\nQuestion 5 – Before the code chunk, change the “Running the Provided Code” section header to a header that better describes the contents of this section (e.g., Tooth Growth Dataset).",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-plot",
-    "href": "labs/instructions/lab-1-instructions.html#creating-a-plot",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.3 Creating a Plot",
-    "text": "2.3 Creating a Plot\nYour second code chunk is just as boring as your first, so let’s spice it up!\nQuestion 6 – Replace the plot(pressure) code with the following (we will talk about graphics next week!):\n\nlibrary(tidyverse)\n\nggplot(data = ToothGrowth, \n       mapping = aes(x = supp, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Supplement\", y = \"Length of Teeth (mm)\")\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", y = \"Length of Teeth (mm)\")\n\nNow, run this code chunk! You should see two side-by-side boxplots, one plot comparing tooth length between the two supplement delivery methods and one plot comparing tooth length between the three different dosages uses.\nQuestion 7 – Read over the Quarto documentation on figure options and add an option (#|) to the above code chunk to make the figures print side-by-side (i.e., in one row) in the rendered HTML file.\nQuestion 8 – Specify in the code chunk options that these boxplots should be center aligned.\nQuestion 9 – Specify a figure caption for the boxplots (using a code-chunk option).\nQuestion 10 – Digital accessibility is important. Specify figure alternative text for the boxplots (using a code-chunk option). The alt text should describe both figures.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
-    "href": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.4 Inserting a New Code Chunk",
-    "text": "2.4 Inserting a New Code Chunk\nNavigate to the top of your document, just below the YAML code. We’re now going to insert a new R code chunk at the top of the document.\nThere are four different ways to do this:\n\nType ctrl + alt + i (on a PC) or ⌘ + ⌥ + i (on a Mac).\nClick on the  symbol. This should automatically default to R code, but if you have a Python compiler on your computer, you might need to select “R” from the options.\nIf you are using the Visual editor, click on the “Insert” button, then select “Code Chunk”, and finally select “R”.\nManually add the code chunk by typing ```{r}. Make sure to close your code chunk with ```.\n\nQuestion 11 – Label the new code chunk as setup and add the specification include: false as well. Then move the code library(tidyverse) from the code chunk modified in Question 6 to the setup code chunk. This is best practice for organizing Quarto documents.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
-    "href": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.5 Creating a More Complex Plot",
-    "text": "2.5 Creating a More Complex Plot\nIn this section, we are to create a new plot that you will place in the created code chunk.\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len, fill = supp)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", \n       y = \"Length of Teeth (mm)\",\n       fill = \"Supplement Type\")\n\nCarry out the following steps:\nQuestion 12 – Navigate to the last sentence of your the Quarto document. Insert a new code chunk.\nQuestion 11 – In the new code chunk, add the code for the graph. Be sure to include a code chunk label and alt text.\nQuestion 12 – Run your code chunk to obtain the output for your new graph.\nQuestion 13 – Create a numbered list containing:\n\nYour conclusions (in the context of these data) based on the graph.\n\nA recommendation for how I should get my guinea pig’s teeth (odontoblasts) to grow more.\n\nQuestion 13 – Create another section header, describing the contents of this section before the graph and list.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#render-your-document",
-    "href": "labs/instructions/lab-1-instructions.html#render-your-document",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "2.6 Render Your Document",
-    "text": "2.6 Render Your Document\nRender your document as an html file. Use the “Render” button (the blue arrow!) at the top of your screen.\nIf you run into trouble rendering your document, try restarting R and running your code chunks in order, and see if you can find the problem.\nAnother common issue is deleting the tick marks (```) that surround your code chunks. If you notice that the code chunks are not showing a “Play” button (), or that they are not highlighted in gray, double check your tick marks!\nRecall we included error: true in our YAML execution options. This means that your document will still render even if there are errors. Make sure you are double checking your work!\nYou will notice that there is auto-generated text that is unrelated to the work that you completed. It is always a good idea to delete this extra text!",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#render-again",
-    "href": "labs/instructions/lab-1-instructions.html#render-again",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "3.1 Render again!",
-    "text": "3.1 Render again!\nNotice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes—this is called reproducibility!\nYou should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#turn-it-in",
-    "href": "labs/instructions/lab-1-instructions.html#turn-it-in",
-    "title": "Lab 1: Introduction to Quarto",
-    "section": "3.2 Turn it in!",
-    "text": "3.2 Turn it in!\nOpen the .html file on your computer to make sure it looks as you expected. Then upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!\n\nYou’ll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html",
-    "href": "labs/instructions/lab-3-instructions.html",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "objectID": "labs/instructions/lab-4-instructions.html#github-workflow",
+    "href": "labs/instructions/lab-4-instructions.html#github-workflow",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
     "section": "",
-    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 3: Exploring Rodents with ggplot2.\n\n\n\n\n\n\nAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.\n\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.\n\n\n\nThe questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).\n\n\n\nCreate a setup named code chunk to load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
+    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 4: Importing NOA Buoy Data.\n\n\n\n\n\n\nWarningAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer. Do Not Change File Name - it should match the repository name.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\nlab-4-student.qmd\n“data-raw” folder containing\n\nbuoy_update.csv (created by you)\n\n“data-clean” folder that will contain only final data set\n\nbuoy_final.csv (created by you)\n\nrendered document at github doc\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#github-workflow",
-    "href": "labs/instructions/lab-3-instructions.html#github-workflow",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "objectID": "labs/instructions/lab-4-instructions.html#seeking-help",
+    "href": "labs/instructions/lab-4-instructions.html#seeking-help",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
     "section": "",
-    "text": "We will use GitHub Classroom to submit Lab 3.\n\n\nClick on the following link to create your repository for Lab 3: Exploring Rodents with ggplot2.\n\n\n\n\n\n\nAccept Assignment Invitation\n\n\n\nYou will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.\n\n\n\n\n\nFind the &lt;&gt; Code button and select Local and then HTTPS. Copy the URL for the Repository provided\n\n\n\n\nEither under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nChoose Version Control and then Git. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer.\n\nNow you should be set up and ready to go!\n\n\n\nDownload the lab and data files linked below into your local project folder. Your project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nAfter that is set up, commit and push your added files to your repository. You will submit a link to your GitHub repository with all content. Be sure to push your changes regularly so that you can back up and save your changes.",
+    "text": "Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and including the .txt file containing your entire conversation with ChatGPT in your repository. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#seeking-help",
-    "href": "labs/instructions/lab-3-instructions.html#seeking-help",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 & Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#lab-instructions",
-    "href": "labs/instructions/lab-3-instructions.html#lab-instructions",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "objectID": "labs/instructions/lab-4-instructions.html#lab-instructions",
+    "href": "labs/instructions/lab-4-instructions.html#lab-instructions",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
     "section": "",
     "text": "The questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#setup",
-    "href": "labs/instructions/lab-3-instructions.html#setup",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "objectID": "labs/instructions/lab-4-instructions.html#setup",
+    "href": "labs/instructions/lab-4-instructions.html#setup",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
     "section": "",
-    "text": "Create a setup named code chunk to load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
+    "text": "Create a setup code chunk and load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis. Be sure to add include: false to the code chunk to hide unnecessary output.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
-    "href": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "2.1 Reading the Data into R",
-    "text": "2.1 Reading the Data into R\nWe are going to use the read_csv() function to load in the surveys.csv dataset (stored in the data folder). For simplicity, name the data surveys. We will learn more about this function next week.\n\nsurveys &lt;- read_csv(\"data/surveys.csv\")\n#glimpse(surveys)\n\n1. What are the dimensions (# of rows and columns) of these data?\n\n2. What are the data types of the variables in this dataset?",
+    "objectID": "labs/instructions/lab-4-instructions.html#step-1-reading-the-data-into-r",
+    "href": "labs/instructions/lab-4-instructions.html#step-1-reading-the-data-into-r",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
+    "section": "2.1 Step 1: Reading the Data into R",
+    "text": "2.1 Step 1: Reading the Data into R\nRead the data into R. Since it is a txt file it is considered a “whitespace-separated file”. Use the (readr)[https://readr.tidyverse.org/index.html] website to determine the appropriate read_XXX() function.\nWhen you read in the data give it an appropriate name for what the data represents. The read in file should look like this (note this is just the first seven columns):\n\n\n# A tibble: 10 × 7\n   `#YY` MM    DD    hh    mm    WDIR  WSPD \n   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;\n 1 #yr   mo    dy    hr    mn    degT  m/s  \n 2 2025  01    01    00    10    300   5.1  \n 3 2025  01    01    01    10    310   5.1  \n 4 2025  01    01    02    10    350   2.6  \n 5 2025  01    01    03    10    330   3.6  \n 6 2025  01    01    04    10    300   7.2  \n 7 2025  01    01    05    10    320   4.6  \n 8 2025  01    01    06    10    340   3.1  \n 9 2025  01    01    07    10    360   3.6  \n10 2025  01    01    08    10    50    1.0  \n\n\nNotice that the data is all read in as a character value and the first row contains information that is not data, but additional information about the variables: this is called a “comment” in the data.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#scatterplot",
-    "href": "labs/instructions/lab-3-instructions.html#scatterplot",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "3.1 Scatterplot",
-    "text": "3.1 Scatterplot\n3. First, let’s create a scatterplot of the relationship between weight (on the \\(x\\)-axis) and hindfoot_length (on the \\(y\\)-axis).\nWe can see there are a lot of points plotted on top of each other. Let’s try and modify this plot to extract more information from it.\n4. Let’s add transparency (alpha) to the points, to make the points more transparent and (possibly) easier to see.\n\nDespite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better.\n6. Facet your scatterplot by species.\n\n7. No plot is complete without axis labels and a title. Include reader friendly labels and a title to your plot.\n\nIt takes a larger cognitive load to read text that is rotated. It is common practice in many journals and media outlets to move the \\(y\\)-axis label to the top of the graph under the title.\n8. Specify your \\(y\\)-axis label to be empty and move the \\(y\\)-axis label into the subtitle.",
+    "objectID": "labs/instructions/lab-4-instructions.html#step-2-specify-the-comment-row",
+    "href": "labs/instructions/lab-4-instructions.html#step-2-specify-the-comment-row",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
+    "section": "2.2 Step 2: Specify the Comment Row",
+    "text": "2.2 Step 2: Specify the Comment Row\nIn your data, you will notice the # in front of yr in the second row. That is the symbol that indicates a comment in the data set. Notice that the first row of headers also starts with a #, so we have to be clever here so R doesn’t remove both rows.\nUsing the cheatsheet or the (readr)[https://readr.tidyverse.org/index.html] website, add an argument to your function that indicates that the comment row begins with #y. Your data should now look like this:\n\n\n# A tibble: 10 × 7\n   `#YY` MM    DD    hh    mm     WDIR  WSPD\n   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  2025 01    01    00    10      300   5.1\n 2  2025 01    01    01    10      310   5.1\n 3  2025 01    01    02    10      350   2.6\n 4  2025 01    01    03    10      330   3.6\n 5  2025 01    01    04    10      300   7.2\n 6  2025 01    01    05    10      320   4.6\n 7  2025 01    01    06    10      340   3.1\n 8  2025 01    01    07    10      360   3.6\n 9  2025 01    01    08    10       50   1  \n10  2025 01    01    09    10       50   4.6",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#boxplots",
-    "href": "labs/instructions/lab-3-instructions.html#boxplots",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "3.2 Boxplots",
-    "text": "3.2 Boxplots\n9. Create side-by-side boxplots to visualize the distribution of weight within each species.\nA fundamental complaint of boxplots is that they do not plot the raw data. However, with ggplot we can add the raw points on top of the boxplots!\n10. Add another layer to your previous plot that plots each observation using geom_point().\n\nAlright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using geom_jitter().\n11. Remove the previous layer and include a geom_jitter() layer instead.\n\nThat should look a bit better! But its really hard to see the points when everything is black.\n12. Set the color aesthetic in geom_jitter() to change the color of the points and add set the alpha aesthetic to add transparency. You are welcome to use whatever color you wish! Some of my favorites are “springgreen4” and “steelblue4”. Check them out on R Charts\n\nGreat! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from geom_boxplot() as outliers and again from geom_jitter()!\n13. Inspect the help file for geom_boxplot() and see how you can remove the outliers from being plotted by geom_boxplot(). Make this change in your code!\n\nSome small changes can make big differences to plots. One of these changes are better labels for a plot’s axes and legend.\n14. Modify the \\(x\\)-axis and \\(y\\)-axis labels to describe what is being plotted. Be sure to include any necessary units! You might also be getting overlap in the species names – use theme(axis.text.x = ____) or theme(axis.text.y = ____) to turn the species axis labels 45 degrees.\n\nSome people (and journals) prefer for boxplots to be stacked with a specific orientation! Let’s practice changing the orientation of our boxplots.\n15. Now copy-paste your boxplot code you’ve been adding to above. Flip the orientation of your boxplots. If you created horizontally stacked boxplots, your boxplots should now be stacked vertically. If you had vertically stacked boxplots, you should now stack your boxplots horizontally!\nNotice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots (even when the axis labels are rotated). This is good practice!",
+    "objectID": "labs/instructions/lab-4-instructions.html#step-3-clean-the-variable-names",
+    "href": "labs/instructions/lab-4-instructions.html#step-3-clean-the-variable-names",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
+    "section": "2.3 Step 3: Clean the Variable Names",
+    "text": "2.3 Step 3: Clean the Variable Names\nWe want to use snake_case for our variable names. Use the janitor package to clean the variable names. Notice, that because month was originally coded MM and minute was originally coded mm that now month is mm and minute is mm_2 to create a distinction between them.\n\n\n# A tibble: 6 × 5\n  number_yy mm    dd    hh    mm_2 \n      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;\n1      2025 01    01    00    10   \n2      2025 01    01    01    10   \n3      2025 01    01    02    10   \n4      2025 01    01    03    10   \n5      2025 01    01    04    10   \n6      2025 01    01    05    10",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
-    "href": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.1 🌶 Medium: Ridge Plots",
-    "text": "5.1 🌶 Medium: Ridge Plots\nIn Lab 3, you used side-by-side boxplots to visualize the distribution of weight within each species of rodent. Boxplots have substantial flaws, namely that they disguise distributions with multiple modes.\nA “superior” alternative is the density plot. However, ggplot2 does not allow for side-by-side density plots using geom_density(). Instead, we will need to make use of the ggridges package to create side-by-side density (ridge) plots.\n\nFor this challenge you are to change your boxplots to ridge plots. You will need to install the ggridges package and explore the geom_density_ridges() function.",
+    "objectID": "labs/instructions/lab-4-instructions.html#step-4-write-the-data-part-1",
+    "href": "labs/instructions/lab-4-instructions.html#step-4-write-the-data-part-1",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
+    "section": "2.4 Step 4: Write the Data Part 1",
+    "text": "2.4 Step 4: Write the Data Part 1\nWe will have a bit of cleaning to do on the data, but we have an issue. The 99 and 999’s in the data are numeric and not character values. In order for us to specify them as NAs we need to do a little work around.\nWrite the data to a csv file called buoy_update.csv. Be sure to write it to your data-raw folder.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
-    "href": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.2 🌶 🌶 Spicy: Exploring Color Themes",
-    "text": "5.2 🌶 🌶 Spicy: Exploring Color Themes\nThe built-in ggplot() color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!\nYou can change the colors used by ggplot() in a few different ways.\n\nManual Specification\nAdd the scale_color_manual() or scale_fill_manual() functions to your plot and directly specify the colors you want to use. You can either:\n\ndefine a vector of colors within the scale functions (e.g. values = c(\"blue\", \"black\", \"red\", \"green\")) OR\ncreate a vector of colors using hex numbers and store that vector as a variable. Then, call that vector in the scale_color_manual() function.\n\nHere are some example hex color schemes:\n\n# A vector of a RG color deficient friendly palette with gray:\ncdPalette_grey &lt;- c(\"#999999\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n# A vector of a RG color deficient friendly palette with black:\ncdPalette_blk &lt;- c(\"#000000\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are interested in using specific hex colors, I like the image color picker app to find the colors I want.\n\n\n\n\nPackage Specification\nWhile manual specification may be necessary for some contexts, it can be a real pain to handpick 5+ colors. This is where color scales built-in to R packages come in handy! Popular packages for colors include:\n\nRColorBrewer – change colors by using scale_fill_brewer() or scale_colour_brewer().\nviridis – change colors by using scale_colour_viridis_d() for discrete data, scale_colour_viridis_c() for continuous data.\nggsci – change colors by using scale_color_&lt;PALNAME&gt;() or scale_fill_&lt;PALNAME&gt;(), where you specify the name of the palette you wish to use (e.g. scale_color_aaas()).\n\n\n\n\n\n\n\nNote\n\n\n\nThis website provides an exhaustive list of color themes available through various packages.\n\n\n\nIn this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to change the colors used for genus using either manual color specification or any of the packages listed here (or others!).",
+    "objectID": "labs/instructions/lab-4-instructions.html#step-5-dealing-with-missing-values",
+    "href": "labs/instructions/lab-4-instructions.html#step-5-dealing-with-missing-values",
+    "title": "Lab 4: Importing NOAA Buoy Data from Monterey Bay",
+    "section": "2.5 Step 5: Dealing with Missing Values",
+    "text": "2.5 Step 5: Dealing with Missing Values\nNow we will read the data back in, be sure to assign the it a meaningful object name, BUT we are going to do two things:\n\nSpecify all column type defaults as character.\n\nSpecify NAs as “99” and “999”\n\nRemember that now we are reading back in a data file of type csv. Now when you look at the data we should have NA instead of 99 or 999 in our data, for example:\n\n\n# A tibble: 5 × 4\n  dpd   apd   mwd   pres  \n  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; \n1 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1020.6\n2 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1020.1\n3 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1020.4\n4 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1021.3\n5 &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1021.2\n\n\nThis is great! But we created another problem. Now all of our numeric values are being treated like characters and we don’t want that. There are a couple of ways to fix this. We can write and reread in the data setting the column types to double or we can use the readr parsing functions.\nHere is the code you can use to fix the data without exporting and importing again (we will learn more about the mutate() function. Insert whatever you called your buoy data on the last import for your_file_name.\n\nbuoy_final &lt;- your_file_name |&gt; \n  mutate(across(.cols = everything(), ~parse_double(.x)))\n\nNow we have our clean, correctly classified, data ready for analysis as buoy_final. Go ahead and write that data as a csv file into your data-clean file. Once you’ve done that. Set the data cleaning code chunks to eval: false so that you do not rerun them again when you render the document.",
     "crumbs": [
       "Labs",
-      "Lab 3 & Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
-    "href": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation",
-    "text": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation\nSome data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use annotation.\nWe can add annotation(s) to a ggplot() using the annotate() function:\n\nggplot(data = surveys, \n       mapping = aes(x = weight, y = species, color = genus)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = cdPalette_grey) + \n  annotate(\"text\", y = 6, x = 200, label = \"Sigmodon\") +\n  annotate(\"text\", y = 4, x = 200, label = \"Perognathus\") +\n  theme(legend.position = \"none\") +\n  labs(x = \"Weight (g)\",\n       y = \"\",\n       subtitle = \"by Species and Genera\",\n       title = \"Rodent Weight\")\n\nNote that I’ve labeled the “Sigmodon” and “Perognathus” genera, so the reader can tell that these boxplots are associated with their respective genus.\n\nIn this challenge you are expected to use this information to modify the boxplots you created in Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the theme() function to remove the color legend from the plot, since it is no longer needed!",
-    "crumbs": [
-      "Labs",
-      "Lab 3 & Challenge 3 Instructions"
+      "Lab 4 Instructions"
     ]
   },
   {
@@ -1283,7 +1448,7 @@
     "href": "weeks/week-2-quarto.html#directories-and-projects",
     "title": "Week 2: Reproducible Analyses with Quarto",
     "section": "1.2 Directories, Paths, and Projects",
-    "text": "1.2 Directories, Paths, and Projects\nIn R, there are two ways to set up your file path and file system organization:\n\nSet your working directory in R (do not recommend)\nUse RProjects (preferred!)\n\n\nWorking Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\n\n\n\n\n\n\n\n\n\ngetwd()\n\n[1] \"C:/Users/jecan/Desktop/spring-2026/weeks\"\n\n\nAlthough it is not recommended, you can set your working directory in R with setwd().\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\nR Projects\n\n📖 Required Reading: Workflow and Projects\nSince there are often many files necessary for a project (e.g. data sources, images, etc.), R has a nice built in system for setting up your project organization with R Projects. You can either create a new folder on your computer containing an R Project (e.g., you have not yet created a folder for this class) or you can add an R Project to an existing folder on your computer (e.g., you have already created a folder for this class).\n\nCreate with a new folderAdd to an existing folder\n\n\nTo create a R Project, first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGive your folder a name (it shouldn’t be my-stat331 but something that reflects STAT 210, e.g. stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.\nThen, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!\n\n\n\n\n\n\n\n\n\nThis new folder should now live in your Documents folder (or wherever you save it to) and contain a stat-210-sp26.Rproj file or whatever you named it. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\nThen, browse on your computer to select the existing folder you wish to add your R Project to. For example, mine is saved in my Documents and called my-stat331.\n\n\n\n\n\n\n\n\n\nYour existing folder should now contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "text": "1.2 Directories, Paths, and Projects\nIn R, there are two ways to set up your file path and file system organization:\n\nSet your working directory in R (do not recommend)\nUse RProjects (preferred!)\n\n\nWorking Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\n\n\n\n\n\n\n\n\n\ngetwd()\n\n[1] \"C:/Users/cann4817/Desktop/spring-2026/weeks\"\n\n\nAlthough it is not recommended, you can set your working directory in R with setwd().\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\nR Projects\n\n📖 Required Reading: Workflow and Projects\nSince there are often many files necessary for a project (e.g. data sources, images, etc.), R has a nice built in system for setting up your project organization with R Projects. You can either create a new folder on your computer containing an R Project (e.g., you have not yet created a folder for this class) or you can add an R Project to an existing folder on your computer (e.g., you have already created a folder for this class).\n\nCreate with a new folderAdd to an existing folder\n\n\nTo create a R Project, first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGive your folder a name (it shouldn’t be my-stat331 but something that reflects STAT 210, e.g. stat-210-sp26). However, it is good practice for this file folder name to not contain spaces.\nThen, browse on your computer for a location to save this folder to. For example, mine is saved in my Documents. Make sure you know how to find this; it should NOT be saved in your Downloads!\n\n\n\n\n\n\n\n\n\nThis new folder should now live in your Documents folder (or wherever you save it to) and contain a stat-210-sp26.Rproj file or whatever you named it. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for this class), first open RStudio on your computer and click File &gt; New Project, then:\n\n\n\n\n\n\n\n\n\nThen, browse on your computer to select the existing folder you wish to add your R Project to. For example, mine is saved in my Documents and called my-stat331.\n\n\n\n\n\n\n\n\n\nYour existing folder should now contain a my-stat331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\n\n\n\n\n\n\n\n\n\nCautionYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on OneDrive or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
     "crumbs": [
       "Weekly materials",
       "Week 2 - Quarto"

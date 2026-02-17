@@ -85,7 +85,9 @@ website:
             text: "Pair Activity 2: Version Control"
           - href: group-activities/week-4/pa-3-ggplot-instructions.qmd
             text: "Pair Activity 3: Plotting Penguins"
-          
+          - href: group-activities/week-5/pa-4-import-tidy-data-instructions.qmd
+            text: "Pair Activity 4: Importing Youth Risk Behavior Data"
+
       - section: "Labs" 
         contents:
           - href: labs/instructions/lab-1-instructions.qmd
@@ -94,8 +96,8 @@ website:
             text: "Lab 2 Instructions"
           - href: labs/instructions/lab-3-instructions.qmd
             text: "Lab 3 & Challenge 3 Instructions"
-          # - href: labs/instructions/lab-4-instructions.qmd
-          #   text: "Lab 4 Instructions"
+          - href: labs/instructions/lab-4-instructions.qmd
+            text: "Lab 4 Instructions"
           # - href: labs/instructions/lab-5-instructions.qmd
           #   text: "Lab 5 Instructions"   
           # - href: labs/instructions/lab-6-instructions.qmd
