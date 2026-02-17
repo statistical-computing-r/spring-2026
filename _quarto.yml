@@ -62,8 +62,8 @@ website:
             text: "Week 3 - Version Control"
           - href: weeks/week-4-ggplot.qmd
             text: "Week 4 - Data Visualization"
-          # - href: weeks/week-5-projects-data-import.qmd
-          #   text: "Week 5 - Importing Data"
+          - href: weeks/week-5-projects-data-import.qmd
+            text: "Week 5 - Importing Data"
           # - href: weeks/week-6-7-dplyr.qmd
           #   text: "Week 6-7 - Transforming Data"
           # - href: weeks/week-8-9-reshaping-joining.qmd

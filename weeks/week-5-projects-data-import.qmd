@@ -23,16 +23,17 @@ editor: source
 bibliography: references.bib
 execute: 
   echo: true
-  eval: false
   message: false
   warning: false
-  include: true
 ---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ../_extensions/r-wasm/live/_gradethis.qmd >}}
+
 
 ```{r}
 #| label: setup
 #| include: false
-#| eval: true
 library(tidyverse)
 ```
 
@@ -62,15 +63,15 @@ To find where your working directory is in `R`, you can either look at the top o
 
 ```{r}
 #| label: get-wd
+#| eval: false
 getwd()
 ```
 
 Although it is not recommended, you can set your working directory in `R` with `setwd()`:
 
 ```{r}
-#| eval: false
 #| label: setting-full-path
-#| echo: true
+#| eval: false
 
 setwd("/path/to/my/assignment/folder")
 ```
@@ -125,11 +126,11 @@ If you would like a list of step-by-step instructions for this process, feel fre
 Different formats of the data are **tidy** in different ways.
 
 ```{r}
+#| label: creating-small-data-set-wide-format
 #| echo: false
 #| eval: true
-#| label: creating-small-data-set-wide-format
 
-bb_wide <- tibble(Team     = c("A", "B", "C", "D"),
+bb_wide <- tibble(Team = c("A", "B", "C", "D"),
                        Points   = c(88, 91, 99, 94),
                        Assists  = c(12, 17, 24, 28),
                        Rebounds = c(22, 28, 30, 31)
@@ -140,9 +141,9 @@ bb_wide <- tibble(Team     = c("A", "B", "C", "D"),
 ### Option 1
 
 ```{r}
+#| label: displaying-wide-data
 #| echo: false
 #| eval: true
-#| label: displaying-wide-data
 
 bb_wide |> 
   knitr::kable()
@@ -151,9 +152,9 @@ bb_wide |>
 ### Option 2
 
 ```{r}
+#| label: transforming-to-long
 #| echo: false
 #| eval: true
-#| label: transforming-to-long
 
 bb_long <- bb_wide |> 
   pivot_longer(cols      = c(Points, Assists, Rebounds),
@@ -182,6 +183,7 @@ Let's make a plot of each team's statistics!
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
+#| fig-alt: "Data Viz of Wide Data"
 
 ggplot(data = bb_wide, 
        mapping = aes(x = Team)) +
@@ -213,6 +215,7 @@ ggplot(data = bb_wide,
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
+#| fig-alt: "Data Viz of Long Data"
 
 ggplot(data = bb_long, 
        mapping = aes(x = Team, 
@@ -257,8 +260,6 @@ ggplot(data = bb_long,
 
 Look at the **file extension** for the type of data file.
 
-. . .
-
 ::::: columns
 ::: {.column width="70%"}
 `.csv` : "comma-separated values"
@@ -273,14 +274,11 @@ Joe, 40
 :::
 :::::
 
-. . .
-
 `.xls`, `.xlsx`: Microsoft Excel spreadsheet
 
 -   Common approach: save as `.csv`
 -   Nicer approach: use the `readxl` package
 
-. . .
 
 `.txt`: plain text
 
@@ -360,14 +358,204 @@ Compare the two functions `read.csv()` and `read_csv()` - what do you notice abo
 
 ## Practice with Importing Data
 
-Once you have the data saved (and extracted) in your STAT 210 folder, preferably in the Week 5 subfolder, use the `readr` and `readxl` packages to complete the following exercises.
+Use the `readr` and `readxl` packages to complete the following exercises.
 
 1.  Load the appropriate packages for reading in data.
-2.  Read in the data set *ages.csv*
-3.  Read in the data set *ages_tab.txt*
-4.  Read in the data set *ages_mystery.txt*
-5.  Read in the data set *ages.xlsx*
+
+```{webr}
+#| label: setup-webr
+#| exercise: ex_1
+#| caption: Loading Packages
+library(_________) #for most data files
+library(_________) #for excel data files
+```
+
+
+::: {.solution exercise="ex_1"}
+
+#### Solution
+
+`library()` loads in packages. You need to supply the package name you need to load inside the parentheses.
+
+```{webr}
+#| exercise: ex_1
+#| solution: true
+library(readr) #for most data files
+library(readxl) #for excel data files
+```
+
+:::
+
+```{webr}
+#| exercise: ex_1
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+
+2.  Read in the data set *ages.csv*. Suppress the column names and other output by adding an argument to the function.
+
+
+```{webr}
+#| label: read-ages-csv
+#| exercise: ex_2
+ages <- read_____("ages.csv")
+head(ages)
+```
+
+
+::: {.solution exercise="ex_2"}
+
+#### Solution
+
+Add an argument to suppress the column names and other output. 
+
+```{webr}
+#| exercise: ex_2
+#| solution: true
+ages <- read_csv("ages.csv", show_col_types = FALSE)
+head(ages)
+```
+
+:::
+
+```{webr}
+#| exercise: ex_2
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+
+3.  Read in the data set *ages_space.txt*, which is tab delimited.  
+
+```{webr}
+#| label: read-ages-tab
+#| exercise: ex_3
+ages <- read_____("ages_space.txt")
+head(ages)
+```
+
+
+::: {.solution exercise="ex_3"}
+
+#### Solution
+
+Add an argument to suppress the column names and other output. 
+
+```{webr}
+#| exercise: ex_3
+#| solution: true
+ages <- read_tsv("ages_tab.txt", show_col_types = FALSE)
+head(ages)
+```
+
+:::
+
+```{webr}
+#| exercise: ex_3
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+4.  Read in the data set *ages_mystery.txt*. We don't know what the delimiter is here.
+
+```{webr}
+#| label: read-ages-mystery
+#| exercise: ex_4
+ages <- read_____("ages_mystery.txt")
+head(ages)
+```
+
+
+::: {.solution exercise="ex_4"}
+
+#### Solution
+
+Add an argument to suppress the column names and other output. 
+
+```{webr}
+#| exercise: ex_4
+#| solution: true
+ages <- read_delim("ages_mystery.txt", show_col_types = FALSE)
+head(ages)
+```
+
+:::
+
+```{webr}
+#| exercise: ex_4
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+5.  Read in the data set *ages.xlsx* - notice this is an excel file. 
+
+```{webr}
+#| label: read-ages-excel
+#| exercise: ex_5
+ages <- read_____("ages.xlsx")
+head(ages)
+```
+
+
+::: {.solution exercise="ex_5"}
+
+#### Solution
+
+Add an argument to suppress the column names and other output. 
+
+```{webr}
+#| exercise: ex_5
+#| solution: true
+ages <- read_excel("ages.xlsx")
+head(ages)
+```
+
+:::
+
+```{webr}
+#| exercise: ex_5
+#| check: true
+gradethis::grade_this_code()
+```
+
+
 6.  Find a way to use `read_csv()` to read *ages.csv* with the variable "Name" as a factor data type and "Age" as a character data type.
+
+```{webr}
+#| label: read-ages-csv-mod
+#| exercise: ex_6
+ages <- read_csv("ages.csv", ___________)
+head(ages)
+```
+
+
+::: {.solution exercise="ex_6"}
+
+#### Solution
+
+There are several solutions to this - try some others to see if you can get similar results. 
+
+```{webr}
+#| exercise: ex_6
+#| solution: true
+ages <- read_csv("ages.csv", 
+                 col_types = cols(Name = "f", 
+                                  Age = "c"))
+head(ages)
+```
+
+:::
+
+```{webr}
+#| exercise: ex_6
+#| check: true
+gradethis::grade_this_code()
+```
 
 
 ## Import Multiple Files at Once
@@ -375,3 +563,10 @@ Once you have the data saved (and extracted) in your STAT 210 folder, preferably
 If you have multiple files that are organized the same way (same variables names/columns), you can actually import them all at once and combine into one file. Check out the following tutorial:
 
 {{< video https://www.youtube.com/embed/mtzp9_LbQdk >}}
+
+
+## Additional Readings
+
+📖 [Reading: Missing Data (18.1-18.2)](https://r4ds.hadley.nz/missing-values)
+
+📖 [Reading: Naniar Package Overview](https://naniar.njtierney.com/articles/naniar.html#introduction)
