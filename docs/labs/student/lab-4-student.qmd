@@ -134,7 +134,7 @@ Now we have our clean, correctly classified, data ready for analysis as `buoy_fi
 
 
 # Part 3: Recreate the Following Visualization
-Now that are data is "analytic ready", go ahead and read in your clean data and use it to try and recreate the following visualization. Do your best to match the following visualization as close as possible. (Hint: when specifying color, you may need to use `factor()` to get R to treat a continuous value as discrete).  
+Now that are data is "analytic ready", go ahead and read in your clean data and use it to try and recreate the visualization in the instructions. Do your best to match the following visualization as close as possible. (Hint: when specifying color, you may need to use `factor()` to get R to treat a continuous value as discrete).  
 
 ```{r}
 #| label: monterey-air-temp-viz

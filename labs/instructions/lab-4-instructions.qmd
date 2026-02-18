@@ -134,7 +134,7 @@ Notice that the data is all read in as a character value and the first row conta
 ## Step 2: Specify the Comment Row  
 In your data, you will notice the `#` in front of `yr` in the second row. That is the symbol that indicates a comment in the data set. Notice that the first row of headers also starts with a `#`, so we have to be clever here so R doesn't remove both rows.
 
-Using the cheatsheet or the (readr)[https://readr.tidyverse.org/index.html] website, add an argument to your function that indicates that the comment row begins with `#y`.  Your data should now look like this:
+Using the cheatsheet or the [readr](https://readr.tidyverse.org/index.html) website, add an argument to your function that indicates that the comment row begins with `#y`.  Your data should now look like this:
 
 ```{r}
 #| label: load-data-comment
