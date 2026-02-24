@@ -115,40 +115,40 @@ included in the `teacher_evals_codebook.pdf`.
 **Assign your cleaned data to a new variable named `teacher_evals_clean` –- use these data going forward. Save the data as `teacher_evals_clean.csv` in the `data-clean` folder.**
 
 ```{r}
-#| label: data-cleaning
-# code chunk for Q4
+#| label: add-label-q5
+# comment for Q5
 
 ```
 
 **6. How many unique instructors and unique courses are present in the cleaned dataset?**
 
 ```{r}
-#| label: unique-courses
-# code chunk for Q5
+#| label: add-label-q6
+# comment for Q6
 
 ```
 
 **7. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in?**
 
 ```{r}
-#| label: uncovering-missing-values
-# code chunk for Q6
+#| label: add-label-7
+# comment for Q7
 
 ```
 
 **8. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in ~3 complete sentences.**
 
 ```{r}
-#| label: exploring-demographics-of-instructors
-# code chunk for Q7
+#| label: add-label-q8
+# comment for Q8
 
 ```
 
 **9. Each course seems to have used a different subset of the nine evaluation questions. How many teacher-course combinations asked all nine questions?**
 
 ```{r}
-#| label: teacher-course-asked-every-question
-# code chunk for Q8
+#| label: add-label-q9
+# comment for Q9
 
 ```
 
@@ -157,23 +157,26 @@ included in the `teacher_evals_codebook.pdf`.
 **10. Which instructors had the highest and lowest average rating for Question 1 (I learned a lot during the course.) across all their courses?**
 
 ```{r}
-#| label: question-1-high-low
-# code chunk for Q9
+#| label: add-label-q10
+# comment for Q10
 
 ```
 
 **11. Which instructors with one year of experience had the highest and lowest average percentage of students failing in the current semester across all their courses?**
 
 ```{r}
-#| label: one-year-experience-failing-students
-# code chunk for Q10
+#| label: add-label-11
+# comment for 11
 
 ```
 
 **12. Which female instructors with either a doctorate or professional degree had the highest and lowest average percent of students responding to the evaluation across all their courses?**
 
 ```{r}
-#| label: female-instructor-student-response
-# code chunk for Q11
+#| label: add-label-12
+# comment for 12
 
 ```
+
+
+Follow the instructions online to submit your lab correctly.  

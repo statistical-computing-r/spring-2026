@@ -214,11 +214,11 @@ complete this task.
 
 ```{r}
 #| label: data-cleaning
-# code chunk for Q4
+# code chunk for Q5
 
 ```
 
-**5. How many unique instructors and unique courses are present in the cleaned dataset?**
+**6. How many unique instructors and unique courses are present in the cleaned dataset?**
 
 ::: callout-tip
 Helpful functions: `summarize()`, `n_distinct()`
@@ -226,11 +226,11 @@ Helpful functions: `summarize()`, `n_distinct()`
 
 ```{r}
 #| label: unique-courses
-# code chunk for Q5
+# code chunk for Q6
 
 ```
 
-**6. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in?**
+**7. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in?**
 
 ::: callout-tip
 Helpful functions: `filter()`, `if_any()`
@@ -240,11 +240,11 @@ Helpful functions: `filter()`, `if_any()`
 
 ```{r}
 #| label: uncovering-missing-values
-# code chunk for Q6
+# code chunk for Q7
 
 ```
 
-**7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in \~3 complete sentences.**
+**8. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in \~3 complete sentences.**
 
 ::: callout-tip
 You’ll need to first wrangle your data to have each instructor represented only once.
@@ -254,11 +254,11 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 
 ```{r}
 #| label: exploring-demographics-of-instructors
-# code chunk for Q7
+# code chunk for Q8
 
 ```
 
-**8. Each course seems to have used a different subset of the nine evaluation questions. How many teacher-course combinations asked all nine questions?**
+**9. Each course seems to have used a different subset of the nine evaluation questions. How many teacher-course combinations asked all nine questions?**
 
 ::: callout-tip
 You’ll need to first wrangle your data to find the number of questions asked 
@@ -271,7 +271,7 @@ Helpful functions: `group_by()`, `n_distinct()`, `count()`, `summarize()`, `ungr
 
 ```{r}
 #| label: teacher-course-asked-every-question
-# code chunk for Q8
+# code chunk for Q9
 
 
 ```
@@ -284,27 +284,27 @@ Helpful functions: `filter()`, `group_by()`, `summarize()`, `slice()`
 Useful variables: `question_no`, `teacher_id`, `SET_score_avg`, `percent_failed_cur`, `resp_share`, `academic_degree`, `seniority`, `sex`
 :::
 
-**9. Which instructors had the highest and lowest average rating for Question 1 (I learned a lot during the course.) across all their courses?**
+**10. Which instructors had the highest and lowest average rating for Question 1 (I learned a lot during the course.) across all their courses?**
 
 ```{r}
 #| label: question-1-high-low
-# code chunk for Q9
-
-```
-
-**10. Which instructors with one year of experience had the highest and lowest average percentage of students failing in the current semester across all their courses?**
-
-```{r}
-#| label: one-year-experience-failing-students
 # code chunk for Q10
 
 ```
 
-**11. Which female instructors with either a doctorate or professional degree had the highest and lowest average percent of students responding to the evaluation across all their courses?**
+**11. Which instructors with one year of experience had the highest and lowest average percentage of students failing in the current semester across all their courses?**
+
+```{r}
+#| label: one-year-experience-failing-students
+# code chunk for Q11
+
+```
+
+**12. Which female instructors with either a doctorate or professional degree had the highest and lowest average percent of students responding to the evaluation across all their courses?**
 
 ```{r}
 #| label: female-instructor-student-response
-# code chunk for Q11
+# code chunk for Q12
 
 ```
 
