@@ -17,7 +17,7 @@ execute:
 
 ## GitHub Workflow
 
-We will use GitHub Classroom to submit Lab 3.
+We will use GitHub Classroom to submit Lab 4.
 
 ### Step 1: Access GitHub Classroom Assignment  
 

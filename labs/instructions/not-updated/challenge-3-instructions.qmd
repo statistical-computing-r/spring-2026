@@ -1,5 +1,5 @@
 ---
-title: "Challenge 3: Extending Teaching Evaluation Investigations"
+title: "Challenge 5: Extending Teaching Evaluation Investigations"
 ---
 
 This challenge builds on the work you already did with the data on teacher evaluations. Specifically, you are tasked with recreating a plot, carrying out a Chi-Squared test of independence, and providing a critique of the design and collection of these data.

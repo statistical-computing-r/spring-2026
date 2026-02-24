@@ -1,0 +1,69 @@
+---
+title: "Challenge 5: Extending Teaching Evaluation Investigations"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+```{r}
+#| label: packages
+
+
+```
+
+```{r}
+#| label: load-data
+
+
+```
+
+
+# Chi-Square Test of Independence
+
+Let’s compare the level of SET ratings for Question 3 (The professor used activities to make the class more engaging.) between senior instructors and junior instructors.
+
+**1. Using the original `teacher_evals` dataset (not `teacher_evals_clean`), create a new dataset that accomplishes the following with *one*`dplyr` pipeline:**
+
+-   **includes responses for Question 3 only**
+-   **creates a new variable called set_level that is "excellent" if the SET_score_avg is 4 or higher (inclusive) and "standard" otherwise**
+-   **creates a new variable called sen_level that is "junior'”' if the instructor has been teaching for 4 years or less (inclusive), "senior" if between 5-8 years (inclusive), and "very senior" if more than 8 years**
+-   **contains only the variables we are interested in –- `course_id`, `SET_level`, and `sen_level`**
+-   **saves the mutated data into a new data frame named `teacher_evals_compare`**
+
+::: callout-tip
+Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
+:::
+
+```{r}
+#| label: cleaning-data-for-junior-senior-comparison
+
+
+```
+
+**2. Using the new dataset and your `ggplot2` skills, recreate the following bar plot:**
+
+![](https://statistical-computing-r.github.io/spring-2026/labs/instructions/images/challenge-3-plot-to-recreate.png)
+
+```{r}
+#| label: recreate-plot
+
+
+```
+
+**3. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor seniority level in your new dataset.**
+
+```{r}
+#| label: chi-square-test
+
+```
+
+**4. Draw a conclusion about the independence of evaluation level and seniority level based on your chi-square test.**
+
+# Study Critique
+
+Part of the impetus behind this study was to investigate characteristics of a course or an instructor that might affect student evaluations of teaching that are **not** explicitly related to teaching effectiveness. For instance, it has been shown that gender identity and gender express affect student evaluations of teaching ([an example](https://link.springer.com/article/10.1007/s10755-014-9313-4?nr_email_referer=1)).
+
+**5. If you were to conduct this study at Cal Poly, what are two other variables you would like to collect that you think might be related to student evaluations? These should be course or instructor characteristics that [were not]{.underline} collected in this study.**
+
+**6. Explain what effects / relationships you would expect to see for each of the two variables you outlined.**
