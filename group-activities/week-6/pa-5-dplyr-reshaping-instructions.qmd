@@ -1,0 +1,286 @@
+---
+title: "PA 5: Identify the Mystery College"
+subtitle: "Data Wrangling with `dplyr`"
+author: "Instructions"
+format: html
+embed-resources: true
+code-tools: true
+toc: true
+editor: source
+execute: 
+  echo: false
+  eval: false
+  message: false
+  warning: false
+---
+
+Today you will use the `dplyr` package to clean some data. We will then use that
+cleaned data to figure out what college Monte has been accepted to.
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
+
+::: {.callout-note}
+The partner whose birthday is closest to January 1st starts as the Computer (typing and listening to instructions from the Coder). 
+:::
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
+
+# Goals for the Activity
+
+- Solve issues in your data as you read it in specifying NA values and cleaning up variable names
+- Apply data verbs from `dplyr` to extract specific information from a large data set.  
+
+**THROUGHOUT** the Activity be sure to follow the Style Guide by doing the following:
+
+-   load the appropriate packages at the beginning of the Quarto doc\
+-   use proper spacing\
+-   name all code chunks\
+-   comment at least once in each code chunk to describe why you made your coding decisions\
+-   add appropriate labels to all graphic axes
+
+## Setting up your Project
+
+Your project should have the following components:
+
+1. `data` that will eventually hold your cleaned up data\
+2. completed [pa-5-dplyr-reshaping-activity.qmd](../weepa-5-dplyr-reshaping-activity.qmd) 
+3. rendered file as `.html`
+
+
+# Part One: Data Import and Cleaning
+
+This section will clean today's data so that you can use it more easily in Part
+Two.
+
+
+## Data Download & Package Loading
+
+First, we declare our package dependencies and load the data.
+
+*The data loading function `read_csv()` will give you an outpouring of helpful information about the dataset. If you do not see the word "error", there is nothing to be concerned about.*
+
+```{r}
+#| label: setup
+#| include: false
+#| eval: true
+library(tidyverse)
+```
+
+```{r}
+#| label: load-data-student
+#| echo: true
+colleges <- read_csv("https://raw.githubusercontent.com/statistical-computing-r/spring-2026/refs/heads/main/group-activities/week-6/data/colleges.csv")
+```
+
+```{r}
+#| label: load-data-instructions
+#| eval: true
+colleges <- read_csv("https://raw.githubusercontent.com/statistical-computing-r/spring-2026/refs/heads/main/group-activities/week-6/data/colleges.csv", na = "NULL") |> 
+  janitor::clean_names( )
+```
+
+Take a look at the variables in your downloaded data by running the following
+code. This tells reports the data type for each column in the dataset.
+
+```{r}
+#| label: glimpse-data
+glimpse(colleges)
+```
+
+## Data Cleaning
+
+Now we will clean the data. Alas, each of the R chunks in this section will
+cause an error and / or do the desired task incorrectly. Even the chunks that
+run without error **are not** correct! You will need to find the mistake and
+correct it to complete the intended action.
+
+**Step 1:** Instead of a blank, they have "NULL" as the missing value. Add an argument to the data import code above to specify the missing values as "NULL".  
+
+**Step 2** Clean the variable names to be `snake_case` (Hint: use `janitor`) by adding an additional argument in the data import code chunk.   
+
+**Step 3** Write the cleaned data set to a sub-folder called `data` (you will need to make this in your project first.)  
+
+
+# Practice with `dplyr` Verbs
+
+In each of the following actions there are errors in the code - fix the errors to run the code.  
+
+
+## Choosing variables with `select`  
+
+There are too many variables in this data set. We don't need all of
+them. Narrow your data set down to only:
+
+-   `instm` name of the institution
+-   `city` city, `stabbr` state, and `zip` ZIP code of the institution
+-   `adm_rate` admissions rate
+-   `sat_avg` average SAT score
+-   `ugds` number of undergraduate students
+-   `tuitionfee_in` in- and `tuitionfee_out` out-of-state tuition
+-   `control` Whether the school is public or private
+-   `region`` region of the school.
+
+```{r}
+#| label:  select-vars
+colleges_clean1 <- colleges |>  #space in pipe
+  select(instnm, 
+         city, 
+         stabbr, 
+         zip,
+         adm_rate, 
+         sat_avg, 
+         ugds,
+         tuitionfee_in, 
+         tuitionfee_out, #missing comma
+         control,
+         region) 
+```
+
+## Choosing rows with `filter`
+
+Remove the schools that are private and for-profit (category 3).
+
+```{r}
+#| label: filter-private-profit
+colleges_clean2 <- colleges_clean1 |> 
+  filter(control == 3) #double = needed
+```
+
+
+## Learn a new function to create a variable
+
+Create a new variable called `tuition_diff` which contains the
+difference between out-of-state and in-state costs. Look at the cheatsheet to identify the new function you need to use.  
+
+```{r}
+#| label: add-differences-between-in-state-out-of-state
+
+colleges_clean5 <- colleges_clean3 |> 
+   mutate(tuition_diff = tuitionfee_out - tuitionfee_in)  #remove mutate
+```
+
+
+## Learn a new function to drop missing values
+
+Identify the right function name that removes every row with missing data.
+
+```{r}
+#| label: drop-na
+colleges_clean6 <- colleges_clean5 |> 
+  drop_na()  #fix_ to .
+colleges_clean6
+```
+
+
+## Combine everything into one pipe
+
+At this point we've made six different datasets, but notice each of these steps
+started with `colleges_clean <- colleges_clean |>`. That is pretty redundant! 
+Instead, we could have performed all these tasks as one long "pipeline."
+
+Combine your (fixed) code chunks into a **single** code chunk that
+carries out all of the steps necessary to clean the data. 
+
+*Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function!*
+
+```{r}
+#| label: all-steps-one-pipeline
+#| eval: true
+# Code combining ALL of your previous steps into ONE pipeline
+
+colleges_clean <- colleges |>
+  select(instnm, 
+         city, 
+         stabbr, 
+         zip,
+         adm_rate, 
+         sat_avg, 
+         ugds,
+         tuitionfee_in, 
+         tuitionfee_out, #missing comma
+         control,
+         region) |> 
+   filter(control == 3) |>  #double = needed 
+   mutate(tuition_diff = tuitionfee_out - tuitionfee_in) |>  #remove mutate
+   drop_na()  #fix_ to .
+
+colleges_clean
+```
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+# Part Two: Identify the Mystery College
+
+Wow! Your best friend Monte has been accepted to his top choice college!
+Unfortunately, Monte is an otterly mysterious person, and he won't tell you
+directly which college this is. You'll have to use his clues to figure out which
+school is his dream school.
+
+**Clues:**
+
+1.  This college is located in Region 8.
+
+2.  This college's admission rate is less than 85% (0.85).
+
+3.  This college **does not** charge the same for in- and out-of-state tuition. You will need the code that created the new variable `tuition_diff` from above.  
+
+4.  The average SAT score of this college is an even number. (Hint: an even number modulo (`%%`) 2 is equal to 0).  
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+5.  This college is located in the contiguous 48 states..
+
+6.  Less than 15,000 undergraduates attend this college.
+
+7.  Of the five options remaining at this step, Monte will attend the college
+that has the lowest admission rate (organize the data so it is the first listed of the five).  
+
+*Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function!*
+
+```{r}
+#| label: identify-college 
+colleges |> 
+  select(instnm, 
+         city, 
+         stabbr, 
+         zip,
+         adm_rate, 
+         sat_avg, 
+         ugds,
+         tuitionfee_in, 
+         tuitionfee_out, #missing comma
+         control,
+         region) |> 
+  mutate(tuition_diff = tuitionfee_out - tuitionfee_in) |> 
+  filter(region == 8,
+         adm_rate < 0.85,
+         tuition_diff != 0,
+         sat_avg %% 2 == 0, 
+         !stabbr %in% c("AK", "HI"),
+         ugds < 15000
+        ) |> 
+  arrange(adm_rate)
+```
+
+Submit the college Monte will attend to the Canvas Quiz.

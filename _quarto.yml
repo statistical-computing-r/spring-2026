@@ -87,6 +87,9 @@ website:
             text: "Pair Activity 3: Plotting Penguins"
           - href: group-activities/week-5/pa-4-import-tidy-data-instructions.qmd
             text: "Pair Activity 4: Importing Youth Risk Behavior Data"
+          - href: group-activities/week-6/pa-5-dplyr-reshaping-instructions.qmd
+            text: "Pair Activity 5: Identify the Mystery College"
+
 
       - section: "Labs" 
         contents:
