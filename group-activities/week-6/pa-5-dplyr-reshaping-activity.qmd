@@ -1,7 +1,5 @@
 ---
 title: "PA 5: Identify the Mystery College"
-subtitle: "Data Wrangling with `dplyr`"
-author: "Instructions"
 format: html
 embed-resources: true
 code-tools: true
@@ -14,6 +12,9 @@ execute:
   warning: false
 ---
 
+**Names**
+
+
 Today you will use the `dplyr` package to clean some data. We will then use that
 cleaned data to figure out what college Monte has been accepted to.
 
@@ -24,6 +25,10 @@ cleaned data to figure out what college Monte has been accepted to.
 During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
 
 <!-- The partner whose birthday is closest to January 1st starts as the Computer (typing and listening to instructions from the Coder).  -->
+
+**Starting Coder:**  
+
+**Starting Computer:**  
 
 ## Goals for the Activity
 
