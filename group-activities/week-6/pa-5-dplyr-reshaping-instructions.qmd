@@ -183,7 +183,7 @@ colleges_clean5 <- colleges_clean3 |>
 
 ## Learn a new function to drop missing values
 
-Identify the right function name that removes every row with missing data.
+Identify the right function name that removes every row with missing data as the function provided `drop.na()` is incorrect.  
 
 ```{r}
 #| label: drop-na
@@ -202,7 +202,7 @@ Instead, we could have performed all these tasks as one long "pipeline."
 Combine your (fixed) code chunks into a **single** code chunk that
 carries out all of the steps necessary to clean the data. 
 
-*Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function!*
+*Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function! You should always start by selecting just the variables you need.*
 
 ```{r}
 #| label: all-steps-one-pipeline
@@ -225,7 +225,7 @@ colleges_clean <- colleges |>
    mutate(tuition_diff = tuitionfee_out - tuitionfee_in) |>  #remove mutate
    drop_na()  #fix_ to .
 
-colleges_clean
+arrange(colleges_clean, adm_rate)
 ```
 
 <!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
@@ -256,7 +256,10 @@ school is his dream school.
 7.  Of the five options remaining at this step, Monte will attend the college
 that has the lowest admission rate (organize the data so it is the first listed of the five).  
 
-*Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function!*
+::: {.callout-warning}
+Think about coding efficiency -- you __should not__ have multiple calls to the __same__ function! In addition, you should only start with the variables you need (Hint: see `select` code above).
+:::
+
 
 ```{r}
 #| label: identify-college 

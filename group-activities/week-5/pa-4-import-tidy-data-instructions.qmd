@@ -94,6 +94,9 @@ Take note of how missing values are designated in the data. Add an argument to t
 
 ### Step 4: Clean A few of the Variables
 
+
+<!-- For this part provide a code structure to make it easier for them to focus on specifying variable types that they can copy and paste. -->
+
 Add additional arguments to the code above that does the following:
 
 -   `AgeCat`: remove the text "years old" from the numeric values\
@@ -115,6 +118,36 @@ Add additional arguments to the code above that does the following:
     -   `Television watching`
     -   `Sports team participation`\
 -   Skip the rest of the variables (hint set `.default = _________`)
+
+Here is some code structure to help get you started:
+
+```{r}
+#| label: code-structure
+#| eval: false
+
+list(`AgeCat` = ,
+     `Grade` = ,
+     `Perception of weight` = ,
+     `Gender` = ,
+     `Height in meters` = ,
+     `Weight in kilograms` = ,
+     `Body Mass Index` = ,
+     `BMI percentile` = ,
+     `Fruit eating` = ,
+     `Salad eating` = ,
+     `Other vegetable eating` = ,
+     `Soda drinking` = ,
+     `Breakfast eating` = ,
+     `Physical activity >= 5 days` = ,
+     `Television watching` = ,
+     `Sports team participation` = ,
+     .default = )
+
+
+```
+
+
+
 
 <!-- Change roles (Computer becomes Coder)! -->
 

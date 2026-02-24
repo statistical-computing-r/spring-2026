@@ -56,8 +56,8 @@ First, we declare our package dependencies and load the data.
 
 ```{r}
 #| label: setup
-#| include: false
-
+#| include: 
+## update the include arguement to hide all output, but still run the setup chunk
 
 ```
 
@@ -72,8 +72,7 @@ code. This tells reports the data type for each column in the dataset.
 
 ```{r}
 #| label: glimpse-data
-
-#set this to eval: false
+#set this to code chunk to not evaluate in the future
 glimpse(colleges)
 ```
 
@@ -86,7 +85,7 @@ correct it to complete the intended action.
 
 **Step 1:** Instead of a blank, they have "NULL" as the missing value. Add an argument to the data import code above to specify the missing values as "NULL".  
 
-**Step 2** Clean the variable names to be `snake_case` (Hint: use `janitor`) by adding an additional argument in the data import code chunk.   
+**Step 2** Clean the variable names to be `snake_case` (Hint: use `janitor`) by adding an additional piped line in the data import code chunk.   
 
 **Step 3** Write the cleaned data set to a subfolder called `data` (you will need to make this in your project first.)  
 
@@ -162,7 +161,7 @@ colleges_clean5 <- colleges_clean3 |>
 
 ## Learn a new function to drop missing values
 
-Identify the right function name that removes every row with missing data.
+Identify the right function name that removes every row with missing data as the function provided `drop.na()` is incorrect.  
 
 ```{r}
 #| label: add-label-in-kebab-case
@@ -193,7 +192,8 @@ carries out all of the steps necessary to clean the data.
 colleges_clean <- colleges |>
   
 
-colleges_clean
+colleges_clean |> 
+  arrange(adm_rate) #check the instructions - did you get the same output?
 ```
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
@@ -217,7 +217,7 @@ school is his dream school.
 
 4.  Less than 15,000 undergraduates attend this college.  
 
-5.  This college is located in the contiguous 48 states. This should be one argument.
+5.  This college is located in the contiguous 48 states. This should be one argument that excludes the two states that are not connected to the other 48 states (Hint: you can add `!` in front of arguments to negate them).
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
