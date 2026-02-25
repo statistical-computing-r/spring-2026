@@ -3,7 +3,6 @@ title: "PA 5: Identify the Mystery College"
 subtitle: "Data Wrangling with `dplyr`"
 author: "Instructions"
 format: html
-embed-resources: true
 code-tools: true
 toc: true
 editor: source
@@ -13,6 +12,10 @@ execute:
   message: false
   warning: false
 ---
+
+<!-- Took way more time than anticipated - need to reduce front end and move it to the end. -->
+
+
 
 Today you will use the `dplyr` package to clean some data. We will then use that
 cleaned data to figure out what college Monte has been accepted to.
@@ -159,12 +162,15 @@ colleges_clean1 <- colleges |>  #space in pipe
 
 ## Choosing rows with `filter`
 
-Remove the schools that are private and for-profit (category 3).
+<!-- NEed to fix this one - I had originally filtered == 3, it should be to exclude these two - need to check -->
+
+
+Remove the schools that are private (category 2) and for-profit (category 3).
 
 ```{r}
 #| label: filter-private-profit
 colleges_clean2 <- colleges_clean1 |> 
-  filter(control == 3) #double = needed
+  filter(control == 1) #double = needed
 ```
 
 
@@ -176,7 +182,7 @@ difference between out-of-state and in-state costs. Look at the cheatsheet to id
 ```{r}
 #| label: add-differences-between-in-state-out-of-state
 
-colleges_clean5 <- colleges_clean3 |> 
+colleges_clean5 <- colleges_clean2 |> 
    mutate(tuition_diff = tuitionfee_out - tuitionfee_in)  #remove mutate
 ```
 
@@ -231,6 +237,8 @@ arrange(colleges_clean, adm_rate)
 <!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
 
 # Part Two: Identify the Mystery College
+
+<!-- Clarify they need to start with full data set -->
 
 Wow! Your best friend Monte has been accepted to his top choice college!
 Unfortunately, Monte is an otterly mysterious person, and he won't tell you
