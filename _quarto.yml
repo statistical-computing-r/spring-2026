@@ -89,6 +89,8 @@ website:
             text: "Pair Activity 4: Importing Youth Risk Behavior Data"
           - href: group-activities/week-6/pa-5-dplyr-reshaping-instructions.qmd
             text: "Pair Activity 5: Identify the Mystery College"
+          - href: group-activities/week-7/pa-6-summarizing-penguins-instructions.qmd
+            text: "Pair Activity 6: Summarizing Palmer Penguins"
 
 
       - section: "Labs" 

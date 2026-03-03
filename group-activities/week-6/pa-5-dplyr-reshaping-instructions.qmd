@@ -234,7 +234,7 @@ colleges_clean <- colleges |>
 arrange(colleges_clean, adm_rate)
 ```
 
-<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
 # Part Two: Identify the Mystery College
 
@@ -255,7 +255,7 @@ school is his dream school.
 
 4.  The average SAT score of this college is an even number. (Hint: an even number modulo (`%%`) 2 is equal to 0).  
 
-<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
 5.  This college is located in the contiguous 48 states..
 

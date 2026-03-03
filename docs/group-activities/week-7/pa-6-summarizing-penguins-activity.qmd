@@ -1,0 +1,138 @@
+---
+title: "PA 6: Summarizing Palmer Penguins"
+subtitle: "Data Wrangling with `dplyr`"
+author: "Instructions"
+format: html
+code-tools: true
+toc: true
+editor: source
+execute: 
+  echo: true
+  eval: true
+  message: false
+  warning: false
+---
+
+
+Today you will use the `dplyr` package to summarize and manage some data. We explore some of the physical features of the palmer penguins, with the goal of writing efficient code and learning a few new functions.  
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+
+<!-- The partner who has the most siblings will start as the Computer (typing and listening to instructions from the Coder).  -->
+
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
+
+# Goals for the Activity
+
+- Solve issues in your data as you read it in specifying NA values and cleaning up variable names
+- Apply data verbs from `dplyr` to extract specific information from a large data set.  
+
+**THROUGHOUT** the Activity be sure to follow the Style Guide by doing the following:
+
+-   load the appropriate packages at the beginning of the Quarto doc\
+-   use proper spacing\
+-   name all code chunks\
+-   comment at least once in each code chunk to describe why you made your coding decisions\
+-   add appropriate labels to all graphic axes
+
+
+<!-- Start by adding the right features to the following `setup` code chunk: -->
+
+```{r}
+#| label: 
+#| include: 
+
+library(palmerpenguins)
+data(penguins)
+```
+
+
+## Goals for the Activity  
+
+1. Use `mutate()`, `group_by()`, and `summarize()` to answer some questions about the penguins.   
+2. Learn a few other `dplyr` functions such as `drop_na()` and `count()` that can be used in summarizing data.  
+3. Learn the `dplyr` functions `case_when()` and `across()` to clean up and create new variables.  
+4. Connect summarized and created variables and graphics together to answer research questions.  
+
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- name all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+- use appropriate white space  
+
+
+# Activity: Recreate the Summary Tables
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+## Pipe One: Average "Lengths"
+
+Starting from penguins, write a piped sequence to:  
+
+- Exclude penguins observed on Biscoe Island  
+- Only keep variables `species` through `body_mass_g`  
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+- Group the data by `species`  
+- Find the mean value for any variable containing the string “length”, by penguin species, with column names updated to the original column name appended with "_mean" at the end  
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+
+## Pipe Two: Flipper and Mass Ratio
+
+Now do the following in one piped "sentence" -  
+
+Starting with penguins, 
+- Only keep observations for chinstrap penguins, 
+- Keep only the `flipper_length_mm` and `body_mass_g` variables. 
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+- Add a new column called `fm_ratio` that contains the ratio of flipper length to body mass for each penguin. 
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+- Add another column named `ratio_bin` which contains the word “high” if `fm_ratio` is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).
+
+
+
+
+
+# Canvas Quiz
+
+1. What species (not on Biscoe Island) has the biggest average bill length?  
+
+2. What species (not on Biscoe Island) has the smallest average flipper length?
+
+3. For Chinstrap penguins, what is the average flipper length for penguins with a high flipper to mass ratio (round to 2 decimal places)?  
+
+
+# Wrapping Up
+The biggest challenge with data wrangling is figuring out what you want to do first and then thinking about how the vocabulary translates to the code.  Once you know *what* you want to do, it is much easier to look up *how* to do it!
+

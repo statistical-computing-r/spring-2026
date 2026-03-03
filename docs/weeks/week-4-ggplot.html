@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,19 +88,18 @@ div.csl-indent {
 <link href="../weeks/week-3-version-control.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-60f3bb78d9edfd9da6195e79906ce262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cc49e5b30b69946493c09b52e853a98b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-9bd952484debb95e500d662ff557334b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-cc49e5b30b69946493c09b52e853a98b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -318,8 +317,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/r-flowers.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/r-flowers.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -441,6 +439,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="../group-activities/week-6/pa-5-dplyr-reshaping-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pair Activity 5: Identify the Mystery College</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../group-activities/week-7/pa-6-summarizing-penguins-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 6: Summarizing Palmer Penguins</span></a>
   </div>
 </li>
       </ul>
@@ -576,19 +580,19 @@ div.csl-indent {
 <h1 data-number="2"><span class="header-section-number">2</span> Loading in the <strong>ggplot2</strong> Package</h1>
 <p>In this class, we’re going to use the <code>ggplot2</code> package to create graphics in R. This package is already installed as part of the <code>tidyverse</code>, but can be installed:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and/or loaded:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>) <span class="co"># (my preference!)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>) <span class="co"># (my preference!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Remember - packages should loaded in the setup chunk as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -620,12 +624,12 @@ div.csl-indent {
 </figure>
 </div>
 <p>In general, you will fill in the template below to build your graph:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>Data<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>Data<span class="sc">&gt;</span>) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Geom_Function<span class="sc">&gt;</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>Mappings<span class="sc">&gt;</span>),</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> <span class="sc">&lt;</span>Position<span class="sc">&gt;</span>) <span class="sc">+</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Facet_Function<span class="sc">&gt;</span> <span class="sc">+</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Scale_Function<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Theme_Function<span class="sc">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Theme_Function<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="making-your-first-ggplot" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="making-your-first-ggplot"><span class="header-section-number">3.2</span> Making Your First ggplot</h2>
@@ -758,13 +762,13 @@ div.csl-indent {
 <section id="global-vs.-local-aesthetics" class="level3">
 <h3 class="anchored" data-anchor-id="global-vs.-local-aesthetics">Global vs.&nbsp;local aesthetics</h3>
 <p>Sometimes we want to set aesthetics that apply to all graphs (e.g.&nbsp;x-axis and y-axis variables) - we call these <em>global aesthetics</em> and put them in the <code>ggplot()</code> function. For aesthetics that should only apply to a specific geometry, or <em>local aesthetics</em>, we put them in the the <code>geom_xxx()</code> function.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>Data<span class="sc">&gt;</span>,</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>Data<span class="sc">&gt;</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>Mappings<span class="sc">&gt;</span>)) <span class="sc">+</span>  <span class="co">#global aesthetics</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Geom_Function<span class="sc">&gt;</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>Mappings<span class="sc">&gt;</span>),  <span class="co">#local aesthetics</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">position =</span> <span class="sc">&lt;</span>Position<span class="sc">&gt;</span>) <span class="sc">+</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Facet_Function<span class="sc">&gt;</span> <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Scale_Function<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Theme_Function<span class="sc">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>Theme_Function<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="plot-customization" class="level2" data-number="3.6">
@@ -786,36 +790,36 @@ div.csl-indent {
 <p>Some of the following can be answered just from the overview provided. Others you might need to look up!</p>
 <p>Use the following code for Question 1 and 2:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">y =</span> hwy), </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Question 1</strong> – What specifically does the code <code>ggplot(data = mpg)</code> do?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_66900" onsubmit="return validate_form_66900()" method="post">
+<form name="form_77076" onsubmit="return validate_form_77076()" method="post">
 <label>
-<input type="radio" name="answer_66900" id="answer_66900_1" value="Creates a blank plot">
+<input type="radio" name="answer_77076" id="answer_77076_1" value="Creates a blank plot">
 Creates a blank plot
 </label>
 <br>
 <label>
-<input type="radio" name="answer_66900" id="answer_66900_2" value="Makes a scatterplot of two variables in the `mpg` dataset">
+<input type="radio" name="answer_77076" id="answer_77076_2" value="Makes a scatterplot of two variables in the `mpg` dataset">
 Makes a scatterplot of two variables in the `mpg` dataset
 </label>
 <br>
 <label>
-<input type="radio" name="answer_66900" id="answer_66900_3" value="Creates a ggplot with the `mpg` dataset">
+<input type="radio" name="answer_77076" id="answer_77076_3" value="Creates a ggplot with the `mpg` dataset">
 Creates a ggplot with the `mpg` dataset
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_66900"></div>
+<div id="result_77076"></div>
 </form>
-<script>function validate_form_66900() {var x, text; var x = document.forms['form_66900']['answer_66900'].value;if (x == 'Makes a scatterplot of two variables in the `mpg` dataset'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_66900').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_77076() {var x, text; var x = document.forms['form_77076']['answer_77076'].value;if (x == 'Makes a scatterplot of two variables in the `mpg` dataset'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_77076').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_66900').innerText == 'Correct';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_77076').innerText == 'Correct';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -824,33 +828,33 @@ Creates a ggplot with the `mpg` dataset
 <p><strong>Question 2:</strong> What aesthetics does this plot contain?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_47111" onsubmit="return validate_form_47111()" method="post">
+<form name="form_73601" onsubmit="return validate_form_73601()" method="post">
 <label>
-<input type="checkbox" id="answer_47111_1" value="x">
+<input type="checkbox" id="answer_73601_1" value="x">
 x
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_47111_2" value="y">
+<input type="checkbox" id="answer_73601_2" value="y">
 y
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_47111_3" value="color">
+<input type="checkbox" id="answer_73601_3" value="color">
 color
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_47111_4" value="data">
+<input type="checkbox" id="answer_73601_4" value="data">
 data
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_47111"></div>
+<div id="result_73601"></div>
 </form>
-<script>function validate_form_47111() {var text; var x1 = document.getElementById('answer_47111_1'); var x2 = document.getElementById('answer_47111_2'); var x3 = document.getElementById('answer_47111_3'); var x4 = document.getElementById('answer_47111_4'); if (x1.checked == true&x2.checked == true&x3.checked == false&x4.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_47111').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_73601() {var text; var x1 = document.getElementById('answer_73601_1'); var x2 = document.getElementById('answer_73601_2'); var x3 = document.getElementById('answer_73601_3'); var x4 = document.getElementById('answer_73601_4'); if (x1.checked == true&x2.checked == true&x3.checked == false&x4.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_73601').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -858,7 +862,7 @@ data
 <p><br></p>
 <p><strong>Question 3:</strong> Which of the following changes would set the color of the points to be blue?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Option A</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Option A</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
@@ -881,32 +885,32 @@ data
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(</span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> hwy)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_2159" onsubmit="return validate_form_2159()" method="post">
+<form name="form_77181" onsubmit="return validate_form_77181()" method="post">
 <label>
-<input type="radio" name="answer_2159" id="answer_2159_1" value="Option A">
+<input type="radio" name="answer_77181" id="answer_77181_1" value="Option A">
 Option A
 </label>
 <br>
 <label>
-<input type="radio" name="answer_2159" id="answer_2159_2" value="Option B">
+<input type="radio" name="answer_77181" id="answer_77181_2" value="Option B">
 Option B
 </label>
 <br>
 <label>
-<input type="radio" name="answer_2159" id="answer_2159_3" value="Option C">
+<input type="radio" name="answer_77181" id="answer_77181_3" value="Option C">
 Option C
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_2159"></div>
+<div id="result_77181"></div>
 </form>
-<script>function validate_form_2159() {var x, text; var x = document.forms['form_2159']['answer_2159'].value;if (x == 'Option B'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_2159').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_77181() {var x, text; var x = document.forms['form_77181']['answer_77181'].value;if (x == 'Option B'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_77181').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -918,14 +922,14 @@ Option C
 <p>Line Chart</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_80583" onsubmit="return validate_form_80583()" method="post">
-<input type="text" placeholder="" name="answer_80583">
+<form name="form_29656" onsubmit="return validate_form_29656()" method="post">
+<input type="text" placeholder="" name="answer_29656">
 <input type="submit" value="check">
-<div id="result_80583"></div>
+<div id="result_29656"></div>
 </form>
-<script>function validate_form_80583() {var x, text; var x = document.forms['form_80583']['answer_80583'].value;if (x == 'geom_line()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_80583').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_29656() {var x, text; var x = document.forms['form_29656']['answer_29656'].value;if (x == 'geom_line()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_29656').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct';text = res1 + res2 + res3 + res4;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -934,14 +938,14 @@ Option C
 <p>Boxplot</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_2136" onsubmit="return validate_form_2136()" method="post">
-<input type="text" placeholder="" name="answer_2136">
+<form name="form_10289" onsubmit="return validate_form_10289()" method="post">
+<input type="text" placeholder="" name="answer_10289">
 <input type="submit" value="check">
-<div id="result_2136"></div>
+<div id="result_10289"></div>
 </form>
-<script>function validate_form_2136() {var x, text; var x = document.forms['form_2136']['answer_2136'].value;if (x == 'geom_boxplot()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_2136').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_10289() {var x, text; var x = document.forms['form_10289']['answer_10289'].value;if (x == 'geom_boxplot()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_10289').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -950,14 +954,14 @@ Option C
 <p>Histogram</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_20727" onsubmit="return validate_form_20727()" method="post">
-<input type="text" placeholder="" name="answer_20727">
+<form name="form_52620" onsubmit="return validate_form_52620()" method="post">
+<input type="text" placeholder="" name="answer_52620">
 <input type="submit" value="check">
-<div id="result_20727"></div>
+<div id="result_52620"></div>
 </form>
-<script>function validate_form_20727() {var x, text; var x = document.forms['form_20727']['answer_20727'].value;if (x == 'geom_histogram()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_20727').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_52620() {var x, text; var x = document.forms['form_52620']['answer_52620'].value;if (x == 'geom_histogram()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_52620').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -966,14 +970,14 @@ Option C
 <p>Area Chart</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_36568" onsubmit="return validate_form_36568()" method="post">
-<input type="text" placeholder="" name="answer_36568">
+<form name="form_72122" onsubmit="return validate_form_72122()" method="post">
+<input type="text" placeholder="" name="answer_72122">
 <input type="submit" value="check">
-<div id="result_36568"></div>
+<div id="result_72122"></div>
 </form>
-<script>function validate_form_36568() {var x, text; var x = document.forms['form_36568']['answer_36568'].value;if (x == 'geom_area()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_36568').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_72122() {var x, text; var x = document.forms['form_72122']['answer_72122'].value;if (x == 'geom_area()'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_72122').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct'; res7 = document.getElementById('result_36568').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct'; res7 = document.getElementById('result_72122').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -995,60 +999,60 @@ Option C
 </div>
 <p><br> <strong>Question 5:</strong> Match the code to the type of aesthetics that are being used:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> hwy)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_17747" onsubmit="return validate_form_17747()" method="post">
+<form name="form_71280" onsubmit="return validate_form_71280()" method="post">
 <label>
-<input type="radio" name="answer_17747" id="answer_17747_1" value="local">
+<input type="radio" name="answer_71280" id="answer_71280_1" value="local">
 local
 </label>
 <br>
 <label>
-<input type="radio" name="answer_17747" id="answer_17747_2" value="global">
+<input type="radio" name="answer_71280" id="answer_71280_2" value="global">
 global
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_17747"></div>
+<div id="result_71280"></div>
 </form>
-<script>function validate_form_17747() {var x, text; var x = document.forms['form_17747']['answer_17747'].value;if (x == 'global'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_17747').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_71280() {var x, text; var x = document.forms['form_71280']['answer_71280'].value;if (x == 'global'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_71280').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct'; res7 = document.getElementById('result_36568').innerText == 'Correct'; res8 = document.getElementById('result_17747').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct'; res7 = document.getElementById('result_72122').innerText == 'Correct'; res8 = document.getElementById('result_71280').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8;element.innerHTML = text;
          return false;
          }}</script>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">y =</span> hwy))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_50666" onsubmit="return validate_form_50666()" method="post">
+<form name="form_7821" onsubmit="return validate_form_7821()" method="post">
 <label>
-<input type="radio" name="answer_50666" id="answer_50666_1" value="local">
+<input type="radio" name="answer_7821" id="answer_7821_1" value="local">
 local
 </label>
 <br>
 <label>
-<input type="radio" name="answer_50666" id="answer_50666_2" value="global">
+<input type="radio" name="answer_7821" id="answer_7821_2" value="global">
 global
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_50666"></div>
+<div id="result_7821"></div>
 </form>
-<script>function validate_form_50666() {var x, text; var x = document.forms['form_50666']['answer_50666'].value;if (x == 'local'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_50666').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_7821() {var x, text; var x = document.forms['form_7821']['answer_7821'].value;if (x == 'local'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_7821').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct'; res7 = document.getElementById('result_36568').innerText == 'Correct'; res8 = document.getElementById('result_17747').innerText == 'Correct'; res9 = document.getElementById('result_50666').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct'; res7 = document.getElementById('result_72122').innerText == 'Correct'; res8 = document.getElementById('result_71280').innerText == 'Correct'; res9 = document.getElementById('result_7821').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1057,53 +1061,53 @@ global
 <p><strong>Question 6:</strong> Which arguments for <code>geom_jitter()</code> control the amount of jittering?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_33717" onsubmit="return validate_form_33717()" method="post">
+<form name="form_79726" onsubmit="return validate_form_79726()" method="post">
 <label>
-<input type="checkbox" id="answer_33717_1" value="width">
+<input type="checkbox" id="answer_79726_1" value="width">
 width
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_2" value="height">
+<input type="checkbox" id="answer_79726_2" value="height">
 height
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_3" value="stat">
+<input type="checkbox" id="answer_79726_3" value="stat">
 stat
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_4" value="position">
+<input type="checkbox" id="answer_79726_4" value="position">
 position
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_5" value="na.rm">
+<input type="checkbox" id="answer_79726_5" value="na.rm">
 na.rm
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_6" value="show.legend">
+<input type="checkbox" id="answer_79726_6" value="show.legend">
 show.legend
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_7" value="data">
+<input type="checkbox" id="answer_79726_7" value="data">
 data
 </label>
 <br>
 <label>
-<input type="checkbox" id="answer_33717_8" value="mapping">
+<input type="checkbox" id="answer_79726_8" value="mapping">
 mapping
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_33717"></div>
+<div id="result_79726"></div>
 </form>
-<script>function validate_form_33717() {var text; var x1 = document.getElementById('answer_33717_1'); var x2 = document.getElementById('answer_33717_2'); var x3 = document.getElementById('answer_33717_3'); var x4 = document.getElementById('answer_33717_4'); var x5 = document.getElementById('answer_33717_5'); var x6 = document.getElementById('answer_33717_6'); var x7 = document.getElementById('answer_33717_7'); var x8 = document.getElementById('answer_33717_8'); if (x1.checked == true&x2.checked == true&x3.checked == false&x4.checked == false&x5.checked == false&x6.checked == false&x7.checked == false&x8.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_33717').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_79726() {var text; var x1 = document.getElementById('answer_79726_1'); var x2 = document.getElementById('answer_79726_2'); var x3 = document.getElementById('answer_79726_3'); var x4 = document.getElementById('answer_79726_4'); var x5 = document.getElementById('answer_79726_5'); var x6 = document.getElementById('answer_79726_6'); var x7 = document.getElementById('answer_79726_7'); var x8 = document.getElementById('answer_79726_8'); if (x1.checked == true&x2.checked == true&x3.checked == false&x4.checked == false&x5.checked == false&x6.checked == false&x7.checked == false&x8.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_79726').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9, res10;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct'; res7 = document.getElementById('result_36568').innerText == 'Correct'; res8 = document.getElementById('result_17747').innerText == 'Correct'; res9 = document.getElementById('result_50666').innerText == 'Correct'; res10 = document.getElementById('result_33717').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9, res10;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct'; res7 = document.getElementById('result_72122').innerText == 'Correct'; res8 = document.getElementById('result_71280').innerText == 'Correct'; res9 = document.getElementById('result_7821').innerText == 'Correct'; res10 = document.getElementById('result_79726').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1112,38 +1116,38 @@ mapping
 <p><strong>Question 7:</strong> What can the <code>labs()</code> function do? Select all that apply.</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_42180" onsubmit="return validate_form_42180()" method="post">
+<form name="form_83932" onsubmit="return validate_form_83932()" method="post">
 <label>
-<input type="radio" name="answer_42180" id="answer_42180_1" value="Customize the x-axis label">
+<input type="radio" name="answer_83932" id="answer_83932_1" value="Customize the x-axis label">
 Customize the x-axis label
 </label>
 <br>
 <label>
-<input type="radio" name="answer_42180" id="answer_42180_2" value="Customize the y-axis label">
+<input type="radio" name="answer_83932" id="answer_83932_2" value="Customize the y-axis label">
 Customize the y-axis label
 </label>
 <br>
 <label>
-<input type="radio" name="answer_42180" id="answer_42180_3" value="Customize the legend label">
+<input type="radio" name="answer_83932" id="answer_83932_3" value="Customize the legend label">
 Customize the legend label
 </label>
 <br>
 <label>
-<input type="radio" name="answer_42180" id="answer_42180_4" value="Customize the plot title">
+<input type="radio" name="answer_83932" id="answer_83932_4" value="Customize the plot title">
 Customize the plot title
 </label>
 <br>
 <label>
-<input type="radio" name="answer_42180" id="answer_42180_5" value="Add a caption to the plot">
+<input type="radio" name="answer_83932" id="answer_83932_5" value="Add a caption to the plot">
 Add a caption to the plot
 </label>
 <br>
 <input type="submit" value="check">
-<div id="result_42180"></div>
+<div id="result_83932"></div>
 </form>
-<script>function validate_form_42180() {var x, text; var x = document.forms['form_42180']['answer_42180'].value;if (x == 'Customize the x-axis label'|x == 'Customize the y-axis label'|x == 'Customize the legend label'|x == 'Customize the plot title'|x == 'Add a caption to the plot'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_42180').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_83932() {var x, text; var x = document.forms['form_83932']['answer_83932'].value;if (x == 'Customize the x-axis label'|x == 'Customize the y-axis label'|x == 'Customize the legend label'|x == 'Customize the plot title'|x == 'Add a caption to the plot'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_83932').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9, res10, res11;res1 = document.getElementById('result_66900').innerText == 'Correct'; res2 = document.getElementById('result_47111').innerText == 'Correct'; res3 = document.getElementById('result_2159').innerText == 'Correct'; res4 = document.getElementById('result_80583').innerText == 'Correct'; res5 = document.getElementById('result_2136').innerText == 'Correct'; res6 = document.getElementById('result_20727').innerText == 'Correct'; res7 = document.getElementById('result_36568').innerText == 'Correct'; res8 = document.getElementById('result_17747').innerText == 'Correct'; res9 = document.getElementById('result_50666').innerText == 'Correct'; res10 = document.getElementById('result_33717').innerText == 'Correct'; res11 = document.getElementById('result_42180').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3, res4, res5, res6, res7, res8, res9, res10, res11;res1 = document.getElementById('result_77076').innerText == 'Correct'; res2 = document.getElementById('result_73601').innerText == 'Correct'; res3 = document.getElementById('result_77181').innerText == 'Correct'; res4 = document.getElementById('result_29656').innerText == 'Correct'; res5 = document.getElementById('result_10289').innerText == 'Correct'; res6 = document.getElementById('result_52620').innerText == 'Correct'; res7 = document.getElementById('result_72122').innerText == 'Correct'; res8 = document.getElementById('result_71280').innerText == 'Correct'; res9 = document.getElementById('result_7821').innerText == 'Correct'; res10 = document.getElementById('result_79726').innerText == 'Correct'; res11 = document.getElementById('result_83932').innerText == 'Correct';text = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -1228,14 +1232,13 @@ Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics an
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -1,0 +1,383 @@
+---
+title: "PA 6: Summarizing Palmer Penguins"
+subtitle: "Data Wrangling with `dplyr`"
+author: "Instructions"
+format: html
+code-tools: true
+toc: true
+editor: source
+execute: 
+  echo: true
+  eval: true
+  message: false
+  warning: false
+---
+
+
+Today you will use the `dplyr` package to summarize and manage some data. We explore some of the physical features of the palmer penguins, with the goal of writing efficient code and learning a few new functions.  
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
+
+::: {.callout-note}
+The partner who has the most sibliings will start as the Computer (typing and listening to instructions from the Coder). 
+:::
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
+
+# Goals for the Activity
+
+- Solve issues in your data as you read it in specifying NA values and cleaning up variable names
+- Apply data verbs from `dplyr` to extract specific information from a large data set.  
+
+**THROUGHOUT** the Activity be sure to follow the Style Guide by doing the following:
+
+-   load the appropriate packages at the beginning of the Quarto doc\
+-   use proper spacing\
+-   name all code chunks\
+-   comment at least once in each code chunk to describe why you made your coding decisions\
+-   add appropriate labels to all graphic axes
+
+## Setting up your Project
+
+Your project should have the following components:
+
+1. completed [pa-6-summarizing-penguins-activity.qmd](../week-7/pa-6-summarizing-penguins-activity.qmd) 
+2. rendered file as `.html`
+
+
+```{r setup}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+
+## Goals for the Activity  
+
+1. Use `mutate()`, `group_by()`, and `summarize()` to answer some questions about the penguins.   
+2. Learn a few other `dplyr` functions such as `drop_na()` and `count()` that can be used in summarizing data.  
+3. Learn the `dplyr` functions `case_when()` and `across()` to clean up and create new variables.  
+4. Connect summarized and created variables and graphics together to answer research questions.  
+
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- name all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+- use appropriate white space  
+
+# Review of `dplyr` Verbs
+
+## Create new variables with `mutate()`
+
+Use `mutate()` to add a new column, while keeping the existing columns. The general structure is:
+
+```{r}
+#| eval: false
+df |>
+  mutate(new_column_name = what_it_contains)
+```
+
+For example, if I had a data frame df with columns A and B, I can add a new column C that is the sum of A and B as follows (note: you can also use sum(A,B) here instead of A + B):
+
+```{r}
+#| eval: false
+df |>
+  mutate(C = A + B)
+```
+
+For example, we can convert body mass to kilograms:
+```{r}
+penguins |>
+  mutate(body_mass_kg = body_mass_g / 1000)
+```
+
+We can also use `mutate()` to modify an existing variable.  By default, R reports factors in alphabetical order (you may notice in your boxplot they always print in the same order, Adelie, Chinstrap, Gentoo). If we want to reorder, we can use a function `fct_relevel()` from the `forcats` package, which we will learn about in a few weeks. 
+
+```{r}
+penguins |> 
+  mutate(species = 
+           fct_relevel(species, 
+                       "Adelie", 
+                       "Gentoo", 
+                       "Chinstrap"))
+  
+```
+
+
+## Drop All Rows with Missing Values
+
+Notice that for some variables we have `NA` listed for missing values.  We can use `drop_na()` to remove the missing values from those variables
+
+```{r}
+penguins |> 
+  drop_na() #if we leave it blank it will remove any row with an NA
+```
+
+Or specify a specific variable(s) to drop those rows with missing values.  
+
+```{r}
+penguins |> 
+  drop_na(sex) #adding a variable, removes rows with NA just for that variable
+```
+
+
+
+## Summarize data using `group_by()` and `summarize()`
+
+Use the combination of `group_by()` and `summarize()` to find find summary statistics for different groups, and put them in a nice table.
+
+`group_by()` “takes an existing table and converts it into a grouped table where operations are performed ‘by group’”  
+
+`summarize()` “creates a new data frame. It will have one (or more) rows for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarizing all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified”  
+
+For example, we can calculate the mean and standard deviation for body mass:
+
+```{r}
+penguins |>
+  group_by(species) |>
+  summarize(mass_mean = mean(body_mass_g, 
+                             na.rm = TRUE),
+            mass_sd = sd(body_mass_g, 
+                         na.rm = TRUE))
+```
+
+Note, that `na.rm = TRUE` removes NA from the calculations instead of removing them from the data like `drop_na()`. Often, errors reported with `mean()` and similar functions are because there are `NA` in the data.  
+
+Second Note, if you use `mosaic` in your statistics class, note that `mean()` used here is from base R, so there is no `~` in front of the variable.  If you wanted to use `mosaic` you can, you will just need to load that package and modify the syntax:  
+
+- Base R: `mean(x)`  
+- Mosaic: `mean(~x)`  
+
+
+
+## New function `across()`
+The `across()` function is especially useful within `summarize()` to efficiently create summary tables with one or more functions applied to multiple variables (columns).
+
+Let’s compare two ways of doing the same thing: creating a summary table of mean values for all penguin size measurements ending in “mm” (bill depth, bill length, flipper length), by species.
+
+Approach 1:
+```{r}
+penguins |>
+  group_by(species) |>
+  summarize(bill_length_mean = mean(bill_length_mm, 
+                                    na.rm = TRUE),
+            bill_depth_mean = mean(bill_depth_mm, 
+                                   na.rm = TRUE),
+            flipper_length_mean = mean(flipper_length_mm, 
+                                       na.rm = TRUE))
+```
+
+Approach 2: 
+```{r}
+penguins |>
+  group_by(species) |>
+  summarize(across(ends_with("mm"), 
+                   .fns = ~mean(.x, na.rm = TRUE)))
+```
+
+
+We can modify multiple names by appending something to the beginning 
+```{r}
+penguins |>
+  group_by(year) |>
+  summarise(across(starts_with("bill"), 
+                   .fns = ~max(.x, na.rm = TRUE), 
+                   .names = "max_{.col}"))
+```
+
+or ending of the column name:  
+```{r}
+penguins |>
+  group_by(year) |>
+  summarise(across(starts_with("bill"), 
+                   .fns = ~max(.x, na.rm = TRUE), 
+                   .names = "{.col}_max"))
+```
+
+
+
+Starting from penguins, create a summary table that finds the mean and standard deviation for all variables containing the string “length”, grouped by penguin species. Update the column names to start with “avg_” or “sd_”, followed by the original column names.
+
+There’s quite a bit happening here, so a little breakdown:  
+
+- We use `contains("length")` to indicate we’ll apply the functions to any columns with the word “length” in the name  
+- Within `list()` is where the functions to be applied across columns are given, and where their “names” of “avg” and “stdev” are set  
+- We use `.names =` to define the final column names in the summary table. Here, the name should start with the function “name” specified above (“avg” or “stdev”), then an underscore, then the original column name (that’s what `"{.fn}_{.col}"` will do)  
+
+```{r}
+penguins |>
+  group_by(species) |>
+  summarize(across(contains("length"),
+                   list(avg = ~mean(.x, na.rm = TRUE), 
+                        stdev = ~sd(.x, na.rm = TRUE)),
+                   .names = "{.fn}_{.col}"))
+```
+
+
+## New Function `count()`
+
+The `dplyr::count()` function wraps a bunch of things into one beautiful friendly line of code to help you find counts of observations by group. To demonstrate what it does, let’s find the counts of penguins in the penguins dataset by species in two different ways:  
+
+- Using `group_by() |> summarize()` with `n()` to count observations  
+- Using `count()` to do the exact same thing  
+
+```{r}
+penguins |>
+  group_by(species) |>
+  summarize(n = n())
+```
+
+```{r}
+penguins |>
+  count(species)
+```
+
+For example, what does the following code do?
+```{r}
+penguins |>
+  count(species, year)
+```
+
+We can combine `count()` with `mutate()` to find proportions conditioned on other variables.
+
+```{r}
+penguins |> 
+  count(species, island) |> 
+  group_by(species) |> 
+  mutate(total = sum(n),  #calculates the total per species group
+         prop = n/total)  #calculates the proportion on each island per species group 
+```
+
+We can then directly pipe the modified data directly into a plot: 
+
+```{r}
+penguins |> 
+  count(species, island) |> 
+  group_by(species) |> 
+  mutate(total = sum(n),  
+         prop = n/total) |>  
+  ggplot(aes(x = island, y = prop, fill = species)) + #don't forget to change to +
+  geom_col(position = position_dodge()) + 
+  scale_fill_viridis_d() + 
+  labs(x = "Palmer Islands",
+       y = "Proportion of Penguin Species per Island",
+       fill = "Species") +
+  theme_minimal()
+```
+
+
+## New Function `case_when()`
+The `case_when()` function is like a really friendly if-else statement. When used within `mutate()`, it allows you to add a new column containing values dependent on your condition(s).
+
+To penguins, add a new column size_bin that contains:  
+
+- “large” if body mass is greater than 4500 g  
+- “medium” if body mass is greater than 3000 g, and less than or equal to 4500 g  
+- “small” if body mass is less than or equal to 3000 g  
+
+```{r}
+penguins |>
+  select(species, body_mass_g:year) |> 
+  mutate(size_bin = case_when(
+      body_mass_g > 4500 ~ "large",
+      body_mass_g > 3000 & body_mass_g <= 4500 ~ "medium",
+      body_mass_g <= 3000 ~ "small",
+      .default = "no measurement"
+    )
+  )
+```
+
+
+
+
+
+# Activity: Recreate the Following Summary Tables
+
+Starting from penguins, write a piped sequence to:  
+
+- Exclude penguins observed on Biscoe Island  
+- Only keep variables species through `body_mass_g`  
+- Group the data by `species`  
+- Find the mean value for any variable containing the string “length”, by penguin species, with column names updated to the original column name appended with "_mean" at the end  
+
+
+```{r}
+#| label: pipe-one
+#| echo: false
+penguins |> 
+  filter(species != "Biscoe") |>
+  select(species:body_mass_g) |> 
+  group_by(species) |> 
+  summarize(across(contains("length"),
+                   .fns = ~mean(.x, na.rm = TRUE), 
+                   .names = "{.col}_mean"))
+
+```
+
+
+
+Now do the following in one piped "sentence" -  
+
+Starting with penguins, 
+- Only keep observations for chinstrap penguins, 
+- Keep only the `flipper_length_mm` and `body_mass_g` variables. 
+- Add a new column called `fm_ratio` that contains the ratio of flipper length to body mass for each penguin. 
+- Add another column named `ratio_bin` which contains the word “high” if `fm_ratio` is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).
+
+
+```{r}
+#| label: pipe-two
+#| echo: false
+penguins |> 
+  filter(species == "Chinstrap") |> 
+  select(flipper_length_mm, body_mass_g) |> 
+  mutate(fm_ratio = flipper_length_mm/body_mass_g,
+         ratio_bin = case_when(fm_ratio >= 0.05 ~ "high",
+                               fm_ratio < 0.05 ~ "low",
+                               .default = "no record"
+                               )) |> 
+  group_by(ratio_bin) |> 
+  summarize(avg_flipper = mean(flipper_length_mm, na.rm = TRUE),
+            avg_mass = mean(body_mass_g, na.rm = TRUE))
+```
+
+# Canvas Quiz
+
+1. What species (not on Biscoe Island) has the biggest average bill length?  
+
+2. What species (not on Biscoe Island) has the smallest average flipper length?
+
+3. For Chinstrap penguins, what is the average flipper length for penguins with a high flipper to mass ratio (round to 2 decimal places)?  
+
+
+# Wrapping Up
+The biggest challenge with data wrangling is figuring out what you want to do first and then thinking about how the vocabulary translates to the code.  Once you know *what* you want to do, it is much easier to look up *how* to do it!
+
