@@ -116,9 +116,11 @@ Starting with penguins,
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 - Add a new column called `fm_ratio` that contains the ratio of flipper length to body mass for each penguin. 
 
+- Add another column named `ratio_bin` which contains the word “high” if `fm_ratio` is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).  
+
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
-- Add another column named `ratio_bin` which contains the word “high” if `fm_ratio` is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).
+- Identify the last steps to get the table printed in the instructions.
 
 
 
