@@ -66,7 +66,7 @@ Your project should have the following components:
 2. rendered file as `.html`
 
 
-```{r setup}
+```{r}
 #| label: setup
 #| include: false
 
@@ -333,7 +333,7 @@ Starting from penguins, write a piped "sentence" to:
 #| label: pipe-one
 #| echo: false
 penguins |> 
-  filter(species != "Biscoe") |>
+  filter(island != "Biscoe") |>
   select(species:body_mass_g) |> 
   group_by(species) |> 
   summarize(across(contains("length"),
