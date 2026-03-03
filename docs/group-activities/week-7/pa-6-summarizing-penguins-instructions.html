@@ -1001,7 +1001,7 @@ Note
 </section>
 <section id="activity-recreate-the-following-summary-tables" class="level1">
 <h1>Activity: Recreate the Following Summary Tables</h1>
-<p>Starting from penguins, write a piped sequence to:</p>
+<p>Starting from penguins, write a piped “sentence” to:</p>
 <ul>
 <li>Exclude penguins observed on Biscoe Island<br>
 </li>
@@ -1021,8 +1021,17 @@ Note
 3 Gentoo                   47.5                   217.</code></pre>
 </div>
 </div>
-<p>Now do the following in one piped “sentence” -</p>
-<p>Starting with penguins, - Only keep observations for chinstrap penguins, - Keep only the <code>flipper_length_mm</code> and <code>body_mass_g</code> variables. - Add a new column called <code>fm_ratio</code> that contains the ratio of flipper length to body mass for each penguin. - Add another column named <code>ratio_bin</code> which contains the word “high” if <code>fm_ratio</code> is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g.&nbsp;NA).</p>
+<p>Now do the following in one piped “sentence” to:</p>
+<p>Starting with penguins,</p>
+<ul>
+<li>Only keep observations for chinstrap penguins,<br>
+</li>
+<li>Keep only the <code>flipper_length_mm</code> and <code>body_mass_g</code> variables.<br>
+</li>
+<li>Add a new column called <code>fm_ratio</code> that contains the ratio of flipper length to body mass for each penguin.<br>
+</li>
+<li>Add another column named <code>ratio_bin</code> which contains the word “high” if <code>fm_ratio</code> is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g.&nbsp;NA).</li>
+</ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
@@ -1849,7 +1858,7 @@ Note
 <span id="cb36-357"><a href="#cb36-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-358"><a href="#cb36-358" aria-hidden="true" tabindex="-1"></a><span class="fu"># Activity: Recreate the Following Summary Tables</span></span>
 <span id="cb36-359"><a href="#cb36-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-360"><a href="#cb36-360" aria-hidden="true" tabindex="-1"></a>Starting from penguins, write a piped sequence to:  </span>
+<span id="cb36-360"><a href="#cb36-360" aria-hidden="true" tabindex="-1"></a>Starting from penguins, write a piped "sentence" to:  </span>
 <span id="cb36-361"><a href="#cb36-361" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-362"><a href="#cb36-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Exclude penguins observed on Biscoe Island  </span>
 <span id="cb36-363"><a href="#cb36-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Only keep variables <span class="in">`species`</span> through <span class="in">`body_mass_g`</span>  </span>
@@ -1872,42 +1881,43 @@ Note
 <span id="cb36-382"><a href="#cb36-382" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-383"><a href="#cb36-383" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-384"><a href="#cb36-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-385"><a href="#cb36-385" aria-hidden="true" tabindex="-1"></a>Now do the following in one piped "sentence" -  </span>
+<span id="cb36-385"><a href="#cb36-385" aria-hidden="true" tabindex="-1"></a>Now do the following in one piped "sentence" to:  </span>
 <span id="cb36-386"><a href="#cb36-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-387"><a href="#cb36-387" aria-hidden="true" tabindex="-1"></a>Starting with penguins, </span>
-<span id="cb36-388"><a href="#cb36-388" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Only keep observations for chinstrap penguins, </span>
-<span id="cb36-389"><a href="#cb36-389" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep only the <span class="in">`flipper_length_mm`</span> and <span class="in">`body_mass_g`</span> variables. </span>
-<span id="cb36-390"><a href="#cb36-390" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a new column called <span class="in">`fm_ratio`</span> that contains the ratio of flipper length to body mass for each penguin. </span>
-<span id="cb36-391"><a href="#cb36-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add another column named <span class="in">`ratio_bin`</span> which contains the word “high” if <span class="in">`fm_ratio`</span> is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).</span>
-<span id="cb36-392"><a href="#cb36-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-387"><a href="#cb36-387" aria-hidden="true" tabindex="-1"></a>Starting with penguins,  </span>
+<span id="cb36-388"><a href="#cb36-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-389"><a href="#cb36-389" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Only keep observations for chinstrap penguins,  </span>
+<span id="cb36-390"><a href="#cb36-390" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep only the <span class="in">`flipper_length_mm`</span> and <span class="in">`body_mass_g`</span> variables.  </span>
+<span id="cb36-391"><a href="#cb36-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a new column called <span class="in">`fm_ratio`</span> that contains the ratio of flipper length to body mass for each penguin.  </span>
+<span id="cb36-392"><a href="#cb36-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add another column named <span class="in">`ratio_bin`</span> which contains the word “high” if <span class="in">`fm_ratio`</span> is greater than or equal to 0.05, “low” if the ratio is less than 0.05, and “no record” if anything else (e.g. NA).  </span>
 <span id="cb36-393"><a href="#cb36-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-396"><a href="#cb36-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-397"><a href="#cb36-397" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pipe-two</span></span>
-<span id="cb36-398"><a href="#cb36-398" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb36-399"><a href="#cb36-399" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb36-400"><a href="#cb36-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Chinstrap"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb36-401"><a href="#cb36-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(flipper_length_mm, body_mass_g) <span class="sc">|&gt;</span> </span>
-<span id="cb36-402"><a href="#cb36-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fm_ratio =</span> flipper_length_mm<span class="sc">/</span>body_mass_g,</span>
-<span id="cb36-403"><a href="#cb36-403" aria-hidden="true" tabindex="-1"></a>         <span class="at">ratio_bin =</span> <span class="fu">case_when</span>(fm_ratio <span class="sc">&gt;=</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"high"</span>,</span>
-<span id="cb36-404"><a href="#cb36-404" aria-hidden="true" tabindex="-1"></a>                               fm_ratio <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"low"</span>,</span>
-<span id="cb36-405"><a href="#cb36-405" aria-hidden="true" tabindex="-1"></a>                               <span class="at">.default =</span> <span class="st">"no record"</span></span>
-<span id="cb36-406"><a href="#cb36-406" aria-hidden="true" tabindex="-1"></a>                               )) <span class="sc">|&gt;</span> </span>
-<span id="cb36-407"><a href="#cb36-407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ratio_bin) <span class="sc">|&gt;</span> </span>
-<span id="cb36-408"><a href="#cb36-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_flipper =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb36-409"><a href="#cb36-409" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb36-410"><a href="#cb36-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-411"><a href="#cb36-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-412"><a href="#cb36-412" aria-hidden="true" tabindex="-1"></a><span class="fu"># Canvas Quiz</span></span>
-<span id="cb36-413"><a href="#cb36-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-414"><a href="#cb36-414" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What species (not on Biscoe Island) has the biggest average bill length?  </span>
-<span id="cb36-415"><a href="#cb36-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-416"><a href="#cb36-416" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What species (not on Biscoe Island) has the smallest average flipper length?</span>
-<span id="cb36-417"><a href="#cb36-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-418"><a href="#cb36-418" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>For Chinstrap penguins, what is the average flipper length for penguins with a high flipper to mass ratio (round to 2 decimal places)?  </span>
-<span id="cb36-419"><a href="#cb36-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-394"><a href="#cb36-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-397"><a href="#cb36-397" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-398"><a href="#cb36-398" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pipe-two</span></span>
+<span id="cb36-399"><a href="#cb36-399" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb36-400"><a href="#cb36-400" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb36-401"><a href="#cb36-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Chinstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb36-402"><a href="#cb36-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(flipper_length_mm, body_mass_g) <span class="sc">|&gt;</span> </span>
+<span id="cb36-403"><a href="#cb36-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fm_ratio =</span> flipper_length_mm<span class="sc">/</span>body_mass_g,</span>
+<span id="cb36-404"><a href="#cb36-404" aria-hidden="true" tabindex="-1"></a>         <span class="at">ratio_bin =</span> <span class="fu">case_when</span>(fm_ratio <span class="sc">&gt;=</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"high"</span>,</span>
+<span id="cb36-405"><a href="#cb36-405" aria-hidden="true" tabindex="-1"></a>                               fm_ratio <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"low"</span>,</span>
+<span id="cb36-406"><a href="#cb36-406" aria-hidden="true" tabindex="-1"></a>                               <span class="at">.default =</span> <span class="st">"no record"</span></span>
+<span id="cb36-407"><a href="#cb36-407" aria-hidden="true" tabindex="-1"></a>                               )) <span class="sc">|&gt;</span> </span>
+<span id="cb36-408"><a href="#cb36-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ratio_bin) <span class="sc">|&gt;</span> </span>
+<span id="cb36-409"><a href="#cb36-409" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_flipper =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb36-410"><a href="#cb36-410" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb36-411"><a href="#cb36-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-412"><a href="#cb36-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-413"><a href="#cb36-413" aria-hidden="true" tabindex="-1"></a><span class="fu"># Canvas Quiz</span></span>
+<span id="cb36-414"><a href="#cb36-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-415"><a href="#cb36-415" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What species (not on Biscoe Island) has the biggest average bill length?  </span>
+<span id="cb36-416"><a href="#cb36-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-417"><a href="#cb36-417" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What species (not on Biscoe Island) has the smallest average flipper length?</span>
+<span id="cb36-418"><a href="#cb36-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-419"><a href="#cb36-419" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>For Chinstrap penguins, what is the average flipper length for penguins with a high flipper to mass ratio (round to 2 decimal places)?  </span>
 <span id="cb36-420"><a href="#cb36-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-421"><a href="#cb36-421" aria-hidden="true" tabindex="-1"></a><span class="fu"># Wrapping Up</span></span>
-<span id="cb36-422"><a href="#cb36-422" aria-hidden="true" tabindex="-1"></a>The biggest challenge with data wrangling is figuring out what you want to do first and then thinking about how the vocabulary translates to the code.  Once you know *what* you want to do, it is much easier to look up *how* to do it!</span>
+<span id="cb36-421"><a href="#cb36-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-422"><a href="#cb36-422" aria-hidden="true" tabindex="-1"></a><span class="fu"># Wrapping Up</span></span>
+<span id="cb36-423"><a href="#cb36-423" aria-hidden="true" tabindex="-1"></a>The biggest challenge with data wrangling is figuring out what you want to do first and then thinking about how the vocabulary translates to the code.  Once you know *what* you want to do, it is much easier to look up *how* to do it!</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
