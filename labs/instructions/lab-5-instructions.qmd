@@ -233,9 +233,10 @@ Helpful functions: `summarize()`, `n_distinct()`
 **7. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in?**
 
 ::: callout-tip
-Helpful functions: `filter()`, `if_any()`
+Helpful functions: `filter()`, `if_any()`, `everything()`
 
-*Hint: Look at PA 5 for example code*
+`if_any()` works similar to `across()` but within `filter()`. The structure is  
+`filter(if_any(variable, ~function(.)))`
 :::
 
 ```{r}
