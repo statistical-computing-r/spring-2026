@@ -18,10 +18,6 @@ When you are the **Computer**, you will type into the Quarto document in RStudio
 
 When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
 
-Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
-
-
-
 ### Group Norms
 
 Remember, your group is expected to adhere to the following norms:  
