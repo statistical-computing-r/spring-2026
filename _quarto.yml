@@ -9,7 +9,6 @@ project:
     - "!*activity.qmd"  
     - "!/code-review/"
     - "!/notes/"
-    - "!/portfolio/"
     - "!/slides/not-updated/"
     - "!/weeks/not-updated/"
     - "!/group-activities/not-updated"
