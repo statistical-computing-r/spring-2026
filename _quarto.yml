@@ -91,6 +91,9 @@ website:
             text: "Pair Activity 5: Identify the Mystery College"
           - href: group-activities/week-7/pa-6-summarizing-penguins-instructions.qmd
             text: "Pair Activity 6: Summarizing Palmer Penguins"
+          - href: group-activities/week-8/pa-7-tidyr-dplyr-instructions.qmd
+            text: "Pair Activity 7: Military Spending"
+
 
 
       - section: "Labs" 
@@ -113,8 +116,8 @@ website:
           #   text: "Lab 8 Instructions" 
       - section: "Portfolio" 
         contents:
-          # - href: portfolio/portfolio-overview.qmd
-          #   text: "Portfolio Part 1"
+          - href: portfolio/portfolio-overview.qmd
+            text: "Portfolio Part 1"
           # - href: portfolio/portfolio-part-2.qmd
           #   text: "Portfolio Part 2"
 
