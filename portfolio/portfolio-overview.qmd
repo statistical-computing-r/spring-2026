@@ -59,9 +59,10 @@ The answer to at least three of these questions should be "YES" for the data to 
 3. Do you need to filter your data? How? 
 4. Do you need to create any new variables? What variables? How? 
 5. Do you need to add new data (join) to your data? What data? How?  
-6. Are there any variables you can exclude from your data?  
-7. Do you need pivot your data in any way? Why? How?
-8. Do you need to summarize any of the variables? Which ones? How?
-9. What other aspects of your data need to be "fixed" in order to make your data visualizations?  
+6. Do you need pivot your data in any way? Why? How?
+7. Do you need to summarize any of the variables? Which ones? How?
+8. What other aspects of your data need to be "fixed" in order to make your data visualizations?  
 
+Most will answer yes to the following for making your programming more efficient using `select()`, but you should have **three other yeses above**.
 
+9. Are there any variables you can exclude from your data?  
