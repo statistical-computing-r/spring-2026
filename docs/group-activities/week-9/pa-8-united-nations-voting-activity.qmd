@@ -212,7 +212,7 @@ roll_calls |>
 ```
 
 ```{r}
-#| label: righ-join
+#| label: right-join
 #| message: true
 #| warning: true
 #| eval: false
@@ -354,7 +354,7 @@ yes_votes |>
   scale_y_continuous(labels = scales::percent) + #your comment here
   labs(
     title = "Percentage of 'Yes' votes in the UN General Assembly",
-    subtitle = "1946 to 2015",
+    subtitle = "1946 to 2019",
     y = "% Yes",
     x = "Year",
     color = "Country"
@@ -371,4 +371,4 @@ yes_votes |>
 
 
 
-Check out the demontstration of even more joins online.  
+Check out the demonstration of even more joins online.  

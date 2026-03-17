@@ -308,7 +308,7 @@ roll_calls |>
 ```
 
 ```{r}
-#| label: righ-join
+#| label: right-join
 #| message: true
 #| warning: true
 #| eval: false
@@ -336,9 +336,6 @@ roll_calls |>
 
 
 **If we are only interested in retaining the records associated with the `issues` labeled in that data frame, ignoring the other votes, which join should we use?**
-
-> Insert answer here
-
 
 
 
@@ -420,14 +417,7 @@ roll_calls |>
 
 # Joining all Data
 
-We want to try and create the following visualization
-
-![](goal_graph.png)   
-
-
-
-
-To do this, though, we need information from all three data set, `unvotes`, `issues`, and `roll_calls`
+We want to try create a visualization that compares the voting records of the US and Canada on the 6 major issues of interest. To do this, though, we need information from all three data set, `unvotes`, `issues`, and `roll_calls`
 
 We want to join all three data sets together, *maintaining only the votes for which we have identified the general issue* (e.g., Nuclear War, Arms, Economics, etc.), but recognizing that each `rcid` will match MULTIPLE rows in the `unvotes` because we have each individual country's vote.  We will save (assign) the data as `un_full`.  
 
@@ -501,6 +491,7 @@ Now we can feed the `yes_votes` transformed data table into your graphing code, 
 
 ```{r}
 #| label: yes-votes-canada-us
+#| message: false
 yes_votes |> 
   filter(country %in% c("United States","Canada")) |> # your comment here
   ggplot(mapping = aes(x = year, y = prop_yes, color = country)) + # your comment here
@@ -511,7 +502,7 @@ yes_votes |>
   scale_y_continuous(labels = scales::percent) + #your comment here
   labs(
     title = "Percentage of 'Yes' votes in the UN General Assembly",
-    subtitle = "1946 to 2015",
+    subtitle = "1946 to 2019",
     y = "% Yes",
     x = "Year",
     color = "Country"
