@@ -229,16 +229,10 @@ Hopefully you realized that there is a flaw in our comparison. Many of the state
 
 To do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019. 
 
-Note - there may be an error in the code below.
+Note - if this code does not work you did not organize your project folders correctly.
 
 ```{r}
 #| label: us-state-population-data
-us_pop < read_csv("data/us-pop-2019.csv", show_col_types = FALSE)
-```
-
-```{r}
-#| label: us-state-population-data-solution
-#| echo: false
 us_pop <- read_csv("data/us-pop-2019.csv", show_col_types = FALSE)
 ```
 

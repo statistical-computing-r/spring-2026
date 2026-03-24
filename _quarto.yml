@@ -94,7 +94,8 @@ website:
             text: "Pair Activity 7: Military Spending"
           - href: group-activities/week-9/pa-8-united-nations-voting-instructions.qmd
             text: "Pair Activity 8: United Nations Voting"
-
+          - href: group-activities/week-10/pa-9-covid-factors-instructions.qmd
+            text: "Pair Activity 9: COVID-19 Infections and Impact on States"
 
       - section: "Labs" 
         contents:
@@ -108,8 +109,8 @@ website:
             text: "Lab 4 Instructions"
           - href: labs/instructions/lab-5-instructions.qmd
             text: "Lab 5 & Challenge 5 Instructions "
-          # - href: labs/instructions/lab-6-instructions.qmd
-          #   text: "Lab 6 Instructions" 
+          - href: labs/instructions/lab-6-instructions.qmd
+            text: "Lab 6 Instructions"
           # - href: labs/instructions/lab-7-instructions.qmd
           #   text: "Lab 7 Instructions" 
           # - href: labs/instructions/lab-8-instructions.qmd
