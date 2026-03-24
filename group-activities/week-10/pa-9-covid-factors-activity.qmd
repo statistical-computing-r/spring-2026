@@ -198,7 +198,7 @@ states_totals |>
 
 - Data sources and reliability of the data  
 - Time scale and impact of time    
-- 
+
 
 >Insert Answer Here
 

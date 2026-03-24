@@ -2,13 +2,12 @@
 title: "PA 9: COVID-19 Infections and Impact on States"
 author: "Instructions"
 format: html
-embed-resources: true
 code-tools: true
 toc: true
 editor: source
 execute: 
   error: true
-  echo: true
+  echo: false
   eval: true
   message: false
   warning: false
@@ -75,7 +74,7 @@ Your project should have the following components:
 
 1. completed [pa-9-covid-factors-activity.qmd](../week-10/pa-9-covid-factors-activity.qmd)
 2. rendered file as `.html`
-3. `data` subfolder that contains
+3. `data` sub-folder that contains
     - created data 
     - [us-pop-2019.csv](../week-10/data/us-pop-2019.csv)
 
@@ -143,6 +142,7 @@ cases <- read_csv("covid_cases_us.csv")
 ```{r}
 #| label: read-clean-covid-cases-solution
 #| echo: false
+#| eval: true
 
 cases <- read_csv("data/covid-cases-us.csv", show_col_types = FALSE)
 ```
@@ -155,7 +155,6 @@ Correct the errors and then assign the resulting data to `state_totals`.
 
 ```{r}
 #| label: calculate-totals
-
 states_totals <- cases |> 
   groupby(state) |> 
   sum(total = sum(case_daily)) |> 
@@ -165,7 +164,7 @@ states_totals <- cases |>
 
 ```{r}
 #| label: calculate-totals-solution
-#| eval: false
+#| eval: true
 #| echo: false
 
 states_totals <- cases |> 
@@ -178,7 +177,6 @@ Now use the `states_totals` and identify the top ten states/territories with the
 
 ```{r}
 #| label: top-10-states-cases
-
 states_totals |> 
   ## extract just the top ten (Hint - look at the `slice() functions)
   ## create a bar chart with x as the totals and y as the state names
@@ -190,6 +188,7 @@ states_totals |>
 ```{r}
 #| label: top-10-states-cases-solution
 #| echo: false
+#| eval: true
 states_totals |> 
   slice_max(total, n = 10) |> # extract just the top ten (Hint - look at the `slice() functions)
   ggplot(aes(x = total, y = fct_reorder(state, total))) +
@@ -233,6 +232,7 @@ Note - if this code does not work you did not organize your project folders corr
 
 ```{r}
 #| label: us-state-population-data
+#| eval: true
 us_pop <- read_csv("data/us-pop-2019.csv", show_col_types = FALSE)
 ```
 
@@ -245,7 +245,6 @@ Choose one of the above statistics to calculate to make our comparison between s
 states_totals |> 
   ## join in column with state population sizes  
   ## calculate your chosen relative rate (e.g. proportion, percentage, rate)
-  ## order the data by your relative rate
   ## extract just the top ten (Hint - look at the `slice() functions)
   ## create a bar chart with x as the relative rate and y as the state names
   ## order the states by greatest to smallest relative rate on the graph
@@ -255,6 +254,8 @@ states_totals |>
 
 ```{r}
 #| label: join-graph-data-solution
+#| echo: false
+#| eval: true
 states_totals |> 
   left_join(us_pop, by = c("state" = "NAME")) |> ## join in column with state population sizes  
   mutate(prop = total/estimate,
@@ -285,7 +286,7 @@ states_totals |>
 
 - Data sources and reliability of the data  
 - Time scale and impact of time    
-- 
+
 
 <!-- >Insert Answer Here -->
 

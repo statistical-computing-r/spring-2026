@@ -16,6 +16,7 @@ resources:
   - /data/ca_tax_revenue.csv
 ---
 
+
 # Part One: Set-up
 
 In this lab, we will be using the **tidyr** and **forcats** packages to explore
@@ -208,8 +209,7 @@ Again, your plot does not need to look exactly like this one!!!
 
 Remember to avoid "object junk" in your environment!
 :::
-
-![Plot to recreate](images/lab-4-recreate-plot.png)
+![Plot to recreate](../images/lab-4-recreate-plot.png)
 
 <!-- - Can you match my colors?  -->
 <!-- - Can you get the legend in the same order? -->
