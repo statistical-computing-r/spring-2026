@@ -160,7 +160,7 @@ ca_childcare <- ca_childcare |>
 
 I have provided you with code that eliminates the word "County" from each of the county names in your `ca_childcare` dataset. You should keep this line of code and pipe into the rest of your data manipulations.
 
-You will learn about the `str_remove()` function from the `stringr` package next week!
+You will learn about the `str_remove()` function from the `stringr` package in Week 11.
 
 :::
 

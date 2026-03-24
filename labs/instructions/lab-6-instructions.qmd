@@ -105,11 +105,11 @@ Let's start by focusing only on California.
 
 *Hint: This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!*
 
-::: callout-tip
+::: {.callout-tip}
 
 I have provided you with code that eliminates the word "County" from each of the county names in your `ca_childcare` dataset. You should keep this line of code and pipe into the rest of your data manipulations.
 
-You will learn about the `str_remove()` function from the `stringr` package next week!
+You will learn about the `str_remove()` function from the `stringr` in week 11.
 :::
 
 ```{r}
@@ -117,7 +117,7 @@ You will learn about the `str_remove()` function from the `stringr` package next
 
 ca_childcare <- ca_childcare |> 
   mutate(county_name = str_remove(county_name, " County")) |>
-  ...
+  #...
 ```
 
 **4. Let's consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and two columns, one for 2008 and one for 2018. The cells should contain the `median` of the median household income (expressed in 2018 dollars) of the `region` and the `study_year`. Arrange the rows by 2018 values.**
