@@ -7,8 +7,8 @@ toc: true
 editor: source
 execute: 
   error: true
-  echo: false
-  eval: true
+  echo: true
+  eval: false
   message: false
   warning: false
 ---

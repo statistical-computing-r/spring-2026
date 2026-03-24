@@ -560,16 +560,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-1-github-workflow" id="toc-part-1-github-workflow" class="nav-link active" data-scroll-target="#part-1-github-workflow">Part 1: GitHub Workflow</a>
+  <li><a href="#part-one-set-up" id="toc-part-one-set-up" class="nav-link active" data-scroll-target="#part-one-set-up">Part One: Set-up</a></li>
+  <li><a href="#part-two-exploring-childcare-costs" id="toc-part-two-exploring-childcare-costs" class="nav-link" data-scroll-target="#part-two-exploring-childcare-costs">Part Two: Exploring Childcare Costs</a>
   <ul class="collapse">
-  <li><a href="#step-1-make-a-github-repoistory" id="toc-step-1-make-a-github-repoistory" class="nav-link" data-scroll-target="#step-1-make-a-github-repoistory">Step 1: Make a GitHub Repoistory</a></li>
-  <li><a href="#step-2-making-a-small-change" id="toc-step-2-making-a-small-change" class="nav-link" data-scroll-target="#step-2-making-a-small-change">Step 2: Making a Small Change</a></li>
-  <li><a href="#step-3-pushing-your-lab-to-github" id="toc-step-3-pushing-your-lab-to-github" class="nav-link" data-scroll-target="#step-3-pushing-your-lab-to-github">Step 3: Pushing Your Lab to GitHub</a></li>
-  <li><a href="#step-4-lets-get-started-tidying-some-data" id="toc-step-4-lets-get-started-tidying-some-data" class="nav-link" data-scroll-target="#step-4-lets-get-started-tidying-some-data">Step 4: Let’s get started tidying some data!</a></li>
-  </ul></li>
-  <li><a href="#part-2-some-words-of-advice" id="toc-part-2-some-words-of-advice" class="nav-link" data-scroll-target="#part-2-some-words-of-advice">Part 2: Some Words of Advice</a></li>
-  <li><a href="#part-3-exploring-childcare-costs" id="toc-part-3-exploring-childcare-costs" class="nav-link" data-scroll-target="#part-3-exploring-childcare-costs">Part 3: Exploring Childcare Costs</a>
-  <ul class="collapse">
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
   <li><a href="#california-childcare-costs" id="toc-california-childcare-costs" class="nav-link" data-scroll-target="#california-childcare-costs">California Childcare Costs</a></li>
   <li><a href="#there-is-no-challenge-this-week" id="toc-there-is-no-challenge-this-week" class="nav-link" data-scroll-target="#there-is-no-challenge-this-week">There is no Challenge this week!</a></li>
   </ul></li>
@@ -605,68 +599,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="part-1-github-workflow" class="level1">
-<h1>Part 1: GitHub Workflow</h1>
-<section id="step-1-make-a-github-repoistory" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-make-a-github-repoistory">Step 1: Make a GitHub Repoistory</h2>
-<p>Be sure to set up a GitHub repository and then use Version Control to set up your Lab 6 R Project so it is connected. Then download this week’s lab file into the folder and include the following:</p>
+<section id="part-one-set-up" class="level1">
+<h1>Part One: Set-up</h1>
+<p>In this lab, we will be using the <strong>tidyr</strong> and <strong>forcats</strong> packages to explore the cost of childcare across the US. <strong>You are expected to use functions from tidyr and forcats to do your data manipulation!</strong></p>
+<p>The data for the lab are coming from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>, so we will load them using a URL (no need to download them).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I advise you to focus particularly on:</p>
 <ul>
-<li><a href="../student/lab-6-student.qmd">lab-6-student.qmd</a></li>
+<li><p>Setting chunk options carefully.</p></li>
+<li><p>Making sure you don’t print out more output than you need.</p></li>
+<li><p>Making sure you don’t assign more objects than necessary. Avoid “object junk” in your environment.</p></li>
+<li><p>Making your code readable and nicely formatted.</p></li>
+<li><p>Thinking through your desired result <strong>before</strong> writing any code.</p></li>
 </ul>
+</div>
+</div>
+</div>
 </section>
-<section id="step-2-making-a-small-change" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-making-a-small-change">Step 2: Making a Small Change</h2>
-<p>Now, find the <code>lab-6-student.qmd</code> file in the “Files” tab in the lower right hand corner. Click on this file to open it.</p>
-<p>At the top of the document (in the YAML) there is an <code>author</code> line that says <code>"Your name here!"</code>. Change this to be your name and save your file either by clicking on the blue floppy disk or with a shortcut (command / control + s).</p>
-</section>
-<section id="step-3-pushing-your-lab-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-pushing-your-lab-to-github">Step 3: Pushing Your Lab to GitHub</h2>
-<p>Now for our last step, we need to <a href="https://happygitwithr.com/existing-github-first#stage-and-commit">commit the files to our repo</a>.</p>
+<section id="part-two-exploring-childcare-costs" class="level1">
+<h1>Part Two: Exploring Childcare Costs</h1>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>In this lab we’re going look at the median weekly cost of childcare in California. The data come to us from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>. A detailed description of the data can be found <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md">here</a>. <strong>You will need to use this data dictionary to complete the lab!</strong></p>
+<p>We also have information from the California State Controller on tax revenue for california counties from 2005 - 2018. I compiled the data from <a href="https://counties.bythenumbers.sco.ca.gov/#!/year/default">this website</a> for you. Note that there is no data for San Franscisco County. The variables included in the <code>ca_tax_revenue.csv</code> data file (loaded below) include:</p>
 <ul>
-<li>Click the “Git” tab in upper right pane</li>
-<li>Check the “Staged” box for the <code>lab-6-student.qmd</code> file</li>
-<li>Click “Commit”</li>
-<li>In the box that opens, type a message in “Commit message”, such as “Added my name”.</li>
-<li>Click “Commit”.</li>
-<li>Click the green “Push” button to send your local changes to GitHub.</li>
+<li><code>entity_name</code>: County name</li>
+<li><code>year</code>: fiscal year</li>
+<li><code>total_property_taxes</code>: total revenue in $ from property taxes</li>
+<li><code>sales_and_use_taxes</code>: total revenue in $ from sales and use taxes</li>
 </ul>
-<p>RStudio will display something like:</p>
-<pre><code>&gt;&gt;&gt; /usr/bin/git push origin HEAD:refs/heads/main
-To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
-   3a2171f..6d58539  HEAD -&gt; main</code></pre>
-</section>
-<section id="step-4-lets-get-started-tidying-some-data" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-lets-get-started-tidying-some-data">Step 4: Let’s get started tidying some data!</h2>
-</section>
-</section>
-<section id="part-2-some-words-of-advice" class="level1">
-<h1>Part 2: Some Words of Advice</h1>
-<ul>
-<li><p>Set chunk options carefully.</p></li>
-<li><p>Make sure you don’t print out more output than you need.</p></li>
-<li><p>Make sure you don’t assign more objects than necessary—avoid “object junk” in your environment.</p></li>
-<li><p>Make your code readable and nicely formatted.</p></li>
-<li><p>Think through your desired result <strong>before</strong> writing any code.</p></li>
-</ul>
-</section>
-<section id="part-3-exploring-childcare-costs" class="level1">
-<h1>Part 3: Exploring Childcare Costs</h1>
-<p>In this lab we’re going look at the median weekly cost of childcare in California. A detailed description of the data can be found <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md">here</a>.</p>
-<p>The data come to us from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>.</p>
 <p><strong>0. Load the appropriate libraries and the data.</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>childcare_costs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>counties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>childcare_costs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>counties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tax_rev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/statistical-computing-r/spring-2026/refs/heads/main/labs/instructions/data/ca_tax_revenue.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>1. Briefly describe the dataset (~ 4 sentences). What information does it contain?</strong></p>
+<p><strong>1. Briefly describe the <code>childcare_costs</code> dataset (~ 4 sentences). What information does it contain?</strong></p>
+</section>
 <section id="california-childcare-costs" class="level2">
 <h2 class="anchored" data-anchor-id="california-childcare-costs">California Childcare Costs</h2>
-<p>Let’s start by focusing only on California.</p>
-<p><strong>2. Create a <code>ca_childcare</code> dataset of childcare costs in California, containing (1) county information and (2) just the year and childcare cost variable information from the <code>childcare_costs</code> dataset.</strong></p>
-<p><em>Hint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations. The final data set should have study year, median household income expressed in 2018 dollars, all the variables associated with full-time median price charged for Center-based Care, and California county names</em></p>
-<p><strong>3. Using a function from the <code>forcats</code> package, complete the code below to create a new variable where each county is categorized into one of the <a href="https://census.ca.gov/regions/">10 Census regions</a> in California. Use the Region description (from the plot), not the Region number. An example region has been started for you.</strong></p>
-<p><em>Hint: This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!</em></p>
+<p><strong>2. Let’s start by focusing only on California. Create a <code>ca_childcare</code> dataset of childcare costs in California, containing (1) county information and (2) all information from the <code>childcare_costs</code> dataset. You should do all of this within one pipeline.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations.</p>
+</div>
+</div>
+<p><strong>3. Now, lets add the tax revenue information to the <code>ca_childcare</code> dataset. Add the data from <code>tax_rev</code> for the counties and years that are already in the <code>ca_childcare</code> data. Overwrite the old <code>ca_childcare</code> data with this dataset.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are only adding columns here, so your new dataset should still have 638 observations!</p>
+</div>
+</div>
+<p><strong>4. Using a function from the <code>forcats</code> package, complete the code below to create a new variable where each county is categorized into one of the <a href="https://census.ca.gov/regions/">ten (10) Census regions</a> in California. Use the Region description (from the plot), not the Region number.</strong> The code below will help you get started.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining 10 census regions</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>superior_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Butte"</span>,<span class="st">"Colusa"</span>,<span class="st">"El Dorado"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Glenn"</span>,<span class="st">"Lassen"</span>,<span class="st">"Modoc"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Nevada"</span>,<span class="st">"Placer"</span>,<span class="st">"Plumas"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sacramento"</span>,<span class="st">"Shasta"</span>,<span class="st">"Sierra"</span>,<span class="st">"Siskiyou"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Sutter"</span>,<span class="st">"Tehama"</span>,<span class="st">"Yolo"</span>,<span class="st">"Yuba"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>north_coast_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Del Norte"</span>,<span class="st">"Humboldt"</span>,<span class="st">"Lake"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Mendocino"</span>,<span class="st">"Napa"</span>,<span class="st">"Sonoma"</span>,<span class="st">"Trinity"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>san_fran_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alameda"</span>,<span class="st">"Contra Costa"</span>,<span class="st">"Marin"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"San Francisco"</span>,<span class="st">"San Mateo"</span>,<span class="st">"Santa Clara"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Solano"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>n_san_joaquin_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alpine"</span>,<span class="st">"Amador"</span>,<span class="st">"Calaveras"</span>,<span class="st">"Madera"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Mariposa"</span>,<span class="st">"Merced"</span>,<span class="st">"Mono"</span>,<span class="st">"San Joaquin"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Stanislaus"</span>,<span class="st">"Tuolumne"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>central_coast_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Monterey"</span>,<span class="st">"San Benito"</span>,<span class="st">"San Luis Obispo"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Santa Barbara"</span>,<span class="st">"Santa Cruz"</span>,<span class="st">"Ventura"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>s_san_joaquin_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Fresno"</span>,<span class="st">"Inyo"</span>,<span class="st">"Kern"</span>,<span class="st">"Kings"</span>,<span class="st">"Tulare"</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>inland_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Riverside"</span>,<span class="st">"San Bernardino"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>la_county <span class="ot">&lt;-</span> <span class="st">"Los Angeles"</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>orange_county  <span class="ot">&lt;-</span> <span class="st">"Orange"</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>san_diego_imperial_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Imperial"</span>,<span class="st">"San Diego"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finish this code using the census regions defined above</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ca_childcare <span class="ot">&lt;-</span> ca_childcare <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">county_name =</span> <span class="fu">str_remove</span>(county_name, <span class="st">" County"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_______</span>(county_name,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Superior California'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Butte"</span>, <span class="st">"Colusa"</span>, <span class="st">"El Dorado"</span>,...),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -678,15 +737,10 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>I have provided you with code that eliminates the word “County” from each of the county names in your <code>ca_childcare</code> dataset. You should keep this line of code and pipe into the rest of your data manipulations.</p>
-<p>You will learn about the <code>str_remove()</code> function from the <code>stringr</code> in week 11.</p>
+<p>You will learn about the <code>str_remove()</code> function from the <code>stringr</code> package in Week 11.</p>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ca_childcare <span class="ot">&lt;-</span> ca_childcare <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">county_name =</span> <span class="fu">str_remove</span>(county_name, <span class="st">" County"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>4. Let’s consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and two columns, one for 2008 and one for 2018. The cells should contain the <code>median</code> of the median household income (expressed in 2018 dollars) of the <code>region</code> and the <code>study_year</code>. Arrange the rows by 2018 values.</strong></p>
+<p><strong>5. Let’s consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and two columns, one for 2008 and one for 2018 (plus a column for region). The cells should contain the <code>median()</code> of the median household income (expressed in 2018 dollars) of the <code>region</code> and the <code>study_year</code>. Order the rows by 2018 values from highest income to lowest income.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -700,7 +754,7 @@ Tip
 <p>This will require transforming your data! Sketch out what you want the data to look like before you begin to code. You should be starting with your California dataset that contains the regions!</p>
 </div>
 </div>
-<p><strong>5. Which California <code>region</code> had the lowest <code>median</code> full-time median weekly price for center-based childcare for infants in 2018? Does this <code>region</code> correspond to the <code>region</code> with the lowest <code>median</code> income in 2018 that you found in Q4?</strong></p>
+<p><strong>6. Which California <code>region</code> had the lowest <code>median</code> full-time median weekly price for center-based childcare for infants in 2018? Does this <code>region</code> correspond to the <code>region</code> with the lowest <code>median</code> income in 2018 that you found in Q4?</strong></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -711,22 +765,26 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution. Consider using one of the <code>slice</code> functions.</p>
+<p>The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution.</p>
 </div>
 </div>
-<p><strong>6. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.</strong></p>
+<p><strong>7. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>Hints
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>This will require transforming your data! Sketch out what you want the data to look like before you begin to code. You should be starting with your California dataset that contains the regions.</p>
-<p>You will also be required to use functions from <code>forcats</code> to change the labels and the ordering of your factor levels.</p>
+<p>A point on the plot represents one county and year.</p>
+<p>You should use a <code>forcats</code> function to reorder the legend automatically (not by hand).</p>
+<p>Try setting <code>aspect.ratio = 1</code> in <code>theme()</code> if your plot is squished.</p>
+<p>If you need more colors than what a color palette has by default, you can use the <code>colorRampPalette()</code> function to get more colors.</p>
+<p>Again, your plot does not need to look exactly like this one!!!</p>
 <p>Remember to avoid “object junk” in your environment!</p>
 </div>
 </div>
