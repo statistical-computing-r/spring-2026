@@ -561,6 +561,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#part-one-set-up" id="toc-part-one-set-up" class="nav-link active" data-scroll-target="#part-one-set-up">Part One: Set-up</a></li>
+  <li><a href="#part-1-setup" id="toc-part-1-setup" class="nav-link" data-scroll-target="#part-1-setup">Part 1: Setup</a>
+  <ul class="collapse">
+  <li><a href="#github-workflow" id="toc-github-workflow" class="nav-link" data-scroll-target="#github-workflow">GitHub Workflow</a>
+  <ul class="collapse">
+  <li><a href="#step-1-access-github-classroom-assignment" id="toc-step-1-access-github-classroom-assignment" class="nav-link" data-scroll-target="#step-1-access-github-classroom-assignment">Step 1: Access GitHub Classroom Assignment</a></li>
+  <li><a href="#step-2-copy-the-https-link-to-the-repository" id="toc-step-2-copy-the-https-link-to-the-repository" class="nav-link" data-scroll-target="#step-2-copy-the-https-link-to-the-repository">Step 2: Copy the HTTPS Link to the Repository</a></li>
+  <li><a href="#step-3-make-a-new-project-in-rstudio" id="toc-step-3-make-a-new-project-in-rstudio" class="nav-link" data-scroll-target="#step-3-make-a-new-project-in-rstudio">Step 3: Make a New Project in RStudio</a></li>
+  <li><a href="#step-4-choose-new-project" id="toc-step-4-choose-new-project" class="nav-link" data-scroll-target="#step-4-choose-new-project">Step 4: Choose New Project</a></li>
+  <li><a href="#step-5-choose-a-version-control" id="toc-step-5-choose-a-version-control" class="nav-link" data-scroll-target="#step-5-choose-a-version-control">Step 5: Choose a Version Control</a></li>
+  <li><a href="#step-6-add-files-to-your-project" id="toc-step-6-add-files-to-your-project" class="nav-link" data-scroll-target="#step-6-add-files-to-your-project">Step 6: Add Files to your Project</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#part-two-exploring-childcare-costs" id="toc-part-two-exploring-childcare-costs" class="nav-link" data-scroll-target="#part-two-exploring-childcare-costs">Part Two: Exploring Childcare Costs</a>
   <ul class="collapse">
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
@@ -602,9 +614,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-one-set-up" class="level1">
 <h1>Part One: Set-up</h1>
 <p>In this lab, we will be using the <strong>tidyr</strong> and <strong>forcats</strong> packages to explore the cost of childcare across the US. <strong>You are expected to use functions from tidyr and forcats to do your data manipulation!</strong></p>
-<p>The data for the lab are coming from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>, so we will load them using a URL (no need to download them).</p>
+</section>
+<section id="part-1-setup" class="level1">
+<h1>Part 1: Setup</h1>
+<section id="github-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="github-workflow">GitHub Workflow</h2>
+<p>We will use GitHub Classroom to submit Lab 5.</p>
+<section id="step-1-access-github-classroom-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-access-github-classroom-assignment">Step 1: Access GitHub Classroom Assignment</h3>
+<p>Click on the following link to create your repository for <a href="https://classroom.github.com/a/7FpNeWYV">Lab 6: Childcare Costs in California</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Accept Assignment Invitation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need to accept the assignment invitation by clicking the link sent to your email account associated with your GitHub account and then go to the link provided for the repository. Otherwise it will say you do not have access.</p>
+</div>
+</div>
+</section>
+<section id="step-2-copy-the-https-link-to-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-copy-the-https-link-to-the-repository">Step 2: Copy the HTTPS Link to the Repository</h3>
+<p>Find the <strong>&lt;&gt; Code</strong> button and select <strong>Local</strong> and then <strong>HTTPS</strong>. Copy the URL for the Repository provided</p>
+<p><img src="images/selecting-https-github.png" class="img-fluid" alt="screenshot of GitHub Repository HTTPS link found under CODE in a repository on GitHub"></p>
+</section>
+<section id="step-3-make-a-new-project-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-make-a-new-project-in-rstudio">Step 3: Make a New Project in RStudio</h3>
+<p>Either under File, or in the top right corner where the current project name is, select</p>
+<p><img src="images/create-new-project.png" class="img-fluid" alt="Screenshot of new project option in RStudio under the project name in RStudio"></p>
+</section>
+<section id="step-4-choose-new-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-choose-new-project">Step 4: Choose New Project</h3>
+<p>For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.</p>
+<p><img src="images/choose-new-project.png" class="img-fluid" alt="Image of New Project Wizard in RStudio where students should select New Project"></p>
+</section>
+<section id="step-5-choose-a-version-control" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-choose-a-version-control">Step 5: Choose a Version Control</h3>
+<p>Choose <strong>Version Control</strong> and then <strong>Git</strong>. Then paste the HTTPS link to the GitHub repository into the spot for Repository URL. Be sure to check that you are saving the project in the correct sub-directory on your computer. <strong>Do Not Change File Name</strong> - it should match the repository name.</p>
+<p><img src="images/paste-git-https-r.png" class="img-fluid" alt="Clone Git Repository Screen in RStudio where you paste the link under Repository URL."></p>
+<p>Now you should be set up and ready to go!</p>
+</section>
+<section id="step-6-add-files-to-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-add-files-to-your-project">Step 6: Add Files to your Project</h3>
+<p>Be sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week’s lab file into the folder and create a <code>data-raw</code> and <code>data-clean</code> folder and store the provided data appropriately:</p>
+<ul>
+<li><a href="../student/lab-6-student.qmd">lab-6-student.qmd</a></li>
+<li>The data for the lab are coming from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>, so we will load them using a URL (no need to download them).</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now is a good time to commit and push your changes before you start making more edits to the lab file.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -613,7 +688,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>I advise you to focus particularly on:</p>
 <ul>
@@ -626,6 +701,8 @@ Tip
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 <section id="part-two-exploring-childcare-costs" class="level1">
 <h1>Part Two: Exploring Childcare Costs</h1>
