@@ -22,7 +22,7 @@ the cost of childcare across the US. **You are expected to use functions from ti
 
 ## GitHub Workflow
 
-We will use GitHub Classroom to submit Lab 5.
+We will use GitHub Classroom to submit Lab 6.
 
 ### Step 1: Access GitHub Classroom Assignment  
 
@@ -272,7 +272,7 @@ Remember to avoid "object junk" in your environment!
 ## There is no Challenge this week! 
 
 Please take this time to try your best to recreate the plot I provided in
-Question 6! 
+Question 7! 
 
 - Can you match my colors? 
 - Can you get the legend in the same order?
