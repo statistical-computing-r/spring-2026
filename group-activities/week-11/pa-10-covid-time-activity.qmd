@@ -163,6 +163,7 @@ Want a challenge? Try recreating the graph in the instructions online.
 
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+<!-- If you didn't do the Major Goal Graph, then do not switch -->
 
 
 ### What Did California COVID-19 Cases Look Like in 2021
@@ -180,6 +181,7 @@ You will submit that graph as png file in your Canvas quiz.
 
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+<!-- If you don't have time to do the last part then do not switch -->
 
 
 ### Extra Challenge: Create your own graph (if time)
