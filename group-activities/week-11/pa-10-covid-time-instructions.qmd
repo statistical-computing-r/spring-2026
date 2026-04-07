@@ -1,10 +1,6 @@
 ---
 title: "PA 10 COVID-19 Infections and California"
-author: "Instructions"
-format: 
-  html: default
-  gfm: default
-embed-resources: true
+format: html
 code-tools: true
 toc: true
 editor: source
@@ -24,9 +20,34 @@ library(scales) #can make nicer axis labels for graphs
 ```
 
 
-***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.***
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
 
-<!-- The person who **had** the most relaxing Spring Break starts as the Developer (typing and listening to instructions from the Coder)!  -->
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
+
+::: {.callout-note}
+The partner *had* the most relaxing spring break plans (this is of course relative) will start as the Computer (typing and listening to instructions from the Coder). 
+:::
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
 
 
 ## Goals for the Activity  
@@ -44,14 +65,31 @@ library(scales) #can make nicer axis labels for graphs
 - comment at least once in each code chunk to describe why you made your coding decisions  
 - add appropriate labels to all graphic axes  
 
+## Setting up your Project
+
+Your project should have the following components:
+
+1. completed [pa-10-covid-time-activity.qmd](../week-10/pa-9-covid-factors-activity.qmd)
+2. rendered file as `.html`
+3. `data` sub-folder that contains
+    - created data 
+
+::: {.callout-important}
+The original `Computer` should submit the zip file for the canvas quiz. The original `Coder` can just submit the rendered html file. 
+
+`Computer` - Be sure to share the final .qmd and .html file with the original `Coder`.
+:::
 
 
-## Setup - United States COVID-19 Cases and Deaths
+## Data Description - United States COVID-19 Cases and Deaths
+
 Starting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a [Githhub Repository](https://github.com/nytimes/covid-19-data/) of the data they used and reported on in their stories (a field called "Data Journalism"). They ended their data collection in March 2023 and switched to just using data from national reporting systems. 
 
 We will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).
+
 ```{r}
 #| label: read-data
+#| message: false
 #| eval: false
 # data comes from NY Times GitHub Repository - ends March 2023
 # not evaluating this code chunk because we will clean the data and use the clean data set
@@ -61,6 +99,10 @@ cases <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/maste
 Note that both `cases` and `deaths` are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.  
 
 If we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the `diff()` function from `base` R.  
+
+::: {.callout-warning}
+Your team should create a data subfolder in your project to store the created data and to upload the population data to as well.
+:::
 
 ```{r}
 #| label: calculate-new-daily-cases
@@ -73,7 +115,7 @@ cases |>
   mutate(cases_daily = c(cases[1], diff(cases)),
          deaths_daily = c(deaths[1], diff(deaths))) |> 
   ungroup() |> 
-  write_csv("covid_cases_us.csv")
+  write_csv("data/covid-cases-us.csv")
 ```
 
 Now that are data is in the format we need (sort of), we will start our analysis.  
@@ -83,18 +125,18 @@ Now that are data is in the format we need (sort of), we will start our analysis
 First, we need to read in our clean data.
 
 ```{r}
-#| label: read-clean-covid-cases
+#| label: read-clean-covid-cases-solution
+#| echo: false
+#| eval: true
 
-cases <- read_csv("covid_cases_us.csv")
+cases <- read_csv("data/covid-cases-us.csv", show_col_types = FALSE)
 ```
-
-
 
 ### California Monthly COVID-19 Cases from January 2020 - March 2023
 
 We want to create a graph that plots the number of cases per month in California.  We want the x-axis of the plot to have the month/year (e.g. March 2021), and the number of cases on the y-axis. The months/years should be in order chronologically.
 
-Below is some code that can help you get started with the process of working with the data. Use the functions from `lubridate` to help you extract out the right information. You will also use functions learned from other packages such as `dplyr`. 
+Below is some code that can help you get started with the process of working with the data. Use the functions from `lubridate` to help you extract out the right information. You will also use functions learned from other packages such as `dplyr`. You will want a variable that gives you month and year as "Jun '20" and a date type variable that you can use to easily reorder your month and year variable within your graph (otherwise R will default to alpha-numeric ordering).  
 
 ```{r}
 #| label: calculate-totals-month
@@ -102,10 +144,59 @@ cases |>
   filter(____________) |> 
   mutate(date = ___(date),
          month = ___(date, label = , abbr = ),
-         year = ___(date)) |> 
+         year = ___(date),
+         yr = str_replace(year, pattern = ,replacement = )) |> 
   unite()
 ```
 
+
+```{r}
+#| label: calculate-totals-month-solution
+#| eval: true
+#| echo: false
+ca_only_month <- cases |> 
+  filter(state == "California") |> 
+  mutate(date = ymd(date),
+         month = month(date, label = TRUE , abbr = TRUE),
+         year = year(date),
+         y_m = floor_date(date, unit = "month"),
+         yr = str_replace(year, pattern ="20*" ,replacement = "'")) |> 
+  unite(col = "month_year", month, yr, sep = " ") |> 
+  group_by(month_year, y_m) |> 
+  summarize(total_cases = sum(cases_daily, na.rm = TRUE)) |> 
+  ungroup()
+
+slice_head(ca_only_month, n = 10)
+```
+
+Goal Graph:
+
+```{r}
+#| label: covid-graph-cali-solution
+#| echo: false
+
+ca_only_month |> 
+  mutate(season = case_when(month(y_m) %in% c(12, 1, 2) ~ "Winter",
+                            month(y_m) %in% c(3, 4, 5) ~ "Spring",
+                            month(y_m) %in% c(6, 7, 8) ~ "Summer",
+                            month(y_m) %in% c(9, 10, 11)~ "Fall")) |> 
+  ggplot(aes(y = fct_reorder(month_year, desc(y_m)),
+             x = total_cases, 
+             fill = fct_relevel(season, "Winter",
+                                        "Spring",
+                                        "Summer",
+                                        "Fall"))) +
+  geom_col() +
+  scale_fill_viridis_d(option = "H") +
+  theme_light() +
+  #scale_x_continuous(labels = scales::comma()) +
+  #scale_x_log10(labels = scales::breaks_log(base = 10)) +
+  labs(x = "Number of COVID-19 Cases in California (Log 10)",
+       y = "Month and Year",
+       fill = "Season",
+       caption = "Source: NY Times") +
+  theme(legend.position = "bottom")
+```
 
 #### Canvas Quiz Question 1
 
@@ -114,7 +205,7 @@ cases |>
 >Insert Answer Here
 
 
-<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
 
 ### What Did California COVID-19 Cases Look Like in 2021
@@ -128,13 +219,27 @@ Create a graph that maps the number of cases in California in 2021 only. Be sure
 ```
 
 
+```{r}
+#| label: ca-2021-covid-solution
+ca_only_month |> 
+  filter(year(y_m) == 2021) |> 
+  ggplot(aes(x = fct_reorder(month_year, y_m),
+             y = total_cases)) +
+  geom_point() +
+  geom_line(group = 1) +
+  theme_light() +
+  labs(y = "Number of COVID-19 Cases in California",
+       x = "Month and Year",
+       caption = "Source: NY Times")
+```
+
 #### Canvas Quiz Question 2
 
 **Which month in 2021 had the fewest number of cases in California?**
 
 >Insert Answer Here
 
-<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 
 
 ### Create your own graph
