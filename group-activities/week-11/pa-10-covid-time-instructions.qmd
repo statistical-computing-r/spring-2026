@@ -15,6 +15,7 @@ execute:
 ```{r}
 #| label: setup
 #| include: false
+#| eval: true
 library(tidyverse)
 library(scales) #can make nicer axis labels for graphs
 ```
@@ -189,6 +190,7 @@ At minimum, try to recreate the following graph using your data from above. Here
 ```{r}
 #| label: covid-graph-cali-solution-minimal
 #| echo: false
+#| eval: true
 
 ca_only_month |> 
   ggplot(aes(x = fct_reorder(month_year, y_m),
@@ -211,6 +213,7 @@ Want a challenge? Try recreating the graph below.
 ```{r}
 #| label: covid-graph-cali-solution-major
 #| echo: false
+#| eval: true
 
 ca_only_month |> 
   mutate(season = case_when(month(y_m) %in% c(12, 1, 2) ~ "Winter",
