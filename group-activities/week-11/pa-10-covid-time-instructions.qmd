@@ -1,5 +1,5 @@
 ---
-title: "PA 10 COVID-19 Infections and California"
+title: "PA 10: COVID-19 Infections and California"
 format: html
 code-tools: true
 toc: true
@@ -54,7 +54,7 @@ Remember, your group is expected to adhere to the following norms:
 
 - Use the `dplyr` verbs to transform your data  
 - Use other `tidyverse` functions to prepare and plot the data  
-- Use `lubridate` to deal with dates  
+- Use `lubridate` to deal with dates and `stringr` with text.
 
 
 **THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
@@ -69,15 +69,16 @@ Remember, your group is expected to adhere to the following norms:
 
 Your project should have the following components:
 
-1. completed [pa-10-covid-time-activity.qmd](../week-10/pa-9-covid-factors-activity.qmd)
+1. completed [pa-10-covid-time-activity.qmd](../week-11/pa-10-covid-time-activity.qmd)
 2. rendered file as `.html`
-3. `data` sub-folder that contains
-    - created data 
+3. `data` sub-folder that contains  
+    - created data  
+4. png file of created graph for CA 2021 and for your own research question
 
 ::: {.callout-important}
 The original `Computer` should submit the zip file for the canvas quiz. The original `Coder` can just submit the rendered html file. 
 
-`Computer` - Be sure to share the final .qmd and .html file with the original `Coder`.
+`Computer` - Be sure to share the final .qmd, .png, and .html file with the original `Coder`.
 :::
 
 
@@ -126,33 +127,39 @@ First, we need to read in our clean data.
 
 ```{r}
 #| label: read-clean-covid-cases-solution
-#| echo: false
 #| eval: true
-
 cases <- read_csv("data/covid-cases-us.csv", show_col_types = FALSE)
 ```
 
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+
 ### California Monthly COVID-19 Cases from January 2020 - March 2023
 
-We want to create a graph that plots the number of cases per month in California.  We want the x-axis of the plot to have the month/year (e.g. March 2021), and the number of cases on the y-axis. The months/years should be in order chronologically.
+We want to create a graph that plots the number of cases per month in California.  We want the x-axis of the plot to have the month/year (e.g. Mar '21), and the number of cases on the y-axis. The months/years should be in order chronologically.
 
 Below is some code that can help you get started with the process of working with the data. Use the functions from `lubridate` to help you extract out the right information. You will also use functions learned from other packages such as `dplyr`. You will want a variable that gives you month and year as "Jun '20" and a date type variable that you can use to easily reorder your month and year variable within your graph (otherwise R will default to alpha-numeric ordering).  
 
 ```{r}
 #| label: calculate-totals-month
-cases |> 
-  filter(____________) |> 
-  mutate(date = ___(date),
-         month = ___(date, label = , abbr = ),
-         year = ___(date),
-         yr = str_replace(year, pattern = ,replacement = )) |> 
-  unite()
+ca_only_month <- cases |> 
+ # code to filter out just California  |> 
+  ______(date ____(date), #make sure date is treated like a year month day format
+         month = ______(date, label = , abbr = ), #extract out month in abbreviated label form, e.g. Jan.
+         year = ______(date), #extract out the year
+         y_m = _______(date, unit = "month"), #find a function that makes all the dates appear as the first day of the month, ie the floor of the month
+         yr = _________(year, pattern = "20*" ,replacement = "'")) |>  #replace the 20 in each year with a ' so it reads as '21
+  ________(col = "month_year", month, yr, sep = " ") |>  #create a variable called month_year that joins the abbreviated month with the shortened year, or Apr '21
+  # calculate the total cases per month, retaining both the month_year variable and the y_m variable in addition to a new total_cases calculation |> 
+  ungroup()
 ```
 
+Your final data should look like this:
 
 ```{r}
 #| label: calculate-totals-month-solution
 #| eval: true
+#| message: false
 #| echo: false
 ca_only_month <- cases |> 
   filter(state == "California") |> 
@@ -160,7 +167,7 @@ ca_only_month <- cases |>
          month = month(date, label = TRUE , abbr = TRUE),
          year = year(date),
          y_m = floor_date(date, unit = "month"),
-         yr = str_replace(year, pattern ="20*" ,replacement = "'")) |> 
+         yr = str_replace(year, pattern = "20*" ,replacement = "'")) |> 
   unite(col = "month_year", month, yr, sep = " ") |> 
   group_by(month_year, y_m) |> 
   summarize(total_cases = sum(cases_daily, na.rm = TRUE)) |> 
@@ -169,10 +176,40 @@ ca_only_month <- cases |>
 slice_head(ca_only_month, n = 10)
 ```
 
-Goal Graph:
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+### Minimal Goal Graph
+
+At minimum, try to recreate the following graph using your data from above. Here are some useful functions to consider.
+
+- `fct_reorder()` to use the `y_m` variable which is automatically ordered by date to reordered the character variable `month_year`.  
+- `label_comma()` from the `scales` package for changing your y-axis.  
+- `theme()` with additional arguments for `axis.text.x` to adjust your label orientation (`angle` and `vjust`).  
 
 ```{r}
-#| label: covid-graph-cali-solution
+#| label: covid-graph-cali-solution-minimal
+#| echo: false
+
+ca_only_month |> 
+  ggplot(aes(x = fct_reorder(month_year, y_m),
+             y = total_cases)) +
+  geom_col(fill = "grey") +
+  theme_light() +
+  scale_y_continuous(labels = scales::label_comma()) +
+  labs(y = "Number of COVID-19 Cases in California",
+       x = "Month and Year",
+       caption = "Source: NY Times",
+       title = "COVID-19 Cases Totals Per Month in California January 2020 - March 2023") +
+  theme(legend.position = "top", 
+        axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+### Major Goal Graph
+
+Want a challenge? Try recreating the graph below.
+
+```{r}
+#| label: covid-graph-cali-solution-major
 #| echo: false
 
 ca_only_month |> 
@@ -180,8 +217,8 @@ ca_only_month |>
                             month(y_m) %in% c(3, 4, 5) ~ "Spring",
                             month(y_m) %in% c(6, 7, 8) ~ "Summer",
                             month(y_m) %in% c(9, 10, 11)~ "Fall")) |> 
-  ggplot(aes(y = fct_reorder(month_year, desc(y_m)),
-             x = total_cases, 
+  ggplot(aes(x = fct_reorder(month_year, (y_m)),
+             y = total_cases, 
              fill = fct_relevel(season, "Winter",
                                         "Spring",
                                         "Summer",
@@ -189,20 +226,30 @@ ca_only_month |>
   geom_col() +
   scale_fill_viridis_d(option = "H") +
   theme_light() +
-  #scale_x_continuous(labels = scales::comma()) +
+  scale_y_continuous(labels = scales::label_comma()) +
   #scale_x_log10(labels = scales::breaks_log(base = 10)) +
-  labs(x = "Number of COVID-19 Cases in California (Log 10)",
-       y = "Month and Year",
+  labs(y = "Number of COVID-19 Cases in California",
+       x = "Month and Year",
        fill = "Season",
-       caption = "Source: NY Times") +
-  theme(legend.position = "bottom")
+       caption = "Source: NY Times",
+       title = "COVID-19 Cases Totals Per Month in California January 2020 - March 2023") +
+  theme(legend.position = "top", 
+        axis.text.x = element_text(angle = 90, vjust = 0.5))
 ```
 
 #### Canvas Quiz Question 1
 
 **Which Month in California had the most COVID-19 cases between January 2020 and March 2023?**
 
->Insert Answer Here
+<!-- >Insert Answer Here -->
+
+
+#### Canvas Quiz Question 2
+
+**Which month in 2021 had the fewest number of cases in California?**
+
+<!-- >Insert Answer Here -->
+
 
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
@@ -210,8 +257,11 @@ ca_only_month |>
 
 ### What Did California COVID-19 Cases Look Like in 2021
 
-Create a graph that maps the number of cases in California in 2021 only. Be sure to add all guidelines for creating good graphics. 
+Create a graph that provides information about the number of cases in California in 2021 only. You can use the complete data set information originally provided, but your graph should only represent some aspect of COVID-19 in 2021.
 
+Be sure to follow all guidelines for creating good graphics. 
+
+You will submit that graph as png file in your Canvas quiz.
 
 ```{r}
 #| label: ca-2021-covid
@@ -221,23 +271,19 @@ Create a graph that maps the number of cases in California in 2021 only. Be sure
 
 ```{r}
 #| label: ca-2021-covid-solution
+#| include: false
 ca_only_month |> 
   filter(year(y_m) == 2021) |> 
   ggplot(aes(x = fct_reorder(month_year, y_m),
              y = total_cases)) +
   geom_point() +
   geom_line(group = 1) +
+  scale_y_continuous(labels = scales::label_comma()) +
   theme_light() +
   labs(y = "Number of COVID-19 Cases in California",
        x = "Month and Year",
        caption = "Source: NY Times")
 ```
-
-#### Canvas Quiz Question 2
-
-**Which month in 2021 had the fewest number of cases in California?**
-
->Insert Answer Here
 
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 

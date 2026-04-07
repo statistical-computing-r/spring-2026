@@ -96,6 +96,8 @@ website:
             text: "Pair Activity 8: United Nations Voting"
           - href: group-activities/week-10/pa-9-covid-factors-instructions.qmd
             text: "Pair Activity 9: COVID-19 Infections and Impact on States"
+          - href: group-activities/week-11/pa-10-covid-time-instructions.qmd
+            text: "Pair Activity 10: COVID-19 Infections and California"
 
       - section: "Labs" 
         contents:
