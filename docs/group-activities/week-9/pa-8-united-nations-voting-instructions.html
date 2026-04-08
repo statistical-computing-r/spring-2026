@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,19 +69,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../group-activities/week-8/pa-7-tidyr-dplyr-instructions.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-60f3bb78d9edfd9da6195e79906ce262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cc49e5b30b69946493c09b52e853a98b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9bd952484debb95e500d662ff557334b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cc49e5b30b69946493c09b52e853a98b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -299,8 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -742,23 +740,23 @@ Important
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bvxpiqpxne" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bvxpiqpxne table {
+<div id="houpbsrphs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#houpbsrphs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bvxpiqpxne thead, #bvxpiqpxne tbody, #bvxpiqpxne tfoot, #bvxpiqpxne tr, #bvxpiqpxne td, #bvxpiqpxne th {
+#houpbsrphs thead, #houpbsrphs tbody, #houpbsrphs tfoot, #houpbsrphs tr, #houpbsrphs td, #houpbsrphs th {
   border-style: none;
 }
 
-#bvxpiqpxne p {
+#houpbsrphs p {
   margin: 0;
   padding: 0;
 }
 
-#bvxpiqpxne .gt_table {
+#houpbsrphs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -784,12 +782,12 @@ Important
   border-left-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_caption {
+#houpbsrphs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bvxpiqpxne .gt_title {
+#houpbsrphs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -801,7 +799,7 @@ Important
   border-bottom-width: 0;
 }
 
-#bvxpiqpxne .gt_subtitle {
+#houpbsrphs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -813,7 +811,7 @@ Important
   border-top-width: 0;
 }
 
-#bvxpiqpxne .gt_heading {
+#houpbsrphs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -825,13 +823,13 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_bottom_border {
+#houpbsrphs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_col_headings {
+#houpbsrphs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -846,7 +844,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_col_heading {
+#houpbsrphs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -866,7 +864,7 @@ Important
   overflow-x: hidden;
 }
 
-#bvxpiqpxne .gt_column_spanner_outer {
+#houpbsrphs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -878,15 +876,15 @@ Important
   padding-right: 4px;
 }
 
-#bvxpiqpxne .gt_column_spanner_outer:first-child {
+#houpbsrphs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bvxpiqpxne .gt_column_spanner_outer:last-child {
+#houpbsrphs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bvxpiqpxne .gt_column_spanner {
+#houpbsrphs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -898,11 +896,11 @@ Important
   width: 100%;
 }
 
-#bvxpiqpxne .gt_spanner_row {
+#houpbsrphs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bvxpiqpxne .gt_group_heading {
+#houpbsrphs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -928,7 +926,7 @@ Important
   text-align: left;
 }
 
-#bvxpiqpxne .gt_empty_group_heading {
+#houpbsrphs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -943,15 +941,15 @@ Important
   vertical-align: middle;
 }
 
-#bvxpiqpxne .gt_from_md > :first-child {
+#houpbsrphs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bvxpiqpxne .gt_from_md > :last-child {
+#houpbsrphs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bvxpiqpxne .gt_row {
+#houpbsrphs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -970,7 +968,7 @@ Important
   overflow-x: hidden;
 }
 
-#bvxpiqpxne .gt_stub {
+#houpbsrphs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -983,7 +981,7 @@ Important
   padding-right: 5px;
 }
 
-#bvxpiqpxne .gt_stub_row_group {
+#houpbsrphs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -997,15 +995,15 @@ Important
   vertical-align: top;
 }
 
-#bvxpiqpxne .gt_row_group_first td {
+#houpbsrphs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bvxpiqpxne .gt_row_group_first th {
+#houpbsrphs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bvxpiqpxne .gt_summary_row {
+#houpbsrphs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1015,16 +1013,16 @@ Important
   padding-right: 5px;
 }
 
-#bvxpiqpxne .gt_first_summary_row {
+#houpbsrphs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_first_summary_row.thick {
+#houpbsrphs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bvxpiqpxne .gt_last_summary_row {
+#houpbsrphs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1034,7 +1032,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_grand_summary_row {
+#houpbsrphs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1044,7 +1042,7 @@ Important
   padding-right: 5px;
 }
 
-#bvxpiqpxne .gt_first_grand_summary_row {
+#houpbsrphs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1054,7 +1052,7 @@ Important
   border-top-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_last_grand_summary_row_top {
+#houpbsrphs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1064,11 +1062,11 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_striped {
+#houpbsrphs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bvxpiqpxne .gt_table_body {
+#houpbsrphs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1077,7 +1075,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_footnotes {
+#houpbsrphs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1091,7 +1089,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_footnote {
+#houpbsrphs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1100,7 +1098,7 @@ Important
   padding-right: 5px;
 }
 
-#bvxpiqpxne .gt_sourcenotes {
+#houpbsrphs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1114,7 +1112,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#bvxpiqpxne .gt_sourcenote {
+#houpbsrphs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1122,80 +1120,80 @@ Important
   padding-right: 5px;
 }
 
-#bvxpiqpxne .gt_left {
+#houpbsrphs .gt_left {
   text-align: left;
 }
 
-#bvxpiqpxne .gt_center {
+#houpbsrphs .gt_center {
   text-align: center;
 }
 
-#bvxpiqpxne .gt_right {
+#houpbsrphs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bvxpiqpxne .gt_font_normal {
+#houpbsrphs .gt_font_normal {
   font-weight: normal;
 }
 
-#bvxpiqpxne .gt_font_bold {
+#houpbsrphs .gt_font_bold {
   font-weight: bold;
 }
 
-#bvxpiqpxne .gt_font_italic {
+#houpbsrphs .gt_font_italic {
   font-style: italic;
 }
 
-#bvxpiqpxne .gt_super {
+#houpbsrphs .gt_super {
   font-size: 65%;
 }
 
-#bvxpiqpxne .gt_footnote_marks {
+#houpbsrphs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bvxpiqpxne .gt_asterisk {
+#houpbsrphs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bvxpiqpxne .gt_indent_1 {
+#houpbsrphs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bvxpiqpxne .gt_indent_2 {
+#houpbsrphs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bvxpiqpxne .gt_indent_3 {
+#houpbsrphs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bvxpiqpxne .gt_indent_4 {
+#houpbsrphs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bvxpiqpxne .gt_indent_5 {
+#houpbsrphs .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bvxpiqpxne .katex-display {
+#houpbsrphs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bvxpiqpxne div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#houpbsrphs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">unvotes</td>
+<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">unvotes</th>
 </tr>
 <tr class="gt_col_headings even">
 <th id="rcid" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rcid</th>
@@ -1206,63 +1204,63 @@ Important
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">9010</td>
-<td class="gt_row gt_left" headers="country">Australia</td>
-<td class="gt_row gt_left" headers="country_code">AU</td>
-<td class="gt_row gt_left" headers="vote">abstain</td>
+<td class="gt_row gt_right" headers="rcid">1861</td>
+<td class="gt_row gt_left" headers="country">Poland</td>
+<td class="gt_row gt_left" headers="country_code">PL</td>
+<td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">1787</td>
-<td class="gt_row gt_left" headers="country">Romania</td>
-<td class="gt_row gt_left" headers="country_code">RO</td>
+<td class="gt_row gt_right" headers="rcid">4887</td>
+<td class="gt_row gt_left" headers="country">Chile</td>
+<td class="gt_row gt_left" headers="country_code">CL</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">3537</td>
-<td class="gt_row gt_left" headers="country">Yugoslavia</td>
-<td class="gt_row gt_left" headers="country_code">YU</td>
+<td class="gt_row gt_right" headers="rcid">5283</td>
+<td class="gt_row gt_left" headers="country">Malta</td>
+<td class="gt_row gt_left" headers="country_code">MT</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">1713</td>
-<td class="gt_row gt_left" headers="country">Yemen People's Republic</td>
-<td class="gt_row gt_left" headers="country_code">YD</td>
+<td class="gt_row gt_right" headers="rcid">1618</td>
+<td class="gt_row gt_left" headers="country">Bhutan</td>
+<td class="gt_row gt_left" headers="country_code">BT</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">2516</td>
-<td class="gt_row gt_left" headers="country">Paraguay</td>
-<td class="gt_row gt_left" headers="country_code">PY</td>
+<td class="gt_row gt_right" headers="rcid">3674</td>
+<td class="gt_row gt_left" headers="country">Lebanon</td>
+<td class="gt_row gt_left" headers="country_code">LB</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">2376</td>
-<td class="gt_row gt_left" headers="country">Libya</td>
-<td class="gt_row gt_left" headers="country_code">LY</td>
-<td class="gt_row gt_left" headers="vote">abstain</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">1626</td>
-<td class="gt_row gt_left" headers="country">Guyana</td>
-<td class="gt_row gt_left" headers="country_code">GY</td>
-<td class="gt_row gt_left" headers="vote">yes</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">2835</td>
-<td class="gt_row gt_left" headers="country">Chad</td>
-<td class="gt_row gt_left" headers="country_code">TD</td>
+<td class="gt_row gt_right" headers="rcid">4040</td>
+<td class="gt_row gt_left" headers="country">New Zealand</td>
+<td class="gt_row gt_left" headers="country_code">NZ</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">4472</td>
-<td class="gt_row gt_left" headers="country">Micronesia (Federated States of)</td>
-<td class="gt_row gt_left" headers="country_code">FM</td>
-<td class="gt_row gt_left" headers="vote">abstain</td>
+<td class="gt_row gt_right" headers="rcid">6048</td>
+<td class="gt_row gt_left" headers="country">Haiti</td>
+<td class="gt_row gt_left" headers="country_code">HT</td>
+<td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">236</td>
-<td class="gt_row gt_left" headers="country">Liberia</td>
-<td class="gt_row gt_left" headers="country_code">LR</td>
+<td class="gt_row gt_right" headers="rcid">5299</td>
+<td class="gt_row gt_left" headers="country">Slovakia</td>
+<td class="gt_row gt_left" headers="country_code">SK</td>
+<td class="gt_row gt_left" headers="vote">no</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">4603</td>
+<td class="gt_row gt_left" headers="country">Liechtenstein</td>
+<td class="gt_row gt_left" headers="country_code">LI</td>
+<td class="gt_row gt_left" headers="vote">yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">3879</td>
+<td class="gt_row gt_left" headers="country">Germany</td>
+<td class="gt_row gt_left" headers="country_code">DE</td>
 <td class="gt_row gt_left" headers="vote">yes</td>
 </tr>
 </tbody>
@@ -1335,23 +1333,23 @@ Important
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div id="jlnzcxvrui" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jlnzcxvrui table {
+<div id="lhsmqimaoe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lhsmqimaoe table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jlnzcxvrui thead, #jlnzcxvrui tbody, #jlnzcxvrui tfoot, #jlnzcxvrui tr, #jlnzcxvrui td, #jlnzcxvrui th {
+#lhsmqimaoe thead, #lhsmqimaoe tbody, #lhsmqimaoe tfoot, #lhsmqimaoe tr, #lhsmqimaoe td, #lhsmqimaoe th {
   border-style: none;
 }
 
-#jlnzcxvrui p {
+#lhsmqimaoe p {
   margin: 0;
   padding: 0;
 }
 
-#jlnzcxvrui .gt_table {
+#lhsmqimaoe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1377,12 +1375,12 @@ Important
   border-left-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_caption {
+#lhsmqimaoe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jlnzcxvrui .gt_title {
+#lhsmqimaoe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1394,7 +1392,7 @@ Important
   border-bottom-width: 0;
 }
 
-#jlnzcxvrui .gt_subtitle {
+#lhsmqimaoe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1406,7 +1404,7 @@ Important
   border-top-width: 0;
 }
 
-#jlnzcxvrui .gt_heading {
+#lhsmqimaoe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1418,13 +1416,13 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_bottom_border {
+#lhsmqimaoe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_col_headings {
+#lhsmqimaoe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1439,7 +1437,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_col_heading {
+#lhsmqimaoe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1459,7 +1457,7 @@ Important
   overflow-x: hidden;
 }
 
-#jlnzcxvrui .gt_column_spanner_outer {
+#lhsmqimaoe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1471,15 +1469,15 @@ Important
   padding-right: 4px;
 }
 
-#jlnzcxvrui .gt_column_spanner_outer:first-child {
+#lhsmqimaoe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jlnzcxvrui .gt_column_spanner_outer:last-child {
+#lhsmqimaoe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jlnzcxvrui .gt_column_spanner {
+#lhsmqimaoe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1491,11 +1489,11 @@ Important
   width: 100%;
 }
 
-#jlnzcxvrui .gt_spanner_row {
+#lhsmqimaoe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jlnzcxvrui .gt_group_heading {
+#lhsmqimaoe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1521,7 +1519,7 @@ Important
   text-align: left;
 }
 
-#jlnzcxvrui .gt_empty_group_heading {
+#lhsmqimaoe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1536,15 +1534,15 @@ Important
   vertical-align: middle;
 }
 
-#jlnzcxvrui .gt_from_md > :first-child {
+#lhsmqimaoe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jlnzcxvrui .gt_from_md > :last-child {
+#lhsmqimaoe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jlnzcxvrui .gt_row {
+#lhsmqimaoe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1563,7 +1561,7 @@ Important
   overflow-x: hidden;
 }
 
-#jlnzcxvrui .gt_stub {
+#lhsmqimaoe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1576,7 +1574,7 @@ Important
   padding-right: 5px;
 }
 
-#jlnzcxvrui .gt_stub_row_group {
+#lhsmqimaoe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1590,15 +1588,15 @@ Important
   vertical-align: top;
 }
 
-#jlnzcxvrui .gt_row_group_first td {
+#lhsmqimaoe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jlnzcxvrui .gt_row_group_first th {
+#lhsmqimaoe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jlnzcxvrui .gt_summary_row {
+#lhsmqimaoe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1608,16 +1606,16 @@ Important
   padding-right: 5px;
 }
 
-#jlnzcxvrui .gt_first_summary_row {
+#lhsmqimaoe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_first_summary_row.thick {
+#lhsmqimaoe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jlnzcxvrui .gt_last_summary_row {
+#lhsmqimaoe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1627,7 +1625,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_grand_summary_row {
+#lhsmqimaoe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1637,7 +1635,7 @@ Important
   padding-right: 5px;
 }
 
-#jlnzcxvrui .gt_first_grand_summary_row {
+#lhsmqimaoe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1647,7 +1645,7 @@ Important
   border-top-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_last_grand_summary_row_top {
+#lhsmqimaoe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1657,11 +1655,11 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_striped {
+#lhsmqimaoe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jlnzcxvrui .gt_table_body {
+#lhsmqimaoe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1670,7 +1668,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_footnotes {
+#lhsmqimaoe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1684,7 +1682,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_footnote {
+#lhsmqimaoe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1693,7 +1691,7 @@ Important
   padding-right: 5px;
 }
 
-#jlnzcxvrui .gt_sourcenotes {
+#lhsmqimaoe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1707,7 +1705,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#jlnzcxvrui .gt_sourcenote {
+#lhsmqimaoe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1715,80 +1713,80 @@ Important
   padding-right: 5px;
 }
 
-#jlnzcxvrui .gt_left {
+#lhsmqimaoe .gt_left {
   text-align: left;
 }
 
-#jlnzcxvrui .gt_center {
+#lhsmqimaoe .gt_center {
   text-align: center;
 }
 
-#jlnzcxvrui .gt_right {
+#lhsmqimaoe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jlnzcxvrui .gt_font_normal {
+#lhsmqimaoe .gt_font_normal {
   font-weight: normal;
 }
 
-#jlnzcxvrui .gt_font_bold {
+#lhsmqimaoe .gt_font_bold {
   font-weight: bold;
 }
 
-#jlnzcxvrui .gt_font_italic {
+#lhsmqimaoe .gt_font_italic {
   font-style: italic;
 }
 
-#jlnzcxvrui .gt_super {
+#lhsmqimaoe .gt_super {
   font-size: 65%;
 }
 
-#jlnzcxvrui .gt_footnote_marks {
+#lhsmqimaoe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jlnzcxvrui .gt_asterisk {
+#lhsmqimaoe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jlnzcxvrui .gt_indent_1 {
+#lhsmqimaoe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jlnzcxvrui .gt_indent_2 {
+#lhsmqimaoe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jlnzcxvrui .gt_indent_3 {
+#lhsmqimaoe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jlnzcxvrui .gt_indent_4 {
+#lhsmqimaoe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jlnzcxvrui .gt_indent_5 {
+#lhsmqimaoe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jlnzcxvrui .katex-display {
+#lhsmqimaoe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jlnzcxvrui div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lhsmqimaoe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="9" class="gt_heading gt_title gt_font_normal gt_bottom_border">roll_calls</td>
+<th colspan="9" class="gt_heading gt_title gt_font_normal gt_bottom_border">roll_calls</th>
 </tr>
 <tr class="gt_col_headings even">
 <th id="rcid" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rcid</th>
@@ -1804,114 +1802,114 @@ Important
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">790</td>
-<td class="gt_row gt_right" headers="session">16</td>
+<td class="gt_row gt_right" headers="rcid">2556</td>
+<td class="gt_row gt_right" headers="session">38</td>
 <td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1962-02-07</td>
-<td class="gt_row gt_left" headers="unres">R/16/1361</td>
+<td class="gt_row gt_right" headers="date">1983-12-07</td>
+<td class="gt_row gt_left" headers="unres">R/38/183J</td>
 <td class="gt_row gt_right" headers="amend">0</td>
 <td class="gt_row gt_right" headers="para">0</td>
-<td class="gt_row gt_left" headers="short">U.S. THREATS TO CUBA</td>
-<td class="gt_row gt_left" headers="descr">TO ADOPT PREAMBLE OF THE MONGOLIAN DRAFT RESOLUTION (A/L.385/REV.1) ON CUBAN COMPLAINT OF U.S. AGRESSION AND INTERVENTION, SAID PREAMBLE ACKNOWLEDGING CONSIDERATION OF THE 1ST COMM. REPORT ON ITEM 78.</td>
+<td class="gt_row gt_left" headers="short">DISARMAMENT, UNILATERAL</td>
+<td class="gt_row gt_left" headers="descr">TO CALL FOR THE SECRETARY-GENERAL TO SUBMIT A REPORT ON METHODS OF ENCOURAGING UNILATERAL NUCLEAR DISARMAMENT MEASURES WHICH WOULD COMPLEMENT BILATERAL AND MULTILATERAL NEGOTIATIONS IN THIS AREA.</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">1674</td>
-<td class="gt_row gt_right" headers="session">31</td>
-<td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1976-12-02</td>
-<td class="gt_row gt_left" headers="unres">R/31/71</td>
-<td class="gt_row gt_right" headers="amend">0</td>
-<td class="gt_row gt_right" headers="para">0</td>
-<td class="gt_row gt_left" headers="short">DENUCLEARIZATION, MIDDLE EAST</td>
-<td class="gt_row gt_left" headers="descr">TO EXPRESS THE NEED FOR FURTHER ACTION TO GENERATE MOMENTUM TOWARDS REALIZATION OF THE ESTABLISHMENT OF A NUCLEAR-WEAPON-FREE ZONE IN THE MIDDLE EAST AND TO URGE ALL PARTIES DIRECTLY CONCERNED TO ADHERE TO THE TREATY ON NON-PROLIFERATION OF NUC</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">2196</td>
-<td class="gt_row gt_right" headers="session">35</td>
-<td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1980-12-03</td>
-<td class="gt_row gt_left" headers="unres">R/35/167</td>
-<td class="gt_row gt_right" headers="amend">0</td>
-<td class="gt_row gt_right" headers="para">0</td>
-<td class="gt_row gt_left" headers="short">LIBERATION MOVEMENTS, DELEGATIONS</td>
-<td class="gt_row gt_left" headers="descr">TO APPROVE A RESOLUTION CALLING UPON STATES TO ACCORD TO THE DELEGATIONS OF THE NATIONAL LIBERATION MOVEMENTS RECOGNIZED BY THE ORGANIZATION FOR AFRICAN UNITY AND/OR BY THE LEAGUE OF ARAB STATES PRIVILEGES AND IMMUNITIES NECESSARY FOR THE PERFO</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">4016</td>
-<td class="gt_row gt_right" headers="session">51</td>
-<td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1996-12-06</td>
-<td class="gt_row gt_left" headers="unres">R/51/128</td>
-<td class="gt_row gt_right" headers="amend">NA</td>
-<td class="gt_row gt_right" headers="para">NA</td>
-<td class="gt_row gt_left" headers="short">UNRWA</td>
-<td class="gt_row gt_left" headers="descr">Operations of the United Nations Relief and Works Agency for Palestine Refugees in the Near East</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">5428</td>
-<td class="gt_row gt_right" headers="session">70</td>
-<td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">2015-12-07</td>
-<td class="gt_row gt_left" headers="unres">R/70/70</td>
-<td class="gt_row gt_right" headers="amend">NA</td>
-<td class="gt_row gt_right" headers="para">NA</td>
-<td class="gt_row gt_left" headers="short">NA</td>
-<td class="gt_row gt_left" headers="descr">The risk of nuclear proliferation in the Middle East : resolution / adopted by the General Assembly</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">9091</td>
-<td class="gt_row gt_right" headers="session">74</td>
-<td class="gt_row gt_right" headers="importantvote">NA</td>
-<td class="gt_row gt_right" headers="date">2019-12-12</td>
-<td class="gt_row gt_left" headers="unres">A/RES/74/30</td>
-<td class="gt_row gt_right" headers="amend">NA</td>
-<td class="gt_row gt_right" headers="para">NA</td>
-<td class="gt_row gt_left" headers="short">Establishment of a nuclear-weapon-free zone in the region of the Middle East</td>
-<td class="gt_row gt_left" headers="descr">Establishment of a nuclear-weapon-free zone in the region of the Middle East</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">3094</td>
-<td class="gt_row gt_right" headers="session">41</td>
-<td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1986-12-05</td>
-<td class="gt_row gt_left" headers="unres">R/41/209E</td>
-<td class="gt_row gt_right" headers="amend">NA</td>
-<td class="gt_row gt_right" headers="para">NA</td>
-<td class="gt_row gt_left" headers="short">POLITICAL, SECURITY AFFAIRS</td>
-<td class="gt_row gt_left" headers="descr">News Service of the Department of Political and Security Council Affairs</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">2352</td>
+<td class="gt_row gt_right" headers="rcid">2389</td>
 <td class="gt_row gt_right" headers="session">37</td>
 <td class="gt_row gt_right" headers="importantvote">0</td>
 <td class="gt_row gt_right" headers="date">1982-12-01</td>
-<td class="gt_row gt_left" headers="unres">R/37/69H</td>
+<td class="gt_row gt_left" headers="unres">R/37/81</td>
 <td class="gt_row gt_right" headers="amend">0</td>
 <td class="gt_row gt_right" headers="para">0</td>
-<td class="gt_row gt_left" headers="short">SOUTH AFRICA, ECONOMIC ISOLATION</td>
-<td class="gt_row gt_left" headers="descr">TO AGAIN URGE THE SECURITY COUNCIL TO CONSIDER AT AN EARLY DATE THE ISSUE OF FOREIGN COLLABORATION WITH SOUTH AFRICA WITH A VIEW TO TAKING EFFECTIVE STEPS TO ACHIEVE THE CESSATION OF FURTHER FOREIGN INVESTMENTS IN, AND FINANCIAL LOANS TO, SOUTH</td>
+<td class="gt_row gt_left" headers="short">NON-NUCLEAR STATES</td>
+<td class="gt_row gt_left" headers="descr">TO REAFFIRM THE URGENT NEED TO REACH AGREEMENT ON EFFECTIVE INTERNATIONAL ARRANGEMENTS TO ASSURE NON-NUCLEAR-WEAPON STATES AGAINST THE USE OR THREAT OF USE OF NUCLEAR WEAPONS, AND TO NOTE WITH SATISFACTION THAT IN THE COMMITTEE ON DISARMAMENT T</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">1630</td>
-<td class="gt_row gt_right" headers="session">30</td>
+<td class="gt_row gt_right" headers="rcid">937</td>
+<td class="gt_row gt_right" headers="session">21</td>
 <td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1975-11-05</td>
-<td class="gt_row gt_left" headers="unres">R/30/3397</td>
+<td class="gt_row gt_right" headers="date">1966-12-07</td>
+<td class="gt_row gt_left" headers="unres">NA</td>
 <td class="gt_row gt_right" headers="amend">0</td>
-<td class="gt_row gt_right" headers="para">0</td>
-<td class="gt_row gt_left" headers="short">SOUTH AFRICA, ARTICLE 25 VIOLATIONS</td>
-<td class="gt_row gt_left" headers="descr">TO STRONGLY CONDEMN THE POLICIES OF THE GOVERNMENTS, PARTICULARLY THE GOVERNMENT OF SOUTH AFRICA, WHICH, IN VIOLATION OF THE RELEVANT RESOLUTIONS OF THE UNITED NATIONS AND IN OPEN CONTRAVENTION OF THER SPECIFIC OBLIGATIONS UNDER ARTICLE 25 OF T</td>
+<td class="gt_row gt_right" headers="para">1</td>
+<td class="gt_row gt_left" headers="short">U.N. CAPITAL DEVELOPMENT FUND</td>
+<td class="gt_row gt_left" headers="descr">TO ADOPT PARAGRAPH 2, ARTICLE IV, OF THE 2ND COMM.-PROPOSED STATUTE OF THE UN CAPITAL DEVELOPMENT FUND (A/6578), SAID PARAGRAPH PROVIDING THAT EXPENSES INCURRED IN ADMINISTERING THIS FUND BE BORNE BY THE UN REGULAR BUDGET.</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">4078</td>
-<td class="gt_row gt_right" headers="session">52</td>
+<td class="gt_row gt_right" headers="rcid">4516</td>
+<td class="gt_row gt_right" headers="session">58</td>
 <td class="gt_row gt_right" headers="importantvote">0</td>
-<td class="gt_row gt_right" headers="date">1997-12-04</td>
-<td class="gt_row gt_left" headers="unres">R/52/65</td>
+<td class="gt_row gt_right" headers="date">2003-12-03</td>
+<td class="gt_row gt_left" headers="unres">R/58/20</td>
 <td class="gt_row gt_right" headers="amend">NA</td>
 <td class="gt_row gt_right" headers="para">NA</td>
-<td class="gt_row gt_left" headers="short">ISRAEL, GENEVA CONVENTION</td>
-<td class="gt_row gt_left" headers="descr">Applicability of the Geneva Convention of 12 Aug. 1949 relative to the occupied Palestinian and other Arab territories</td>
+<td class="gt_row gt_left" headers="short">Special information programme on the question of Palestine o</td>
+<td class="gt_row gt_left" headers="descr">Special information programme on the question of Palestine of the Department of Public Information of the Secretariat : resolution / adopted by the General Assembly</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">850</td>
+<td class="gt_row gt_right" headers="session">18</td>
+<td class="gt_row gt_right" headers="importantvote">0</td>
+<td class="gt_row gt_right" headers="date">1963-09-06</td>
+<td class="gt_row gt_left" headers="unres">R/18/1881A</td>
+<td class="gt_row gt_right" headers="amend">0</td>
+<td class="gt_row gt_right" headers="para">0</td>
+<td class="gt_row gt_left" headers="short">APARTHEID</td>
+<td class="gt_row gt_left" headers="descr">TO ADOPT ALGERIAN MOTION FOR A 20-MINUTE SUSPENSION OF MEETING DURING DEBATE ON ITEM 30 RE APARTHEID IN S. AFRICA.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">3173</td>
+<td class="gt_row gt_right" headers="session">42</td>
+<td class="gt_row gt_right" headers="importantvote">0</td>
+<td class="gt_row gt_right" headers="date">1987-12-04</td>
+<td class="gt_row gt_left" headers="unres">R/42/69G</td>
+<td class="gt_row gt_right" headers="amend">NA</td>
+<td class="gt_row gt_right" headers="para">NA</td>
+<td class="gt_row gt_left" headers="short">PALESTINE, REFUGEES, RETURN</td>
+<td class="gt_row gt_left" headers="descr">Reaffirms the inalienable right of all displaced inhabitants to return to their homes or former places of residence in the territories occupied by Israel since 1967</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">4754</td>
+<td class="gt_row gt_right" headers="session">62</td>
+<td class="gt_row gt_right" headers="importantvote">1</td>
+<td class="gt_row gt_right" headers="date">2007-10-30</td>
+<td class="gt_row gt_left" headers="unres">R/62/3</td>
+<td class="gt_row gt_right" headers="amend">NA</td>
+<td class="gt_row gt_right" headers="para">NA</td>
+<td class="gt_row gt_left" headers="short">CUBA, UNITED STATES</td>
+<td class="gt_row gt_left" headers="descr">Necessity of ending the economic, commercial and financial embargo imposed by the United States of America against Cuba: resolution / adopted by the General Assembly</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">5631</td>
+<td class="gt_row gt_right" headers="session">72</td>
+<td class="gt_row gt_right" headers="importantvote">0</td>
+<td class="gt_row gt_right" headers="date">2017-12-07</td>
+<td class="gt_row gt_left" headers="unres">A/RES/72/87</td>
+<td class="gt_row gt_right" headers="amend">NA</td>
+<td class="gt_row gt_right" headers="para">NA</td>
+<td class="gt_row gt_left" headers="short">Israeli practices affecting the human rights of the Palestinian people in the Occupied Palestinian Territory, including East Jerusalem : resolution / adopted by the General Assembly</td>
+<td class="gt_row gt_left" headers="descr">A/72/251 54 - Report of the Special Committee to Investigate Israeli Practices Affecting the Human Rights of the Palestinian People and Other Arabs of the Occupied Territories. - TERRITORIES OCCUPIED BY ISRAEL--HUMAN RIGHTS</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">5274</td>
+<td class="gt_row gt_right" headers="session">68</td>
+<td class="gt_row gt_right" headers="importantvote">0</td>
+<td class="gt_row gt_right" headers="date">2013-12-05</td>
+<td class="gt_row gt_left" headers="unres">R/68/68</td>
+<td class="gt_row gt_right" headers="amend">NA</td>
+<td class="gt_row gt_right" headers="para">NA</td>
+<td class="gt_row gt_left" headers="short">NUCLEAR WEAPON TESTS--TREATY</td>
+<td class="gt_row gt_left" headers="descr">Comprehensive Nuclear-Test-Ban Treaty : resolution / adopted by the General Assembly</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">1386</td>
+<td class="gt_row gt_right" headers="session">27</td>
+<td class="gt_row gt_right" headers="importantvote">0</td>
+<td class="gt_row gt_right" headers="date">1972-12-07</td>
+<td class="gt_row gt_left" headers="unres">R/27/3030</td>
+<td class="gt_row gt_right" headers="amend">0</td>
+<td class="gt_row gt_right" headers="para">0</td>
+<td class="gt_row gt_left" headers="short">NAMIBIA</td>
+<td class="gt_row gt_left" headers="descr">RES, DECIDING ALLOCATE TO UN FUND FOR NAMIBIA $100,000 FR 1973 REG UN BUDGET; INVITING GOVTS APPEAL FOR VOL CONTRIBS; URGES SYG IMPL MEASURES IN HIS RPT SOON AS FUNDS AVAILABLE; AUTHORIZES SYG MAKE ARRANGEMENTS FOR ADMIN &amp; SUPERV OF FUND WITH A</td>
 </tr>
 </tbody>
 </table>
@@ -1948,23 +1946,23 @@ Important
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div id="inikwjndde" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#inikwjndde table {
+<div id="ftlwuebbba" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ftlwuebbba table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#inikwjndde thead, #inikwjndde tbody, #inikwjndde tfoot, #inikwjndde tr, #inikwjndde td, #inikwjndde th {
+#ftlwuebbba thead, #ftlwuebbba tbody, #ftlwuebbba tfoot, #ftlwuebbba tr, #ftlwuebbba td, #ftlwuebbba th {
   border-style: none;
 }
 
-#inikwjndde p {
+#ftlwuebbba p {
   margin: 0;
   padding: 0;
 }
 
-#inikwjndde .gt_table {
+#ftlwuebbba .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1990,12 +1988,12 @@ Important
   border-left-color: #D3D3D3;
 }
 
-#inikwjndde .gt_caption {
+#ftlwuebbba .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#inikwjndde .gt_title {
+#ftlwuebbba .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2007,7 +2005,7 @@ Important
   border-bottom-width: 0;
 }
 
-#inikwjndde .gt_subtitle {
+#ftlwuebbba .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2019,7 +2017,7 @@ Important
   border-top-width: 0;
 }
 
-#inikwjndde .gt_heading {
+#ftlwuebbba .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2031,13 +2029,13 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#inikwjndde .gt_bottom_border {
+#ftlwuebbba .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#inikwjndde .gt_col_headings {
+#ftlwuebbba .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2052,7 +2050,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#inikwjndde .gt_col_heading {
+#ftlwuebbba .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2072,7 +2070,7 @@ Important
   overflow-x: hidden;
 }
 
-#inikwjndde .gt_column_spanner_outer {
+#ftlwuebbba .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2084,15 +2082,15 @@ Important
   padding-right: 4px;
 }
 
-#inikwjndde .gt_column_spanner_outer:first-child {
+#ftlwuebbba .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#inikwjndde .gt_column_spanner_outer:last-child {
+#ftlwuebbba .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#inikwjndde .gt_column_spanner {
+#ftlwuebbba .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2104,11 +2102,11 @@ Important
   width: 100%;
 }
 
-#inikwjndde .gt_spanner_row {
+#ftlwuebbba .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#inikwjndde .gt_group_heading {
+#ftlwuebbba .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2134,7 +2132,7 @@ Important
   text-align: left;
 }
 
-#inikwjndde .gt_empty_group_heading {
+#ftlwuebbba .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2149,15 +2147,15 @@ Important
   vertical-align: middle;
 }
 
-#inikwjndde .gt_from_md > :first-child {
+#ftlwuebbba .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#inikwjndde .gt_from_md > :last-child {
+#ftlwuebbba .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#inikwjndde .gt_row {
+#ftlwuebbba .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2176,7 +2174,7 @@ Important
   overflow-x: hidden;
 }
 
-#inikwjndde .gt_stub {
+#ftlwuebbba .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2189,7 +2187,7 @@ Important
   padding-right: 5px;
 }
 
-#inikwjndde .gt_stub_row_group {
+#ftlwuebbba .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2203,15 +2201,15 @@ Important
   vertical-align: top;
 }
 
-#inikwjndde .gt_row_group_first td {
+#ftlwuebbba .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#inikwjndde .gt_row_group_first th {
+#ftlwuebbba .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#inikwjndde .gt_summary_row {
+#ftlwuebbba .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2221,16 +2219,16 @@ Important
   padding-right: 5px;
 }
 
-#inikwjndde .gt_first_summary_row {
+#ftlwuebbba .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#inikwjndde .gt_first_summary_row.thick {
+#ftlwuebbba .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#inikwjndde .gt_last_summary_row {
+#ftlwuebbba .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2240,7 +2238,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#inikwjndde .gt_grand_summary_row {
+#ftlwuebbba .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2250,7 +2248,7 @@ Important
   padding-right: 5px;
 }
 
-#inikwjndde .gt_first_grand_summary_row {
+#ftlwuebbba .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2260,7 +2258,7 @@ Important
   border-top-color: #D3D3D3;
 }
 
-#inikwjndde .gt_last_grand_summary_row_top {
+#ftlwuebbba .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2270,11 +2268,11 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#inikwjndde .gt_striped {
+#ftlwuebbba .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#inikwjndde .gt_table_body {
+#ftlwuebbba .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2283,7 +2281,7 @@ Important
   border-bottom-color: #D3D3D3;
 }
 
-#inikwjndde .gt_footnotes {
+#ftlwuebbba .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2297,7 +2295,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#inikwjndde .gt_footnote {
+#ftlwuebbba .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2306,7 +2304,7 @@ Important
   padding-right: 5px;
 }
 
-#inikwjndde .gt_sourcenotes {
+#ftlwuebbba .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2320,7 +2318,7 @@ Important
   border-right-color: #D3D3D3;
 }
 
-#inikwjndde .gt_sourcenote {
+#ftlwuebbba .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2328,80 +2326,80 @@ Important
   padding-right: 5px;
 }
 
-#inikwjndde .gt_left {
+#ftlwuebbba .gt_left {
   text-align: left;
 }
 
-#inikwjndde .gt_center {
+#ftlwuebbba .gt_center {
   text-align: center;
 }
 
-#inikwjndde .gt_right {
+#ftlwuebbba .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#inikwjndde .gt_font_normal {
+#ftlwuebbba .gt_font_normal {
   font-weight: normal;
 }
 
-#inikwjndde .gt_font_bold {
+#ftlwuebbba .gt_font_bold {
   font-weight: bold;
 }
 
-#inikwjndde .gt_font_italic {
+#ftlwuebbba .gt_font_italic {
   font-style: italic;
 }
 
-#inikwjndde .gt_super {
+#ftlwuebbba .gt_super {
   font-size: 65%;
 }
 
-#inikwjndde .gt_footnote_marks {
+#ftlwuebbba .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#inikwjndde .gt_asterisk {
+#ftlwuebbba .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#inikwjndde .gt_indent_1 {
+#ftlwuebbba .gt_indent_1 {
   text-indent: 5px;
 }
 
-#inikwjndde .gt_indent_2 {
+#ftlwuebbba .gt_indent_2 {
   text-indent: 10px;
 }
 
-#inikwjndde .gt_indent_3 {
+#ftlwuebbba .gt_indent_3 {
   text-indent: 15px;
 }
 
-#inikwjndde .gt_indent_4 {
+#ftlwuebbba .gt_indent_4 {
   text-indent: 20px;
 }
 
-#inikwjndde .gt_indent_5 {
+#ftlwuebbba .gt_indent_5 {
   text-indent: 25px;
 }
 
-#inikwjndde .katex-display {
+#ftlwuebbba .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#inikwjndde div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ftlwuebbba div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">issues</td>
+<th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">issues</th>
 </tr>
 <tr class="gt_col_headings even">
 <th id="rcid" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rcid</th>
@@ -2411,54 +2409,54 @@ Important
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">1096</td>
+<td class="gt_row gt_right" headers="rcid">4720</td>
+<td class="gt_row gt_left" headers="short_name">co</td>
+<td class="gt_row gt_left" headers="issue">Colonialism</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">928</td>
+<td class="gt_row gt_left" headers="short_name">di</td>
+<td class="gt_row gt_left" headers="issue">Arms control and disarmament</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">4484</td>
+<td class="gt_row gt_left" headers="short_name">co</td>
+<td class="gt_row gt_left" headers="issue">Colonialism</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">5252</td>
+<td class="gt_row gt_left" headers="short_name">me</td>
+<td class="gt_row gt_left" headers="issue">Palestinian conflict</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">2091</td>
 <td class="gt_row gt_left" headers="short_name">ec</td>
 <td class="gt_row gt_left" headers="issue">Economic development</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">9113</td>
-<td class="gt_row gt_left" headers="short_name">co</td>
-<td class="gt_row gt_left" headers="issue">Colonialism</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">4763</td>
-<td class="gt_row gt_left" headers="short_name">di</td>
-<td class="gt_row gt_left" headers="issue">Arms control and disarmament</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">3977</td>
-<td class="gt_row gt_left" headers="short_name">di</td>
-<td class="gt_row gt_left" headers="issue">Arms control and disarmament</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">4205</td>
-<td class="gt_row gt_left" headers="short_name">me</td>
-<td class="gt_row gt_left" headers="issue">Palestinian conflict</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">4164</td>
+<td class="gt_row gt_right" headers="rcid">5591</td>
 <td class="gt_row gt_left" headers="short_name">hr</td>
 <td class="gt_row gt_left" headers="issue">Human rights</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="rcid">5154</td>
+<td class="gt_row gt_right" headers="rcid">3436</td>
+<td class="gt_row gt_left" headers="short_name">hr</td>
+<td class="gt_row gt_left" headers="issue">Human rights</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="rcid">5416</td>
+<td class="gt_row gt_left" headers="short_name">nu</td>
+<td class="gt_row gt_left" headers="issue">Nuclear weapons and nuclear material</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="rcid">4697</td>
 <td class="gt_row gt_left" headers="short_name">di</td>
 <td class="gt_row gt_left" headers="issue">Arms control and disarmament</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="rcid">3289</td>
-<td class="gt_row gt_left" headers="short_name">me</td>
-<td class="gt_row gt_left" headers="issue">Palestinian conflict</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="rcid">3074</td>
-<td class="gt_row gt_left" headers="short_name">hr</td>
-<td class="gt_row gt_left" headers="issue">Human rights</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="rcid">5315</td>
-<td class="gt_row gt_left" headers="short_name">hr</td>
-<td class="gt_row gt_left" headers="issue">Human rights</td>
+<td class="gt_row gt_right" headers="rcid">4768</td>
+<td class="gt_row gt_left" headers="short_name">nu</td>
+<td class="gt_row gt_left" headers="issue">Nuclear weapons and nuclear material</td>
 </tr>
 </tbody>
 </table>
@@ -2476,7 +2474,7 @@ Important
 <p>The first data set, <code>unvotes</code> contains data on the <code>rcid</code> which is the roll call id for the vote, the country/country code, and how the country voted. What can we learn from the data?</p>
 <p>Comment on the following code, what is happening in each line? One way to approach seeing what each line does is to highlight the code from before the <code>pipe</code> of that line up to the data <code>unvotes</code> and use <code>CTRL + ENTER</code> to run just the highlighted lines.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>unvotes <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>unvotes <span class="sc">|&gt;</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(country, vote) <span class="sc">|&gt;</span> <span class="co">#comment</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> <span class="co">#comment</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total =</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> <span class="co">#comment </span></span>
@@ -2493,7 +2491,7 @@ Important
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Voting Record of the G7"</span>,</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Vote"</span>) <span class="sc">+</span> <span class="co">#comment</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co">#comment</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.8</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2509,8 +2507,8 @@ Important
 <h3 class="anchored" data-anchor-id="roll-calls">Roll Calls</h3>
 <p>The second data set, <code>roll_calls</code> has more information on the type of vote, the importance, whether it was a resolution, and date of the vote.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(short)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(short)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,019 × 1
    short                             
@@ -2531,14 +2529,14 @@ Important
 <p><strong>What does the code above do? What information does it provide? Is it useful?</strong> &gt; Description of code results</p>
 <p>We can use the individual data for <code>roll_calls</code> to look at the number of votes per year over time.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(date)) <span class="sc">|&gt;</span> <span class="co">#extracts the year from the date value and creates a new `year` column</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year) <span class="sc">|&gt;</span> <span class="co">#counts how many votes there were per year assuming each line is an single voting instance</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n)) <span class="sc">+</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Votes"</span>,</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"UN Votes per Year"</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2554,9 +2552,9 @@ Important
 <h3 class="anchored" data-anchor-id="issues">Issues</h3>
 <p>Finally we have the <code>issues</code> data which provides a more general description for each vote on specific issues. Note that not all issues are included in the data set, just the ones related to the 6 issues below:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(issue) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="co">#from janitor package</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="co">#from janitor package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                issue    n
          Arms control and disarmament 1092
@@ -2570,18 +2568,18 @@ Important
 </div>
 <p>Notice the size of the issues data - it has 5745 rows, but if look at the distinct number of roll call identification numbers, you will see that there are 4099, meaning that more than one issue can be associated with the same roll call id/vote.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(rcid) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4099</code></pre>
 </div>
 </div>
 <p>Recall that in <code>roll_call</code> there are 6202 distinct roll call ids/votes, so the issues associated with <code>issues</code> do not represent all votes (i.e., there were other U.N. votes on other issues than our 6 chosen issues).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(rcid) <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6202</code></pre>
 </div>
@@ -2595,38 +2593,38 @@ Important
 <p>Now let’s join our data together to get a better idea of how the UN has voted over time.<br>
 First, look at the number of rows in <code>issues</code> and <code>roll_calls</code> - do they match? What does this indicate?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(issues)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(issues)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5745    3</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(roll_calls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(roll_calls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6202    9</code></pre>
 </div>
 </div>
 <p>Now let’s try joining the <code>roll_calls</code> with the <code>issues</code> data. Compare the following codes to join the data. Describe what each one does and how it differs from the others as a comment in the code chunk. You might need to reference the slides or reading for this week.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="co">#description of join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>If we are only interested in retaining the records associated with the <code>issues</code> labeled in that data frame, ignoring the other votes, which join should we use?</strong></p>
 <!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
 <p>Now that we know how to join the data, we will use the following code to examine the the voting trends for three of the issues related to conflict/weapons.</p>
 <p>Be sure to run the code via the green arrow on the code chunk, as the <code>case_when()</code> code can get finicky sometimes and claim an error about a comma in the code when it doesn’t exist. <em>Comment on the code where indicated</em> and add your chosen join function</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>roll_calls <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">__________join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="sc">|&gt;</span>  <span class="co">#join roll_calls and issues so that just the votes related to the issues data are retained.</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">issue_short =</span> <span class="fu">case_when</span>(</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    issue <span class="sc">==</span> <span class="st">"Arms control and disarmament"</span> <span class="sc">~</span> <span class="st">"Arms Control"</span>,</span>
@@ -2649,7 +2647,7 @@ First, look at the number of rows in <code>issues</code> and <code>roll_calls</c
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Conflict and Arms Related Votes"</span>,</span>
 <span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Voting Issue"</span>) <span class="sc">+</span></span>
 <span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -2668,11 +2666,11 @@ First, look at the number of rows in <code>issues</code> and <code>roll_calls</c
 <p>We want to try create a visualization that compares the voting records of the US and Canada on the 6 major issues of interest. To do this, though, we need information from all three data set, <code>unvotes</code>, <code>issues</code>, and <code>roll_calls</code></p>
 <p>We want to join all three data sets together, <em>maintaining only the votes for which we have identified the general issue</em> (e.g., Nuclear War, Arms, Economics, etc.), but recognizing that each <code>rcid</code> will match MULTIPLE rows in the <code>unvotes</code> because we have each individual country’s vote. We will save (assign) the data as <code>un_full</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>un_full <span class="ot">&lt;-</span> roll_calls <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>un_full <span class="ot">&lt;-</span> roll_calls <span class="sc">|&gt;</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(issues, <span class="at">by =</span> <span class="st">"rcid"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(unvotes, <span class="at">by =</span> <span class="st">"rcid"</span>, </span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">multiple =</span> <span class="st">"all"</span>, </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">relationship =</span> <span class="st">"many-to-many"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">relationship =</span> <span class="st">"many-to-many"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Describe what each join is doing and why each join has specific arguments.</strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2690,7 +2688,7 @@ Note
 </div>
 <p>Now, we are going to do some data cleaning. Our goal is create a data set that includes the percentage of “yes” votes per country each year. We will call the data table <code>yes_votes</code>. <em>Provide a comment to describe what each line of code is doing in the process</em>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="ot">&lt;-</span> un_full <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="ot">&lt;-</span> un_full <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, </span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         issue, </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>         date, </span>
@@ -2705,11 +2703,11 @@ Note
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    issue <span class="sc">==</span> <span class="st">"Arms control and disarmament"</span> <span class="sc">~</span> <span class="st">"Arms Control"</span>,</span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    issue <span class="sc">==</span> <span class="st">"Nuclear weapons and nuclear material"</span> <span class="sc">~</span> <span class="st">"Nuclear Weapons"</span>,</span>
 <span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    issue <span class="sc">==</span> <span class="st">"Palestinian conflict"</span> <span class="sc">~</span> <span class="st">"Palestinian Conflict"</span>,</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> issue)) <span class="co"># your comment here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> issue)) <span class="co"># your comment here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can feed the <code>yes_votes</code> transformed data table into your graphing code, but first we will want to focus on the United States and Canada. <em>Provide a comment to describe what each line of code is doing in the process</em>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="sc">|&gt;</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"United States"</span>,<span class="st">"Canada"</span>)) <span class="sc">|&gt;</span> <span class="co"># your comment here</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> prop_yes, <span class="at">color =</span> country)) <span class="sc">+</span> <span class="co"># your comment here</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># your comment here</span></span>
@@ -2726,7 +2724,7 @@ Note
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co">#your comment here</span></span>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co">#your comment here </span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"turbo"</span>) <span class="co">#your comment here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"turbo"</span>) <span class="co">#your comment here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2741,28 +2739,28 @@ Note
 <h1>Demonstration: Adding more data</h1>
 <p>After your instructor created the above plot, she became curious about how politics might impact the UN Voting record for the United States since UN Ambassador is a presidential appointment. So your instructor started searching for a data set of US presidents, their years in office, and their political affiliation. She found a data set on Kaggle.com and removed the information prior to 1940 (because the dates were coded funny and it was causing problems). She saved the data as <code>us_presidents.csv</code> and imported it into the project.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>president <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us_presidents.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>president <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us_presidents.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_sample</span>(president, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span>   </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"president"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"president"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="apukmyxqcq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#apukmyxqcq table {
+<div id="fmrtjnkouw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fmrtjnkouw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#apukmyxqcq thead, #apukmyxqcq tbody, #apukmyxqcq tfoot, #apukmyxqcq tr, #apukmyxqcq td, #apukmyxqcq th {
+#fmrtjnkouw thead, #fmrtjnkouw tbody, #fmrtjnkouw tfoot, #fmrtjnkouw tr, #fmrtjnkouw td, #fmrtjnkouw th {
   border-style: none;
 }
 
-#apukmyxqcq p {
+#fmrtjnkouw p {
   margin: 0;
   padding: 0;
 }
 
-#apukmyxqcq .gt_table {
+#fmrtjnkouw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2788,12 +2786,12 @@ Note
   border-left-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_caption {
+#fmrtjnkouw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#apukmyxqcq .gt_title {
+#fmrtjnkouw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2805,7 +2803,7 @@ Note
   border-bottom-width: 0;
 }
 
-#apukmyxqcq .gt_subtitle {
+#fmrtjnkouw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2817,7 +2815,7 @@ Note
   border-top-width: 0;
 }
 
-#apukmyxqcq .gt_heading {
+#fmrtjnkouw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2829,13 +2827,13 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_bottom_border {
+#fmrtjnkouw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_col_headings {
+#fmrtjnkouw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2850,7 +2848,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_col_heading {
+#fmrtjnkouw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2870,7 +2868,7 @@ Note
   overflow-x: hidden;
 }
 
-#apukmyxqcq .gt_column_spanner_outer {
+#fmrtjnkouw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2882,15 +2880,15 @@ Note
   padding-right: 4px;
 }
 
-#apukmyxqcq .gt_column_spanner_outer:first-child {
+#fmrtjnkouw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#apukmyxqcq .gt_column_spanner_outer:last-child {
+#fmrtjnkouw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#apukmyxqcq .gt_column_spanner {
+#fmrtjnkouw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2902,11 +2900,11 @@ Note
   width: 100%;
 }
 
-#apukmyxqcq .gt_spanner_row {
+#fmrtjnkouw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#apukmyxqcq .gt_group_heading {
+#fmrtjnkouw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2932,7 +2930,7 @@ Note
   text-align: left;
 }
 
-#apukmyxqcq .gt_empty_group_heading {
+#fmrtjnkouw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2947,15 +2945,15 @@ Note
   vertical-align: middle;
 }
 
-#apukmyxqcq .gt_from_md > :first-child {
+#fmrtjnkouw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#apukmyxqcq .gt_from_md > :last-child {
+#fmrtjnkouw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#apukmyxqcq .gt_row {
+#fmrtjnkouw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2974,7 +2972,7 @@ Note
   overflow-x: hidden;
 }
 
-#apukmyxqcq .gt_stub {
+#fmrtjnkouw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2987,7 +2985,7 @@ Note
   padding-right: 5px;
 }
 
-#apukmyxqcq .gt_stub_row_group {
+#fmrtjnkouw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3001,15 +2999,15 @@ Note
   vertical-align: top;
 }
 
-#apukmyxqcq .gt_row_group_first td {
+#fmrtjnkouw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#apukmyxqcq .gt_row_group_first th {
+#fmrtjnkouw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#apukmyxqcq .gt_summary_row {
+#fmrtjnkouw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3019,16 +3017,16 @@ Note
   padding-right: 5px;
 }
 
-#apukmyxqcq .gt_first_summary_row {
+#fmrtjnkouw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_first_summary_row.thick {
+#fmrtjnkouw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#apukmyxqcq .gt_last_summary_row {
+#fmrtjnkouw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3038,7 +3036,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_grand_summary_row {
+#fmrtjnkouw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3048,7 +3046,7 @@ Note
   padding-right: 5px;
 }
 
-#apukmyxqcq .gt_first_grand_summary_row {
+#fmrtjnkouw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3058,7 +3056,7 @@ Note
   border-top-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_last_grand_summary_row_top {
+#fmrtjnkouw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3068,11 +3066,11 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_striped {
+#fmrtjnkouw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#apukmyxqcq .gt_table_body {
+#fmrtjnkouw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3081,7 +3079,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_footnotes {
+#fmrtjnkouw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3095,7 +3093,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_footnote {
+#fmrtjnkouw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3104,7 +3102,7 @@ Note
   padding-right: 5px;
 }
 
-#apukmyxqcq .gt_sourcenotes {
+#fmrtjnkouw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3118,7 +3116,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#apukmyxqcq .gt_sourcenote {
+#fmrtjnkouw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3126,80 +3124,80 @@ Note
   padding-right: 5px;
 }
 
-#apukmyxqcq .gt_left {
+#fmrtjnkouw .gt_left {
   text-align: left;
 }
 
-#apukmyxqcq .gt_center {
+#fmrtjnkouw .gt_center {
   text-align: center;
 }
 
-#apukmyxqcq .gt_right {
+#fmrtjnkouw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#apukmyxqcq .gt_font_normal {
+#fmrtjnkouw .gt_font_normal {
   font-weight: normal;
 }
 
-#apukmyxqcq .gt_font_bold {
+#fmrtjnkouw .gt_font_bold {
   font-weight: bold;
 }
 
-#apukmyxqcq .gt_font_italic {
+#fmrtjnkouw .gt_font_italic {
   font-style: italic;
 }
 
-#apukmyxqcq .gt_super {
+#fmrtjnkouw .gt_super {
   font-size: 65%;
 }
 
-#apukmyxqcq .gt_footnote_marks {
+#fmrtjnkouw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#apukmyxqcq .gt_asterisk {
+#fmrtjnkouw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#apukmyxqcq .gt_indent_1 {
+#fmrtjnkouw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#apukmyxqcq .gt_indent_2 {
+#fmrtjnkouw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#apukmyxqcq .gt_indent_3 {
+#fmrtjnkouw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#apukmyxqcq .gt_indent_4 {
+#fmrtjnkouw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#apukmyxqcq .gt_indent_5 {
+#fmrtjnkouw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#apukmyxqcq .katex-display {
+#fmrtjnkouw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#apukmyxqcq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fmrtjnkouw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border">president</td>
+<th colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border">president</th>
 </tr>
 <tr class="gt_col_headings even">
 <th id="id" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">id</th>
@@ -3214,24 +3212,24 @@ Note
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="id">38</td>
-<td class="gt_row gt_right" headers="S.No.">39</td>
-<td class="gt_row gt_right" headers="start">1/20/1977</td>
-<td class="gt_row gt_left" headers="end">20-Jan-81</td>
-<td class="gt_row gt_left" headers="president">Jimmy Carter</td>
-<td class="gt_row gt_left" headers="prior">76th Governor of Georgia (1971–1975)</td>
+<td class="gt_row gt_right" headers="id">32</td>
+<td class="gt_row gt_right" headers="S.No.">33</td>
+<td class="gt_row gt_right" headers="start">4/12/1945</td>
+<td class="gt_row gt_left" headers="end">20-Jan-53</td>
+<td class="gt_row gt_left" headers="president">Harry S. Truman</td>
+<td class="gt_row gt_left" headers="prior">34th Vice President of the United States</td>
 <td class="gt_row gt_left" headers="party">Democratic</td>
-<td class="gt_row gt_left" headers="vice">Walter Mondale</td>
+<td class="gt_row gt_left" headers="vice">Office vacant</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="id">31</td>
-<td class="gt_row gt_right" headers="S.No.">32</td>
-<td class="gt_row gt_right" headers="start">3/4/1933</td>
-<td class="gt_row gt_left" headers="end">20-Jan-41</td>
-<td class="gt_row gt_left" headers="president">Franklin D. Roosevelt</td>
-<td class="gt_row gt_left" headers="prior">44th Governor of New York ( 1929–1932 )</td>
+<td class="gt_row gt_right" headers="id">43</td>
+<td class="gt_row gt_right" headers="S.No.">44</td>
+<td class="gt_row gt_right" headers="start">1/20/2009</td>
+<td class="gt_row gt_left" headers="end">NA</td>
+<td class="gt_row gt_left" headers="president">Barack Obama</td>
+<td class="gt_row gt_left" headers="prior">U.S. Senator ( Class 3 ) from Illinois ( 2005–2008 )</td>
 <td class="gt_row gt_left" headers="party">Democratic</td>
-<td class="gt_row gt_left" headers="vice">John Nance Garner</td>
+<td class="gt_row gt_left" headers="vice">Joe Biden</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="id">30</td>
@@ -3244,66 +3242,16 @@ Note
 <td class="gt_row gt_left" headers="vice">Charles Curtis</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="id">27</td>
-<td class="gt_row gt_right" headers="S.No.">28</td>
-<td class="gt_row gt_right" headers="start">3/4/1913</td>
-<td class="gt_row gt_left" headers="end">4-Mar-21</td>
-<td class="gt_row gt_left" headers="president">Woodrow Wilson</td>
-<td class="gt_row gt_left" headers="prior">34th Governor of New Jersey (1911–1913)</td>
+<td class="gt_row gt_right" headers="id">38</td>
+<td class="gt_row gt_right" headers="S.No.">39</td>
+<td class="gt_row gt_right" headers="start">1/20/1977</td>
+<td class="gt_row gt_left" headers="end">20-Jan-81</td>
+<td class="gt_row gt_left" headers="president">Jimmy Carter</td>
+<td class="gt_row gt_left" headers="prior">76th Governor of Georgia (1971–1975)</td>
 <td class="gt_row gt_left" headers="party">Democratic</td>
-<td class="gt_row gt_left" headers="vice">Thomas R. Marshall</td>
+<td class="gt_row gt_left" headers="vice">Walter Mondale</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="id">32</td>
-<td class="gt_row gt_right" headers="S.No.">33</td>
-<td class="gt_row gt_right" headers="start">4/12/1945</td>
-<td class="gt_row gt_left" headers="end">20-Jan-53</td>
-<td class="gt_row gt_left" headers="president">Harry S. Truman</td>
-<td class="gt_row gt_left" headers="prior">34th Vice President of the United States</td>
-<td class="gt_row gt_left" headers="party">Democratic</td>
-<td class="gt_row gt_left" headers="vice">Office vacant</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="id">42</td>
-<td class="gt_row gt_right" headers="S.No.">43</td>
-<td class="gt_row gt_right" headers="start">1/20/2001</td>
-<td class="gt_row gt_left" headers="end">20-Jan-09</td>
-<td class="gt_row gt_left" headers="president">George W. Bush</td>
-<td class="gt_row gt_left" headers="prior">46th Governor of Texas ( 1995–2000 )</td>
-<td class="gt_row gt_left" headers="party">Republican</td>
-<td class="gt_row gt_left" headers="vice">Dick Cheney</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="id">25</td>
-<td class="gt_row gt_right" headers="S.No.">26</td>
-<td class="gt_row gt_right" headers="start">9/14/1901</td>
-<td class="gt_row gt_left" headers="end">4-Mar-09</td>
-<td class="gt_row gt_left" headers="president">Theodore Roosevelt</td>
-<td class="gt_row gt_left" headers="prior">25th Vice President of the United States</td>
-<td class="gt_row gt_left" headers="party">Republican</td>
-<td class="gt_row gt_left" headers="vice">Office vacant</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="id">44</td>
-<td class="gt_row gt_right" headers="S.No.">45</td>
-<td class="gt_row gt_right" headers="start">1/20/2017</td>
-<td class="gt_row gt_left" headers="end">--</td>
-<td class="gt_row gt_left" headers="president">Donald Trump</td>
-<td class="gt_row gt_left" headers="prior">Chairman of The Trump Organization ( 1971–present )</td>
-<td class="gt_row gt_left" headers="party">Republican</td>
-<td class="gt_row gt_left" headers="vice">Mike Pence</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="id">37</td>
-<td class="gt_row gt_right" headers="S.No.">38</td>
-<td class="gt_row gt_right" headers="start">8/9/1974</td>
-<td class="gt_row gt_left" headers="end">20-Jan-77</td>
-<td class="gt_row gt_left" headers="president">Gerald Ford</td>
-<td class="gt_row gt_left" headers="prior">40th Vice President of the United States</td>
-<td class="gt_row gt_left" headers="party">Republican</td>
-<td class="gt_row gt_left" headers="vice">Office vacant</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_right" headers="id">36</td>
 <td class="gt_row gt_right" headers="S.No.">37</td>
 <td class="gt_row gt_right" headers="start">1/20/1969</td>
@@ -3313,6 +3261,56 @@ Note
 <td class="gt_row gt_left" headers="party">Republican</td>
 <td class="gt_row gt_left" headers="vice">Spiro Agnew</td>
 </tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">33</td>
+<td class="gt_row gt_right" headers="S.No.">34</td>
+<td class="gt_row gt_right" headers="start">1/20/1953</td>
+<td class="gt_row gt_left" headers="end">20-Jan-61</td>
+<td class="gt_row gt_left" headers="president">Dwight D. Eisenhower</td>
+<td class="gt_row gt_left" headers="prior">Supreme Allied Commander Europe ( 1949–1952 )</td>
+<td class="gt_row gt_left" headers="party">Republican</td>
+<td class="gt_row gt_left" headers="vice">Richard Nixon</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">29</td>
+<td class="gt_row gt_right" headers="S.No.">30</td>
+<td class="gt_row gt_right" headers="start">8/2/1923</td>
+<td class="gt_row gt_left" headers="end">4-Mar-29</td>
+<td class="gt_row gt_left" headers="president">Calvin Coolidge</td>
+<td class="gt_row gt_left" headers="prior">29th Vice President of the United States</td>
+<td class="gt_row gt_left" headers="party">Republican</td>
+<td class="gt_row gt_left" headers="vice">Office vacant</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">40</td>
+<td class="gt_row gt_right" headers="S.No.">41</td>
+<td class="gt_row gt_right" headers="start">1/20/1989</td>
+<td class="gt_row gt_left" headers="end">20-Jan-93</td>
+<td class="gt_row gt_left" headers="president">George H. W. Bush</td>
+<td class="gt_row gt_left" headers="prior">43rd Vice President of the United States</td>
+<td class="gt_row gt_left" headers="party">Republican</td>
+<td class="gt_row gt_left" headers="vice">Dan Quayle</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">35</td>
+<td class="gt_row gt_right" headers="S.No.">36</td>
+<td class="gt_row gt_right" headers="start">11/22/1963</td>
+<td class="gt_row gt_left" headers="end">20-Jan-69</td>
+<td class="gt_row gt_left" headers="president">Lyndon B. Johnson</td>
+<td class="gt_row gt_left" headers="prior">37th Vice President of the United States</td>
+<td class="gt_row gt_left" headers="party">Democratic</td>
+<td class="gt_row gt_left" headers="vice">Office vacant</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">26</td>
+<td class="gt_row gt_right" headers="S.No.">27</td>
+<td class="gt_row gt_right" headers="start">3/4/1909</td>
+<td class="gt_row gt_left" headers="end">4-Mar-13</td>
+<td class="gt_row gt_left" headers="president">William Howard Taft</td>
+<td class="gt_row gt_left" headers="prior">42nd United States Secretary of War (1904–1908)</td>
+<td class="gt_row gt_left" headers="party">Republican</td>
+<td class="gt_row gt_left" headers="vice">James S. Sherman</td>
+</tr>
 </tbody>
 </table>
 
@@ -3321,7 +3319,7 @@ Note
 </div>
 <p>She realized that her data only had the start/end dates for each president and she wanted a data set that filled in the missing years and political party for the president in that time period. After much googling and reading Stack Overflow, found two functions she did not know about called <code>complete()</code> and <code>fill()</code> to fill in the missing years and party affiliations</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>politics_year <span class="ot">&lt;-</span> president <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>politics_year <span class="ot">&lt;-</span> president <span class="sc">|&gt;</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">start =</span> lubridate<span class="sc">::</span><span class="fu">mdy</span>(start),  <span class="co">#formats date correctly</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">start_year =</span> lubridate<span class="sc">::</span><span class="fu">year</span>(start)) <span class="sc">|&gt;</span> <span class="co">#pulls out year</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(start_year <span class="sc">&gt;</span> <span class="dv">1940</span>) <span class="sc">|&gt;</span>  <span class="co">#removes data before 1940 since there was no UN</span></span>
@@ -3331,25 +3329,25 @@ Note
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_tail</span>(politics_year, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span>   </span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Year by Presidential Party"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Year by Presidential Party"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="vinwwdsamy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vinwwdsamy table {
+<div id="ytlyhiztgt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ytlyhiztgt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vinwwdsamy thead, #vinwwdsamy tbody, #vinwwdsamy tfoot, #vinwwdsamy tr, #vinwwdsamy td, #vinwwdsamy th {
+#ytlyhiztgt thead, #ytlyhiztgt tbody, #ytlyhiztgt tfoot, #ytlyhiztgt tr, #ytlyhiztgt td, #ytlyhiztgt th {
   border-style: none;
 }
 
-#vinwwdsamy p {
+#ytlyhiztgt p {
   margin: 0;
   padding: 0;
 }
 
-#vinwwdsamy .gt_table {
+#ytlyhiztgt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3375,12 +3373,12 @@ Note
   border-left-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_caption {
+#ytlyhiztgt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vinwwdsamy .gt_title {
+#ytlyhiztgt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3392,7 +3390,7 @@ Note
   border-bottom-width: 0;
 }
 
-#vinwwdsamy .gt_subtitle {
+#ytlyhiztgt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3404,7 +3402,7 @@ Note
   border-top-width: 0;
 }
 
-#vinwwdsamy .gt_heading {
+#ytlyhiztgt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3416,13 +3414,13 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_bottom_border {
+#ytlyhiztgt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_col_headings {
+#ytlyhiztgt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3437,7 +3435,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_col_heading {
+#ytlyhiztgt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3457,7 +3455,7 @@ Note
   overflow-x: hidden;
 }
 
-#vinwwdsamy .gt_column_spanner_outer {
+#ytlyhiztgt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3469,15 +3467,15 @@ Note
   padding-right: 4px;
 }
 
-#vinwwdsamy .gt_column_spanner_outer:first-child {
+#ytlyhiztgt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vinwwdsamy .gt_column_spanner_outer:last-child {
+#ytlyhiztgt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vinwwdsamy .gt_column_spanner {
+#ytlyhiztgt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3489,11 +3487,11 @@ Note
   width: 100%;
 }
 
-#vinwwdsamy .gt_spanner_row {
+#ytlyhiztgt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vinwwdsamy .gt_group_heading {
+#ytlyhiztgt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3519,7 +3517,7 @@ Note
   text-align: left;
 }
 
-#vinwwdsamy .gt_empty_group_heading {
+#ytlyhiztgt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3534,15 +3532,15 @@ Note
   vertical-align: middle;
 }
 
-#vinwwdsamy .gt_from_md > :first-child {
+#ytlyhiztgt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vinwwdsamy .gt_from_md > :last-child {
+#ytlyhiztgt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vinwwdsamy .gt_row {
+#ytlyhiztgt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3561,7 +3559,7 @@ Note
   overflow-x: hidden;
 }
 
-#vinwwdsamy .gt_stub {
+#ytlyhiztgt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3574,7 +3572,7 @@ Note
   padding-right: 5px;
 }
 
-#vinwwdsamy .gt_stub_row_group {
+#ytlyhiztgt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3588,15 +3586,15 @@ Note
   vertical-align: top;
 }
 
-#vinwwdsamy .gt_row_group_first td {
+#ytlyhiztgt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vinwwdsamy .gt_row_group_first th {
+#ytlyhiztgt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vinwwdsamy .gt_summary_row {
+#ytlyhiztgt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3606,16 +3604,16 @@ Note
   padding-right: 5px;
 }
 
-#vinwwdsamy .gt_first_summary_row {
+#ytlyhiztgt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_first_summary_row.thick {
+#ytlyhiztgt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vinwwdsamy .gt_last_summary_row {
+#ytlyhiztgt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3625,7 +3623,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_grand_summary_row {
+#ytlyhiztgt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3635,7 +3633,7 @@ Note
   padding-right: 5px;
 }
 
-#vinwwdsamy .gt_first_grand_summary_row {
+#ytlyhiztgt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3645,7 +3643,7 @@ Note
   border-top-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_last_grand_summary_row_top {
+#ytlyhiztgt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3655,11 +3653,11 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_striped {
+#ytlyhiztgt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vinwwdsamy .gt_table_body {
+#ytlyhiztgt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3668,7 +3666,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_footnotes {
+#ytlyhiztgt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3682,7 +3680,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_footnote {
+#ytlyhiztgt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3691,7 +3689,7 @@ Note
   padding-right: 5px;
 }
 
-#vinwwdsamy .gt_sourcenotes {
+#ytlyhiztgt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3705,7 +3703,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#vinwwdsamy .gt_sourcenote {
+#ytlyhiztgt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3713,80 +3711,80 @@ Note
   padding-right: 5px;
 }
 
-#vinwwdsamy .gt_left {
+#ytlyhiztgt .gt_left {
   text-align: left;
 }
 
-#vinwwdsamy .gt_center {
+#ytlyhiztgt .gt_center {
   text-align: center;
 }
 
-#vinwwdsamy .gt_right {
+#ytlyhiztgt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vinwwdsamy .gt_font_normal {
+#ytlyhiztgt .gt_font_normal {
   font-weight: normal;
 }
 
-#vinwwdsamy .gt_font_bold {
+#ytlyhiztgt .gt_font_bold {
   font-weight: bold;
 }
 
-#vinwwdsamy .gt_font_italic {
+#ytlyhiztgt .gt_font_italic {
   font-style: italic;
 }
 
-#vinwwdsamy .gt_super {
+#ytlyhiztgt .gt_super {
   font-size: 65%;
 }
 
-#vinwwdsamy .gt_footnote_marks {
+#ytlyhiztgt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vinwwdsamy .gt_asterisk {
+#ytlyhiztgt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vinwwdsamy .gt_indent_1 {
+#ytlyhiztgt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vinwwdsamy .gt_indent_2 {
+#ytlyhiztgt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vinwwdsamy .gt_indent_3 {
+#ytlyhiztgt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vinwwdsamy .gt_indent_4 {
+#ytlyhiztgt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vinwwdsamy .gt_indent_5 {
+#ytlyhiztgt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vinwwdsamy .katex-display {
+#ytlyhiztgt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vinwwdsamy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ytlyhiztgt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Year by Presidential Party</td>
+<th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Year by Presidential Party</th>
 </tr>
 <tr class="gt_col_headings even">
 <th id="start_year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">start_year</th>
@@ -3842,7 +3840,7 @@ Note
 </div>
 <p>Next, your instructor took the <code>yes_votes</code> data and filtered out just the United States data and then joined by year to add the party affiliation of the president for each year of UN votes. To create the visualization with the smoothed model, but color by party affiliation, she had to add a new column called <code>predict</code> that fit the model first instead of using <code>geom_smooth()</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>yes_votes <span class="sc">|&gt;</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"United States"</span>) <span class="sc">|&gt;</span>  <span class="co">#we want to focus on the US</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(politics_year, </span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span> <span class="ot">=</span> <span class="st">"start_year"</span>)) <span class="sc">|&gt;</span> <span class="co">#adding in president political affiliation data</span></span>
@@ -3867,7 +3865,7 @@ Note
 <span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co">#changes appearance</span></span>
 <span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>),</span>
 <span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"Democratic"</span>, <span class="st">"Republican"</span>)) <span class="sc">+</span> <span class="co">#sets specific colors for each party</span></span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)  <span class="co">#moves legend to bottom to create space</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)  <span class="co">#moves legend to bottom to create space</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3947,14 +3945,13 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -4359,7 +4356,7 @@ Note
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="sourceCode" id="cb26" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "PA 8: United Nations Voting Records"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Instructions"</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
@@ -4940,7 +4937,7 @@ Note
 <span id="cb26-627"><a href="#cb26-627" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"Democratic"</span>, <span class="st">"Republican"</span>)) <span class="sc">+</span> <span class="co">#sets specific colors for each party</span></span>
 <span id="cb26-628"><a href="#cb26-628" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)  <span class="co">#moves legend to bottom to create space</span></span>
 <span id="cb26-629"><a href="#cb26-629" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
