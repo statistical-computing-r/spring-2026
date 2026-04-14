@@ -261,16 +261,16 @@ Carry out the following steps:
 
 **Question 12** -- Navigate to the last sentence of your the Quarto document. Insert a new code chunk.  
 
-**Question 11** -- In the new code chunk, add the code for the graph. Be sure to include a code chunk label and alt text.  
+**Question 13** -- In the new code chunk, add the code for the graph. Be sure to include a code chunk label and alt text.  
 
-**Question 12** -- Run your code chunk to obtain the output for your new graph.  
+**Question 14** -- Run your code chunk to obtain the output for your new graph.  
 
-**Question 13** -- Create a numbered list containing:
+**Question 15** -- Create a numbered list containing:
 
 -   Your conclusions (in the context of these data) based on the graph.  
 -   A recommendation for how I should get my guinea pig's teeth (odontoblasts) to grow more.  
 
-**Question 13** -- Create another section header, describing the contents of
+**Question 16** -- Create another section header, describing the contents of
 this section before the graph and list.  
 
 ## Render Your Document
