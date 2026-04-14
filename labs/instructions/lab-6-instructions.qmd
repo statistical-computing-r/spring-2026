@@ -63,7 +63,7 @@ Now you should be set up and ready to go!
 
 
 ### Step 6: Add Files to your Project
-Be sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week's lab file into the folder and create a `data-raw` and `data-clean` folder and store the provided data appropriately:
+Be sure to set up a GitHub repository and then use Version Control to set up your Lab R Project so it is connected. Then download this week's lab file into the folder and create a `data-raw` and `data-clean` folder and store the provided data appropriately:
 
 + [lab-6-student.qmd](../student/lab-6-student.qmd) 
 + The data for the lab are coming from [TidyTuesday](https://github.com/rfordatascience/tidytuesday),

@@ -1,46 +1,22 @@
 ---
 title: "Lab 7: Murder in SQL City"
 subtitle: "`join` + `filter` + `stringr` + `ludridate`"
-format: 
-  html:
-    code-tools: true
-    toc: true
-    number-sections: true
+author: "Your name here!"
+format: gfm
 editor: source
 execute: 
-  error: true
   echo: true
-  message: false
   warning: false
 ---
 
+# Set-up
+
 For this lab, you will be joining and filtering related data sets to solve a murder mystery!
 
-# Part 1: GitHub Workflow
-
-At the top of the document (in the YAML) there is an `author` line that says 
-`"Your name here!"`. Change this to be your name and save your file either by
-clicking on the blue floppy disk or with a shortcut (command / control + s). 
-
-Be sure to [commit the files to your repo](https://happygitwithr.com/existing-github-first#stage-and-commit). 
-
-Let's get started!
+<!-- See instructions for words of advice on completing the assignment IN THE INSTRUCTIONS! -->
 
 
-# Part 2: Some Words of Advice
-
--   Set chunk options carefully.
-
--   Make sure you don't print out more output than you need.
-
--   Make sure you don't assign more objects than necessary---avoid "object junk"
-in your environment.
-
--   Make your code readable and nicely formatted.
-
--   Think through your desired result **before** writing any code.
-
-# Part 3: Finding the Killer
+# Finding the Killer
 
 Northwestern University's Knight Lab wanted to help sharpen users' database
 skills, so they created a murder mystery. Can you solve this crime in SQL City??
@@ -65,19 +41,20 @@ library(tidyverse)
 # If purrr is not detected, install the package
 if (!"purrr" %in% installed.packages()) install.packages("purrr")
 
-source("https://raw.githubusercontent.com/jcanner/stat_210_2025_website/main/labs/instructions/lab-7-setup.R")
+source("https://raw.githubusercontent.com/statistical-computing-r/spring-2026/main/labs/instructions/lab-7-setup.R")
 ```
+
 
 ## Solve the Crime
 
-### Crime Scene Report
+### Step 1: Crime Scene Report
 
 Detective Wickham reaches out to you...
 
 > A crime has taken place and I need your help! There was a murder in SQL City sometime on January 15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!
 
 
-**Step 1: Find the police report in `crime_scene_report`. Then used the information in the report to move on to the next data source based on the information learned.**
+**Find the police report in `crime_scene_report`. Then used the information in the report to move on to the next data source based on the information learned.**
 
 ```{r}
 # Code for looking at the relevant crime scene report.
@@ -86,9 +63,9 @@ Detective Wickham reaches out to you...
 ```
 
 
+## Next Step
 
-
-**Next Steps: Follow the evidence to the person responsible for the murder, building a report as you go.**
+**Follow the evidence to the person responsible for the murder, building a report as you go.**
 There are accomplices, some knowingly and some unknowingly, but there is only one mastermind.
 
 
@@ -96,11 +73,13 @@ Solve the murder mystery, showing **all of your work in this document**. Your
 document and code must be well organized, easy to follow, and reproducible.
 
 + Use headers and written descriptions to indicate what you are doing.
++ Use separate **labeled** code-chunks for each complete pipe/output  
 + Use `dplyr` verbs and `join` functions rather than just looking through the
 tables manually. Functions from `stringr` and `lubridate` will also be useful.
 + Use good code formatting practices.
 + Comment your code.
 + Cite any external sources you use to solve the mystery.
+
 
 
 
