@@ -126,6 +126,7 @@ divide_and_round <- function(vec){
 
 ```{r}
 #| label: q2-solution
+#| echo: false
 #| eval: true
 divide_and_round <- function(vec){
   round(vec/min(vec, na.rm = TRUE))

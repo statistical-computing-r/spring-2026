@@ -1,0 +1,207 @@
+---
+title: "Join Data with dplyr"
+format: html
+embed-resources: true
+---
+
+```{r setup}
+#| label: setup
+library(tidyverse)
+library(nycflights13)
+```
+
+
+```{r}
+#| label: toy-data
+
+band <- tribble(
+   ~name,     ~band,
+  "Mick",  "Stones",
+  "John", "Beatles",
+  "Paul", "Beatles"
+)
+
+instrument <- tribble(
+    ~name,   ~plays,
+   "John", "guitar",
+   "Paul",   "bass",
+  "Keith", "guitar"
+)
+
+instrument2 <- tribble(
+    ~artist,   ~plays,
+   "John", "guitar",
+   "Paul",   "bass",
+  "Keith", "guitar"
+)
+```
+
+# nycflights13
+
+<!-- Note - we don't want to evaluate the `View` functions when we render the document. -->
+
+```{r}
+#| eval: false
+View(flights)
+```
+
+```{r}
+#| eval: false
+View(airlines)
+```
+
+
+# mutating joins
+
+```{r}
+#| label: left-join
+#keeps the data in band and adds matching columns from instrument
+band |> left_join(instrument, by = "name")
+```
+
+
+```{r}
+#| label: right-join
+#keeps the data in instrument and adds matching columns from band
+band |> right_join(instrument, by = "name")
+```
+
+
+```{r}
+#| label: full-join
+#keeps columns from both band and instrument
+band |> full_join(instrument, by = "name")
+```
+
+
+```{r}
+#| label: inner-join
+#keeps only that which matches both band and instrument
+band |> inner_join(instrument, by = "name")
+```
+
+
+## Your Turn 1a
+
+Which airlines had the largest arrival delays? Complete the code below.
+
+1. Join `airlines` to `flights`
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: match-airlines-fligths
+
+flights |>
+  drop_na(arr_delay) |>
+  ___________(airlines, by = "_________")  |>
+  head() 
+```
+
+## Your Turn 1b
+
+Which airlines had the largest arrival delays? Complete the code below.
+
+1. Join `airlines` to `flights`
+2. Compute and order the average arrival delays by airline. Display full names, no codes.
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: avg-arrival-delay
+
+flights |>
+  drop_na(arr_delay) |>
+  __________________  |>
+  group_by(_________) |>
+  __________________  |>
+  arrange(__________) 
+```
+
+## Your Turn 2a
+
+Join `flights` and `airports` by `dest` and `faa`. 
+
+
+```{r}
+#| label: join-flights-airports
+
+flights |> 
+  drop_na(arr_delay) |>
+  ______(airports, __________________) |>
+  head()
+```
+
+
+## Your Turn 2b
+
+Join `flights` and `airports` by `dest` and `faa`. 
+
+Then for each `name`, compute the `distance` from NYC and the average `arr_delay`.  *Hint: use `first()` to get the first value of distance.*
+
+Order by average delay, worst to best.
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: avg-distance
+
+flights |> 
+  drop_na(arr_delay) |>
+  ______(airports, __________________) |>
+  group_by(name) |>
+  _________(distance = _____________, delay = _____________) |>
+  ______(_____(delay))
+
+```
+
+
+
+# filtering joins
+
+```{r}
+#| label: semi-join
+band |> semi_join(instrument, by = "name")
+```
+
+
+```{r}
+#| label: anti-join
+band |> anti_join(instrument, by = "name")
+```
+
+## Your Turn 3
+
+How many airports in `airports` are serviced by flights in `flights`? (i.e. how many places can you fly to direct from New York?) 
+
+Notice that the column to join on is named `faa` in the **airports** data set and `dest` in the **flights** data set.
+
+```{r}
+#| label: airports-nyc
+__________ |>
+  _____________________________ |>
+  select(faa)
+```
+
+
+# Other Functions  
+
+```{r}
+#| label: distinct
+
+instruments |> 
+  distinct(plays)
+```
+
+
+# Take aways
+
+* `left_join()` retains all cases in _left_ data set
+* `right_join()` retains all cases in _right_ data set
+* `full_join()` retains all cases in _either_ data set
+* `inner_join()` retains _only_ cases in _both_ data sets
+
+* `semi_join()` extracts cases that _have_ a match
+* `anti_join()` extracts cases that _do not have_ a match 
+
+

@@ -1,0 +1,118 @@
+---
+title: "Data Types - Factors"
+format: html
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(babynames) #may need to install
+library(nycflights13)
+```
+
+# Logicals
+
+## Your Turn 1
+
+Use `flights` to create `delayed`, a variable that displays whether a flight was delayed (`arr_delay > 0`).
+
+Then, remove all rows that contain an NA in `delayed`. 
+
+Finally, create a summary table that shows:
+
+1. How many flights were delayed  
+2. What proportion of flights were delayed
+
+```{r}
+flights |>
+  ___________(delayed = arr_delay > 0) |>
+  ___________(delayed) |>
+  ___________(total = _____(delayed), 
+              prop = _____(delayed))
+```
+
+
+
+# Factors
+
+## Your Turn 2
+
+Repeat the demonstration, some of whose code is below, to make a sensible graph of average TV consumption by marital status.
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+gss_cat |>
+  drop_na(________) |>
+  group_by(________) |>
+  summarise(_________________) |>
+  ggplot() +
+    geom_point(mapping = aes(x = _______, 
+                             y = _________________________))
+```
+
+## Your Turn 3
+
+Do you think liberals or conservatives watch more TV?
+Compute average tv hours by party ID an then plot the results.
+
+```{r}
+
+```
+
+
+
+## Additional Modification
+
+```{r}
+gss_cat |>
+  _______(tvhours) |>
+  _______(partyid = fct_recode(partyid,
+                              "Republican, strong" = "Strong republican",
+                              "Republican, weak" = "Not str republican",
+                              "Independent, near rep" = "Ind,near rep",
+                              "Independent, near dem" = "Ind,near dem",
+                              "Democrat, weak" = "Not str democrat",
+                              "Democrat, strong" = "Strong democrat")) |> 
+  _______(partyid) |>
+  _______(tv_avg = mean(tvhours)) |>
+  ggplot(aes(x = tv_avg, 
+             y = fct_reorder(partyid, tv_avg))) +
+  geom_point() + 
+  labs(y = "partyid")
+```
+
+```{r}
+#levels(gss_cat$partyid)
+gss_cat |>
+  _______(tvhours) |>
+  _______(partyid = fct_collapse(partyid,
+                                conservative = c("Strong republican", 
+                                                 "Not str republican", 
+                                                 "Ind,near rep"),
+                                liberal = c("Strong democrat", 
+                                            "Not str democrat", 
+                                            "Ind,near dem"))) |> 
+  ________(partyid) |>
+  ________(tv_avg = mean(tvhours)) |>
+  ggplot(aes(x = tv_avg, 
+             y = fct_reorder(partyid, tv_avg))) +
+  geom_point() + 
+  labs(y = "partyid")
+```
+
+
+***
+
+# Take Aways
+
+Dplyr gives you three _general_ functions for manipulating data: `mutate()`, `summarise()`, and `group_by()`. Augment these with functions from the packages below, which focus on specific types of data.
+
+Package   | Data Type
+--------- | --------
+stringr   | strings
+forcats   | factors
+hms       | times
+lubridate | dates and times
+
