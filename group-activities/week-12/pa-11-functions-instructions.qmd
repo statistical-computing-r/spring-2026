@@ -1,0 +1,403 @@
+---
+title: "PA 11: Writing Functions"
+author: "Instructions"
+format: html
+code-tools: true
+toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  eval: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| eval: true
+library(tidyverse)
+```
+
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
+
+::: {.callout-note}
+The partner has had the most pets over their lifetime will start as the Computer (typing and listening to instructions from the Coder). 
+:::
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
+
+
+## Goals for the Activity  
+
+- Create functions to transform your data  
+- Use created functions when they do not exist in packages  
+- Test your functions for generalized use  
+
+
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- *add labels* to all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+
+## Setting up your Project
+
+Your project should have the following components:
+
+1. completed [pa-11-functions-activity.qmd](../week-12/pa-11-functions-activity.qmd)
+2. rendered file as `.html`
+
+
+::: {.callout-important}
+The original `Computer` should submit the zip file for the canvas quiz. The original `Coder` can just submit the rendered html file. 
+
+`Computer` - Be sure to share the final .qmd, .png, and .html file with the original `Coder`.
+:::
+
+
+
+# Building Your Functions
+
+You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you below, but **none** of them are complete as is.
+
+
+## Function 1: `divide_and_round()`
+
+**1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number.** 
+
+::: {.callout-note}
+## Hint
+This code should not be a function. Consider using the existing functions `round()` and `min()` and don't forget to account for `NA` values.  
+:::
+
+```{r}
+#| label: q1
+(nums <- 3:12)
+
+```
+
+
+```{r}
+#| label: q1-solution
+#| echo: false
+#| eval: true
+nums <- 3:12
+
+round(nums/min(nums, na.rm = TRUE))
+
+```
+
+**2. Turn your code from Q1 into a function called `divide_and_round()`.** Fill in the skeleton code below.
+
+```{r}
+#| label: q2
+
+divide_and_round <- function(vec){
+  
+}
+```
+
+```{r}
+#| label: q2-solution
+#| eval: true
+divide_and_round <- function(vec){
+  round(vec/min(vec, na.rm = TRUE))
+}
+```
+
+
+**3. Test your function by running the code below.**
+
+```{r}
+#| label: q3
+#| eval: true
+test <- c(5:10, NA)
+divide_and_round(test)  #you should see mostly values of 1 and 2, plus an NA
+```
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+
+## Function 2: `no_nines_or_twelves()`
+
+
+**4. Write code to manipulate the vector of numbers `nums`. Your code should, for each element, return `TRUE` if the number is NOT divisible by 9 _OR_ 12, and return `FALSE` otherwise.** 
+
+::: {.callout-note}
+## Hint 
+This code should not be a function.  Note - the function `%%` is handy here - look it up if you do not know what it does.
+:::
+
+```{r}
+#| label: q4
+
+ifelse(nums %% 9 == 0 ___ nums %% 12 == 0, ____ , ____)  #it should say FALSE for 9 and 12 positions
+ 
+```
+
+
+
+```{r}
+#| label: q4-solution
+#| echo: false
+#| eval: true
+ifelse(nums %% 9 == 0 | nums %% 12 == 0, FALSE , TRUE)  #it should say FALSE for 9 and 12 positions
+ 
+```
+
+
+
+**5. Turn your code from Q4 into a function called `no_nines_or_twelves()`.**
+
+```{r}
+#| label: q5
+
+no_nines_or_twelves <- function(vec) {
+
+}  
+```
+
+
+```{r}
+#| label: q5-solution
+#| eval: true
+no_nines_or_twelves <- function(vec) {
+  ifelse(vec %% 9 == 0 | vec %% 12 == 0, FALSE , TRUE)
+}
+
+```
+
+**6. Test your function by running the code below.**
+
+```{r}
+#| label: q6
+#| eval: true
+test <- c(seq(from = 15, to = 60, by = 5), NA)
+test
+no_nines_or_twelves(test)  #45 and 60 should have FALSE in their positions and NA in the last
+```
+
+## Function 3: `every_other()`
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+**7. Write a function called `every_other()`. This function should take in a vector and return every other value in the vector. Include an optional argument called `start` which lets you choose where to start skipping; that is, if `start = 1`, the function returns the 1st, 3rd, 5th, etc. values and if `start = 2`, the function returns the 2nd, 4th, 6th, etc. values.** 
+
+::: {.callout-note}
+## Hint 
+**Do not** use a `for()` loop to do this! Accomplish this with the `seq_along()` function, bracket subsetting (`[]`), and modulus arithmetic (`%%`).
+:::
+
+
+```{r}
+#| label: help-code-q7
+#| eval: true
+# the following identify if a value is even or odd
+(seq_along(nums)) %% 2 == 0
+
+(seq_along(nums)) %% 2 > 0
+
+# using [] to subset will keep values with TRUE in that element's position
+
+nums[(seq_along(nums)) %% 2 == 0]  #should return even numbers
+nums[(seq_along(nums)) %% 2 > 0]  #should return odd numbers
+```
+
+
+Fill in the skeleton below. Remember to add an argument `start` where the default should be `start` as 1.
+
+```{r}
+#| label: q7
+
+every_other <- function(vec, _________){
+  
+  if (start == 2) {
+    vec[]
+  } 
+  
+  else if (start == 1) {
+    vec[]
+  }
+
+}
+```
+
+```{r}
+#| label: q7-solution
+#| echo: false
+#| eval: true
+every_other <- function(vec, start = 1){
+  
+  if (start == 2) {
+    vec[(seq_along(vec)) %% 2 == 0]
+  } 
+  
+  else if (start == 1) {
+    vec[(seq_along(vec)) %% 2 > 0]
+  }
+
+}
+```
+
+
+
+**8. Test your function by running the code below.**
+
+```{r}
+#| label: q8
+#| eval: true
+test <- c(1:10)
+
+every_other(test, start = 1) #return odds
+every_other(test, start = 2) #return evens
+```
+
+
+## Function 4: `shorten()`
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+**9. Write a function called `shorten()`. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector.**
+
+::: {.callout-note}
+## Hint
+**Do not** use a `while()` loop to do this! Accomplish this with the `cumsum()` function and bracketing.
+:::
+
+Here is an example of testing if the cumulative sum is greater than or equal to 30.
+```{r}
+#| label: help-q9
+#| eval: true
+# look at the following - which completes the task needed
+
+cumsum(nums)
+cumsum(nums) >= 30
+nums[cumsum(nums) >= 30]  #returns only numbers 8+
+```
+
+
+```{r}
+#| label: q9
+# x is the vector and sum is the value you want the numbers to sum greater than
+shorten <- function(x, sum){
+  
+}
+
+```
+
+
+```{r}
+#| label: q9-solution
+#| echo: false
+#| eval: true
+
+shorten <- function(x, sum){
+  x[cumsum(x) >= sum] 
+}
+
+```
+
+**10. Test your function by running the code below.**
+
+```{r}
+#| label: q10
+#| eval: true
+test <- 20:50 
+shorten(test, 350) #should be 33+
+```
+
+## Putting Them All Together
+
+**11. Once you have written your four functions correctly, run the following code:**
+
+```{r}
+#| label: q11
+#remember to use the green arrow to run the whole code chunk
+my_vec <- c(39, 1.87, 48, 11, 8, 45, 21, 5, 12, 33, 9, 11, 108,
+            4, 18, 5, 16, 17, 8, 48, 27, 24, 4, 22, 12, 27, 23,
+            46, 42, 35, 15, 34, 36, 26, 18, 10, 18.21, 72.04,
+            36.9, 41.81, 29, 89.75, 34.03, 20.18, 48.74, 15.76,
+            31.86, 83.6, 43.55, 39.99, 23.55, 8.54, 24.71, 22.02,
+            9.71, 62.14, 35.46, 16.61, 15.66, 21.29, 30.52,
+            201.07, 45.81, 7.85, 30.13, 34.14, 22.62, 10.2, 6.02,
+            30.12, 10.64, 31.72, 24.57, 14.43, 43.37, 89.93,
+            44.72, 51.32, 13.62, 45.56, 22.96, 7.05, 29.99, 41.38,
+            26.59, 23.04, 19.82, 50.73, 39.56, 43.79, 30.22, 85.85,
+            5.78, 78.85, 29.52, 66.27, 44.06, 27.28, 24.43, 64.32,
+            3.35, 67.45, 46.72, 48.44, 48.65, 33.3, 40.28, 19.04)
+
+my_vec <- every_other(my_vec, start = 2)
+# Should have 54 elements! 
+
+my_vec <- divide_and_round(my_vec)
+
+my_vec <- every_other(my_vec, start = 1)
+# Should have 27 elements!
+
+my_vec <- shorten(my_vec, 350)
+# Should have 12 elements!
+
+my_vec <- my_vec[no_nines_or_twelves(my_vec)]
+# Should have 6 elements! 
+
+my_vec <- sort(my_vec)
+
+my_vec
+```
+
+
+### Canvas Submission
+
+If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show they are famously associated with as your final answer and submit to Canvas.
+
+
+# Challenge (If Time)
+
+Try to rewrite your functions to be pipe enabled. To do this, you would need to specify `data` and `var` as minimum arguments.  Here is an example function.
+
+
+```{r}
+#| lable: pipe-function
+#| eval: true
+
+temps <- data.frame(temp_c = c(0, 100, 20, 15))
+
+
+convert_c_f <- function(data, var) {
+  data |> 
+    mutate(temp_f = {{var}}*1.8 + 32)
+}
+
+temps |> 
+  convert_c_f(temp_c)
+
+
+```
+

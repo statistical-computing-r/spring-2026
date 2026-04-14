@@ -98,6 +98,8 @@ website:
             text: "Pair Activity 9: COVID-19 Infections and Impact on States"
           - href: group-activities/week-11/pa-10-covid-time-instructions.qmd
             text: "Pair Activity 10: COVID-19 Infections and California"
+          - href: group-activities/week-12/pa-11-functions-instructions.qmd
+            text: "Pair Activity 11: Writing Functions"
 
       - section: "Labs" 
         contents:
@@ -121,8 +123,8 @@ website:
         contents:
           - href: portfolio/portfolio-overview.qmd
             text: "Portfolio Part 1"
-          # - href: portfolio/portfolio-part-2.qmd
-          #   text: "Portfolio Part 2"
+          - href: portfolio/portfolio-part-2.qmd
+            text: "Portfolio Part 2"
 
 
 format:
