@@ -63,7 +63,7 @@ Detective Wickham reaches out to you...
 ```
 
 
-## Next Step
+### Next Step
 
 **Follow the evidence to the person responsible for the murder, building a report as you go.**
 There are accomplices, some knowingly and some unknowingly, but there is only one mastermind.

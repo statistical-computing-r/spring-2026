@@ -1,8 +1,8 @@
 ---
 title: "Lab 8: Functions + Fish"
+author: "Instructions"
 format: 
   html:
-    code-tools: true
     toc: true
 editor: source
 execute: 
@@ -12,15 +12,21 @@ execute:
   message: false
   warning: false
 ---
+
+
+The goal of this lab is learn more about exploring missing data and writing
+modular code and functions.
+
+
 # Part One: Set-up
 
 ## GitHub Workflow
 
-We will use GitHub Classroom to submit Lab 7.
+We will use GitHub Classroom to submit Lab 8.
 
 ### Step 1: Access GitHub Classroom Assignment  
 
-Click on the following link to create your repository for [Lab 7: Murder in SQL City](https://classroom.github.com/a/8ZOSYk49).  
+Click on the following link to create your repository for [Lab 8: Functions + Fishes](https://classroom.github.com/a/LNt6lY2P).  
 
 
 ::: {.callout-warning} 
@@ -84,8 +90,6 @@ I advise you to focus particularly on:
 :::
 
 
-The goal of this lab is learn more about exploring missing data and writing
-modular code and functions.
 
 
 

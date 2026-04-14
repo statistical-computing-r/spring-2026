@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../portfolio/portfolio-overview.html" rel="next">
+<link href="../../labs/instructions/lab-8-instructions.html" rel="next">
 <link href="../../labs/instructions/lab-6-instructions.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -549,6 +549,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 7 Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-8-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 8 Instructions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -596,14 +602,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-6-add-files-to-your-project" id="toc-step-6-add-files-to-your-project" class="nav-link" data-scroll-target="#step-6-add-files-to-your-project">Step 6: Add Files to your Project</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#part-3-finding-the-killer" id="toc-part-3-finding-the-killer" class="nav-link" data-scroll-target="#part-3-finding-the-killer">Part 3: Finding the Killer</a>
+  <li><a href="#part-two-finding-the-killer" id="toc-part-two-finding-the-killer" class="nav-link" data-scroll-target="#part-two-finding-the-killer">Part Two: Finding the Killer</a>
   <ul class="collapse">
   <li><a href="#access-the-data" id="toc-access-the-data" class="nav-link" data-scroll-target="#access-the-data">Access the Data</a></li>
   <li><a href="#solve-the-crime" id="toc-solve-the-crime" class="nav-link" data-scroll-target="#solve-the-crime">Solve the Crime</a>
   <ul class="collapse">
   <li><a href="#step-1-crime-scene-report" id="toc-step-1-crime-scene-report" class="nav-link" data-scroll-target="#step-1-crime-scene-report">Step 1: Crime Scene Report</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#identify-the-mastermind" id="toc-identify-the-mastermind" class="nav-link" data-scroll-target="#identify-the-mastermind">Identify the Mastermind!</a></li>
   </ul></li>
-  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next Step</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -638,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this lab, we will be using the <strong>tidyr</strong> and <strong>forcats</strong> packages to explore the cost of childcare across the US. <strong>You are expected to use functions from tidyr and forcats to do your data manipulation!</strong></p>
+<p>For this lab, you will be joining and filtering related datasets to solve a murder mystery!</p>
 <section id="part-one-set-up" class="level1">
 <h1>Part One: Set-up</h1>
 <section id="github-workflow" class="level2">
@@ -684,7 +691,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-6-add-files-to-your-project" class="level3">
 <h3 class="anchored" data-anchor-id="step-6-add-files-to-your-project">Step 6: Add Files to your Project</h3>
-<p>Be sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week’s lab file into the folder and create a <code>data-raw</code> and <code>data-clean</code> folder and store the provided data appropriately:</p>
+<p>Be sure to set up a GitHub repository and then use Version Control to set up your Lab R Project so it is connected. Then download this week’s lab file into the folder and create a <code>data-raw</code> and <code>data-clean</code> folder and store the provided data appropriately:</p>
 <ul>
 <li><a href="../student/lab-7-student.qmd">lab-7-student.qmd</a></li>
 <li>The data for the lab are coming from a database that you will import (code is provided). It includes several different data sets.</li>
@@ -725,12 +732,11 @@ Tip
 </div>
 </div>
 </div>
-<p>For this lab, you will be joining and filtering related datasets to solve a murder mystery!</p>
 </section>
 </section>
 </section>
-<section id="part-3-finding-the-killer" class="level1">
-<h1>Part 3: Finding the Killer</h1>
+<section id="part-two-finding-the-killer" class="level1">
+<h1>Part Two: Finding the Killer</h1>
 <p>Northwestern University’s Knight Lab wanted to help sharpen users’ database skills, so they created a murder mystery. Can you solve this crime in SQL City??</p>
 <p>The relational data you will be working with contains tables with different pieces of information pertinent to the crime - people, social media check-ins, driver’s licenses, crime scene reports, police interviews, and more!</p>
 <div class="quarto-figure quarto-figure-center">
@@ -777,9 +783,8 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for looking at the relevant crime scene report.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-</section>
-<section id="next-step" class="level2">
-<h2 class="anchored" data-anchor-id="next-step">Next Step</h2>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next Steps</h3>
 <p><strong>Follow the evidence to the person responsible for the murder, building a report as you go.</strong></p>
 <p>Solve the murder mystery, showing <strong>all of your work in this document</strong>. Your document and code must be well organized, easy to follow, and reproducible.</p>
 <ul>
@@ -804,6 +809,9 @@ Caution
 <p>Make sure you check for interviews with any suspects!</p>
 </div>
 </div>
+</section>
+<section id="identify-the-mastermind" class="level3">
+<h3 class="anchored" data-anchor-id="identify-the-mastermind">Identify the Mastermind!</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -819,6 +827,7 @@ Caution
 </div>
 
 
+</section>
 </section>
 </section>
 
@@ -1243,8 +1252,8 @@ Caution
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../portfolio/portfolio-overview.html" class="pagination-link" aria-label="Portfolio Part 1">
-        <span class="nav-page-text">Portfolio Part 1</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../labs/instructions/lab-8-instructions.html" class="pagination-link" aria-label="Lab 8 Instructions">
+        <span class="nav-page-text">Lab 8 Instructions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

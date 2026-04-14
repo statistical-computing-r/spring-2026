@@ -14,8 +14,7 @@ execute:
   warning: false
 ---
 
-In this lab, we will be using the **tidyr** and **forcats** packages to explore
-the cost of childcare across the US. **You are expected to use functions from tidyr and forcats to do your data manipulation!**
+For this lab, you will be joining and filtering related datasets to solve a murder mystery!
 
 
 # Part One: Set-up
@@ -90,7 +89,7 @@ I advise you to focus particularly on:
 :::
 
 
-For this lab, you will be joining and filtering related datasets to solve a murder mystery!
+
 
 
 # Part Two: Finding the Killer
@@ -160,7 +159,7 @@ crime_scene_report |>
 ```
 
 
-## Next Step
+### Next Steps
 **Follow the evidence to the person responsible for the murder, building a report as you go.**
 
 Solve the murder mystery, showing **all of your work in this document**. Your
@@ -240,6 +239,9 @@ hire_suspects |>
 ::: callout-caution
 Make sure you check for interviews with any suspects!
 :::
+
+
+### Identify the Mastermind!
 
 ::: callout-note
 ## And the final suspect is...
