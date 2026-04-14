@@ -85,7 +85,7 @@ library(tidyverse)
 # If purrr is not detected, install the package
 if (!"purrr" %in% installed.packages()) install.packages("purrr")
 
-source("https://raw.githubusercontent.com/jcanner/stat_210_2025_website/main/labs/instructions/lab-7-setup.R")
+source("https://raw.githubusercontent.com/statistical-computing-r/spring-2026/main/labs/instructions/lab-7-setup.R")
 ```
 
 ## Solve the Crime

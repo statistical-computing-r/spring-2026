@@ -187,6 +187,7 @@ no_nines_or_twelves <- function(vec) {
 
 ```{r}
 #| label: q5-solution
+#| echo: false
 #| eval: true
 no_nines_or_twelves <- function(vec) {
   ifelse(vec %% 9 == 0 | vec %% 12 == 0, FALSE , TRUE)
