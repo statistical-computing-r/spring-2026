@@ -1,0 +1,206 @@
+---
+title: "Exploratory Data Analysis"
+format: html
+embed-resources: true
+execute: 
+  echo: true
+---
+
+
+```{r}
+#| label: setup
+library(tidyverse)
+```
+
+
+```{r}
+#| label: load-babynames
+babynames <- read_csv("babynames_500.csv")
+```
+
+
+# dplyr - `summarize()`
+
+## Compute a table of summaries
+
+```{r}
+#| label: summarize-data
+
+babynames |> 
+  summarize(total = sum(n),
+            max = max(n))
+```
+
+
+## Your Turn 1
+
+Complete the code below to extract the rows where `name == "Lincoln"`. Then use `summarise()` and `sum()` and `min()` to find:
+
+1. The total number of children named Lincoln
+2. The first year Lincoln appeared in the data
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: popularity-lincoln
+
+babynames ___ 
+  filter(_______________________) ___
+  ___________(total = ________, 
+              first = _______)
+```
+
+
+
+## The `n()` Function
+The `n()` function does not need any input. It simply counts the number of rows in the data frame or tibble.  
+
+```{r}
+#| label: n-rows
+
+babynames |> 
+  summarize(row_n = n())
+```
+
+## The `n_distinct()` Function
+
+```{r}
+#| label: n-distinct-rows
+
+babynames |> 
+  summarize(row_n = n(),
+            name_n = n_distinct(name))
+```
+
+## Name Popularity 
+
+```{r}
+#| label: name-popularity
+
+babynames |> 
+  filter(name == "Judith",
+         sex == "F") |> 
+  summarize(total = sum(n))
+```
+# dplyr - `group_by()`
+
+**NOTE** The `group_by()` function is never used alone. It is always used before either `summarize()` or `mutate()` to communicate to those functions how to perform thier calculations.  
+
+```{r}
+#| label: create-pollution
+#| echo: false
+
+pollution <- tribble(
+  ~city,   ~size, ~amount,
+  "New York", "large", 23,
+  "New York", "small", 14,
+  "London", "large", 22,
+  "London", "small", 16,
+  "Beijing", "large", 121,
+  "Beijing", "small", 56
+)
+```
+
+
+
+```{r}
+#| label: summarize-pollution
+
+pollution |> 
+  summarize(mean = mean(amount),
+            sum = sum(amount),
+            n = n())
+```
+
+```{r}
+#| label: summarize-city-pollution
+
+pollution |> 
+  group_by(city) |> #only new line of code
+  summarize(mean = mean(amount),
+            sum = sum(amount),
+            n = n())
+```
+
+
+```{r}
+#| label: summarize-babynames
+
+babynames |> 
+  group_by(sex) |> 
+  summarize(total = sum(n))
+
+```
+
+
+
+
+
+## Your Turn 2
+
+Use `group_by()`, `summarise()`, and `arrange()` to display the ten most popular names. Compute popularity as the *total* number of children of a single gender given a name.
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: top-10-names
+
+babynames |> 
+  _______(name, sex) |>  
+  _______(total = _____(n)) |> 
+  _______(desc(_____)) |> 
+  head(10)
+```
+
+
+Go ahead and add one the `ggplot` code to make the visualization.
+
+
+# dplyr - `mutate()`
+Use `mutate()` to create NEW columns/variables within your data set.  
+
+
+```{r}
+#| label: percentage-baby
+
+babynames |> 
+  mutate(percent = round(prop*100, 2)) |> 
+  relocate(percent, .before = proportion)
+```
+```{r}
+#| label: percent-2-baby
+
+babynames |> 
+  mutate(percent = round(prop*100, 2),
+         nper = round(percent)) |> 
+  relocate(percent:nper, .before = proportion)
+```
+
+## Your Turn 3
+
+Fill in the blanks to: 
+Rank each name _within its year and sex_. 
+
+*(Hint: Be sure to remove each `_` before running the code)*
+
+```{r}
+#| label: ranking-names
+
+babynames |> 
+  select(name, year, sex, prop) |> 
+  group_by(____, ____) |> 
+  ______(rank = min_rank(____(prop))) |> 
+  arrange(year, sex, rank)
+```
+
+
+***
+
+# Take aways
+
+* Make tables of summaries with `summarise()`  
+* Make new variables, with `mutate()`  
+* Do groupwise operations with `group_by()`
+
+* Connect operations with `%>%` or `|>`  
+

@@ -1,0 +1,219 @@
+---
+title: "Iteration"
+format: html
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(repurrrsive)
+library(broom)
+```
+
+
+```{r}
+#| label: data-prep
+#| message: false
+#| warning: false
+
+names(sw_people) <- sw_people  |>  map_chr("name")
+
+# Toy data
+set.seed(1000)
+exams <- list(
+  student1 = round(runif(10, 50, 100)),
+  student2 = round(runif(10, 50, 100)),
+  student3 = round(runif(10, 50, 100)),
+  student4 = round(runif(10, 50, 100)),
+  student5 = round(runif(10, 50, 100))
+)
+
+extra_credit <- list(0, 0, 10, 10, 15)
+```
+
+
+
+# Mapping
+
+## purrr
+
+
+### Your Turn 1
+
+Run the code in the chunk. What does it do?
+
+```{r}
+#| label: calculate-mean
+#View(exams)
+exams |> map(mean)
+```
+
+### Example
+
+```{r}
+#| label: add-names
+x <- c("hw1","hw2","hw3","hw4","hw5","hw6","hw7","hw8","hw9","hw10") 
+exams |> map(set_names, nm = x)
+```
+
+
+
+### Example- map_dbl()
+
+```{r}
+#| label: mean-table
+exams |> 
+  map(mean)
+```
+
+### Example - map_dfr()
+
+```{r}
+#| label: data-frame-hw
+exams |>
+  map(set_names, nm = x) |>
+  map(bind_rows)
+```
+
+
+
+## map shorthand
+
+
+## Your Turn 2
+
+Complete the code to apply the test below to every element of the list. Return the results as a _logical_ vector.
+
+`length(<input>) == 10`
+
+```{r}
+#| label: ten-items
+exams |>  ______(_________________)
+```
+
+## Your Turn 3
+
+Recompute the grades by dropping the lowest score and then taking the mean of the rest, i.e. Return the results as a _double_ vector.
+
+`(sum(<input>) - min(<input>)) / 9`
+
+```{r}
+#| label: drop-lowest
+exams |> 
+ 
+```
+
+
+## Your Turn 4
+
+Compute a final grade for each student, where the final grade is the average test score plus any `extra_credit` assigned to the student. Return the results as a double (i.e. numeric) vector.
+
+`mean(<exams>) + <extra_credit>`
+
+```{r}
+#| label: extra-credit
+exams  |>  
+  _________(____________, ~________________)
+```
+
+
+# Putting it all together
+
+Here is our data cleaning:
+
+```{r}
+#| label: data-cleaning-tb
+
+#who is already a data set built into R packages
+
+names(who) <- str_replace(names(who), "newrel", "new_rel")
+
+tb <-  
+  who |> 
+  pivot_longer(cols = 5:60, names_to = "codes", values_to = "n") |>  #pivots data
+  separate(codes, c("new", "type", "sexage"), sep = "_") |>  #separates labels into three variables
+  select(-new, -iso2, -iso3) |> # removes unnecessary columns
+  separate(sexage, c("sex", "age"), sep = 1) |>  # separates into sex and age column
+  separate(age, c("age_l", "age_h"), sep = -2) |>  # separates age range into two columns
+  unite(age_l:age_h, col = "age", sep = "-") |>   #puts age range back together with - between values
+  mutate(age = ifelse(age == "-65", "65+", age)) |>  #fixes 65+ value
+  drop_na(n) #drops missing values
+```
+
+
+
+
+Predict TB cases in 2020 for Afghanistan
+
+```{r}
+tb |> 
+  filter(country == "Afghanistan") |>
+  group_by(year) |> 
+  summarise(n = sum(n)) |>
+  ggplot(aes(x = year, y = n)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+```{r}
+tb |> 
+  filter(country == "Afghanistan") |>
+  group_by(year) |> 
+  summarise(n = sum(n)) |> 
+  with(lm(n ~ year)) |> 
+  predict(newdata = tibble(year = 2020)) |> 
+  round()
+```
+
+Predict TB cases in 2020 for each country
+
+```{r}
+tb_predictions <-
+  tb |> 
+  group_by(country, year) |> 
+  summarise(n = sum(n), .groups = "drop_last") |> 
+  group_by(country) |> 
+  nest() |> 
+  mutate(model = map(data, ~lm(n ~ year, data = .x))) |>
+  mutate(pred = map_dbl(model, predict, tibble(year = 2020))) |>
+  mutate(pred = round(pred))
+```
+
+Things that we can now do:
+
+* Which countries will have the most cases?
+* What does the data look like for India?
+* How do the Korea's compare?
+
+
+```{r}
+tb_predictions |> 
+  select(country, pred) |> 
+  arrange(desc(pred))
+```
+
+```{r}
+tb_predictions |>
+  filter(country == "India") |> 
+  unnest(data)
+```
+
+```{r}
+tb_predictions |>
+  filter(str_detect(country,"Korea")) |> 
+  select(country, pred) 
+```
+
+
+***
+
+Take Aways
+
+* Use `View()` to inspect lists
+* Use `pluck()`, `[[ ]]`, or `$` to extract values from lists
+* Use purrr's `map()` functions to manipulate lists
+* Lists can be a column in a data frame
+* Tables are an organizational structure that you can manipulate.
