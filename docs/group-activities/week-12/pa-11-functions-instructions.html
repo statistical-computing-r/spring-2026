@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Instructions">
+
+<title>PA 11: Writing Functions – Statistical Computing with R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../labs/instructions/lab-1-instructions.html" rel="next">
+<link href="../../group-activities/week-11/pa-10-covid-time-instructions.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-60f3bb78d9edfd9da6195e79906ce262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72839eb17864b621457c07ebc0a2ba57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../group-activities/week-2/pa-1-base-r-instructions.html">Pair Programming Activities</a></li><li class="breadcrumb-item"><a href="../../group-activities/week-12/pa-11-functions-instructions.html">Pair Activity 11: Writing Functions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://csumb.instructure.com/courses/31973" title="Course Canvas Site" class="quarto-navigation-tool px-1" aria-label="Course Canvas Site"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-materials/course-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Programming Norms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Weekly materials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5 - Importing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6-7 - Transforming Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Strings, Dates, and Times</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-12-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12 - Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../weeks/week-13-iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13 - Iteration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Pair Programming Activities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-2/pa-1-base-r-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 1: Break the Code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-3/pa-2-vc-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 2: Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-4/pa-3-ggplot-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 3: Plotting Penguins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-5/pa-4-import-tidy-data-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 4: Importing Youth Risk Behavior Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-6/pa-5-dplyr-reshaping-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 5: Identify the Mystery College</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-7/pa-6-summarizing-penguins-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 6: Summarizing Palmer Penguins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-8/pa-7-tidyr-dplyr-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 7: Military Spending</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-9/pa-8-united-nations-voting-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 8: United Nations Voting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-10/pa-9-covid-factors-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 9: COVID-19 Infections and Impact on States</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-11/pa-10-covid-time-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Activity 10: COVID-19 Infections and California</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../group-activities/week-12/pa-11-functions-instructions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pair Activity 11: Writing Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 &amp; Challenge 1 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-2-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-3-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 &amp; Challenge 3 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-4-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 &amp; Challenge 5 Instructions </span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../labs/instructions/lab-6-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6 Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Portfolio</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio Part 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../portfolio/portfolio-part-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio Part 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#groupwork-protocols" id="toc-groupwork-protocols" class="nav-link active" data-scroll-target="#groupwork-protocols">Groupwork Protocols</a>
+  <ul class="collapse">
+  <li><a href="#group-norms" id="toc-group-norms" class="nav-link" data-scroll-target="#group-norms">Group Norms</a></li>
+  <li><a href="#goals-for-the-activity" id="toc-goals-for-the-activity" class="nav-link" data-scroll-target="#goals-for-the-activity">Goals for the Activity</a></li>
+  <li><a href="#setting-up-your-project" id="toc-setting-up-your-project" class="nav-link" data-scroll-target="#setting-up-your-project">Setting up your Project</a></li>
+  </ul></li>
+  <li><a href="#building-your-functions" id="toc-building-your-functions" class="nav-link" data-scroll-target="#building-your-functions">Building Your Functions</a>
+  <ul class="collapse">
+  <li><a href="#function-1-divide_and_round" id="toc-function-1-divide_and_round" class="nav-link" data-scroll-target="#function-1-divide_and_round">Function 1: <code>divide_and_round()</code></a></li>
+  <li><a href="#function-2-no_nines_or_twelves" id="toc-function-2-no_nines_or_twelves" class="nav-link" data-scroll-target="#function-2-no_nines_or_twelves">Function 2: <code>no_nines_or_twelves()</code></a></li>
+  <li><a href="#function-3-every_other" id="toc-function-3-every_other" class="nav-link" data-scroll-target="#function-3-every_other">Function 3: <code>every_other()</code></a></li>
+  <li><a href="#function-4-shorten" id="toc-function-4-shorten" class="nav-link" data-scroll-target="#function-4-shorten">Function 4: <code>shorten()</code></a></li>
+  <li><a href="#putting-them-all-together" id="toc-putting-them-all-together" class="nav-link" data-scroll-target="#putting-them-all-together">Putting Them All Together</a>
+  <ul class="collapse">
+  <li><a href="#canvas-submission" id="toc-canvas-submission" class="nav-link" data-scroll-target="#canvas-submission">Canvas Submission</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#challenge-if-time" id="toc-challenge-if-time" class="nav-link" data-scroll-target="#challenge-if-time">Challenge (If Time)</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../group-activities/week-2/pa-1-base-r-instructions.html">Pair Programming Activities</a></li><li class="breadcrumb-item"><a href="../../group-activities/week-12/pa-11-functions-instructions.html">Pair Activity 11: Writing Functions</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">PA 11: Writing Functions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Instructions </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong><em>This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.</em></strong></p>
+<section id="groupwork-protocols" class="level1">
+<h1>Groupwork Protocols</h1>
+<p>During the Practice Activity, you and your partner will alternate between two roles—Computer and Coder.</p>
+<p>When you are the <strong>Computer</strong>, you will type into the Quarto document in RStudio. However, you <strong>do not</strong> type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.</p>
+<p>When you are the <strong>Coder</strong>, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.</p>
+<p>Here are more details of the <a href="../../group-activities/pair-programming-norms.html">Pair Programming Protocols</a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The partner has had the most pets over their lifetime will start as the Computer (typing and listening to instructions from the Coder).</p>
+</div>
+</div>
+<section id="group-norms" class="level3">
+<h3 class="anchored" data-anchor-id="group-norms">Group Norms</h3>
+<p>Remember, your group is expected to adhere to the following norms:</p>
+<ol type="1">
+<li>Be curious. Don’t correct.</li>
+<li>Be open minded.</li>
+<li>Ask questions rather than contribute.</li>
+<li>Respect each other.</li>
+<li>Allow each teammate to contribute to the activity through their role.</li>
+<li>Do not divide the work.</li>
+<li>No cross talk with other groups.</li>
+<li>Communicate with each other!</li>
+</ol>
+</section>
+<section id="goals-for-the-activity" class="level2">
+<h2 class="anchored" data-anchor-id="goals-for-the-activity">Goals for the Activity</h2>
+<ul>
+<li>Create functions to transform your data<br>
+</li>
+<li>Use created functions when they do not exist in packages<br>
+</li>
+<li>Test your functions for generalized use</li>
+</ul>
+<p><strong>THROUGHOUT THE Activity</strong> be sure to follow the Style Guide by doing the following:</p>
+<ul>
+<li>load the appropriate packages at the beginning of the Quarto document<br>
+</li>
+<li>use proper spacing<br>
+</li>
+<li><em>add labels</em> to all code chunks<br>
+</li>
+<li>comment at least once in each code chunk to describe why you made your coding decisions<br>
+</li>
+<li>add appropriate labels to all graphic axes</li>
+</ul>
+</section>
+<section id="setting-up-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-your-project">Setting up your Project</h2>
+<p>Your project should have the following components:</p>
+<ol type="1">
+<li>completed <a href="../week-12/pa-11-functions-activity.qmd">pa-11-functions-activity.qmd</a></li>
+<li>rendered file as <code>.html</code></li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The original <code>Computer</code> should submit the zip file for the canvas quiz. The original <code>Coder</code> can just submit the rendered html file.</p>
+<p><code>Computer</code> - Be sure to share the final .qmd, .png, and .html file with the original <code>Coder</code>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="building-your-functions" class="level1">
+<h1>Building Your Functions</h1>
+<p>You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you below, but <strong>none</strong> of them are complete as is.</p>
+<section id="function-1-divide_and_round" class="level2">
+<h2 class="anchored" data-anchor-id="function-1-divide_and_round">Function 1: <code>divide_and_round()</code></h2>
+<p><strong>1. Write code to manipulate the vector of numbers <code>nums</code>. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This code should not be a function. Consider using the existing functions <code>round()</code> and <code>min()</code> and don’t forget to account for <code>NA</code> values.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(nums <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1 1 2 2 2 3 3 3 4 4</code></pre>
+</div>
+</div>
+<p><strong>2. Turn your code from Q1 into a function called <code>divide_and_round()</code>.</strong> Fill in the skeleton code below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>divide_and_round <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>divide_and_round <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(vec<span class="sc">/</span><span class="fu">min</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>3. Test your function by running the code below.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">divide_and_round</span>(test)  <span class="co">#you should see mostly values of 1 and 2, plus an NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  1  1  2  2  2 NA</code></pre>
+</div>
+</div>
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+</section>
+<section id="function-2-no_nines_or_twelves" class="level2">
+<h2 class="anchored" data-anchor-id="function-2-no_nines_or_twelves">Function 2: <code>no_nines_or_twelves()</code></h2>
+<p><strong>4. Write code to manipulate the vector of numbers <code>nums</code>. Your code should, for each element, return <code>TRUE</code> if the number is NOT divisible by 9 <em>OR</em> 12, and return <code>FALSE</code> otherwise.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This code should not be a function. Note - the function <code>%%</code> is handy here - look it up if you do not know what it does.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(nums <span class="sc">%%</span> <span class="dv">9</span> <span class="sc">==</span> <span class="dv">0</span> ___ nums <span class="sc">%%</span> <span class="dv">12</span> <span class="sc">==</span> <span class="dv">0</span>, ____ , ____)  <span class="co">#it should say FALSE for 9 and 12 positions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
+</div>
+</div>
+<p><strong>5. Turn your code from Q4 into a function called <code>no_nines_or_twelves()</code>.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>no_nines_or_twelves <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>no_nines_or_twelves <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(vec <span class="sc">%%</span> <span class="dv">9</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> vec <span class="sc">%%</span> <span class="dv">12</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">FALSE</span> , <span class="cn">TRUE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>6. Test your function by running the code below.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">15</span>, <span class="at">to =</span> <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">5</span>), <span class="cn">NA</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 15 20 25 30 35 40 45 50 55 60 NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">no_nines_or_twelves</span>(test)  <span class="co">#45 and 60 should have FALSE in their positions and NA in the last</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE    NA</code></pre>
+</div>
+</div>
+</section>
+<section id="function-3-every_other" class="level2">
+<h2 class="anchored" data-anchor-id="function-3-every_other">Function 3: <code>every_other()</code></h2>
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+<p><strong>7. Write a function called <code>every_other()</code>. This function should take in a vector and return every other value in the vector. Include an optional argument called <code>start</code> which lets you choose where to start skipping; that is, if <code>start = 1</code>, the function returns the 1st, 3rd, 5th, etc. values and if <code>start = 2</code>, the function returns the 2nd, 4th, 6th, etc. values.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Do not</strong> use a <code>for()</code> loop to do this! Accomplish this with the <code>seq_along()</code> function, bracket subsetting (<code>[]</code>), and modulus arithmetic (<code>%%</code>).</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the following identify if a value is even or odd</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using [] to subset will keep values with TRUE in that element's position</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>nums[(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]  <span class="co">#should return even numbers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4  6  8 10 12</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>nums[(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">0</span>]  <span class="co">#should return odd numbers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3  5  7  9 11</code></pre>
+</div>
+</div>
+<p>Fill in the skeleton below. Remember to add an argument <code>start</code> where the default should be <code>start</code> as 1.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>every_other <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, _________){</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    vec[]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    vec[]</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>8. Test your function by running the code below.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">every_other</span>(test, <span class="at">start =</span> <span class="dv">1</span>) <span class="co">#return odds</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3 5 7 9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">every_other</span>(test, <span class="at">start =</span> <span class="dv">2</span>) <span class="co">#return evens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  4  6  8 10</code></pre>
+</div>
+</div>
+</section>
+<section id="function-4-shorten" class="level2">
+<h2 class="anchored" data-anchor-id="function-4-shorten">Function 4: <code>shorten()</code></h2>
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+<p><strong>9. Write a function called <code>shorten()</code>. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Do not</strong> use a <code>while()</code> loop to do this! Accomplish this with the <code>cumsum()</code> function and bracketing.</p>
+</div>
+</div>
+<p>Here is an example of testing if the cumulative sum is greater than or equal to 30.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the following - which completes the task needed</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(nums)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  3  7 12 18 25 33 42 52 63 75</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(nums) <span class="sc">&gt;=</span> <span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>nums[<span class="fu">cumsum</span>(nums) <span class="sc">&gt;=</span> <span class="dv">30</span>]  <span class="co">#returns only numbers 8+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  8  9 10 11 12</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x is the vector and sum is the value you want the numbers to sum greater than</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>shorten <span class="ot">&lt;-</span> <span class="cf">function</span>(x, sum){</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>10. Test your function by running the code below.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="dv">20</span><span class="sc">:</span><span class="dv">50</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shorten</span>(test, <span class="dv">350</span>) <span class="co">#should be 33+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50</code></pre>
+</div>
+</div>
+</section>
+<section id="putting-them-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="putting-them-all-together">Putting Them All Together</h2>
+<p><strong>11. Once you have written your four functions correctly, run the following code:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remember to use the green arrow to run the whole code chunk</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">39</span>, <span class="fl">1.87</span>, <span class="dv">48</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">45</span>, <span class="dv">21</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">33</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">108</span>,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">4</span>, <span class="dv">18</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">8</span>, <span class="dv">48</span>, <span class="dv">27</span>, <span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">22</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">23</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>            <span class="dv">46</span>, <span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">26</span>, <span class="dv">18</span>, <span class="dv">10</span>, <span class="fl">18.21</span>, <span class="fl">72.04</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">36.9</span>, <span class="fl">41.81</span>, <span class="dv">29</span>, <span class="fl">89.75</span>, <span class="fl">34.03</span>, <span class="fl">20.18</span>, <span class="fl">48.74</span>, <span class="fl">15.76</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">31.86</span>, <span class="fl">83.6</span>, <span class="fl">43.55</span>, <span class="fl">39.99</span>, <span class="fl">23.55</span>, <span class="fl">8.54</span>, <span class="fl">24.71</span>, <span class="fl">22.02</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>            <span class="fl">9.71</span>, <span class="fl">62.14</span>, <span class="fl">35.46</span>, <span class="fl">16.61</span>, <span class="fl">15.66</span>, <span class="fl">21.29</span>, <span class="fl">30.52</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>            <span class="fl">201.07</span>, <span class="fl">45.81</span>, <span class="fl">7.85</span>, <span class="fl">30.13</span>, <span class="fl">34.14</span>, <span class="fl">22.62</span>, <span class="fl">10.2</span>, <span class="fl">6.02</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>            <span class="fl">30.12</span>, <span class="fl">10.64</span>, <span class="fl">31.72</span>, <span class="fl">24.57</span>, <span class="fl">14.43</span>, <span class="fl">43.37</span>, <span class="fl">89.93</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>            <span class="fl">44.72</span>, <span class="fl">51.32</span>, <span class="fl">13.62</span>, <span class="fl">45.56</span>, <span class="fl">22.96</span>, <span class="fl">7.05</span>, <span class="fl">29.99</span>, <span class="fl">41.38</span>,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>            <span class="fl">26.59</span>, <span class="fl">23.04</span>, <span class="fl">19.82</span>, <span class="fl">50.73</span>, <span class="fl">39.56</span>, <span class="fl">43.79</span>, <span class="fl">30.22</span>, <span class="fl">85.85</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>            <span class="fl">5.78</span>, <span class="fl">78.85</span>, <span class="fl">29.52</span>, <span class="fl">66.27</span>, <span class="fl">44.06</span>, <span class="fl">27.28</span>, <span class="fl">24.43</span>, <span class="fl">64.32</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>            <span class="fl">3.35</span>, <span class="fl">67.45</span>, <span class="fl">46.72</span>, <span class="fl">48.44</span>, <span class="fl">48.65</span>, <span class="fl">33.3</span>, <span class="fl">40.28</span>, <span class="fl">19.04</span>)</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">every_other</span>(my_vec, <span class="at">start =</span> <span class="dv">2</span>)</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 54 elements! </span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">divide_and_round</span>(my_vec)</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">every_other</span>(my_vec, <span class="at">start =</span> <span class="dv">1</span>)</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 27 elements!</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">shorten</span>(my_vec, <span class="dv">350</span>)</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 12 elements!</span></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> my_vec[<span class="fu">no_nines_or_twelves</span>(my_vec)]</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 6 elements! </span></span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">sort</span>(my_vec)</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>my_vec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="canvas-submission" class="level3">
+<h3 class="anchored" data-anchor-id="canvas-submission">Canvas Submission</h3>
+<p>If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show they are famously associated with as your final answer and submit to Canvas.</p>
+</section>
+</section>
+</section>
+<section id="challenge-if-time" class="level1">
+<h1>Challenge (If Time)</h1>
+<p>Try to rewrite your functions to be pipe enabled. To do this, you would need to specify <code>data</code> and <code>var</code> as minimum arguments. Here is an example function.</p>
+<div class="cell" data-lable="pipe-function">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">temp_c =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">15</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>convert_c_f <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">temp_f =</span> {{var}}<span class="sc">*</span><span class="fl">1.8</span> <span class="sc">+</span> <span class="dv">32</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>temps <span class="sc">|&gt;</span> </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">convert_c_f</span>(temp_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  temp_c temp_f
+1      0     32
+2    100    212
+3     20     68
+4     15     59</code></pre>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/statistical-computing-r\.github\.io\/spring-2026\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../group-activities/week-11/pa-10-covid-time-instructions.html" class="pagination-link" aria-label="Pair Activity 10: COVID-19 Infections and California">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Pair Activity 10: COVID-19 Infections and California</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../labs/instructions/lab-1-instructions.html" class="pagination-link" aria-label="Lab 1 &amp; Challenge 1 Instructions">
+        <span class="nav-page-text">Lab 1 &amp; Challenge 1 Instructions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "PA 11: Writing Functions"</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Instructions"</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Groupwork Protocols</span></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a>When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.</span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.</span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a>Here are more details of the <span class="co">[</span><span class="ot">Pair Programming Protocols</span><span class="co">](../pair-programming-norms.qmd)</span></span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a>The partner has had the most pets over their lifetime will start as the Computer (typing and listening to instructions from the Coder). </span>
+<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Group Norms</span></span>
+<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a>Remember, your group is expected to adhere to the following norms:  </span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Be curious. Don't correct. </span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Be open minded.</span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Ask questions rather than contribute. </span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Respect each other.</span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Allow each teammate to contribute to the activity through their role. </span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Do not divide the work.</span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>No cross talk with other groups. </span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Communicate with each other!</span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Goals for the Activity  </span></span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create functions to transform your data  </span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use created functions when they do not exist in packages  </span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test your functions for generalized use  </span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a>**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  </span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>load the appropriate packages at the beginning of the Quarto document  </span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>use proper spacing  </span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*add labels* to all code chunks  </span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comment at least once in each code chunk to describe why you made your coding decisions  </span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>add appropriate labels to all graphic axes  </span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setting up your Project</span></span>
+<span id="cb40-73"><a href="#cb40-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-74"><a href="#cb40-74" aria-hidden="true" tabindex="-1"></a>Your project should have the following components:</span>
+<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>completed <span class="co">[</span><span class="ot">pa-11-functions-activity.qmd</span><span class="co">](../week-12/pa-11-functions-activity.qmd)</span></span>
+<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>rendered file as <span class="in">`.html`</span></span>
+<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-80"><a href="#cb40-80" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb40-81"><a href="#cb40-81" aria-hidden="true" tabindex="-1"></a>The original <span class="in">`Computer`</span> should submit the zip file for the canvas quiz. The original <span class="in">`Coder`</span> can just submit the rendered html file. </span>
+<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a><span class="in">`Computer`</span> - Be sure to share the final .qmd, .png, and .html file with the original <span class="in">`Coder`</span>.</span>
+<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-88"><a href="#cb40-88" aria-hidden="true" tabindex="-1"></a><span class="fu"># Building Your Functions</span></span>
+<span id="cb40-89"><a href="#cb40-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a>You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you below, but **none** of them are complete as is.</span>
+<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function 1: `divide_and_round()`</span></span>
+<span id="cb40-94"><a href="#cb40-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-95"><a href="#cb40-95" aria-hidden="true" tabindex="-1"></a>**1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number.** </span>
+<span id="cb40-96"><a href="#cb40-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-97"><a href="#cb40-97" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb40-98"><a href="#cb40-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb40-99"><a href="#cb40-99" aria-hidden="true" tabindex="-1"></a>This code should not be a function. Consider using the existing functions <span class="in">`round()`</span> and <span class="in">`min()`</span> and don't forget to account for <span class="in">`NA`</span> values.  </span>
+<span id="cb40-100"><a href="#cb40-100" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-101"><a href="#cb40-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-104"><a href="#cb40-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-105"><a href="#cb40-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q1</span></span>
+<span id="cb40-106"><a href="#cb40-106" aria-hidden="true" tabindex="-1"></a>(nums <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb40-107"><a href="#cb40-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-108"><a href="#cb40-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-109"><a href="#cb40-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-110"><a href="#cb40-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-113"><a href="#cb40-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-114"><a href="#cb40-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q1-solution</span></span>
+<span id="cb40-115"><a href="#cb40-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb40-116"><a href="#cb40-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-117"><a href="#cb40-117" aria-hidden="true" tabindex="-1"></a>nums <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb40-118"><a href="#cb40-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-119"><a href="#cb40-119" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(nums<span class="sc">/</span><span class="fu">min</span>(nums, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb40-120"><a href="#cb40-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-121"><a href="#cb40-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-122"><a href="#cb40-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-123"><a href="#cb40-123" aria-hidden="true" tabindex="-1"></a>**2. Turn your code from Q1 into a function called `divide_and_round()`.** Fill in the skeleton code below.</span>
+<span id="cb40-124"><a href="#cb40-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q2</span></span>
+<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-130"><a href="#cb40-130" aria-hidden="true" tabindex="-1"></a>divide_and_round <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-133"><a href="#cb40-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-134"><a href="#cb40-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-137"><a href="#cb40-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-138"><a href="#cb40-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q2-solution</span></span>
+<span id="cb40-139"><a href="#cb40-139" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-140"><a href="#cb40-140" aria-hidden="true" tabindex="-1"></a>divide_and_round <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb40-141"><a href="#cb40-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(vec<span class="sc">/</span><span class="fu">min</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb40-142"><a href="#cb40-142" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-143"><a href="#cb40-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-144"><a href="#cb40-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-145"><a href="#cb40-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-146"><a href="#cb40-146" aria-hidden="true" tabindex="-1"></a>**3. Test your function by running the code below.**</span>
+<span id="cb40-147"><a href="#cb40-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-150"><a href="#cb40-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-151"><a href="#cb40-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q3</span></span>
+<span id="cb40-152"><a href="#cb40-152" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-153"><a href="#cb40-153" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>)</span>
+<span id="cb40-154"><a href="#cb40-154" aria-hidden="true" tabindex="-1"></a><span class="fu">divide_and_round</span>(test)  <span class="co">#you should see mostly values of 1 and 2, plus an NA</span></span>
+<span id="cb40-155"><a href="#cb40-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-156"><a href="#cb40-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-157"><a href="#cb40-157" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! --&gt;</span></span>
+<span id="cb40-158"><a href="#cb40-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-159"><a href="#cb40-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-160"><a href="#cb40-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function 2: `no_nines_or_twelves()`</span></span>
+<span id="cb40-161"><a href="#cb40-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-162"><a href="#cb40-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-163"><a href="#cb40-163" aria-hidden="true" tabindex="-1"></a>**4. Write code to manipulate the vector of numbers `nums`. Your code should, for each element, return `TRUE` if the number is NOT divisible by 9 _OR_ 12, and return `FALSE` otherwise.** </span>
+<span id="cb40-164"><a href="#cb40-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-165"><a href="#cb40-165" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb40-166"><a href="#cb40-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint </span></span>
+<span id="cb40-167"><a href="#cb40-167" aria-hidden="true" tabindex="-1"></a>This code should not be a function.  Note - the function <span class="in">`%%`</span> is handy here - look it up if you do not know what it does.</span>
+<span id="cb40-168"><a href="#cb40-168" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-169"><a href="#cb40-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-172"><a href="#cb40-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-173"><a href="#cb40-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q4</span></span>
+<span id="cb40-174"><a href="#cb40-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-175"><a href="#cb40-175" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(nums <span class="sc">%%</span> <span class="dv">9</span> <span class="sc">==</span> <span class="dv">0</span> ___ nums <span class="sc">%%</span> <span class="dv">12</span> <span class="sc">==</span> <span class="dv">0</span>, ____ , ____)  <span class="co">#it should say FALSE for 9 and 12 positions</span></span>
+<span id="cb40-176"><a href="#cb40-176" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb40-177"><a href="#cb40-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-178"><a href="#cb40-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-179"><a href="#cb40-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-180"><a href="#cb40-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-183"><a href="#cb40-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-184"><a href="#cb40-184" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q4-solution</span></span>
+<span id="cb40-185"><a href="#cb40-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb40-186"><a href="#cb40-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-187"><a href="#cb40-187" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(nums <span class="sc">%%</span> <span class="dv">9</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> nums <span class="sc">%%</span> <span class="dv">12</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">FALSE</span> , <span class="cn">TRUE</span>)  <span class="co">#it should say FALSE for 9 and 12 positions</span></span>
+<span id="cb40-188"><a href="#cb40-188" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb40-189"><a href="#cb40-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-190"><a href="#cb40-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-191"><a href="#cb40-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-192"><a href="#cb40-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-193"><a href="#cb40-193" aria-hidden="true" tabindex="-1"></a>**5. Turn your code from Q4 into a function called `no_nines_or_twelves()`.**</span>
+<span id="cb40-194"><a href="#cb40-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q5</span></span>
+<span id="cb40-199"><a href="#cb40-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a>no_nines_or_twelves <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-202"><a href="#cb40-202" aria-hidden="true" tabindex="-1"></a>}  </span>
+<span id="cb40-203"><a href="#cb40-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-204"><a href="#cb40-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-205"><a href="#cb40-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-208"><a href="#cb40-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-209"><a href="#cb40-209" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q5-solution</span></span>
+<span id="cb40-210"><a href="#cb40-210" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-211"><a href="#cb40-211" aria-hidden="true" tabindex="-1"></a>no_nines_or_twelves <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb40-212"><a href="#cb40-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(vec <span class="sc">%%</span> <span class="dv">9</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> vec <span class="sc">%%</span> <span class="dv">12</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">FALSE</span> , <span class="cn">TRUE</span>)</span>
+<span id="cb40-213"><a href="#cb40-213" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-214"><a href="#cb40-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-215"><a href="#cb40-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-216"><a href="#cb40-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-217"><a href="#cb40-217" aria-hidden="true" tabindex="-1"></a>**6. Test your function by running the code below.**</span>
+<span id="cb40-218"><a href="#cb40-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-221"><a href="#cb40-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-222"><a href="#cb40-222" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q6</span></span>
+<span id="cb40-223"><a href="#cb40-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-224"><a href="#cb40-224" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">15</span>, <span class="at">to =</span> <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">5</span>), <span class="cn">NA</span>)</span>
+<span id="cb40-225"><a href="#cb40-225" aria-hidden="true" tabindex="-1"></a>test</span>
+<span id="cb40-226"><a href="#cb40-226" aria-hidden="true" tabindex="-1"></a><span class="fu">no_nines_or_twelves</span>(test)  <span class="co">#45 and 60 should have FALSE in their positions and NA in the last</span></span>
+<span id="cb40-227"><a href="#cb40-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-228"><a href="#cb40-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-229"><a href="#cb40-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function 3: `every_other()`</span></span>
+<span id="cb40-230"><a href="#cb40-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-231"><a href="#cb40-231" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! --&gt;</span></span>
+<span id="cb40-232"><a href="#cb40-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-233"><a href="#cb40-233" aria-hidden="true" tabindex="-1"></a>**7. Write a function called `every_other()`. This function should take in a vector and return every other value in the vector. Include an optional argument called `start` which lets you choose where to start skipping; that is, if `start = 1`, the function returns the 1st, 3rd, 5th, etc. values and if `start = 2`, the function returns the 2nd, 4th, 6th, etc. values.** </span>
+<span id="cb40-234"><a href="#cb40-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-235"><a href="#cb40-235" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb40-236"><a href="#cb40-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint </span></span>
+<span id="cb40-237"><a href="#cb40-237" aria-hidden="true" tabindex="-1"></a>**Do not** use a <span class="in">`for()`</span> loop to do this! Accomplish this with the <span class="in">`seq_along()`</span> function, bracket subsetting (<span class="in">`[]`</span>), and modulus arithmetic (<span class="in">`%%`</span>).</span>
+<span id="cb40-238"><a href="#cb40-238" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-239"><a href="#cb40-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-240"><a href="#cb40-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-243"><a href="#cb40-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-244"><a href="#cb40-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: help-code-q7</span></span>
+<span id="cb40-245"><a href="#cb40-245" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-246"><a href="#cb40-246" aria-hidden="true" tabindex="-1"></a><span class="co"># the following identify if a value is even or odd</span></span>
+<span id="cb40-247"><a href="#cb40-247" aria-hidden="true" tabindex="-1"></a>(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb40-248"><a href="#cb40-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-249"><a href="#cb40-249" aria-hidden="true" tabindex="-1"></a>(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb40-250"><a href="#cb40-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-251"><a href="#cb40-251" aria-hidden="true" tabindex="-1"></a><span class="co"># using [] to subset will keep values with TRUE in that element's position</span></span>
+<span id="cb40-252"><a href="#cb40-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-253"><a href="#cb40-253" aria-hidden="true" tabindex="-1"></a>nums[(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]  <span class="co">#should return even numbers</span></span>
+<span id="cb40-254"><a href="#cb40-254" aria-hidden="true" tabindex="-1"></a>nums[(<span class="fu">seq_along</span>(nums)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">0</span>]  <span class="co">#should return odd numbers</span></span>
+<span id="cb40-255"><a href="#cb40-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-256"><a href="#cb40-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-257"><a href="#cb40-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-258"><a href="#cb40-258" aria-hidden="true" tabindex="-1"></a>Fill in the skeleton below. Remember to add an argument <span class="in">`start`</span> where the default should be <span class="in">`start`</span> as 1.</span>
+<span id="cb40-259"><a href="#cb40-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-262"><a href="#cb40-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-263"><a href="#cb40-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q7</span></span>
+<span id="cb40-264"><a href="#cb40-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-265"><a href="#cb40-265" aria-hidden="true" tabindex="-1"></a>every_other <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, _________){</span>
+<span id="cb40-266"><a href="#cb40-266" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-267"><a href="#cb40-267" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb40-268"><a href="#cb40-268" aria-hidden="true" tabindex="-1"></a>    vec[]</span>
+<span id="cb40-269"><a href="#cb40-269" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb40-270"><a href="#cb40-270" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-271"><a href="#cb40-271" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb40-272"><a href="#cb40-272" aria-hidden="true" tabindex="-1"></a>    vec[]</span>
+<span id="cb40-273"><a href="#cb40-273" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-274"><a href="#cb40-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-275"><a href="#cb40-275" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-276"><a href="#cb40-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-277"><a href="#cb40-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-280"><a href="#cb40-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-281"><a href="#cb40-281" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q7-solution</span></span>
+<span id="cb40-282"><a href="#cb40-282" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb40-283"><a href="#cb40-283" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-284"><a href="#cb40-284" aria-hidden="true" tabindex="-1"></a>every_other <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, <span class="at">start =</span> <span class="dv">1</span>){</span>
+<span id="cb40-285"><a href="#cb40-285" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-286"><a href="#cb40-286" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb40-287"><a href="#cb40-287" aria-hidden="true" tabindex="-1"></a>    vec[(<span class="fu">seq_along</span>(vec)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]</span>
+<span id="cb40-288"><a href="#cb40-288" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb40-289"><a href="#cb40-289" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-290"><a href="#cb40-290" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (start <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb40-291"><a href="#cb40-291" aria-hidden="true" tabindex="-1"></a>    vec[(<span class="fu">seq_along</span>(vec)) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb40-292"><a href="#cb40-292" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-293"><a href="#cb40-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-294"><a href="#cb40-294" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-295"><a href="#cb40-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-296"><a href="#cb40-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-297"><a href="#cb40-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-298"><a href="#cb40-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-299"><a href="#cb40-299" aria-hidden="true" tabindex="-1"></a>**8. Test your function by running the code below.**</span>
+<span id="cb40-300"><a href="#cb40-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-303"><a href="#cb40-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-304"><a href="#cb40-304" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q8</span></span>
+<span id="cb40-305"><a href="#cb40-305" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-306"><a href="#cb40-306" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb40-307"><a href="#cb40-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-308"><a href="#cb40-308" aria-hidden="true" tabindex="-1"></a><span class="fu">every_other</span>(test, <span class="at">start =</span> <span class="dv">1</span>) <span class="co">#return odds</span></span>
+<span id="cb40-309"><a href="#cb40-309" aria-hidden="true" tabindex="-1"></a><span class="fu">every_other</span>(test, <span class="at">start =</span> <span class="dv">2</span>) <span class="co">#return evens</span></span>
+<span id="cb40-310"><a href="#cb40-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-311"><a href="#cb40-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-312"><a href="#cb40-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-313"><a href="#cb40-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function 4: `shorten()`</span></span>
+<span id="cb40-314"><a href="#cb40-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-315"><a href="#cb40-315" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! --&gt;</span></span>
+<span id="cb40-316"><a href="#cb40-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-317"><a href="#cb40-317" aria-hidden="true" tabindex="-1"></a>**9. Write a function called `shorten()`. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector.**</span>
+<span id="cb40-318"><a href="#cb40-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-319"><a href="#cb40-319" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb40-320"><a href="#cb40-320" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb40-321"><a href="#cb40-321" aria-hidden="true" tabindex="-1"></a>**Do not** use a <span class="in">`while()`</span> loop to do this! Accomplish this with the <span class="in">`cumsum()`</span> function and bracketing.</span>
+<span id="cb40-322"><a href="#cb40-322" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-323"><a href="#cb40-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-324"><a href="#cb40-324" aria-hidden="true" tabindex="-1"></a>Here is an example of testing if the cumulative sum is greater than or equal to 30.</span>
+<span id="cb40-327"><a href="#cb40-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-328"><a href="#cb40-328" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: help-q9</span></span>
+<span id="cb40-329"><a href="#cb40-329" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-330"><a href="#cb40-330" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the following - which completes the task needed</span></span>
+<span id="cb40-331"><a href="#cb40-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-332"><a href="#cb40-332" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(nums)</span>
+<span id="cb40-333"><a href="#cb40-333" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(nums) <span class="sc">&gt;=</span> <span class="dv">30</span></span>
+<span id="cb40-334"><a href="#cb40-334" aria-hidden="true" tabindex="-1"></a>nums[<span class="fu">cumsum</span>(nums) <span class="sc">&gt;=</span> <span class="dv">30</span>]  <span class="co">#returns only numbers 8+</span></span>
+<span id="cb40-335"><a href="#cb40-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-336"><a href="#cb40-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-337"><a href="#cb40-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-340"><a href="#cb40-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-341"><a href="#cb40-341" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q9</span></span>
+<span id="cb40-342"><a href="#cb40-342" aria-hidden="true" tabindex="-1"></a><span class="co"># x is the vector and sum is the value you want the numbers to sum greater than</span></span>
+<span id="cb40-343"><a href="#cb40-343" aria-hidden="true" tabindex="-1"></a>shorten <span class="ot">&lt;-</span> <span class="cf">function</span>(x, sum){</span>
+<span id="cb40-344"><a href="#cb40-344" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb40-345"><a href="#cb40-345" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-346"><a href="#cb40-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-347"><a href="#cb40-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-348"><a href="#cb40-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-349"><a href="#cb40-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-352"><a href="#cb40-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-353"><a href="#cb40-353" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q9-solution</span></span>
+<span id="cb40-354"><a href="#cb40-354" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb40-355"><a href="#cb40-355" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-356"><a href="#cb40-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-357"><a href="#cb40-357" aria-hidden="true" tabindex="-1"></a>shorten <span class="ot">&lt;-</span> <span class="cf">function</span>(x, sum){</span>
+<span id="cb40-358"><a href="#cb40-358" aria-hidden="true" tabindex="-1"></a>  x[<span class="fu">cumsum</span>(x) <span class="sc">&gt;=</span> sum] </span>
+<span id="cb40-359"><a href="#cb40-359" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-360"><a href="#cb40-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-361"><a href="#cb40-361" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-362"><a href="#cb40-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-363"><a href="#cb40-363" aria-hidden="true" tabindex="-1"></a>**10. Test your function by running the code below.**</span>
+<span id="cb40-364"><a href="#cb40-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-367"><a href="#cb40-367" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-368"><a href="#cb40-368" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q10</span></span>
+<span id="cb40-369"><a href="#cb40-369" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-370"><a href="#cb40-370" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="dv">20</span><span class="sc">:</span><span class="dv">50</span> </span>
+<span id="cb40-371"><a href="#cb40-371" aria-hidden="true" tabindex="-1"></a><span class="fu">shorten</span>(test, <span class="dv">350</span>) <span class="co">#should be 33+</span></span>
+<span id="cb40-372"><a href="#cb40-372" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-373"><a href="#cb40-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-374"><a href="#cb40-374" aria-hidden="true" tabindex="-1"></a><span class="fu">## Putting Them All Together</span></span>
+<span id="cb40-375"><a href="#cb40-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-376"><a href="#cb40-376" aria-hidden="true" tabindex="-1"></a>**11. Once you have written your four functions correctly, run the following code:**</span>
+<span id="cb40-377"><a href="#cb40-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-380"><a href="#cb40-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-381"><a href="#cb40-381" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: q11</span></span>
+<span id="cb40-382"><a href="#cb40-382" aria-hidden="true" tabindex="-1"></a><span class="co">#remember to use the green arrow to run the whole code chunk</span></span>
+<span id="cb40-383"><a href="#cb40-383" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">39</span>, <span class="fl">1.87</span>, <span class="dv">48</span>, <span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">45</span>, <span class="dv">21</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">33</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">108</span>,</span>
+<span id="cb40-384"><a href="#cb40-384" aria-hidden="true" tabindex="-1"></a>            <span class="dv">4</span>, <span class="dv">18</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">8</span>, <span class="dv">48</span>, <span class="dv">27</span>, <span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">22</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">23</span>,</span>
+<span id="cb40-385"><a href="#cb40-385" aria-hidden="true" tabindex="-1"></a>            <span class="dv">46</span>, <span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">26</span>, <span class="dv">18</span>, <span class="dv">10</span>, <span class="fl">18.21</span>, <span class="fl">72.04</span>,</span>
+<span id="cb40-386"><a href="#cb40-386" aria-hidden="true" tabindex="-1"></a>            <span class="fl">36.9</span>, <span class="fl">41.81</span>, <span class="dv">29</span>, <span class="fl">89.75</span>, <span class="fl">34.03</span>, <span class="fl">20.18</span>, <span class="fl">48.74</span>, <span class="fl">15.76</span>,</span>
+<span id="cb40-387"><a href="#cb40-387" aria-hidden="true" tabindex="-1"></a>            <span class="fl">31.86</span>, <span class="fl">83.6</span>, <span class="fl">43.55</span>, <span class="fl">39.99</span>, <span class="fl">23.55</span>, <span class="fl">8.54</span>, <span class="fl">24.71</span>, <span class="fl">22.02</span>,</span>
+<span id="cb40-388"><a href="#cb40-388" aria-hidden="true" tabindex="-1"></a>            <span class="fl">9.71</span>, <span class="fl">62.14</span>, <span class="fl">35.46</span>, <span class="fl">16.61</span>, <span class="fl">15.66</span>, <span class="fl">21.29</span>, <span class="fl">30.52</span>,</span>
+<span id="cb40-389"><a href="#cb40-389" aria-hidden="true" tabindex="-1"></a>            <span class="fl">201.07</span>, <span class="fl">45.81</span>, <span class="fl">7.85</span>, <span class="fl">30.13</span>, <span class="fl">34.14</span>, <span class="fl">22.62</span>, <span class="fl">10.2</span>, <span class="fl">6.02</span>,</span>
+<span id="cb40-390"><a href="#cb40-390" aria-hidden="true" tabindex="-1"></a>            <span class="fl">30.12</span>, <span class="fl">10.64</span>, <span class="fl">31.72</span>, <span class="fl">24.57</span>, <span class="fl">14.43</span>, <span class="fl">43.37</span>, <span class="fl">89.93</span>,</span>
+<span id="cb40-391"><a href="#cb40-391" aria-hidden="true" tabindex="-1"></a>            <span class="fl">44.72</span>, <span class="fl">51.32</span>, <span class="fl">13.62</span>, <span class="fl">45.56</span>, <span class="fl">22.96</span>, <span class="fl">7.05</span>, <span class="fl">29.99</span>, <span class="fl">41.38</span>,</span>
+<span id="cb40-392"><a href="#cb40-392" aria-hidden="true" tabindex="-1"></a>            <span class="fl">26.59</span>, <span class="fl">23.04</span>, <span class="fl">19.82</span>, <span class="fl">50.73</span>, <span class="fl">39.56</span>, <span class="fl">43.79</span>, <span class="fl">30.22</span>, <span class="fl">85.85</span>,</span>
+<span id="cb40-393"><a href="#cb40-393" aria-hidden="true" tabindex="-1"></a>            <span class="fl">5.78</span>, <span class="fl">78.85</span>, <span class="fl">29.52</span>, <span class="fl">66.27</span>, <span class="fl">44.06</span>, <span class="fl">27.28</span>, <span class="fl">24.43</span>, <span class="fl">64.32</span>,</span>
+<span id="cb40-394"><a href="#cb40-394" aria-hidden="true" tabindex="-1"></a>            <span class="fl">3.35</span>, <span class="fl">67.45</span>, <span class="fl">46.72</span>, <span class="fl">48.44</span>, <span class="fl">48.65</span>, <span class="fl">33.3</span>, <span class="fl">40.28</span>, <span class="fl">19.04</span>)</span>
+<span id="cb40-395"><a href="#cb40-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-396"><a href="#cb40-396" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">every_other</span>(my_vec, <span class="at">start =</span> <span class="dv">2</span>)</span>
+<span id="cb40-397"><a href="#cb40-397" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 54 elements! </span></span>
+<span id="cb40-398"><a href="#cb40-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-399"><a href="#cb40-399" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">divide_and_round</span>(my_vec)</span>
+<span id="cb40-400"><a href="#cb40-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-401"><a href="#cb40-401" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">every_other</span>(my_vec, <span class="at">start =</span> <span class="dv">1</span>)</span>
+<span id="cb40-402"><a href="#cb40-402" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 27 elements!</span></span>
+<span id="cb40-403"><a href="#cb40-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-404"><a href="#cb40-404" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">shorten</span>(my_vec, <span class="dv">350</span>)</span>
+<span id="cb40-405"><a href="#cb40-405" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 12 elements!</span></span>
+<span id="cb40-406"><a href="#cb40-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-407"><a href="#cb40-407" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> my_vec[<span class="fu">no_nines_or_twelves</span>(my_vec)]</span>
+<span id="cb40-408"><a href="#cb40-408" aria-hidden="true" tabindex="-1"></a><span class="co"># Should have 6 elements! </span></span>
+<span id="cb40-409"><a href="#cb40-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-410"><a href="#cb40-410" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">sort</span>(my_vec)</span>
+<span id="cb40-411"><a href="#cb40-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-412"><a href="#cb40-412" aria-hidden="true" tabindex="-1"></a>my_vec</span>
+<span id="cb40-413"><a href="#cb40-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-414"><a href="#cb40-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-415"><a href="#cb40-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-416"><a href="#cb40-416" aria-hidden="true" tabindex="-1"></a><span class="fu">### Canvas Submission</span></span>
+<span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a>If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show they are famously associated with as your final answer and submit to Canvas.</span>
+<span id="cb40-419"><a href="#cb40-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge (If Time)</span></span>
+<span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a>Try to rewrite your functions to be pipe enabled. To do this, you would need to specify <span class="in">`data`</span> and <span class="in">`var`</span> as minimum arguments.  Here is an example function.</span>
+<span id="cb40-424"><a href="#cb40-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-425"><a href="#cb40-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-428"><a href="#cb40-428" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-429"><a href="#cb40-429" aria-hidden="true" tabindex="-1"></a><span class="co">#| lable: pipe-function</span></span>
+<span id="cb40-430"><a href="#cb40-430" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-431"><a href="#cb40-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-432"><a href="#cb40-432" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">temp_c =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">15</span>))</span>
+<span id="cb40-433"><a href="#cb40-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-434"><a href="#cb40-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-435"><a href="#cb40-435" aria-hidden="true" tabindex="-1"></a>convert_c_f <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb40-436"><a href="#cb40-436" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb40-437"><a href="#cb40-437" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">temp_f =</span> {{var}}<span class="sc">*</span><span class="fl">1.8</span> <span class="sc">+</span> <span class="dv">32</span>)</span>
+<span id="cb40-438"><a href="#cb40-438" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-439"><a href="#cb40-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-440"><a href="#cb40-440" aria-hidden="true" tabindex="-1"></a>temps <span class="sc">|&gt;</span> </span>
+<span id="cb40-441"><a href="#cb40-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">convert_c_f</span>(temp_c)</span>
+<span id="cb40-442"><a href="#cb40-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-443"><a href="#cb40-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-444"><a href="#cb40-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2026, Allison Theobold &amp; Judith Canner</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/statistical-computing-r/spring-2026/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

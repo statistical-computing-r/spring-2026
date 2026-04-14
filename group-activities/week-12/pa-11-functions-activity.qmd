@@ -15,7 +15,6 @@ execute:
 ```{r}
 #| label: setup
 #| include: false
-#| eval: true
 library(tidyverse)
 ```
 
