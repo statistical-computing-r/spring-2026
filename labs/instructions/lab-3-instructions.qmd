@@ -238,7 +238,8 @@ Notice how vertically stacked boxplots make the species labels more readable tha
 
 For Lab 3 you will submit the link to your GitHub repository. Your rendered file is required to have the following specifications in the YAML options (at the top of your document):
 
--   have the plots embedded (`embed-resources: true`)
+<!-- don't include with gfm -->
+<!-- -   have the plots embedded (`embed-resources: true`) -->
 -   include your source code (`code-tools: true`)
 -   include all your code and output (`echo: true`)
 
