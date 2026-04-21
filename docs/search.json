@@ -280,7 +280,7 @@
     "href": "weeks/week-13-iteration.html#performing-multiple-operations",
     "title": "Loops and Iteration",
     "section": "1.1 Performing Multiple Operations",
-    "text": "1.1 Performing Multiple Operations\nWhat if we wanted to perform multiple transformations on each of many variables?\nWithin the different values of diamond cut, let’s summarize the mean, median, and standard deviation of the numeric variables. When we look at the .fns argument in the across() documentation, we see that we can provide a list of functions:\n\ndiamonds %&gt;%\n    group_by(cut) %&gt;% \n    summarize(across(.cols = where(is.numeric), \n                     .fns = list(mean = mean, \n                                 med = median, \n                                 sd = sd)\n                     )\n              )\n\n# A tibble: 5 × 22\n  cut     carat_mean carat_med carat_sd depth_mean depth_med depth_sd table_mean\n  &lt;ord&gt;        &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05       1       0.516       64.0      65      3.64        59.1\n2 Good         0.849      0.82    0.454       62.4      63.4    2.17        58.7\n3 Very G…      0.806      0.71    0.459       61.8      62.1    1.38        58.0\n4 Premium      0.892      0.86    0.515       61.3      61.4    1.16        58.7\n5 Ideal        0.703      0.54    0.433       61.7      61.8    0.719       56.0\n# ℹ 14 more variables: table_med &lt;dbl&gt;, table_sd &lt;dbl&gt;, price_mean &lt;dbl&gt;,\n#   price_med &lt;dbl&gt;, price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_med &lt;dbl&gt;, x_sd &lt;dbl&gt;,\n#   y_mean &lt;dbl&gt;, y_med &lt;dbl&gt;, y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_med &lt;dbl&gt;,\n#   z_sd &lt;dbl&gt;\n\n\nWhat does the list of functions look like? What is the structure of this list object?\n\nlist_of_fcts &lt;- list(mean = mean, \n                     med = median, \n                     sd = sd)\nlist_of_fcts\n\n$mean\nfunction (x, ...) \nUseMethod(\"mean\")\n&lt;bytecode: 0x000001d01b43de38&gt;\n&lt;environment: namespace:base&gt;\n\n$med\nfunction (x, na.rm = FALSE, ...) \nUseMethod(\"median\")\n&lt;bytecode: 0x000001d01a5341c8&gt;\n&lt;environment: namespace:stats&gt;\n\n$sd\nfunction (x, na.rm = FALSE) \nsqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), \n    na.rm = na.rm))\n&lt;bytecode: 0x000001d028118820&gt;\n&lt;environment: namespace:stats&gt;\n\nstr(list_of_fcts)\n\nList of 3\n $ mean:function (x, ...)  \n $ med :function (x, na.rm = FALSE, ...)  \n $ sd  :function (x, na.rm = FALSE)  \n\n\nLet’s explore lists a bit more…\n\n\n\n\n\n\nNoteReview of Lists\n\n\n\n\n\nA list is a 1-dimensional data structure that has no restrictions on what type of content is stored within it. A list is a “vector”, but it is not an atomic vector - that is, it does not necessarily contain things that are all the same type.\n\nmylist &lt;- list(\n    logicals = c(TRUE, TRUE, FALSE, FALSE, TRUE), \n    numeric_vec = 1:12, \n    third_thing = letters[1:2]\n    )\n\nmylist\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\n$third_thing\n[1] \"a\" \"b\"\n\n\nList components may have names (or not), be homogeneous (or not), have the same length (or not).\n\nIndexing\nIndexing necessarily differs between R and Python, and since the list types are also somewhat different (e.g. lists cannot be named in python), we will treat list indexing in the two languages separately.\n\n\n\n\n\n\n\n\nAn unusual pepper shaker which we’ll call pepper\n\n\n\n\n\n\n\nWhen a list is indexed with single brackets, pepper[1], the return value is always a list containing the selected element(s).\n\n\n\n\n\n\n\nWhen a list is indexed with double brackets, pepper[[1]], the return value is the selected element.\n\n\n\n\n\n\n\nTo actually access the pepper, we have to use double indexing and index both the list object and the sub-object, as in pepper[[1]][[1]].\n\n\n\n\n\n\nFigure 1: The types of indexing are made most memorable with a fantastic visual example from Grolemund and Wickham (2017), which I have repeated here.\n\n\n\nThere are 3 ways to index a list:\n\nWith single square brackets, just like we index atomic vectors. In this case, the return value is always a list.\n\n\nmylist[1]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[2]\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nmylist[c(T, F, T)]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$third_thing\n[1] \"a\" \"b\"\n\n\n\nWith double square brackets. In this case, the return value is the thing inside the specified position in the list, but you also can only get one entry in the main list at a time. You can also get things by name.\n\n\nmylist[[1]]\n\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[[\"third_thing\"]]\n\n[1] \"a\" \"b\"\n\n\n\nUsing x$name. This is equivalent to using x[[\"name\"]]. Note that this does not work on unnamed entries in the list.\n\n\nmylist$third_thing\n\n[1] \"a\" \"b\"\n\n\nTo access the contents of a list object, we have to use double-indexing:\n\nmylist[[\"third_thing\"]][[1]]\n\n[1] \"a\"",
+    "text": "1.1 Performing Multiple Operations\nWhat if we wanted to perform multiple transformations on each of many variables?\nWithin the different values of diamond cut, let’s summarize the mean, median, and standard deviation of the numeric variables. When we look at the .fns argument in the across() documentation, we see that we can provide a list of functions:\n\ndiamonds %&gt;%\n    group_by(cut) %&gt;% \n    summarize(across(.cols = where(is.numeric), \n                     .fns = list(mean = mean, \n                                 med = median, \n                                 sd = sd)\n                     )\n              )\n\n# A tibble: 5 × 22\n  cut     carat_mean carat_med carat_sd depth_mean depth_med depth_sd table_mean\n  &lt;ord&gt;        &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05       1       0.516       64.0      65      3.64        59.1\n2 Good         0.849      0.82    0.454       62.4      63.4    2.17        58.7\n3 Very G…      0.806      0.71    0.459       61.8      62.1    1.38        58.0\n4 Premium      0.892      0.86    0.515       61.3      61.4    1.16        58.7\n5 Ideal        0.703      0.54    0.433       61.7      61.8    0.719       56.0\n# ℹ 14 more variables: table_med &lt;dbl&gt;, table_sd &lt;dbl&gt;, price_mean &lt;dbl&gt;,\n#   price_med &lt;dbl&gt;, price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_med &lt;dbl&gt;, x_sd &lt;dbl&gt;,\n#   y_mean &lt;dbl&gt;, y_med &lt;dbl&gt;, y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_med &lt;dbl&gt;,\n#   z_sd &lt;dbl&gt;\n\n\nWhat does the list of functions look like? What is the structure of this list object?\n\nlist_of_fcts &lt;- list(mean = mean, \n                     med = median, \n                     sd = sd)\nlist_of_fcts\n\n$mean\nfunction (x, ...) \nUseMethod(\"mean\")\n&lt;bytecode: 0x00000216c238fe38&gt;\n&lt;environment: namespace:base&gt;\n\n$med\nfunction (x, na.rm = FALSE, ...) \nUseMethod(\"median\")\n&lt;bytecode: 0x00000216c14881c8&gt;\n&lt;environment: namespace:stats&gt;\n\n$sd\nfunction (x, na.rm = FALSE) \nsqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), \n    na.rm = na.rm))\n&lt;bytecode: 0x00000216cf115e00&gt;\n&lt;environment: namespace:stats&gt;\n\nstr(list_of_fcts)\n\nList of 3\n $ mean:function (x, ...)  \n $ med :function (x, na.rm = FALSE, ...)  \n $ sd  :function (x, na.rm = FALSE)  \n\n\nLet’s explore lists a bit more…\n\n\n\n\n\n\nNoteReview of Lists\n\n\n\n\n\nA list is a 1-dimensional data structure that has no restrictions on what type of content is stored within it. A list is a “vector”, but it is not an atomic vector - that is, it does not necessarily contain things that are all the same type.\n\nmylist &lt;- list(\n    logicals = c(TRUE, TRUE, FALSE, FALSE, TRUE), \n    numeric_vec = 1:12, \n    third_thing = letters[1:2]\n    )\n\nmylist\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\n$third_thing\n[1] \"a\" \"b\"\n\n\nList components may have names (or not), be homogeneous (or not), have the same length (or not).\n\nIndexing\nIndexing necessarily differs between R and Python, and since the list types are also somewhat different (e.g. lists cannot be named in python), we will treat list indexing in the two languages separately.\n\n\n\n\n\n\n\n\nAn unusual pepper shaker which we’ll call pepper\n\n\n\n\n\n\n\nWhen a list is indexed with single brackets, pepper[1], the return value is always a list containing the selected element(s).\n\n\n\n\n\n\n\nWhen a list is indexed with double brackets, pepper[[1]], the return value is the selected element.\n\n\n\n\n\n\n\nTo actually access the pepper, we have to use double indexing and index both the list object and the sub-object, as in pepper[[1]][[1]].\n\n\n\n\n\n\nFigure 1: The types of indexing are made most memorable with a fantastic visual example from Grolemund and Wickham (2017), which I have repeated here.\n\n\n\nThere are 3 ways to index a list:\n\nWith single square brackets, just like we index atomic vectors. In this case, the return value is always a list.\n\n\nmylist[1]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[2]\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nmylist[c(T, F, T)]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$third_thing\n[1] \"a\" \"b\"\n\n\n\nWith double square brackets. In this case, the return value is the thing inside the specified position in the list, but you also can only get one entry in the main list at a time. You can also get things by name.\n\n\nmylist[[1]]\n\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[[\"third_thing\"]]\n\n[1] \"a\" \"b\"\n\n\n\nUsing x$name. This is equivalent to using x[[\"name\"]]. Note that this does not work on unnamed entries in the list.\n\n\nmylist$third_thing\n\n[1] \"a\" \"b\"\n\n\nTo access the contents of a list object, we have to use double-indexing:\n\nmylist[[\"third_thing\"]][[1]]\n\n[1] \"a\"",
     "crumbs": [
       "Weekly materials",
       "Week 13 - Iteration"
@@ -1520,182 +1520,6 @@
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html",
-    "href": "group-activities/week-11/pa-10-covid-time-instructions.html",
-    "title": "PA 10: COVID-19 Infections and California",
-    "section": "",
-    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 10: COVID-19 Infections and California"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#goals-for-the-activity",
-    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#goals-for-the-activity",
-    "title": "PA 10: COVID-19 Infections and California",
-    "section": "Goals for the Activity",
-    "text": "Goals for the Activity\n\nUse the dplyr verbs to transform your data\n\nUse other tidyverse functions to prepare and plot the data\n\nUse lubridate to deal with dates and stringr with text.\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 10: COVID-19 Infections and California"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#setting-up-your-project",
-    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#setting-up-your-project",
-    "title": "PA 10: COVID-19 Infections and California",
-    "section": "Setting up your Project",
-    "text": "Setting up your Project\nYour project should have the following components:\n\ncompleted pa-10-covid-time-activity.qmd\nrendered file as .html\ndata sub-folder that contains\n\ncreated data\n\n\npng file of created graph for CA 2021 and for your own research question\n\n\n\n\n\n\n\nImportant\n\n\n\nThe original Computer should submit the zip file for the canvas quiz. The original Coder can just submit the rendered html file.\nComputer - Be sure to share the final .qmd, .png, and .html file with the original Coder.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 10: COVID-19 Infections and California"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
-    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
-    "title": "PA 10: COVID-19 Infections and California",
-    "section": "Data Description - United States COVID-19 Cases and Deaths",
-    "text": "Data Description - United States COVID-19 Cases and Deaths\nStarting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a Githhub Repository of the data they used and reported on in their stories (a field called “Data Journalism”). They ended their data collection in March 2023 and switched to just using data from national reporting systems.\nWe will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).\n\n# data comes from NY Times GitHub Repository - ends March 2023\n# not evaluating this code chunk because we will clean the data and use the clean data set\ncases &lt;- read_csv(\"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv\")\n\nNote that both cases and deaths are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.\nIf we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the diff() function from base R.\n\n\n\n\n\n\nWarning\n\n\n\nYour team should create a data subfolder in your project to store the created data and to upload the population data to as well.\n\n\n\n# calculates the unique new daily cases and deaths for each state\n# eval is false since we created a new data set we will use going forward\ncases |&gt; \n  group_by(state) |&gt; \n  arrange(state, date) |&gt; \n  mutate(cases_daily = c(cases[1], diff(cases)),\n         deaths_daily = c(deaths[1], diff(deaths))) |&gt; \n  ungroup() |&gt; \n  write_csv(\"data/covid-cases-us.csv\")\n\nNow that are data is in the format we need (sort of), we will start our analysis.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 10: COVID-19 Infections and California"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#california-covid-19-cases",
-    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#california-covid-19-cases",
-    "title": "PA 10: COVID-19 Infections and California",
-    "section": "California COVID-19 Cases",
-    "text": "California COVID-19 Cases\nFirst, we need to read in our clean data.\n\ncases &lt;- read_csv(\"data/covid-cases-us.csv\", show_col_types = FALSE)\n\n\n\nCalifornia Monthly COVID-19 Cases from January 2020 - March 2023\nWe want to create a graph that plots the number of cases per month in California. We want the x-axis of the plot to have the month/year (e.g. Mar ’21), and the number of cases on the y-axis. The months/years should be in order chronologically.\nBelow is some code that can help you get started with the process of working with the data. Use the functions from lubridate to help you extract out the right information. You will also use functions learned from other packages such as dplyr. You will want a variable that gives you month and year as “Jun ’20” and a date type variable that you can use to easily reorder your month and year variable within your graph (otherwise R will default to alpha-numeric ordering).\n\nca_only_month &lt;- cases |&gt; \n # code to filter out just California  |&gt; \n  ______(date ____(date), #make sure date is treated like a year month day format\n         month = ______(date, label = , abbr = ), #extract out month in abbreviated label form, e.g. Jan.\n         year = ______(date), #extract out the year\n         y_m = _______(date, unit = \"month\"), #find a function that makes all the dates appear as the first day of the month, ie the floor of the month\n         yr = _________(year, pattern = \"20*\" ,replacement = \"'\")) |&gt;  #replace the 20 in each year with a ' so it reads as '21\n  ________(col = \"month_year\", month, yr, sep = \" \") |&gt;  #create a variable called month_year that joins the abbreviated month with the shortened year, or Apr '21\n  # calculate the total cases per month, retaining both the month_year variable and the y_m variable in addition to a new total_cases calculation |&gt; \n  ungroup()\n\nYour final data should look like this:\n\n\n# A tibble: 10 × 3\n   month_year y_m        total_cases\n   &lt;chr&gt;      &lt;date&gt;           &lt;dbl&gt;\n 1 Apr '20    2020-04-01       41887\n 2 Apr '21    2021-04-01       73176\n 3 Apr '22    2022-04-01      131982\n 4 Aug '20    2020-08-01      210270\n 5 Aug '21    2021-08-01      411696\n 6 Aug '22    2022-08-01      391372\n 7 Dec '20    2020-12-01     1070622\n 8 Dec '21    2021-12-01      430136\n 9 Dec '22    2022-12-01      323828\n10 Feb '20    2020-02-01          25\n\n\n\n\n\nMinimal Goal Graph\nAt minimum, try to recreate the following graph using your data from above. Here are some useful functions to consider.\n\nfct_reorder() to use the y_m variable which is automatically ordered by date to reordered the character variable month_year.\n\nlabel_comma() from the scales package for changing your y-axis.\n\ntheme() with additional arguments for axis.text.x to adjust your label orientation (angle and vjust).\n\n\n\n\n\n\n\n\n\n\n\n\nMajor Goal Graph\nWant a challenge? Try recreating the graph below.\n\n\n\n\n\n\n\n\n\n\nCanvas Quiz Question 1\nWhich Month in California had the most COVID-19 cases between January 2020 and March 2023?\n\n\n\nCanvas Quiz Question 2\nWhich month in 2021 had the fewest number of cases in California?\n\n\n\n\n\nWhat Did California COVID-19 Cases Look Like in 2021\nCreate a graph that provides information about the number of cases in California in 2021 only. You can use the complete data set information originally provided, but your graph should only represent some aspect of COVID-19 in 2021.\nBe sure to follow all guidelines for creating good graphics.\nYou will submit that graph as png file in your Canvas quiz.\n\n\n\nCreate your own graph\nUsing the COVID-19 data, create your graph to answer you own research question. You will submit that graph as png file in your Canvas quiz. Include your research question as the subtitle of the graph.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 10: COVID-19 Infections and California"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html",
-    "href": "group-activities/pair-programming-norms.html",
-    "title": "Pair Programming Roles",
-    "section": "",
-    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#team-norms",
-    "href": "group-activities/pair-programming-norms.html#team-norms",
-    "title": "Pair Programming Roles",
-    "section": "Team Norms",
-    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
-    "href": "group-activities/pair-programming-norms.html#completing-the-task",
-    "title": "Pair Programming Roles",
-    "section": "Completing the Task",
-    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "title": "Pair Programming Roles",
-    "section": "Once You’re Finished",
-    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "course-materials/course-resources.html",
-    "href": "course-materials/course-resources.html",
-    "title": "R Resources",
-    "section": "",
-    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
-    "crumbs": [
-      "Course information",
-      "R Resources"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "",
-    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#goals-for-the-activity",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#goals-for-the-activity",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "Goals for the Activity",
-    "text": "Goals for the Activity\n\nUse the dplyr verbs to transform your data\n\nCreate new data sets through the joining of data from various sources\nUse forcats to reorder values on a graph for easier comparison\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#setting-up-your-project",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#setting-up-your-project",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "Setting up your Project",
-    "text": "Setting up your Project\nYour project should have the following components:\n\ncompleted pa-9-covid-factors-activity.qmd\nrendered file as .html\ndata sub-folder that contains\n\ncreated data\nus-pop-2019.csv\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThe original Computer should submit the zip file for the canvas quiz. The original Coder can just submit the rendered html file.\nComputer - Be sure to share the final .qmd and .html file with the original Coder.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "Data Description - United States COVID-19 Cases and Deaths",
-    "text": "Data Description - United States COVID-19 Cases and Deaths\nStarting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a Githhub Repository of the data they used and reported on in their stories (a field called “Data Journalism”). They ended their data collection in March 2023 and switched to just using data from national reporting systems.\nWe will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).\n\n# data comes from NY Times GitHub Repository - ends March 2023\n# not evaluating this code chunk because we will clean the data and use the clean data set\ncases &lt;- read_csv(\"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv\")\n\nNote that both cases and deaths are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.\nIf we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the diff() function from base R.\n\n\n\n\n\n\nWarning\n\n\n\nYour team should create a data subfolder in your project to store the created data and to upload the population data to as well.\n\n\n\n# calculates the unique new daily cases and deaths for each state\n# eval is false since we created a new data set we will use going forward\ncases |&gt; \n  group_by(state) |&gt; \n  arrange(state, date) |&gt; \n  mutate(cases_daily = c(cases[1], diff(cases)),\n         deaths_daily = c(deaths[1], diff(deaths))) |&gt; \n  ungroup() |&gt; \n  write_csv(\"data/covid-cases-us.csv\")\n\nNow that are data is in the format we need (sort of), we will start our analysis.",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-1-greatest-number-of-cases",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-1-greatest-number-of-cases",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "Part 1: Greatest Number of Cases",
-    "text": "Part 1: Greatest Number of Cases\nFirst, we need to read in our clean data.\nNote - there may be an error in the code below.\n\ncases &lt;- read_csv(\"covid_cases_us.csv\")\n\n\n\nError in `read_csv()`:\n! could not find function \"read_csv\"\n\n\n\nWhich 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023\nWe want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but it has errors!\nCorrect the errors and then assign the resulting data to state_totals.\n\nstates_totals &lt;- cases |&gt; \n  groupby(state) |&gt; \n  sum(total = sum(case_daily)) |&gt; \n  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables \n\n\n\nError in `ungroup()`:\n! could not find function \"ungroup\"\n\n\nNow use the states_totals and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use forcats functions to help you).\n\nstates_totals |&gt; \n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the totals and y as the state names\n  ## order the states by greatest to smallest total on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nError in `ggplot()`:\n! could not find function \"ggplot\"\n\n\n\n\nCanvas Quiz Question 1\nWhich state had the most COVID-19 cases between January 2020 and March 2023?\n\n\n\nOther Question\nIs this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-2-updating-our-data-source",
-    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-2-updating-our-data-source",
-    "title": "PA 9: COVID-19 Infections and Impact on States",
-    "section": "Part 2: Updating our Data Source",
-    "text": "Part 2: Updating our Data Source\nHopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:\n\nCalculate the Proportion\n\nCalculate the Percentage\n\nCalculate a Rate, such as Rate per 100,000 people\n\nTo do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019.\nNote - if this code does not work you did not organize your project folders correctly.\n\nus_pop &lt;- read_csv(\"data/us-pop-2019.csv\", show_col_types = FALSE)\n\nError in `read_csv()`:\n! could not find function \"read_csv\"\n\n\n\nCalculate a Relative Rate for Comparison\nChoose one of the above statistics to calculate to make our comparison between states/territories. Then recreate your graph from above with the new metric for case numbers.\n\nstates_totals |&gt; \n  ## join in column with state population sizes  \n  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the relative rate and y as the state names\n  ## order the states by greatest to smallest relative rate on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nError in `ggplot()`:\n! could not find function \"ggplot\"\n\n\n\n\nCanvas Quiz Question 2\nWhich state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?\n\n\n\nOther Questions\nWhat are some possible issues with our analysis? Consider the following:\n\nData sources and reliability of the data\n\nTime scale and impact of time\n\n\nWhat other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?",
-    "crumbs": [
-      "Pair Programming Activities",
-      "Pair Activity 9: COVID-19 Infections and Impact on States"
-    ]
-  },
-  {
     "objectID": "group-activities/week-12/pa-11-functions-instructions.html",
     "href": "group-activities/week-12/pa-11-functions-instructions.html",
     "title": "PA 11: Writing Functions",
@@ -1781,6 +1605,259 @@
     "crumbs": [
       "Pair Programming Activities",
       "Pair Activity 11: Writing Functions"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#goals-for-the-activity",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#goals-for-the-activity",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nUse the dplyr verbs to transform your data\n\nCreate new data sets through the joining of data from various sources\nUse forcats to reorder values on a graph for easier comparison\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#setting-up-your-project",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#setting-up-your-project",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "Setting up your Project",
+    "text": "Setting up your Project\nYour project should have the following components:\n\ncompleted pa-9-covid-factors-activity.qmd\nrendered file as .html\ndata sub-folder that contains\n\ncreated data\nus-pop-2019.csv\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThe original Computer should submit the zip file for the canvas quiz. The original Coder can just submit the rendered html file.\nComputer - Be sure to share the final .qmd and .html file with the original Coder.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "Data Description - United States COVID-19 Cases and Deaths",
+    "text": "Data Description - United States COVID-19 Cases and Deaths\nStarting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a Githhub Repository of the data they used and reported on in their stories (a field called “Data Journalism”). They ended their data collection in March 2023 and switched to just using data from national reporting systems.\nWe will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).\n\n# data comes from NY Times GitHub Repository - ends March 2023\n# not evaluating this code chunk because we will clean the data and use the clean data set\ncases &lt;- read_csv(\"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv\")\n\nNote that both cases and deaths are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.\nIf we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the diff() function from base R.\n\n\n\n\n\n\nWarning\n\n\n\nYour team should create a data subfolder in your project to store the created data and to upload the population data to as well.\n\n\n\n# calculates the unique new daily cases and deaths for each state\n# eval is false since we created a new data set we will use going forward\ncases |&gt; \n  group_by(state) |&gt; \n  arrange(state, date) |&gt; \n  mutate(cases_daily = c(cases[1], diff(cases)),\n         deaths_daily = c(deaths[1], diff(deaths))) |&gt; \n  ungroup() |&gt; \n  write_csv(\"data/covid-cases-us.csv\")\n\nNow that are data is in the format we need (sort of), we will start our analysis.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-1-greatest-number-of-cases",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-1-greatest-number-of-cases",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "Part 1: Greatest Number of Cases",
+    "text": "Part 1: Greatest Number of Cases\nFirst, we need to read in our clean data.\nNote - there may be an error in the code below.\n\ncases &lt;- read_csv(\"covid_cases_us.csv\")\n\n\n\nError in `read_csv()`:\n! could not find function \"read_csv\"\n\n\n\nWhich 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023\nWe want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but it has errors!\nCorrect the errors and then assign the resulting data to state_totals.\n\nstates_totals &lt;- cases |&gt; \n  groupby(state) |&gt; \n  sum(total = sum(case_daily)) |&gt; \n  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables \n\n\n\nError in `ungroup()`:\n! could not find function \"ungroup\"\n\n\nNow use the states_totals and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use forcats functions to help you).\n\nstates_totals |&gt; \n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the totals and y as the state names\n  ## order the states by greatest to smallest total on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nError in `ggplot()`:\n! could not find function \"ggplot\"\n\n\n\n\nCanvas Quiz Question 1\nWhich state had the most COVID-19 cases between January 2020 and March 2023?\n\n\n\nOther Question\nIs this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-2-updating-our-data-source",
+    "href": "group-activities/week-10/pa-9-covid-factors-instructions.html#part-2-updating-our-data-source",
+    "title": "PA 9: COVID-19 Infections and Impact on States",
+    "section": "Part 2: Updating our Data Source",
+    "text": "Part 2: Updating our Data Source\nHopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:\n\nCalculate the Proportion\n\nCalculate the Percentage\n\nCalculate a Rate, such as Rate per 100,000 people\n\nTo do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019.\nNote - if this code does not work you did not organize your project folders correctly.\n\nus_pop &lt;- read_csv(\"data/us-pop-2019.csv\", show_col_types = FALSE)\n\nError in `read_csv()`:\n! could not find function \"read_csv\"\n\n\n\nCalculate a Relative Rate for Comparison\nChoose one of the above statistics to calculate to make our comparison between states/territories. Then recreate your graph from above with the new metric for case numbers.\n\nstates_totals |&gt; \n  ## join in column with state population sizes  \n  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the relative rate and y as the state names\n  ## order the states by greatest to smallest relative rate on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nError in `ggplot()`:\n! could not find function \"ggplot\"\n\n\n\n\nCanvas Quiz Question 2\nWhich state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?\n\n\n\nOther Questions\nWhat are some possible issues with our analysis? Consider the following:\n\nData sources and reliability of the data\n\nTime scale and impact of time\n\n\nWhat other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 9: COVID-19 Infections and Impact on States"
+    ]
+  },
+  {
+    "objectID": "course-materials/course-resources.html",
+    "href": "course-materials/course-resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
+    "crumbs": [
+      "Course information",
+      "R Resources"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html",
+    "href": "group-activities/pair-programming-norms.html",
+    "title": "Pair Programming Roles",
+    "section": "",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles:\nThe strategy relies on the code “vocalizing” their ideas and “explaining” them to the computer. The computer can ask questions, but will ultimately “implement” the coder’s instructions. Then they either move forward or “debug” their work.\nHere are more details for how each role should engage with the task and each other through each step of the process:\nIn addition to the above protocol, remember the following:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#team-norms",
+    "href": "group-activities/pair-programming-norms.html#team-norms",
+    "title": "Pair Programming Roles",
+    "section": "Team Norms",
+    "text": "Team Norms\n\nBe curious. Don’t correct.\nBe open minded.\nAsk questions rather than contribute.\nRespect each other.\nAllow each teammate to contribute to the activity through their role.\nDo not divide the work.\nNo cross talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Activity in the notebook provided. In your roles—Coder and Computer—use the prompts above to help guide the completion of your activity.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed notebook, containing your team’s worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document. Your activity will be submitted to the group assignment.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html",
+    "href": "group-activities/week-11/pa-10-covid-time-instructions.html",
+    "title": "PA 10: COVID-19 Infections and California",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 10: COVID-19 Infections and California"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#goals-for-the-activity",
+    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#goals-for-the-activity",
+    "title": "PA 10: COVID-19 Infections and California",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nUse the dplyr verbs to transform your data\n\nUse other tidyverse functions to prepare and plot the data\n\nUse lubridate to deal with dates and stringr with text.\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 10: COVID-19 Infections and California"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#setting-up-your-project",
+    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#setting-up-your-project",
+    "title": "PA 10: COVID-19 Infections and California",
+    "section": "Setting up your Project",
+    "text": "Setting up your Project\nYour project should have the following components:\n\ncompleted pa-10-covid-time-activity.qmd\nrendered file as .html\ndata sub-folder that contains\n\ncreated data\n\n\npng file of created graph for CA 2021 and for your own research question\n\n\n\n\n\n\n\nImportant\n\n\n\nThe original Computer should submit the zip file for the canvas quiz. The original Coder can just submit the rendered html file.\nComputer - Be sure to share the final .qmd, .png, and .html file with the original Coder.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 10: COVID-19 Infections and California"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
+    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#data-description---united-states-covid-19-cases-and-deaths",
+    "title": "PA 10: COVID-19 Infections and California",
+    "section": "Data Description - United States COVID-19 Cases and Deaths",
+    "text": "Data Description - United States COVID-19 Cases and Deaths\nStarting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a Githhub Repository of the data they used and reported on in their stories (a field called “Data Journalism”). They ended their data collection in March 2023 and switched to just using data from national reporting systems.\nWe will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).\n\n# data comes from NY Times GitHub Repository - ends March 2023\n# not evaluating this code chunk because we will clean the data and use the clean data set\ncases &lt;- read_csv(\"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv\")\n\nNote that both cases and deaths are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.\nIf we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the diff() function from base R.\n\n\n\n\n\n\nWarning\n\n\n\nYour team should create a data subfolder in your project to store the created data and to upload the population data to as well.\n\n\n\n# calculates the unique new daily cases and deaths for each state\n# eval is false since we created a new data set we will use going forward\ncases |&gt; \n  group_by(state) |&gt; \n  arrange(state, date) |&gt; \n  mutate(cases_daily = c(cases[1], diff(cases)),\n         deaths_daily = c(deaths[1], diff(deaths))) |&gt; \n  ungroup() |&gt; \n  write_csv(\"data/covid-cases-us.csv\")\n\nNow that are data is in the format we need (sort of), we will start our analysis.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 10: COVID-19 Infections and California"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-11/pa-10-covid-time-instructions.html#california-covid-19-cases",
+    "href": "group-activities/week-11/pa-10-covid-time-instructions.html#california-covid-19-cases",
+    "title": "PA 10: COVID-19 Infections and California",
+    "section": "California COVID-19 Cases",
+    "text": "California COVID-19 Cases\nFirst, we need to read in our clean data.\n\ncases &lt;- read_csv(\"data/covid-cases-us.csv\", show_col_types = FALSE)\n\n\n\nCalifornia Monthly COVID-19 Cases from January 2020 - March 2023\nWe want to create a graph that plots the number of cases per month in California. We want the x-axis of the plot to have the month/year (e.g. Mar ’21), and the number of cases on the y-axis. The months/years should be in order chronologically.\nBelow is some code that can help you get started with the process of working with the data. Use the functions from lubridate to help you extract out the right information. You will also use functions learned from other packages such as dplyr. You will want a variable that gives you month and year as “Jun ’20” and a date type variable that you can use to easily reorder your month and year variable within your graph (otherwise R will default to alpha-numeric ordering).\n\nca_only_month &lt;- cases |&gt; \n # code to filter out just California  |&gt; \n  ______(date ____(date), #make sure date is treated like a year month day format\n         month = ______(date, label = , abbr = ), #extract out month in abbreviated label form, e.g. Jan.\n         year = ______(date), #extract out the year\n         y_m = _______(date, unit = \"month\"), #find a function that makes all the dates appear as the first day of the month, ie the floor of the month\n         yr = _________(year, pattern = \"20*\" ,replacement = \"'\")) |&gt;  #replace the 20 in each year with a ' so it reads as '21\n  ________(col = \"month_year\", month, yr, sep = \" \") |&gt;  #create a variable called month_year that joins the abbreviated month with the shortened year, or Apr '21\n  # calculate the total cases per month, retaining both the month_year variable and the y_m variable in addition to a new total_cases calculation |&gt; \n  ungroup()\n\nYour final data should look like this:\n\n\n# A tibble: 10 × 3\n   month_year y_m        total_cases\n   &lt;chr&gt;      &lt;date&gt;           &lt;dbl&gt;\n 1 Apr '20    2020-04-01       41887\n 2 Apr '21    2021-04-01       73176\n 3 Apr '22    2022-04-01      131982\n 4 Aug '20    2020-08-01      210270\n 5 Aug '21    2021-08-01      411696\n 6 Aug '22    2022-08-01      391372\n 7 Dec '20    2020-12-01     1070622\n 8 Dec '21    2021-12-01      430136\n 9 Dec '22    2022-12-01      323828\n10 Feb '20    2020-02-01          25\n\n\n\n\n\nMinimal Goal Graph\nAt minimum, try to recreate the following graph using your data from above. Here are some useful functions to consider.\n\nfct_reorder() to use the y_m variable which is automatically ordered by date to reordered the character variable month_year.\n\nlabel_comma() from the scales package for changing your y-axis.\n\ntheme() with additional arguments for axis.text.x to adjust your label orientation (angle and vjust).\n\n\n\n\n\n\n\n\n\n\n\n\nMajor Goal Graph\nWant a challenge? Try recreating the graph below.\n\n\n\n\n\n\n\n\n\n\nCanvas Quiz Question 1\nWhich Month in California had the most COVID-19 cases between January 2020 and March 2023?\n\n\n\nCanvas Quiz Question 2\nWhich month in 2021 had the fewest number of cases in California?\n\n\n\n\n\nWhat Did California COVID-19 Cases Look Like in 2021\nCreate a graph that provides information about the number of cases in California in 2021 only. You can use the complete data set information originally provided, but your graph should only represent some aspect of COVID-19 in 2021.\nBe sure to follow all guidelines for creating good graphics.\nYou will submit that graph as png file in your Canvas quiz.\n\n\n\nCreate your own graph\nUsing the COVID-19 data, create your graph to answer you own research question. You will submit that graph as png file in your Canvas quiz. Include your research question as the subtitle of the graph.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 10: COVID-19 Infections and California"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#goals-for-the-activity",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#goals-for-the-activity",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nApply methods of to use lists and iteration (using purrr) to extract data from various non-tabular data sets.\n\nCreate new data sets through the cleaning, organization, and joining of data from various sources\n\nCreate visualizations to explore the data\n\nMay the force be with you!\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#setting-up-your-project",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#setting-up-your-project",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "Setting up your Project",
+    "text": "Setting up your Project\nYour project should have the following components:\n\ncompleted pa-12-star-wars-activity.qmd\nrendered file as .html\n\n\n\n\n\n\n\nImportant\n\n\n\nThe original Computer should submit the zip file for the canvas quiz. The original Coder can just submit the rendered html file.\nComputer - Be sure to share the final .qmd, .png, and .html file with the original Coder.",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#review-extracting-information-from-different-data-sets",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#review-extracting-information-from-different-data-sets",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "Review: Extracting Information from Different Data Sets",
+    "text": "Review: Extracting Information from Different Data Sets\nHere is information about the fist 7 Star Wars films:\n\nView(sw_films) \n\nWe are going to explore the data contained in several lists similar to this one (and the previously explored sw_people), combining skills from all of our previous R code learning experiences.\nHow do the following two codes compare?\n\nsw_films[[4]][[\"title\"]]\nsw_films |&gt; pluck(4,\"title\")\n\n\nSuppose we want to pull out just the titles as a character vector, select the correct code (comment out the rest) to perform this action. You may want to run each line of code one at a time (remember Ctrl + Enter for Windows with your cursor on that line of code).\n\n\n#comment out the incorrect codes\nmap_chr(sw_films, \"title\")\nsw_films |&gt; map(\"title\")\nsw_films |&gt; map_chr(\"title\")\nsw_films |&gt; map_dfc(\"title\")\n\nSuppose we want to apply a function to count the number of specific kinds of ships and vehicles in our data\nNotice that for each film, the “starships” vector contains links to information on those starships (though note this data is out of date and should be linked at swapi.dev, not swapi.co).\n\nsw_films[[1]][[\"starships\"]]\n\nSo if we can count the number of webpage links that would tell us the number of starships that appear in that movie. Here are three different ways to count the number of urls under starships. Can you think of another? (it is ok if you can’t). Compare and contrast how the three codes work differently to do the same thing.\n\nsw_films |&gt; map(\"starships\") |&gt; map_dbl(~length(.x))\nmap_dbl(sw_films, ~length(.x$starships))\nmap_dbl(sw_films, \\(x) length(pluck(x, \"starships\")))\nsw_films |&gt; map_dbl(~length(.x$starships))",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#part-1-evaluating-hyperdrive-in-the-star-wars-episodes",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#part-1-evaluating-hyperdrive-in-the-star-wars-episodes",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "Part 1: Evaluating Hyperdrive in the Star Wars Episodes",
+    "text": "Part 1: Evaluating Hyperdrive in the Star Wars Episodes\nWe will use the third method from the previous section to extract out the information we want from sw_films. For each row, specify if we should use a regular map(), map_dbl(), or map_chr().\nNOTE Sometimes code like this gets a little finicky in R if you try to run it with Ctrl + Enter. Instead, use the code chunk green arrow to run the whole code chunk or highlight all of the code and then use the shortcut to run it.\n\nsw_ships_1 &lt;- tibble(\n    title = map____(sw_films, \"title\"), #character\n    episode = map____(sw_films, \"episode_id\"), #numeric\n    starships = map____(sw_films, ~length(.x$starships)), #numeric\n    vehicles = map____(sw_films, ~length(.x$vehicles)), #numeric\n    planets = map____(sw_films, ~length(.x$planets)) #numeric\n  )\nsw_ships_1\n\n\n\n# A tibble: 7 × 5\n  title                   episode starships vehicles planets\n  &lt;chr&gt;                     &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;   &lt;int&gt;\n1 A New Hope                    4         8        4       3\n2 Attack of the Clones          2         9       11       5\n3 The Phantom Menace            1         5        7       3\n4 Revenge of the Sith           3        12       13      13\n5 Return of the Jedi            6        12        8       5\n6 The Empire Strikes Back       5         9        6       4\n7 The Force Awakens             7         2        0       1\n\n\nLet’s do a bit more data cleaning to 1) assign the Trilogy classification to each episode, 2) calculate the total number of starships (which have hyperdrive) and vehicles (which do not have hyperdrive), and 3) calculate the proportion of total ships that have hyperdrive. Fill in the missing codes.\n\nsw_ships &lt;- sw_ships_1 ____  \n  #create a new variable called trilogy\n  ____(trilogy = case_when(episode %in% 1:3 ~ trilogies[1],\n                             episode %in% 4:6 ~ trilogies[2],\n                             episode %in% 7 ~ trilogies[3])) |&gt; \n  #create a new variable called total_ships which adds vehicles and starships together\n  ____(total_ships = vehicles + starships) |&gt;  \n  #create a new variable called prop that calculate the percent hyperdrive\n  ____(percent = starships / total_ships * 100) \n\n\nHyperdrive Use Across Films\nNow, let’s make a plot examining how often hyperdrive ships appear in each episode. You will modify the code below to replicate the following visualization:\n\nFill in the blanks withe appropriate functions.\n\nsw_ships |&gt; \n  #be sure to order titles by order/episode\n  ggplot(aes(y = ____(title, desc(episode)), \n             x = percent)) + \n  #we want bars but our data is already summarized!\n  geom_____(aes(fill = trilogy)) + \n  labs(\n    title = \"The Rise of Hyperdrive\",\n    subtitle = \"Percentage of Ships with Hyperdrive Capability\"\n  ) +\n  #you may need to install `scales` package if you haven't already\n  scale_x_continuous(labels = scales::label_percent(scale = 1)) +\n  theme_minimal() +\n  #what aesthetic do we modify to change the bar color\n  scale______viridis_d(end = 0.8) +\n  theme(axis.title.x = element_blank(),\n        axis.title.y = element_blank(),\n        legend.position = \"bottom\",\n        legend.title = element_blank())\n\n\nCanvas Quiz Question 1\nWhich movie has the second highest percentage of Hyperdrive ships?\n\n\n\n\n\nHyperdrive Prevalence within the Universe\nWe can also look at a plot to see if there is a correlation between the total number of ships and the number with hyperdrive (starships).\n\nFill in the blanks withe appropriate functions.\n\n  ggplot(aes(x = total_ships, \n             y = starships)) +\n  #make points\n  geom_______(aes(color = trilogy)) +\n  #fit a model\n  geom_______(method = \"lm\") +\n  #what does geom_text() do?\n  geom_text(aes(label = title), \n            vjust = -1, \n            hjust = \"inward\", \n            size = 2.75) +\n  labs(title = \"Hyperdrive Correlations\",\n       subtitle = \"The Number of Ships with Hyperdrive vs Total Ships\") +\n  theme_minimal() +\n  #what aesthetic do we want to modify the color of points?\n  scale________viridis_d(end = 0.8) +\n  theme(axis.title.x = element_blank(),\n        axis.title.y = element_blank(),\n        legend.position = \"bottom\",\n        legend.title = element_blank()) \n\n\nCanvas Quiz Question 2\nWhat do you notice about the use of hyperdrive type vehicles in the episodes?",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#part-2-the-physical-features-of-star-wars-characters",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#part-2-the-physical-features-of-star-wars-characters",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "Part 2: The Physical Features of Star Wars Characters",
+    "text": "Part 2: The Physical Features of Star Wars Characters\nRecall the data for “people” in Star Wars:\n\nView(sw_people)\n\nWe want to extract out name, height, and mass as character vectors (for now, we have to deal with some issues in height and weight later to change them into double type vectors) and keep films as a list for now. Fill in the correct map type functions for each one.\n\nsw_peeps &lt;- tibble(\n    name = ____(sw_people, \"name\"),  #character\n    height = ____(sw_people, \"height\"), #character\n    mass = ____(sw_people, \"mass\"), #character\n    films = map____(sw_people, \"films\") #list\n  )\nsw_peeps\n\n\n\n# A tibble: 87 × 4\n   name               height mass  films    \n   &lt;chr&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;list&gt;   \n 1 Luke Skywalker     172    77    &lt;chr [5]&gt;\n 2 C-3PO              167    75    &lt;chr [6]&gt;\n 3 R2-D2              96     32    &lt;chr [7]&gt;\n 4 Darth Vader        202    136   &lt;chr [4]&gt;\n 5 Leia Organa        150    49    &lt;chr [5]&gt;\n 6 Owen Lars          178    120   &lt;chr [3]&gt;\n 7 Beru Whitesun lars 165    75    &lt;chr [3]&gt;\n 8 R5-D4              97     32    &lt;chr [1]&gt;\n 9 Biggs Darklighter  183    84    &lt;chr [1]&gt;\n10 Obi-Wan Kenobi     182    77    &lt;chr [6]&gt;\n# ℹ 77 more rows\n\n\n\nNotice that the films column contains lists of urls for each film reference. Let’s pull out that same information from the sw_films data to have the title of the episode and the url as a character vector, and the episode number as a numeric value. Fill in the correct map type functions.\n\nfilm_names &lt;- tibble(\n    episode_id = ____(sw_films, \"episode_id\"), #double\n    episode_name = ____(sw_films, \"title\"), #character\n    url = ____(sw_films, \"url\") #character\n  )\nfilm_names\n\n\n\n# A tibble: 7 × 3\n  episode_id episode_name            url                         \n       &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;                       \n1          4 A New Hope              http://swapi.co/api/films/1/\n2          2 Attack of the Clones    http://swapi.co/api/films/5/\n3          1 The Phantom Menace      http://swapi.co/api/films/4/\n4          3 Revenge of the Sith     http://swapi.co/api/films/6/\n5          6 Return of the Jedi      http://swapi.co/api/films/3/\n6          5 The Empire Strikes Back http://swapi.co/api/films/2/\n7          7 The Force Awakens       http://swapi.co/api/films/7/\n\n\n\nNow we can finish cleaning up our data by doing the following:\n\nturn height and mass into numeric vectors;\n\nmatch the films/urls to their episode_names and assign that back to sw_peeps.\n\n\nsw_peeps2 &lt;- sw_peeps |&gt; \n  #use a function from readr to extract the numbers and replace \"unknown\" with na\n  mutate(height = parse_____(height, na = \"unknown\"),\n         mass = parse_____(mass, na = \"unknown\")) |&gt;\n  #unnest the lists in films\n  ____(cols = c(\"films\")) |&gt; \n  #join the film data with episodes names to the people data\n  _____join(film_names, by = c(\"films\" = \"url\")) |&gt; \n  #remove the `films` url from the data frame\n  ____(-films) |&gt; \n  #add the variable trilogy\n  ____(trilogy = case_when(episode_id %in% 1:3 ~ trilogies[1],\n                           episode_id %in% 4:6 ~ trilogies[2],\n                           episode_id %in% 7   ~ trilogies[3]))\nsw_peeps2\n\n\n\n# A tibble: 173 × 6\n   name           height  mass episode_id episode_name            trilogy       \n   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                   &lt;fct&gt;         \n 1 Luke Skywalker    172    77          3 Revenge of the Sith     Prequels: Epi…\n 2 Luke Skywalker    172    77          6 Return of the Jedi      Originals: Ep…\n 3 Luke Skywalker    172    77          5 The Empire Strikes Back Originals: Ep…\n 4 Luke Skywalker    172    77          4 A New Hope              Originals: Ep…\n 5 Luke Skywalker    172    77          7 The Force Awakens       Sequels: Epis…\n 6 C-3PO             167    75          2 Attack of the Clones    Prequels: Epi…\n 7 C-3PO             167    75          1 The Phantom Menace      Prequels: Epi…\n 8 C-3PO             167    75          3 Revenge of the Sith     Prequels: Epi…\n 9 C-3PO             167    75          6 Return of the Jedi      Originals: Ep…\n10 C-3PO             167    75          5 The Empire Strikes Back Originals: Ep…\n# ℹ 163 more rows\n\n\n\n\nSize of Characters in the Star Wars Universe\nWe can now create a plot of height and mass by trilogy group to see if the physique of characters differed across Trilogies (keeping in mind the third set of Trilogies is incomplete in this data set).\n\n\n# be sure to also hide any warnings or messages within this code chunk\n\n\nsw_peeps2 |&gt; \n  filter(name != \"Jabba Desilijic Tiure\") |&gt; #major outlier removed\n  #map the correct aesthetics\n  ggplot(aes(x = ____, \n             y = ____, \n             color = ____)) +\n  geom_point(position = \"jitter\") +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Height of Character (cm)\",\n       y = \"Mass of Character (kg)\",\n       color = \"Trilogy Group\",\n       title = \"Character Characteristics in Star Wars\") +\n  theme_minimal() +\n  scale_color_viridis_d(end = 0.8) \n\n\nCanvas Quiz Question 3\nWrite some code to identify who is is the heaviest (look at the graph to help guide this) Star Wars character (excluding Jabba Desilijic Tiure).",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-13/pa-12-star-wars-instructions.html#optional-challenge-problem",
+    "href": "group-activities/week-13/pa-12-star-wars-instructions.html#optional-challenge-problem",
+    "title": "PA 12: Exploring the Star Wars Universe",
+    "section": "OPTIONAL CHALLENGE PROBLEM",
+    "text": "OPTIONAL CHALLENGE PROBLEM\nYour professor wants to use purrr to try and generate a height and mass scatterplot for each episode, but I don’t want to type out all that code. Here is where I got so far, but I am not convince this is the most sophisticated or effective way to do this. Do some research and see if you can find a way to put this process into production!\n\nplots_sw &lt;- sw_peeps2 |&gt; \n  nest(data = !episode_name) |&gt; \n  mutate(plot = map(data, ~ggplot(.x, aes(y=mass, x=height)) + \n                      geom_point() + \n                      geom_smooth(method = \"lm\", se = FALSE) + \n                      labs(title = paste0(episode_name))))\n\n\nprint(plots_sw$plot)\n\n\nsw_peeps2 |&gt; \n  nest(data = !episode_name) |&gt; \n  mutate(plot = map2(data, episode_name, \\(d, ep) \n    ggplot(d, aes(y = mass, x = height)) + \n    geom_point() + \n    geom_smooth(method = \"lm\", se = FALSE) + \n    labs(title = ep)\n  ))",
+    "crumbs": [
+      "Pair Programming Activities",
+      "Pair Activity 12: Exploring the Star Wars Universe"
     ]
   },
   {

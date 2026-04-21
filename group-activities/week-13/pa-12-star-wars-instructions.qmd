@@ -233,7 +233,7 @@ sw_ships <- sw_ships_1 |>
 
 Now, let's make a plot examining how often hyperdrive ships appear in each episode. You will modify the code below to replicate the following visualization:
 
-![](bar_hyp.png){.fig.alt="Bar plot showing the percentage of ships with hyperdrive capability across the Star Wars episodes, ordered by episode number and colored by trilogy group."}
+![](bar_hyp.png){fig-alt="Bar plot showing the percentage of ships with hyperdrive capability across the Star Wars episodes, ordered by episode number and colored by trilogy group."}
 
 Fill in the blanks withe appropriate functions.
 
@@ -263,6 +263,7 @@ sw_ships |>
 
 ```{r}
 #| label: bar-plot-solution
+#| include: false
 sw_ships |> 
   #be sure to order titles by order/episode
   ggplot(aes(y = fct_reorder(title, desc(episode)), 
@@ -300,11 +301,38 @@ Which movie has the second highest percentage of Hyperdrive ships?
 
 We can also look at a plot to see if there is a correlation between the total number of ships and the number with hyperdrive (starships).
 
-![](scatter_hyp.png){.fig-alt="Scatter plot showing the relationship between the total number of ships and the number of starships with hyperdrive capability across the Star Wars episodes, colored by trilogy group and labeled with episode titles."}
+![](scatter_hyp.png){fig-alt="Scatter plot showing the relationship between the total number of ships and the number of starships with hyperdrive capability across the Star Wars episodes, colored by trilogy group and labeled with episode titles."}
 
 Fill in the blanks withe appropriate functions.
 
 ```{r}
+#| label: ships-graph
+  ggplot(aes(x = total_ships, 
+             y = starships)) +
+  #make points
+  geom_______(aes(color = trilogy)) +
+  #fit a model
+  geom_______(method = "lm") +
+  #what does geom_text() do?
+  geom_text(aes(label = title), 
+            vjust = -1, 
+            hjust = "inward", 
+            size = 2.75) +
+  labs(title = "Hyperdrive Correlations",
+       subtitle = "The Number of Ships with Hyperdrive vs Total Ships") +
+  theme_minimal() +
+  #what aesthetic do we want to modify the color of points?
+  scale________viridis_d(end = 0.8) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position = "bottom",
+        legend.title = element_blank()) 
+```
+
+
+```{r}
+#| label: ships-graph-solution
+#| include: false
 sw_ships |> 
   ggplot(aes(x = total_ships, 
              y = starships)) +
@@ -380,6 +408,7 @@ sw_peeps
 Notice that the `films` column contains lists of urls for each film reference. Let's pull out that same information from the `sw_films` data to have the `title` of the episode and the `url` as a `character` vector, and the episode number as a numeric value. Fill in the correct `map` type functions.
 
 ```{r}
+#| label: film-names
 film_names <- tibble(
     episode_id = ____(sw_films, "episode_id"), #double
     episode_name = ____(sw_films, "title"), #character
@@ -430,6 +459,8 @@ sw_peeps2
 
 ```{r}
 #| label: sw-peeps2-solution
+#| echo: false
+#| eval: true
 sw_peeps2 <- sw_peeps |> 
   #use a function from readr to extract the numbers and replace "unknown" with na
   mutate(height = parse_number(height, na = "unknown"),
@@ -454,7 +485,7 @@ sw_peeps2
 
 We can now create a plot of height and mass by trilogy group to see if the physique of characters differed across Trilogies (keeping in mind the third set of Trilogies is incomplete in this data set).
 
-![](scatter_people.png){.fig-alt="Scatter plot showing the relationship between the height and mass of Star Wars characters, colored by trilogy group and excluding the outlier character Jabba Desilijic Tiure."}  
+![](scatter_people.png){fig-alt="Scatter plot showing the relationship between the height and mass of Star Wars characters, colored by trilogy group and excluding the outlier character Jabba Desilijic Tiure."}  
 
 
 ```{r}
@@ -484,8 +515,7 @@ sw_peeps2 |>
 #| label: scatter-people-solution
 #| warning: false
 #| message: false
-#| eval: true
-#| echo: false
+#| include: false
 sw_peeps2 |> 
   filter(name != "Jabba Desilijic Tiure") |> #major outlier removed
   #map the correct aesthetics
@@ -507,18 +537,19 @@ sw_peeps2 |>
 Write some code to identify who is is the heaviest (look at the graph to help guide this) Star Wars character (excluding Jabba Desilijic Tiure).
 
 ```{r}
+#| label: heaviest-character
+
 
 ```
 
 ```{r}
-#| label: heaviest-character
+#| label: heaviest-character-solution
 #| eval: true
 #| echo: false
 #| include: false
 sw_peeps2 |> 
   filter(name != "Jabba Desilijic Tiure") |> 
   slice_max(mass, n = 1)
-
 ```
 
 
