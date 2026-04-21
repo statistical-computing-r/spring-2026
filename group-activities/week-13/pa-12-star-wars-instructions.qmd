@@ -1,0 +1,561 @@
+---
+title: "PA 12: Exploring the Star Wars Universe"
+author: "Instructions"
+format: html
+code-tools: true
+toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  eval: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| eval: true
+library(tidyverse)
+library(repurrrsive) #this contains the data sw_films, may need to install
+library(magrittr)
+```
+
+```{r}
+#| label: data-prep
+#| include: false
+#| eval: true
+
+#using this later to add a variable to our data
+trilogies <- factor(
+  c("Prequels: Episode I-III", 
+    "Originals: Episode IV-VI", 
+    "Sequels: Episode VII"), 
+  levels = c("Prequels: Episode I-III", 
+             "Originals: Episode IV-VI", 
+             "Sequels: Episode VII"))
+```
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+# Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Computer and Coder.
+
+When you are the **Computer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Computer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Computer to debug the code you specified. Once the code runs, you are expected to collaborate with the Computer to write code comments that describe the actions taken by your code.
+
+Here are more details of the [Pair Programming Protocols](../pair-programming-norms.qmd)
+
+::: {.callout-note}
+The person who who is going the farthest from CSUMB this summer starts as the Computer (typing and listening to instructions from the Coder)!
+:::
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:  
+
+1. Be curious. Don't correct. 
+2. Be open minded.
+3. Ask questions rather than contribute. 
+4. Respect each other.
+5. Allow each teammate to contribute to the activity through their role. 
+6. Do not divide the work.
+7. No cross talk with other groups. 
+8. Communicate with each other!
+
+
+## Goals for the Activity
+
+-   Apply methods of to use lists and iteration (using `purrr`) to extract data from various non-tabular data sets.\
+-   Create new data sets through the cleaning, organization, and joining of data from various sources\
+-   Create visualizations to explore the data\
+-   May the force be with you! 
+
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- *add labels* to all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+
+## Setting up your Project
+
+Your project should have the following components:
+
+1. completed [pa-12-star-wars-activity.qmd](../week-13/pa-12-star-wars-activity.qmd)
+2. rendered file as `.html`
+
+
+::: {.callout-important}
+The original `Computer` should submit the zip file for the canvas quiz. The original `Coder` can just submit the rendered html file. 
+
+`Computer` - Be sure to share the final .qmd, .png, and .html file with the original `Coder`.
+:::
+
+
+
+## Review: Extracting Information from Different Data Sets
+
+Here is information about the fist 7 Star Wars films:
+
+```{r}
+#| label: sw_films
+#| eval: false
+View(sw_films) 
+```
+
+We are going to explore the data contained in several lists similar to this one (and the previously explored `sw_people`), combining skills from all of our previous R code learning experiences.
+
+How do the following two codes compare?
+
+```{r}
+#| label: compare-code
+sw_films[[4]][["title"]]
+sw_films |> pluck(4,"title")
+```
+
+<!-- > Insert Answer Here -->
+
+Suppose we want to pull out just the titles as a character vector, select the correct code (comment out the rest) to perform this action. You may want to run each line of code one at a time (remember `Ctrl + Enter` for Windows with your cursor on that line of code).
+
+<!-- sw_films |> map_chr("title") -->
+
+```{r}
+#| label: pull-titles
+#comment out the incorrect codes
+map_chr(sw_films, "title")
+sw_films |> map("title")
+sw_films |> map_chr("title")
+sw_films |> map_dfc("title")
+```
+
+Suppose we want to apply a function to count the number of specific kinds of ships and vehicles in our data
+
+Notice that for each film, the "starships" vector contains links to information on those starships (though note this data is out of date and should be linked at swapi.dev, not swapi.co).
+
+```{r}
+#| label: starship-links
+sw_films[[1]][["starships"]]
+```
+
+So if we can count the number of webpage links that would tell us the number of starships that appear in that movie. Here are three different ways to count the number of urls under `starships`. Can you think of another? (it is ok if you can't). Compare and contrast how the three codes work differently to do the same thing.
+
+```{r}
+#| label: count-links
+sw_films |> map("starships") |> map_dbl(~length(.x))
+map_dbl(sw_films, ~length(.x$starships))
+map_dbl(sw_films, \(x) length(pluck(x, "starships")))
+sw_films |> map_dbl(~length(.x$starships))
+```
+
+<!-- > Insert Answer -->
+
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+## Part 1: Evaluating Hyperdrive in the Star Wars Episodes
+
+We will use the third method from the previous section to extract out the information we want from `sw_films`. For each row, specify if we should use a regular `map()`, `map_dbl()`, or `map_chr()`.
+
+**NOTE** Sometimes code like this gets a little finicky in R if you try to run it with `Ctrl + Enter`. Instead, use the code chunk green arrow to run the whole code chunk or highlight all of the code and then use the shortcut to run it.
+
+```{r}
+#| label: ship-counts
+sw_ships_1 <- tibble(
+    title = map____(sw_films, "title"), #character
+    episode = map____(sw_films, "episode_id"), #numeric
+    starships = map____(sw_films, ~length(.x$starships)), #numeric
+    vehicles = map____(sw_films, ~length(.x$vehicles)), #numeric
+    planets = map____(sw_films, ~length(.x$planets)) #numeric
+  )
+sw_ships_1
+```
+
+
+```{r}
+#| label: ship-counts-solution
+#| eval: true
+#| echo: false
+
+sw_ships_1 <- tibble(
+  title     = map_chr(sw_films, "title"),
+  episode   = map_int(sw_films, "episode_id"),
+  starships = map_dbl(sw_films, ~length(.x$starships)),
+  vehicles  = map_int(sw_films, ~length(.x$vehicles)),
+  planets   = map_int(sw_films, ~length(.x$planets))
+)
+
+sw_ships_1
+```
+
+
+
+Let's do a bit more data cleaning to 1) assign the Trilogy classification to each episode, 2) calculate the total number of starships (which have hyperdrive) and vehicles (which do not have hyperdrive), and 3) calculate the proportion of total ships that have hyperdrive. Fill in the missing codes.
+
+```{r}
+#| label: create-new-variables
+sw_ships <- sw_ships_1 ____  
+  #create a new variable called trilogy
+  ____(trilogy = case_when(episode %in% 1:3 ~ trilogies[1],
+                             episode %in% 4:6 ~ trilogies[2],
+                             episode %in% 7 ~ trilogies[3])) |> 
+  #create a new variable called total_ships which adds vehicles and starships together
+  ____(total_ships = vehicles + starships) |>  
+  #create a new variable called prop that calculate the percent hyperdrive
+  ____(percent = starships / total_ships * 100) 
+```
+
+
+```{r}
+#| label: create-new-variables-solutions
+#| echo: false
+#| eval: true
+sw_ships <- sw_ships_1 |> 
+  #create a new variable called trilogy
+  mutate(trilogy = case_when(episode %in% 1:3 ~ trilogies[1],
+                             episode %in% 4:6 ~ trilogies[2],
+                             episode %in% 7 ~ trilogies[3])) |> 
+  #create a new variable called total_ships which adds vehicles and starships together
+  mutate(total_ships = vehicles + starships) |>  
+  #create a new variable called prop that calculate the percent hyperdrive
+  mutate(percent = starships / total_ships * 100) 
+```
+
+
+
+### Hyperdrive Use Across Films
+
+Now, let's make a plot examining how often hyperdrive ships appear in each episode. You will modify the code below to replicate the following visualization:
+
+![](bar_hyp.png){.fig.alt="Bar plot showing the percentage of ships with hyperdrive capability across the Star Wars episodes, ordered by episode number and colored by trilogy group."}
+
+Fill in the blanks withe appropriate functions.
+
+```{r}
+#| label: bar-plot
+sw_ships |> 
+  #be sure to order titles by order/episode
+  ggplot(aes(y = ____(title, desc(episode)), 
+             x = percent)) + 
+  #we want bars but our data is already summarized!
+  geom_____(aes(fill = trilogy)) + 
+  labs(
+    title = "The Rise of Hyperdrive",
+    subtitle = "Percentage of Ships with Hyperdrive Capability"
+  ) +
+  #you may need to install `scales` package if you haven't already
+  scale_x_continuous(labels = scales::label_percent(scale = 1)) +
+  theme_minimal() +
+  #what aesthetic do we modify to change the bar color
+  scale______viridis_d(end = 0.8) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position = "bottom",
+        legend.title = element_blank())
+
+```
+
+```{r}
+#| label: bar-plot-solution
+sw_ships |> 
+  #be sure to order titles by order/episode
+  ggplot(aes(y = fct_reorder(title, desc(episode)), 
+             x = percent)) + 
+  #we want bars but our data is already summarized!
+  geom_col(aes(fill = trilogy)) + 
+  labs(
+    title = "The Rise of Hyperdrive",
+    subtitle = "Percentage of Ships with Hyperdrive Capability"
+  ) +
+  #you may need to install `scales` package if you haven't already
+  scale_x_continuous(labels = scales::label_percent(scale = 1)) +
+  theme_minimal() +
+  #what aesthetic do we modify to change the bar color
+  scale_fill_viridis_d(end = 0.8) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position = "bottom",
+        legend.title = element_blank())
+```
+
+
+
+#### Canvas Quiz Question 1
+
+Which movie has the second highest percentage of Hyperdrive ships?
+
+<!-- > Insert Answer Here -->
+
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+### Hyperdrive Prevalence within the Universe
+
+We can also look at a plot to see if there is a correlation between the total number of ships and the number with hyperdrive (starships).
+
+![](scatter_hyp.png){.fig-alt="Scatter plot showing the relationship between the total number of ships and the number of starships with hyperdrive capability across the Star Wars episodes, colored by trilogy group and labeled with episode titles."}
+
+Fill in the blanks withe appropriate functions.
+
+```{r}
+sw_ships |> 
+  ggplot(aes(x = total_ships, 
+             y = starships)) +
+  #make points
+  geom_point(aes(color = trilogy)) +
+  #fit a model
+  geom_smooth(method = "lm") +
+  #what does geom_text() do?
+  geom_text(aes(label = title), 
+            vjust = -1, 
+            hjust = "inward", 
+            size = 2.75) +
+  labs(title = "Hyperdrive Correlations",
+       subtitle = "The Number of Ships with Hyperdrive vs Total Ships") +
+  theme_minimal() +
+  #what aesthetic do we want to modify the color of points?
+  scale_color_viridis_d(end = 0.8) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position = "bottom",
+        legend.title = element_blank()) 
+```
+
+#### Canvas Quiz Question 2
+
+What do you notice about the use of hyperdrive type vehicles in the episodes?
+
+<!-- > Insert Answer -->
+
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+## Part 2: The Physical Features of Star Wars Characters
+
+Recall the data for "people" in Star Wars:
+
+```{r}
+#| eval: false
+View(sw_people)
+```
+
+We want to extract out `name`, `height`, and `mass` as `character` vectors (for now, we have to deal with some issues in height and weight later to change them into double type vectors) and keep `films` as a list for now. Fill in the correct `map` type functions for each one.
+
+```{r}
+#| label: sw-peeps
+sw_peeps <- tibble(
+    name = ____(sw_people, "name"),  #character
+    height = ____(sw_people, "height"), #character
+    mass = ____(sw_people, "mass"), #character
+    films = map____(sw_people, "films") #list
+  )
+sw_peeps
+```
+
+
+```{r}
+#| label: sw-peeps-solution
+#| echo: false
+#| eval: true
+sw_peeps <- tibble(
+    name = map_chr(sw_people, "name"),  #character
+    height = map_chr(sw_people, "height"), #character
+    mass = map_chr(sw_people, "mass"), #character
+    films = map(sw_people, "films") #list
+  )
+sw_peeps
+```
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+Notice that the `films` column contains lists of urls for each film reference. Let's pull out that same information from the `sw_films` data to have the `title` of the episode and the `url` as a `character` vector, and the episode number as a numeric value. Fill in the correct `map` type functions.
+
+```{r}
+film_names <- tibble(
+    episode_id = ____(sw_films, "episode_id"), #double
+    episode_name = ____(sw_films, "title"), #character
+    url = ____(sw_films, "url") #character
+  )
+film_names
+```
+
+```{r}
+#| label: film-names-solution
+#| echo: false
+#| eval: true
+film_names <- tibble(
+    episode_id = map_dbl(sw_films, "episode_id"), #double
+    episode_name = map_chr(sw_films, "title"), #character
+    url = map_chr(sw_films, "url") #character
+  )
+film_names
+```
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+Now we can finish cleaning up our data by doing the following:
+
+1)  turn `height` and `mass` into numeric vectors;\
+2)  match the `films`/`urls` to their `episode_names` and assign that back to `sw_peeps`.
+
+```{r}
+#| label: sw-peeps2
+sw_peeps2 <- sw_peeps |> 
+  #use a function from readr to extract the numbers and replace "unknown" with na
+  mutate(height = parse_____(height, na = "unknown"),
+         mass = parse_____(mass, na = "unknown")) |>
+  #unnest the lists in films
+  ____(cols = c("films")) |> 
+  #join the film data with episodes names to the people data
+  _____join(film_names, by = c("films" = "url")) |> 
+  #remove the `films` url from the data frame
+  ____(-films) |> 
+  #add the variable trilogy
+  ____(trilogy = case_when(episode_id %in% 1:3 ~ trilogies[1],
+                           episode_id %in% 4:6 ~ trilogies[2],
+                           episode_id %in% 7   ~ trilogies[3]))
+sw_peeps2
+```
+
+
+```{r}
+#| label: sw-peeps2-solution
+sw_peeps2 <- sw_peeps |> 
+  #use a function from readr to extract the numbers and replace "unknown" with na
+  mutate(height = parse_number(height, na = "unknown"),
+         mass = parse_number(mass, na = "unknown")) |>
+  #unnest the lists in films
+  unnest(cols = c("films")) |> 
+  #join the film data with episodes names to the people data
+  left_join(film_names, by = c("films" = "url")) |> 
+  #remove the `films` url from the data frame
+  select(-films) |> 
+  #add the variable trilogy
+  mutate(trilogy = case_when(episode_id %in% 1:3 ~ trilogies[1],
+                           episode_id %in% 4:6 ~ trilogies[2],
+                           episode_id %in% 7   ~ trilogies[3]))
+sw_peeps2
+```
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+### Size of Characters in the Star Wars Universe
+
+We can now create a plot of height and mass by trilogy group to see if the physique of characters differed across Trilogies (keeping in mind the third set of Trilogies is incomplete in this data set).
+
+![](scatter_people.png){.fig-alt="Scatter plot showing the relationship between the height and mass of Star Wars characters, colored by trilogy group and excluding the outlier character Jabba Desilijic Tiure."}  
+
+
+```{r}
+#| label: scatter-people
+
+# be sure to also hide any warnings or messages within this code chunk
+
+
+sw_peeps2 |> 
+  filter(name != "Jabba Desilijic Tiure") |> #major outlier removed
+  #map the correct aesthetics
+  ggplot(aes(x = ____, 
+             y = ____, 
+             color = ____)) +
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Height of Character (cm)",
+       y = "Mass of Character (kg)",
+       color = "Trilogy Group",
+       title = "Character Characteristics in Star Wars") +
+  theme_minimal() +
+  scale_color_viridis_d(end = 0.8) 
+```
+
+
+```{r}
+#| label: scatter-people-solution
+#| warning: false
+#| message: false
+#| eval: true
+#| echo: false
+sw_peeps2 |> 
+  filter(name != "Jabba Desilijic Tiure") |> #major outlier removed
+  #map the correct aesthetics
+  ggplot(aes(x = height, 
+             y = mass, 
+             color = trilogy))+
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Height of Character (cm)",
+       y = "Mass of Character (kg)",
+       color = "Trilogy Group",
+       title = "Character Characteristics in Star Wars") +
+  theme_minimal() +
+  scale_color_viridis_d(end = 0.8) 
+```
+
+#### Canvas Quiz Question 3
+
+Write some code to identify who is is the heaviest (look at the graph to help guide this) Star Wars character (excluding Jabba Desilijic Tiure).
+
+```{r}
+
+```
+
+```{r}
+#| label: heaviest-character
+#| eval: true
+#| echo: false
+#| include: false
+sw_peeps2 |> 
+  filter(name != "Jabba Desilijic Tiure") |> 
+  slice_max(mass, n = 1)
+
+```
+
+
+<!-- >Insert Answer Here -->
+
+
+<!-- Swap roles -- Computer becomes Coder, Coder becomes Computer! -->
+
+
+## OPTIONAL CHALLENGE PROBLEM
+
+Your professor wants to use `purrr` to try and generate a height and mass scatterplot for each episode, but I don't want to type out all that code. Here is where I got so far, but I am not convince this is the most sophisticated or effective way to do this. Do some research and see if you can find a way to put this process into production!
+
+```{r}
+plots_sw <- sw_peeps2 |> 
+  nest(data = !episode_name) |> 
+  mutate(plot = map(data, ~ggplot(.x, aes(y=mass, x=height)) + 
+                      geom_point() + 
+                      geom_smooth(method = "lm", se = FALSE) + 
+                      labs(title = paste0(episode_name))))
+```
+
+```{r}
+print(plots_sw$plot)
+```
+
+
+
+```{r}
+sw_peeps2 |> 
+  nest(data = !episode_name) |> 
+  mutate(plot = map2(data, episode_name, \(d, ep) 
+    ggplot(d, aes(y = mass, x = height)) + 
+    geom_point() + 
+    geom_smooth(method = "lm", se = FALSE) + 
+    labs(title = ep)
+  ))
+
+```
+
