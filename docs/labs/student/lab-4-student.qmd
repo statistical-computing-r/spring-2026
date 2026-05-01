@@ -164,7 +164,6 @@ One fun source for data is [Tidy Tuesday](https://github.com/rfordatascience/tid
 
 For Lab 4 you will submit the link to your GitHub repository. Your rendered file is required to have the following specifications in the YAML options (at the top of your document):
 
--   have the plots embedded (`embed-resources: true`)
 -   include your source code (`code-tools: true`)
 -   include all your code and output (`echo: true`)
 
