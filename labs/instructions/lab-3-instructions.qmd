@@ -159,6 +159,26 @@ Let's get started!
 
 ```
 
+
+```{r}
+#| label: scatterplot-solution
+#| echo: false
+#| include: false
+
+ggplot(data = surveys, 
+       mapping = aes(x = weight, 
+                     y = hindfoot_length)
+       ) +
+  geom_point(alpha = 0.2) +
+  facet_wrap(~ species) +
+  labs(x = "Weight (g)", 
+       y = NULL,
+       subtitle = "Hindfoot Length (mm)", 
+       title = "Relationship between Weight and Hindfoot Length")
+
+```
+
+
 We can see there are **a lot** of points plotted on top of each other. Let's try and modify this plot to extract more information from it.
 
 **4. Let's add transparency (`alpha`) to the points, to make the points more transparent and (possibly) easier to see.**
@@ -188,6 +208,26 @@ It takes a larger cognitive load to read text that is rotated. It is common prac
 
 
 ```
+
+
+```{r}
+#| label: boxplot-solution
+#| echo: false
+#| include: false
+ggplot(data = surveys, 
+       mapping = aes(x = weight, 
+                     y = species)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_jitter(color = "springgreen4", 
+              alpha = 0.1,
+              height = 0.1) +
+  theme(axis.text.x = element_text(angle = 45)) +
+  labs(title = "Weight Distribution Across Rodent Species", 
+       y = "Rodent Species", 
+       x = "Weight (g)") 
+```
+
+
 
 **9. Create side-by-side boxplots to visualize the distribution of weight within each species.**
 
