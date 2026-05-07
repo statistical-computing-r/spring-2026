@@ -363,9 +363,7 @@ fish |>
 
 ## Challenge: Use Variables within a Dataset
 
-Suppose you would like for your `rescale()` function to perform operations on a **variable within a dataset**. Ideally, your function would take in a data
-frame and a variable name as inputs and return a data frame where the variable
-has been rescaled.
+Suppose you would like for your `rescale()` function to perform operations on a **variable within a dataset**. Ideally, your function would take in a data frame and a variable name as inputs and return a data frame where the variable has been rescaled.
 
 **9. Create a `rescale_column()` function that accepts two arguments:**
 
@@ -389,10 +387,13 @@ section of R for Data Science!
 #| label: rescale-data-frame-function-solution
 #| echo: false
 
-rescale_column <- function(df, var) {
-  df |> 
-    mutate(var = rescale_01({{var}}))
-  }
+rescale_column <- function(data, variables) {
+  data |>
+    dplyr::mutate(dplyr::across({{ variables }}, 
+                                .fns = rescale_01,
+                                .names = "{.col}_rescaled"))
+}
+
 
 ```
 
@@ -407,4 +408,6 @@ I expect that you carry out this process by calling the `rescale_column()` funct
 ```{r}
 #| label: rescale-two-columns
 
+fish |> 
+  rescale_column(c(length, weight))
 ```

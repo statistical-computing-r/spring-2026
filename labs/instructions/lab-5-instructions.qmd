@@ -157,6 +157,14 @@ Before tackling the problems below, study the description of each variable inclu
 
 ```
 
+```{r}
+#| label: setup-solution
+#| echo: false
+# code chunk for loading packages
+library(tidyverse)
+```
+
+
 **2. Load in the `teacher_evals` data.** 
 
 ```{r}
@@ -164,6 +172,16 @@ Before tackling the problems below, study the description of each variable inclu
 # code chunk for importing the data
 
 ```
+
+
+```{r}
+#| label: load-data-solution
+#| echo: false
+# code chunk for importing the data
+teacher_evals <- read_csv("data/teacher_evals.csv", show_col_types = FALSE)
+```
+
+
 
 ### Data Inspection + Summary
 
@@ -184,6 +202,18 @@ provided (context and data type)? how much data do you have? etc.
 
 ```
 
+
+```{r}
+#| label: explore-data-solution
+#| echo: false
+# you may want to use code to answer this question
+glimpse(teacher_evals)
+```
+
+<!-- > The dataset is from surveys of students who attend a university in Poland. It is made of average teacher evaluation scores from those students for particular questions, as well as general characteristics of each class and teacher being evaluated. There are 22 variables and 8015 rows.-->
+
+
+
 **4. What is the unit of observation (i.e. a single row in the dataset) identified by?**
 
 ::: callout-warning
@@ -194,6 +224,10 @@ It is not one instructor per row! It’s also not just one class per row!
 #| label: row-identification
 # you may want to use code to answer this question
 ```
+
+
+<!-- >Each row is a specific question associated with a specific course/instructor from the evaluation -->
+
 
 **5. Use _one_ `dplyr` pipeline to clean the data by:**
 
@@ -220,6 +254,30 @@ complete this task.
 
 ```
 
+```{r}
+#| label: data-cleaning-solution
+#| echo: false
+# code chunk for Q5
+teacher_evals_clean <- teacher_evals |>  
+  rename(sex = gender) |> 
+  filter(no_participants >= 10) |> 
+  mutate(teacher_id = as.character(teacher_id)) |> 
+  select(course_id, 
+         teacher_id, 
+         question_no, 
+         no_participants, 
+         resp_share, 
+         SET_score_avg, 
+         percent_failed_cur, 
+         academic_degree, 
+         seniority, 
+         sex)
+
+#write_csv(teacher_evals_clean, "data-clean/teacher_evals_clean.csv")
+```
+
+
+
 **6. How many unique instructors and unique courses are present in the cleaned dataset?**
 
 ::: callout-tip
@@ -231,6 +289,16 @@ Helpful functions: `summarize()`, `n_distinct()`
 # code chunk for Q6
 
 ```
+
+```{r}
+#| label: unique-courses-solution
+#| echo: false
+# code chunk for Q6
+teacher_evals_clean |> 
+  summarize(n_teachers = n_distinct(teacher_id),
+            n_courses = n_distinct(course_id))
+```
+
 
 **7. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in?**
 
@@ -247,6 +315,18 @@ Helpful functions: `filter()`, `if_any()`, `everything()`
 
 ```
 
+```{r}
+#| label: uncovering-missing-values-solution
+#| echo: false
+# code chunk for Q7
+teacher_evals_clean |> 
+  filter(if_any(everything(), ~is.na(.)))
+
+teacher_evals_clean |>  
+  filter_all(any_vars(is.na(.)))
+```
+
+
 **8. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in \~3 complete sentences.**
 
 ::: callout-tip
@@ -259,7 +339,27 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 #| label: exploring-demographics-of-instructors
 # code chunk for Q8
 
+
 ```
+
+```{r}
+#| label: exploring-demographics-of-instructors-solutions
+#| echo: false
+# code chunk for Q8
+
+teacher_evals_clean |> 
+  select(teacher_id, sex, academic_degree, seniority) |> 
+  distinct(teacher_id, .keep_all = TRUE) |> 
+  count(sex, academic_degree, seniority) |> 
+  group_by(sex, academic_degree) |> 
+  summarize(avg_seniority = mean(seniority, weight = n),
+            .groups = "drop_last") |> 
+  pivot_wider(names_from = academic_degree, values_from = avg_seniority) |> #did not learn this yet
+  select(sex, no_dgr, ma, prof, dr)
+```
+
+<!-- > females with professional degrees have lower avg years seniority compared to males. Similar levels for ma and dr. no_drg have lower levels of seniority -->
+
 
 **9. Each course seems to have used a different subset of the nine evaluation questions. How many teacher-course combinations asked all nine questions?**
 
@@ -279,6 +379,28 @@ Helpful functions: `group_by()`, `n_distinct()`, `count()`, `summarize()`, `ungr
 
 ```
 
+
+```{r}
+#| label: teacher-course-asked-every-question-solutions
+#| echo: false
+# code chunk for Q9
+teacher_evals_clean |> 
+  count(course_id, teacher_id) |> 
+  filter(n == 9) |> 
+  nrow()
+
+teacher_evals_clean |> 
+  group_by(course_id, teacher_id) |> 
+  summarize(n = n(), .groups = "drop_last") |> 
+  ungroup() |> 
+  filter(n == 9) |> 
+  nrow()
+
+```
+
+
+
+
 ## Rate my Professor
 
 ::: callout-tip
@@ -295,6 +417,25 @@ Useful variables: `question_no`, `teacher_id`, `SET_score_avg`, `percent_failed_
 
 ```
 
+
+```{r}
+#| label: question-1-high-low-solution
+#| echo: false
+# code chunk for Q10
+
+teacher_evals_clean |> 
+  filter(question_no == 901) |> 
+  group_by(teacher_id) |> 
+  summarize(avg_score_901 = mean(SET_score_avg), 
+            .groups = "drop_last") |> 
+  #ungroup() |> 
+  filter(avg_score_901 == min(avg_score_901) | 
+           avg_score_901 == max(avg_score_901)) |> 
+  arrange(avg_score_901)
+  
+```
+
+
 **11. Which instructors with one year of experience had the highest and lowest average percentage of students failing in the current semester across all their courses?**
 
 ```{r}
@@ -302,6 +443,24 @@ Useful variables: `question_no`, `teacher_id`, `SET_score_avg`, `percent_failed_
 # code chunk for Q11
 
 ```
+
+
+```{r}
+#| label: one-year-experience-failing-students-solutions
+#| echo: false
+# code chunk for Q11
+
+teacher_evals_clean |> 
+  filter(seniority == 1) |> 
+  group_by(teacher_id) |> 
+  summarize(avg_fail = mean(percent_failed_cur), .groups = "drop_last") |>
+  ungroup() |> 
+  filter(avg_fail %in% c(min(avg_fail), max(avg_fail))) |> 
+  arrange(avg_fail)
+
+
+```
+
 
 **12. Which female instructors with either a doctorate or professional degree had the highest and lowest average percent of students responding to the evaluation across all their courses?**
 
@@ -312,11 +471,26 @@ Useful variables: `question_no`, `teacher_id`, `SET_score_avg`, `percent_failed_
 ```
 
 
+```{r}
+#| label: female-instructor-student-response-solutions
+#| echo: false
+# code chunk for Q12
+teacher_evals_clean |> 
+  filter(sex == "female",
+         academic_degree %in% c("dr", "prof")) |> 
+  group_by(teacher_id, academic_degree) |> 
+  summarize(avg_percent_response = mean(resp_share), .groups = "drop_last") |>
+  ungroup() |> 
+  filter(avg_percent_response == min(avg_percent_response) | 
+           avg_percent_response == max(avg_percent_response)) |> 
+  arrange(avg_percent_response)
+```
+
+
 # Lab 5 Submission
 
 For Lab 5 you will submit the link to your GitHub repository. Your rendered file is required to have the following specifications in the YAML options (at the top of your document):
 
--   have the plots embedded (`embed-resources: true`)
 -   include your source code (`code-tools: true`)
 -   include all your code and output (`echo: true`)
 
@@ -324,8 +498,10 @@ For Lab 5 you will submit the link to your GitHub repository. Your rendered file
 
 In addition, your document should not have any warnings or messages output in your document. **If your contains warnings or messages, you will receive an "Incomplete" for document formatting and you will be required to submit a revision.**
 
+
+
 # Challenge Instructions
-Remember, challenges are not required, but they are encouraged. This challenge builds on the work you already did with the data on teacher evaluations. Specifically, you are tasked with recreating a plot, carrying out a Chi-Squared test of independence, and providing a critique of the design and collection of these data.
+Remember, challenges are not required, but they are encouraged. This challenge builds on the work you already did with the data on teacher evaluations. Specifically, you are tasked with recreating a plot, carrying out a Chi-Squared test of Independence, and providing a critique of the design and collection of these data.
 
 ## Accessing the Challenge
 
