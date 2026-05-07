@@ -150,7 +150,7 @@ measurement errors.
 + **What variable(s) have missing values present?**
 
 ::: callout-tip
-# You should use `across()`!
+# You can use `across()` or look at variations on `summarize()`.  
 :::
 
 ```{r}
@@ -158,6 +158,18 @@ measurement errors.
 
 ```
 
+
+```{r}
+#| label: find-missing-values-solution
+#| echo: false
+
+fish |>
+  summarize_all(~ sum(is.na(.)))
+
+fish |> 
+  summarise(across(everything(), 
+                   ~sum(is.na(.))))
+```
 
 
 **2. Using `map_int()`, produce a nicely formatted table of the number of missing values for each variable in the `fish` data that displays the same information as 1a** 
@@ -168,6 +180,13 @@ measurement errors.
 
 ```
 
+```{r}
+#| label: map-missing-values-of-fish-solution
+#| echo: false
+
+fish |>
+  map_int(~ sum(is.na(.))) 
+```
 
 
 **3. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips. Do not use `naniar`, use `ggplot2`.**
@@ -177,6 +196,30 @@ measurement errors.
 
 ```
 
+```{r}
+#| label: visual-of-missing-values-over-time-solution
+#| echo: false
+
+fish |>
+  group_by(year, trip, section) |> 
+  summarize_all(~ sum(is.na(.))) |> 
+  ggplot(aes(x = year, 
+             y = weight, 
+             color = factor(trip))) +
+  geom_point() +
+  geom_line(aes(linetype = section)) +
+  labs(x = "Year", 
+       y = "Missing weight values", 
+       color = "Trip",
+       linetype = "Section",
+       title = "Missing values in Blackfoot Fish data") +
+  scale_fill_viridis_d(option = "mako", 
+                       end = 0.8, begin = 0.2) + 
+  theme_light() +
+  guides(fill = "none")
+  
+
+```
 
 
 ## Rescaling the Data
@@ -230,6 +273,20 @@ into the `range()` function. Hint - our preparation for functions covered this!
 
 ```
 
+```{r}
+#| label: write-rescale-function-solution
+#| echo: false
+
+rescale_01 <- function(x) {
+  stopifnot("Not numeric!" = is.numeric(x), 
+            "No data!" = length(x) > 1)
+  (x - min(x, na.rm = TRUE)) / 
+    (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)) 
+}
+
+```
+
+
 **6. Let's incorporate some input validation into your function. Modify your previous code so that the function stops if ...**
 
 + **... the input vector is not numeric.**
@@ -263,6 +320,7 @@ This will require you to call your `rescale_01()` function within a `mutate()` s
 :::
 
 ```{r}
+#| label: fish-graphs
 fish |>  
   ggplot(aes(x = length)) + 
   geom_histogram(binwidth = 45) +
@@ -271,6 +329,27 @@ fish |>
 
 # Code for Q8 plot.
 ```
+
+```{r}
+#| label: fish-graphs-solution
+#| echo: false
+#| layout-ncol: 2
+
+fish |>  
+  ggplot(aes(x = length)) + 
+  geom_histogram(binwidth = 45) +
+  labs(x = "Original Values of Fish Length (mm)") +
+  scale_y_continuous(limits = c(0,4000))
+
+fish |>  
+  ggplot(aes(x = rescale_01(length))) + 
+  geom_histogram(binwidth = 0.045) +
+  labs(x = "Rescaled Values of Fish Length (0, 1)") +
+  scale_y_continuous(limits = c(0,4000))
+
+# Code for Q8 plot.
+```
+
 
 ::: callout-tip
 
@@ -303,6 +382,17 @@ section of R for Data Science!
 
 ```{r}
 #| label: rescale-data-frame-function
+
+```
+
+```{r}
+#| label: rescale-data-frame-function-solution
+#| echo: false
+
+rescale_column <- function(df, var) {
+  df |> 
+    mutate(var = rescale_01({{var}}))
+  }
 
 ```
 

@@ -12,6 +12,8 @@ execute:
   message: false
 ---
 
+<!-- https://github.com/michaelpt071/Lab-5_Student-Evals -->
+
 In this lab, we will be using the `dplyr` package to explore student evaluations of teaching data. **You are expected to use functions from `dplyr` to do your data manipulation!**
 
 # Part 1: Setup
