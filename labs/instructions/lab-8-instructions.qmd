@@ -217,7 +217,6 @@ fish |>
                        end = 0.8, begin = 0.2) + 
   theme_light() +
   guides(fill = "none")
-  
 
 ```
 
@@ -278,11 +277,20 @@ into the `range()` function. Hint - our preparation for functions covered this!
 #| echo: false
 
 rescale_01 <- function(x) {
-  stopifnot("Not numeric!" = is.numeric(x), 
-            "No data!" = length(x) > 1)
-  (x - min(x, na.rm = TRUE)) / 
+  stopifnot("Non-numeric data provided" = is.numeric(x), 
+            "Not enough data provided" = length(x) > 1)
+  (x - min(x, na.rm = TRUE)) /
     (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)) 
 }
+
+
+rescale_01 <- function(x) {
+  if (length(x) <= 1) stop("length of vector not greater than 1")
+  if (!is.numeric(x)) stop("x is not numeric")
+  (x - min(x, na.rm = TRUE)) /
+           (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+  }
+
 
 ```
 
@@ -305,6 +313,10 @@ above!
 
 ```{r}
 x <- c(1:25, NA)
+a <- c("a", "b", 1, 2)
+one <- c(3)
+rescale_01(a)
+rescale_01(one)
 
 rescaled <- rescale_01(x)
 min(rescaled, na.rm = TRUE)

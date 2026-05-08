@@ -354,6 +354,7 @@ teacher_evals_clean |>
   group_by(sex, academic_degree) |> 
   summarize(avg_seniority = mean(seniority, weight = n),
             .groups = "drop_last") |> 
+  ungroup() |>
   pivot_wider(names_from = academic_degree, values_from = avg_seniority) |> #did not learn this yet
   select(sex, no_dgr, ma, prof, dr)
 ```
