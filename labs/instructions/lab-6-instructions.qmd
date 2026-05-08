@@ -310,6 +310,7 @@ median_2008_2018 <- ca_childcare |>
   summarise(median_income = median(mhi_2018, 
                                    na.rm = TRUE),
             .groups = "drop") |>
+  ungroup() |> 
   mutate(study_year = as.character(study_year)) |>
   pivot_wider(names_from = study_year, 
               values_from = median_income) |>
@@ -338,6 +339,7 @@ ca_childcare |>
   filter(study_year == 2018) |>
   group_by(region) |>
   summarise(median_mc_infant = median(mc_infant, na.rm = TRUE)) |>
+  ungroup() |> 
   slice_min(median_mc_infant)
 #different
 median_2008_2018 |> 
