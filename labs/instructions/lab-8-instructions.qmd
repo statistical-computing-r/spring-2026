@@ -213,10 +213,11 @@ fish |>
        color = "Trip",
        linetype = "Section",
        title = "Missing values in Blackfoot Fish data") +
-  scale_fill_viridis_d(option = "mako", 
+  scale_color_viridis_d(option = "mako", 
                        end = 0.8, begin = 0.2) + 
   theme_light() +
   guides(fill = "none")
+
 
 ```
 
