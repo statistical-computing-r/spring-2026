@@ -216,13 +216,8 @@ fish |>
   scale_color_viridis_d(option = "mako", 
                        end = 0.8, begin = 0.2) + 
   theme_light() +
-<<<<<<< HEAD
-  guides(fill = "none") 
-
-  
-=======
   guides(fill = "none")
->>>>>>> 9560eed02d4a2631da3247a02d2dd18eabbf6a37
+
 
 ```
 
