@@ -310,7 +310,6 @@ median_2008_2018 <- ca_childcare |>
   summarise(median_income = median(mhi_2018, 
                                    na.rm = TRUE),
             .groups = "drop") |>
-  mutate(study_year = as.character(study_year)) |>
   pivot_wider(names_from = study_year, 
               values_from = median_income) |>
   arrange(desc(`2018`))
